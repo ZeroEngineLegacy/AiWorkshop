@@ -1,0 +1,27 @@
+[Version:1]
+Cog 
+{
+	var Name = "Explosion"
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	ObjectParticleSystem 
+	{
+		var EmittedObject = "5ab3756818e62a53:ParticleObject"
+		var EmitCount = 7
+		var EmitRate = 555
+		var Size = 0.100000001
+		var SizeVariance = 0.0500000007
+		var Lifetime = 1
+		var LifetimeVariance = 0.5
+		var RandomVelocity = 8
+		var TimeGradient = "591ab9ca354f58d9:FadeOut"
+	}
+	ColorPiece 
+	{
+		var Primary = Real4{0.643137276, 0.643137276, 0.643137276, 1}
+	}
+}

@@ -1,0 +1,45 @@
+[RunInEditor]
+class TileLayoutHelper : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    //var tileCount = this.Owner.ChildCount;
+    //var tiles = this.Owner.ChildrenArray;
+    //var i = 0;
+    
+    //for(var x = 0; x < 13; ++x)
+    //{
+    //  for(var z = 0; z < 16; ++z)
+    //  {
+    //    tiles[i].Transform.Translation = Real3(x, 0, z);
+    //    ++i;
+    //  }
+      
+    //}
+    
+    //var ground = this.Owner.FindChildByName("Ground");
+    //var zPos = -1.5;
+    
+    //foreach(var child in this.Owner.Children)
+    //{
+    //  if(child.Name != "FloorGrid")
+    //    continue;
+        
+    //  for(var x = 0; x < 2; ++x)
+    //  {
+    //    for(var z = 0; z < 3; ++z)
+    //    {
+    //      var x0 = ground.Transform.Translation.X - (x + 1) % 2 * 0.16;
+    //      var z0 = ground.Transform.Translation.Z + zPos * 0.13;
+    //      this.Owner.Transform.Translation = Real3(x0, 0, z0);
+          
+    //      zPos += 1.5;
+    //    }
+        
+    //  }
+      
+    //}
+    
+  }
+  
+}

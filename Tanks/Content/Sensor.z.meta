@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Sensor",
+		uint64 ResourceId = 556660e9352d0e44,
+	},
+},

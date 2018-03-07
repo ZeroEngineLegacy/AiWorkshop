@@ -1,0 +1,17 @@
+[Version:1]
+DataContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Animation"
+		}
+	}
+	RichAnimationBuilder 
+	{
+		var Name = "Teeeeest"
+		var ResourceId = 0x5ab19b9387d4d63c
+		var PreviewArchetype = ""
+	}
+}

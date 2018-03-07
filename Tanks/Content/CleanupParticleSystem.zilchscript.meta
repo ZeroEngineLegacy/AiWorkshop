@@ -1,0 +1,16 @@
+[Version:1]
+TextContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"ZilchScript"
+		}
+	}
+	ZilchScriptBuilder 
+	{
+		var Name = "CleanupParticleSystem"
+		var ResourceId = 0x5ab34c95464596d1
+	}
+}

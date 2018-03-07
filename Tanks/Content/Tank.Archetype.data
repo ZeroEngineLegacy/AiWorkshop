@@ -1,0 +1,341 @@
+[Version:1]
+Cog 
+{
+	var Name = "Tank"
+	Transform 
+	{
+		var Translation = Real3{0, 0.22593832, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = true
+		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	MassOverride 
+	{
+		var Active = true
+		var InverseMass = 10
+		var Mass = 0.100000001
+		var LocalInverseInertiaTensor = Real3x3{10, 0, 0, 0, 10, 0, 0, 0, 10}
+		var LocalCenterOfMass = Real3{0, 0, 0}
+	}
+	CapsuleCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var Radius = 0.146143004
+		var Height = 0.187819004
+		var Direction = AxisDirection.Y
+		var ScalingMode = CapsuleScalingMode.PreserveHeight
+	}
+	DynamicMotor 
+	{
+	}
+	Orientation 
+	{
+		var GlobalUp = Real3{0, 1, 0}
+		var LocalOrientationBasis = Quaternion{0, -0.707106769, 0, 0.707106769}
+		var DefaultBases = OrientationBases.ForwardXUpY
+	}
+	ColorPiece 
+	{
+		var Primary = Real4{0.218699992, 0.508436859, 0.810000002, 1}
+	}
+	Tank 
+	{
+		var Acceleration = 0.100000001
+		var MaxSpeed = 2
+		var TurnSpeed = 0.300000012
+		var Range = 10
+		var ViewAngle = 110
+		var FireCamShakeIntensity = 0
+		var Team = Team.None
+		var DebugDrawSensors = false
+		var DebugDrawRange = false
+	}
+	PlayerController 
+	{
+	}
+	Health 
+	{
+		var MaxHealth = 75
+		var DestroyAtZeroHealth = true
+		var SendsHealthModified = true
+		var DamageScalar = 1
+	}
+	CreateOnDeath 
+	{
+		var ArchetypeToCreate = "5ab1d6035130b687:BlueExplosion"
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5abb616cf6614986]
+		{
+			var Name = "Graphical"
+			Transform 
+			{
+				var Translation = Real3{-0.0423015989, 0, 0}
+				var Scale = Real3{2, 2, 2}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x5abb615dca137a0b]
+				{
+					var Name = "Body"
+					Transform 
+					{
+						var Translation = Real3{0, -0.00999999978, 0}
+						var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Model 
+					{
+						var Visible = true
+						var ViewCulling = true
+						var VisibilityEvents = false
+						var OverrideBoundingBox = false
+						var LocalAabbCenter = Real3{0, 0, 0}
+						var LocalAabbHalfExtents = Real3{1, 1, 1}
+						var GroupSortValue = 0
+						var Material = "5ab4c3156f2acf66:Tank"
+						var Mesh = "5aa3544729cc9e06:Tank_polySurface4"
+					}
+					Colored 
+					{
+					}
+					AlbedoValueParam 
+					{
+						var AlbedoValue = Real4{0.21960783, 0.509803951, 0.811764717, 1}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5abb615eca201372]
+						{
+							var Name = "TurretBase"
+							Transform 
+							{
+								var Translation = Real3{-4.73660994, -0.143281728, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5567a53dc7d65950:AlbedoValue"
+								var Mesh = "5aa3544729cc9dfa:Tank_pCylinder39"
+							}
+							AlbedoGlow 
+							{
+								var AlbedoValue = Real4{0.141176477, 1, 0.0941176414, 1}
+								var Intensity = 2.5
+							}
+							Hierarchy 
+							{
+								Cog [Id:0x5ab19c69a5c91e79][InheritId:"5ab18b2118e20717:TurretAnchor"]
+								{
+									Transform 
+									{
+										var Translation = Real3{0, 19.1816998, 0}
+										var Rotation = Quaternion{0, 0, 0, 1}
+										var Scale = Real3{1, 1, 1}
+									}
+								}
+								Cog [Id:0x5ab18893a304210d][InheritId:"5ab18b2118e20717:TurretAnchor"]
+								{
+									Transform 
+									{
+										var Translation = Real3{0, 13.8845901, -11.2082453}
+										var Rotation = Quaternion{-0.425779283, 0, 0, 0.904827058}
+										var Scale = Real3{0.773883998, 0.773883998, 0.773883998}
+									}
+								}
+								Cog [Id:0x5ab18958bdae378c][InheritId:"5ab18b2118e20717:TurretAnchor"]
+								{
+									Transform 
+									{
+										var Translation = Real3{0, 13.8845997, 11.2082005}
+										var Rotation = Quaternion{0.425779283, 0, 0, 0.904827058}
+										var Scale = Real3{0.773883998, 0.773883998, 0.773883998}
+									}
+								}
+							}
+						}
+					}
+				}
+				Cog [Id:0x5ab5a8f4bec425cc][InheritId:"5567ab380d0f2ad5:Treads"]
+				{
+					var Name = "TreadsLeft"
+					Transform 
+					{
+						var Translation = Real3{0, 0, -0.209999993}
+						var Rotation = Quaternion{0.087155737, 0, 0, 0.99619472}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x5ab4fb70bbaf3fc9][InheritId:"5567ab380d0f2ad5:Treads"]
+				{
+					var Name = "TreadsRight"
+					Transform 
+					{
+						var Translation = Real3{0, 0, 0.209999993}
+						var Rotation = Quaternion{-0.087155737, 0, 0, 0.99619472}
+						var Scale = Real3{1, 1, 1}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab4c93ed69e733f]
+						{
+							Transform 
+							{
+								var Translation = Real3{-0.0179999992, -0.00300000003, 0.287499994}
+							}
+						}
+					}
+				}
+			}
+		}
+		Cog [Id:0x5abb616cf6615303]
+		{
+			var Name = "Physics"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x5abb613acde32dc2]
+				{
+					var Name = "Cylinder"
+					Transform 
+					{
+						var Translation = Real3{-0.161676005, 0.0602772012, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+				}
+				Cog [Id:0x5abb613acde32dc4]
+				{
+					var Name = "Cube"
+					Transform 
+					{
+						var Translation = Real3{0.0948325023, -0.0814218, 0}
+						var Scale = Real3{1, 0.262926012, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+				}
+				Cog [Id:0x5abb613acde32dc6]
+				{
+					var Name = "Cylinder"
+					Transform 
+					{
+						var Translation = Real3{-0.423438996, -0.038431, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+				}
+				Cog [Id:0x5abb613acde32dc8]
+				{
+					var Name = "Cylinder"
+					Transform 
+					{
+						var Translation = Real3{0.562057018, -0.0737570003, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+				}
+				Cog [Id:0x5abb613acde32dca]
+				{
+					var Name = "Cube"
+					EditorFlags 
+					{
+						var Locked = true
+						var Hidden = false
+					}
+					Transform 
+					{
+						var Translation = Real3{0, 0.25, 0}
+						var Scale = Real3{0.734228015, 0.376069009, 0.734228015}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+				}
+			}
+		}
+		Cog [Id:0x5abb616cf6615594]
+		{
+			var Name = "Sensors"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x5abb613acde32dcc]
+				{
+					var Name = "CenterSensor"
+					Transform 
+					{
+						var Translation = Real3{0.409191012, 0.149717003, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Sensor 
+					{
+						var DebugDrawFlag = false
+						var MaxLength = 5
+					}
+				}
+				Cog [Id:0x5abb613acde32dcf]
+				{
+					var Name = "RightSensor"
+					Transform 
+					{
+						var Translation = Real3{0.409191012, 0.149717003, 0.273023009}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, -0.258819014, 0, 0.965925992}
+					}
+					Sensor 
+					{
+						var DebugDrawFlag = false
+						var MaxLength = 5
+					}
+				}
+				Cog [Id:0x5abb613acde32dd1]
+				{
+					var Name = "LeftSensor"
+					Transform 
+					{
+						var Translation = Real3{0.409191012, 0.149717003, -0.273023009}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0.258819014, 0, 0.965925992}
+					}
+					Sensor 
+					{
+						var DebugDrawFlag = false
+						var MaxLength = 5
+					}
+				}
+			}
+		}
+	}
+}

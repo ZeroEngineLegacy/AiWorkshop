@@ -1,0 +1,88 @@
+class Treads : ZilchComponent
+{
+    [Property]
+    var TreadCount : Integer = 20;
+    
+    [Property]
+    var TreadSpacing : Real = 1.5;
+    
+    var CurrentSpeed : Real = 0.0;
+    
+    var Treads : Array[Cog] = new Array[Cog]();
+    
+    var TreadPos : Real = 0.0;
+    var WheelPos : Real = 0.0;
+    
+    var WheelBack : Cog = null;
+    var WheelFront : Cog = null;
+    var WheelTop : Cog = null;
+    
+    var TreadLinks : Cog = null;
+    var TreadSpline : Spline = null;
+    var BakedSpline : Spline = Spline.Create();
+    
+    function Initialize(init : CogInitializer)
+    {
+      this.WheelBack = this.Owner.FindChildByName("PivotBack");
+      this.WheelFront = this.Owner.FindChildByName("PivotFront");
+      this.WheelTop = this.Owner.FindChildByName("PivotTop");
+      
+      this.TreadLinks = this.Owner.FindChildByName("Pieces");
+      this.TreadSpline = this.Space.FindObjectByName("TreadsPath").HierarchySpline.Spline;
+      
+      this.BakedSpline.ControlPoints.Add(SplineControlPoint(Real3(-0.0744894966, 0.143770993, 0)));
+      this.BakedSpline.ControlPoints.Add(SplineControlPoint(Real3(0.122592002, 0.0694629997, 0)));
+      this.BakedSpline.ControlPoints.Add(SplineControlPoint(Real3(0.376744002, -0.00381980999, 0)));
+      this.BakedSpline.ControlPoints.Add(SplineControlPoint(Real3(0.307013988, -0.125227004, 0)));
+      this.BakedSpline.ControlPoints.Add(SplineControlPoint(Real3(0.051863499, -0.0925645009, 0)));
+      this.BakedSpline.ControlPoints.Add(SplineControlPoint(Real3(-0.339098006, -0.122500002, 0)));
+      this.BakedSpline.ControlPoints.Add(SplineControlPoint(Real3(-0.228397995, 0.0923129991, 0)));
+      
+      
+      this.FindTreads();
+      
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function FindTreads()
+    {
+      foreach(var pivot in this.TreadLinks.Children)
+      {
+        this.Treads.Add(pivot);
+      }
+      
+        // Set their initial positions
+      this.UpdateTreads();
+    }
+    
+    function UpdateTreads()
+    {
+      for(var i = 0; i < this.TreadCount; ++i)
+      {
+        var tread = this.Treads.Get(i);
+        
+        var sample = this.TreadSpline.SampleDistance(i as Real * this.TreadSpacing + this.TreadPos);
+        tread.Transform.Translation = sample.Point / tread.Transform.WorldScale;
+        
+        var tangent = sample.WorldTangent;
+        var angle = Math.ATan2(tangent.Y, tangent.X);
+        tread.Transform.SetEulerAnglesXYZ(0, 0, angle);
+      }
+      
+    }
+    
+    function UpdateWheels()
+    {
+      this.WheelBack.Transform.SetEulerAnglesXYZ(0, 0, -this.TreadPos * 6);
+      this.WheelFront.Transform.SetEulerAnglesXYZ(0, 0, -this.TreadPos * 7);
+      this.WheelTop.Transform.SetEulerAnglesXYZ(0, 0, -this.TreadPos * 6.5);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //this.WheelPos -= event.Dt * this.CurrentSpeed * 2.2;
+        this.TreadPos += this.CurrentSpeed * event.Dt;
+        this.UpdateTreads();
+        this.UpdateWheels();
+    }
+}

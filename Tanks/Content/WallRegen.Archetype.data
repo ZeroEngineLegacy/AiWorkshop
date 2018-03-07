@@ -1,0 +1,50 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WallRegen",
+	},
+	Archetyped = 
+	{
+		string Name = "5573cd1a0b92e93d:WallRegen",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [2.75, 0.5, 3.5],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5573fa4dfd63fa0e:DestructibleWall",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [4, 3.0032, 0.44, 0],
+	},
+	AnimationGraph = 
+	{
+		bool Active = true,
+		AnimPlayMode PlayMode = PlayOnce,
+		float TimeScale = 1,
+		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+		uint64 DebugPreviewId = 68736b726f576941,
+	},
+	SimpleAnimation = 
+	{
+		string AnimationName = "5573cd14088f90b1:WallRegen",
+		AnimPlayMode PlayMode = PlayOnce,
+	},
+	TimedDeath = 
+	{
+		float Lifetime = 2,
+		bool SendsDeathEvent = true,
+		bool AutoDestroy = true,
+	},
+},

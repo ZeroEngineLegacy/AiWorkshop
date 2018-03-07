@@ -1,0 +1,10 @@
+[Version:1]
+DataContent 
+{
+	RichAnimationBuilder 
+	{
+		var Name = "TurretFire"
+		var ResourceId = 0x556677979c40a585
+		var PreviewArchetype = ""
+	}
+}

@@ -1,0 +1,9 @@
+DataContent = 
+{
+	RichAnimationBuilder = 
+	{
+		string Name = "WallRegen",
+		uint64 ResourceId = 5573cd14088f90b1,
+		string PreviewArchetype = "",
+	},
+},
