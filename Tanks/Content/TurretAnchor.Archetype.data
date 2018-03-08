@@ -105,7 +105,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5567a53dc7d65950:AlbedoValue"
+								var Material = "5ab4c3156f2acf66:Tank"
 								var Mesh = "5aa3544729cc9e60:Tank_TankTurretGeneratedMeshNode1"
 							}
 							AlbedoValueParam 

@@ -53,7 +53,7 @@ class ObjectParticleSystem : ZilchComponent
     {
       var object = this.Space.Create(this.EmittedObject);
       object.AttachTo(this.Owner);
-      object.MaterialInputs.AlbedoValue = this.Owner.ColorPiece.Primary;
+      object.StippleInputs.AlbedoValue = this.Owner.ColorPiece.Primary;
       
       var particle = object.ParticleObject;
       particle.Time = 0;
@@ -86,7 +86,7 @@ class ObjectParticleSystem : ZilchComponent
         particle.Time = particle.Lifetime;
       }
       
-      object.MaterialInputs.StippleDensity = this.TimeGradient.Sample(particle.Time / particle.Lifetime).W;
+      object.StippleInputs.StippleDensity = this.TimeGradient.Sample(particle.Time / particle.Lifetime).W;
     }
     
     if(deadParticleCount >= this.EmitCount)

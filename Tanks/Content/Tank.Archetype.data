@@ -165,6 +165,16 @@ Cog
 										var Rotation = Quaternion{-0.425779283, 0, 0, 0.904827058}
 										var Scale = Real3{0.773883998, 0.773883998, 0.773883998}
 									}
+									Hierarchy 
+									{
+										Cog [Id:0x5ab19feb5f4c1fea]
+										{
+											Turret 
+											{
+												var FireSpeed = 0.61500001
+											}
+										}
+									}
 								}
 								Cog [Id:0x5ab18958bdae378c][InheritId:"5ab18b2118e20717:TurretAnchor"]
 								{
@@ -173,6 +183,16 @@ Cog
 										var Translation = Real3{0, 13.8845997, 11.2082005}
 										var Rotation = Quaternion{0.425779283, 0, 0, 0.904827058}
 										var Scale = Real3{0.773883998, 0.773883998, 0.773883998}
+									}
+									Hierarchy 
+									{
+										Cog [Id:0x5ab19feb5f4c1fea]
+										{
+											Turret 
+											{
+												var FireSpeed = 0.600000024
+											}
+										}
 									}
 								}
 							}

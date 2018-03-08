@@ -86,9 +86,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{10.9708548, 13.5608234, 0.53139019}
+			var Translation = Real3{-13.2192516, 10.8695698, -2.03093767}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.309378862, 0.627650499, 0.299373746, 0.648625493}
+			var Rotation = Quaternion{-0.212731138, -0.720187426, -0.250795603, 0.610882223}
 		}
 		Camera 
 		{
@@ -103,8 +103,8 @@ Level
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
 			var LookDistance = 17.2518311
-			var VerticalAngle = 0.890117466
-			var HorizontalAngle = 149.258514
+			var VerticalAngle = 0.670206189
+			var HorizontalAngle = 146.247925
 			var LookTarget = Real3{0.119781531, 0.15363726, 0.174659058}
 			var MoveSensitivity = 1
 		}

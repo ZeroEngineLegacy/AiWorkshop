@@ -44,11 +44,11 @@ Cog
 		var Time = 0
 		var Lifetime = 0
 	}
-	MaterialInputs 
+	StippleInputs 
 	{
 		var Color = Real4{0.5, 0.5, 0.5, 1}
 		var AlbedoValue = Real4{0.5, 0.5, 0.5, 1}
-		var MetallicValue = 0.300000012
+		var MetallicValue = 0.5
 		var RoughnessValue = 0.5
 		var SpecularValue = 0.5
 		var StippleDensity = 0.5
