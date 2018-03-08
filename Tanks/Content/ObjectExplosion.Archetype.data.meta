@@ -3,7 +3,7 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "Explosion"
+		var Name = "ObjectExplosion"
 		var ResourceId = 0x55667fd005d890ee
 		var LoaderType = "Cog"
 		var Version = 0

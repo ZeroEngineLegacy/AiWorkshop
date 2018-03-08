@@ -1,3 +1,10 @@
+class DeathEvent : ZilchEvent
+{
+  var ObjectCausedDeath : Cog = null;
+  
+  constructor() : base() {}
+}
+
 class DamageOnCollide : ZilchComponent
 {
     // How much damage to apply to what we hit when we collide with it.
@@ -16,7 +23,7 @@ class DamageOnCollide : ZilchComponent
     var OriginRoot : Cog = null;
     
     // When we die, we sound out a death event.
-    sends Death : ZilchEvent;
+    sends Death : DeathEvent;
     // When colliding we tell an object that we're applying damage to it.
     sends ApplyDamage : DamageEvent;
     
@@ -29,7 +36,8 @@ class DamageOnCollide : ZilchComponent
     {
         // Get the other object we hit.
         var otherObject = collisionEvent.OtherObject;
-        var otherDamageOnCollide = otherObject.DamageOnCollide;
+        if(otherObject.Collider.Ghost)
+          return;
         
         // Currently, bullets will collide with other bullets.
         // A check here can be added to ignore collisions between other bullet objects.
@@ -68,7 +76,9 @@ class DamageOnCollide : ZilchComponent
         if(this.SendsDeathEvent)
         {
             // Let anyone listening know we just died.
-            var toSend = ZilchEvent();
+            var toSend = DeathEvent();
+            toSend.ObjectCausedDeath = otherObject;
+            
             this.Owner.DispatchEvent(Events.Death, toSend);
         }
         

@@ -14,6 +14,10 @@ Cog
 		var SendsDeathEvent = true
 		var AutoDestroy = true
 	}
+	ColorPiece 
+	{
+		var Primary = Real4{0.00392156839, 0.372548848, 1, 1}
+	}
 	Hierarchy 
 	{
 		Cog [Id:0x5ab1d92eb80dd11d]
@@ -167,66 +171,18 @@ Cog
 				var Scale = Real3{1, 1, 1}
 				var Rotation = Quaternion{0, 0, 0, 1}
 			}
-			SpriteParticleSystem 
+			ObjectParticleSystem 
 			{
-				var Visible = true
-				var ViewCulling = true
-				var VisibilityEvents = true
-				var OverrideBoundingBox = false
-				var LocalAabbCenter = Real3{0, 0, 0}
-				var LocalAabbHalfExtents = Real3{1, 1, 1}
-				var GroupSortValue = 0
-				var Material = "582c50d330d372c3:AdditiveSprite"
-				var BoundingBoxSize = 2
-				var ChildSystem = false
-				var SystemSpace = SystemSpace.WorldSpace
-				var WarmUpTime = 0
-				var PreviewInEditor = false
-				var VertexColor = Real4{0.239215672, 0.239215672, 0.239215687, 1}
-				var GeometryMode = SpriteParticleGeometryMode.Billboarded
-				var SpriteSource = "5ab1ddbdabce322d:SmallRock1S"
-				var ParticleAnimation = SpriteParticleAnimationMode.Single
-				var ParticleSort = SpriteParticleSortMode.FrontToBackView
-				var BeamBaseScale = 1
-				var BeamVelocityScale = 1
-			}
-			SphericalParticleEmitter 
-			{
-				var Active = true
+				var EmittedObject = "5ab3756818e62a53:ParticleObject"
+				var ColorGlowFactor = 6
 				var EmitCount = 55
-				var EmitDelay = 0
 				var EmitRate = 555
-				var EmitVariance = 0
-				var EmitRateSoftStartTime = 0
-				var Size = 0.100000001
+				var Size = 0.150000006
 				var SizeVariance = 0.0500000007
 				var Lifetime = 2
 				var LifetimeVariance = 0.5
-				var Spin = 0
-				var SpinVariance = 50
-				var RandomSpin = true
-				var Fill = 1
-				var EmitterVelocityPercent = 0
-				var StartVelocity = Real3{0, 6, 0}
 				var RandomVelocity = Real3{25, 4, 25}
-				var TangentVelocity = Real3{0, 0, 0}
-				var EmitterSize = Real3{0, 0, 0}
-				var FastMovingEmitter = false
-			}
-			LinearParticleAnimator 
-			{
-				var Force = Real3{0, 0, 0}
-				var RandomForce = Real3{0, 0, 0}
-				var Torque = 0
-				var Growth = 0
-				var Dampening = 0
-				var Twist = Real3{0, 0, 0}
-			}
-			ParticleColorAnimator 
-			{
 				var TimeGradient = "591ab9ca354f58d9:FadeOut"
-				var VelocityGradient = "null"
-				var MaxParticleSpeed = 5
 			}
 		}
 		Cog [Id:0x5ab1d92eb80dd8b5]

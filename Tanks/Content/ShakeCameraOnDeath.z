@@ -8,7 +8,7 @@ class ShakeCameraOnDeath : ZilchComponent
         Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
 
-    function OnDeath(e : Event)
+    function OnDeath(e : DeathEvent)
     {
         var cam = this.Space.FindObjectByName("Camera");
         

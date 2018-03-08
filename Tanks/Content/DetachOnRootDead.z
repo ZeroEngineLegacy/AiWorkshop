@@ -5,7 +5,7 @@ class DetachOnRootDead : ZilchComponent
         Zero.Connect(this.Owner.FindRoot(), Events.Death, this.OnDeath);
     }
 
-    function OnDeath(event : ZilchEvent)
+    function OnDeath(event : DeathEvent)
     {
         this.Owner.Detach();
         

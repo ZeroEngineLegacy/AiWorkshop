@@ -1,7 +1,7 @@
 [Version:1]
 Cog 
 {
-	var Name = "Explosion"
+	var Name = "ObjectExplosion"
 	Transform 
 	{
 		var Translation = Real3{0, 0, 0}
@@ -11,13 +11,14 @@ Cog
 	ObjectParticleSystem 
 	{
 		var EmittedObject = "5ab3756818e62a53:ParticleObject"
+		var ColorGlowFactor = 1
 		var EmitCount = 7
 		var EmitRate = 555
 		var Size = 0.100000001
 		var SizeVariance = 0.0500000007
 		var Lifetime = 1
 		var LifetimeVariance = 0.5
-		var RandomVelocity = 8
+		var RandomVelocity = Real3{7, 7, 7}
 		var TimeGradient = "591ab9ca354f58d9:FadeOut"
 	}
 	ColorPiece 

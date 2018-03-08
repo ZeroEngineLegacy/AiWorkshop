@@ -17,7 +17,7 @@ Cog
 		var LocalAabbCenter = Real3{0, 0, 0}
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
-		var Material = "583afb5e7bf75e18:ZeroMaterial"
+		var Material = "5567a53dc7d65950:AlbedoValue"
 		var Mesh = "4de0354322b376ae:Sphere"
 	}
 	RigidBody 
@@ -28,7 +28,7 @@ Cog
 		var AllowSleep = true
 		var Asleep = false
 		var RotationLocked = false
-		var Mode2D = Mode2DStates.Mode2D
+		var Mode2D = Mode2DStates.InheritFromSpace
 	}
 	EllipsoidCollider 
 	{
@@ -42,22 +42,22 @@ Cog
 	IgnoreSpaceEffects 
 	{
 		var IgnoreDrag = true
-		var IgnoreFlow = true
-		var IgnoreForce = true
+		var IgnoreFlow = false
+		var IgnoreForce = false
 		var IgnoreGravity = true
-		var IgnorePointForce = true
-		var IgnorePointGravity = true
-		var IgnoreThrust = true
-		var IgnoreVortex = true
-		var IgnoreWind = true
-		var IgnoreTorque = true
-		var IgnoreBuoyancy = true
-		var IgnoreCustom = true
+		var IgnorePointForce = false
+		var IgnorePointGravity = false
+		var IgnoreThrust = false
+		var IgnoreVortex = false
+		var IgnoreWind = false
+		var IgnoreTorque = false
+		var IgnoreBuoyancy = false
+		var IgnoreCustom = false
 	}
 	Orientation 
 	{
 		var GlobalUp = Real3{0, 1, 0}
-		var LocalOrientationBasis = Quaternion{0, 0, 0, 1}
+		var LocalOrientationBasis = Quaternion{0, -0.707106769, 0, 0.707106769}
 		var DefaultBases = OrientationBases.ForwardXUpY
 	}
 	OrientTowardsVelocity2D 
@@ -72,10 +72,15 @@ Cog
 	}
 	CreateOnDeath 
 	{
-		var ArchetypeToCreate = "55765a2f00bf686c:WallExplosion"
+		var ArchetypeToCreate = "55667fd005d890ee:WallExplosion"
 	}
 	ColorPiece 
 	{
 		var Primary = Real4{1, 1, 1, 1}
+	}
+	AlbedoGlow 
+	{
+		var AlbedoValue = Real4{1, 0.188235253, 0.156862736, 1}
+		var Intensity = 6
 	}
 }

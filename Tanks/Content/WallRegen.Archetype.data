@@ -46,6 +46,6 @@ Cog
 		var RoughnessValue = 0.5
 		var SpecularValue = 0.5
 		var StippleDensity = 0
-		var StippleScale = 12
+		var StippleScale = 3
 	}
 }

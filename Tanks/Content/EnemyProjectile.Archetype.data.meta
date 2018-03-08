@@ -4,7 +4,7 @@ DataContent
 	DataBuilder 
 	{
 		var Name = "EnemyProjectile"
-		var ResourceId = 0x55765bc71c546af4
+		var ResourceId = 0x5a8dda11ad6c13e1
 		var LoaderType = "Cog"
 		var Version = 0
 		var ShowInEditor = true

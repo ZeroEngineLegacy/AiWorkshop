@@ -15,13 +15,14 @@ class ObjectParticleSystem : ZilchComponent
   
   [Property] var EmittedObject : Archetype;
   
+  [Property] var ColorGlowFactor : Real = 1.0;
   [Property] var EmitCount : Real;
   [Property] var EmitRate : Real;
   [Property] var Size : Real;
   [Property] var SizeVariance : Real;
   [Property] var Lifetime : Real;
   [Property] var LifetimeVariance : Real;
-  [Property] var RandomVelocity : Real;
+  [Property] var RandomVelocity : Real3;
   
   [Property] var TimeGradient : ColorGradient;
   
@@ -33,7 +34,7 @@ class ObjectParticleSystem : ZilchComponent
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    //Zero.Connect(this.Owner, Events.EmitObjectParticles, this.OnEmit);
+    Zero.Connect(this.Owner, Events.ModifyColor, this.OnModifyColor);
     
     this.Emit();
   }
@@ -45,15 +46,28 @@ class ObjectParticleSystem : ZilchComponent
   }
   
   /******************************************************************************/
+  function OnModifyColor(event : ModifyColorEvent)
+  {
+    var color = event.Color;
+    foreach(var object in this.Particles.All)
+    {
+      object.StippleInputs.AlbedoValue = color.Primary * this.ColorGlowFactor;
+    }
+    
+  }
+  
+  /******************************************************************************/
   function Emit()
   {
     var startPosition = this.Transform.WorldTranslation;
+    var color = this.Owner.FindRoot().ColorPiece;
 
     for(var p = 0; p < this.EmitCount; ++p)
     {
       var object = this.Space.Create(this.EmittedObject);
       object.AttachTo(this.Owner);
-      object.StippleInputs.AlbedoValue = this.Owner.ColorPiece.Primary;
+      
+      object.StippleInputs.AlbedoValue = color.Primary * this.ColorGlowFactor;
       
       var particle = object.ParticleObject;
       particle.Time = 0;
@@ -64,7 +78,10 @@ class ObjectParticleSystem : ZilchComponent
       transform.WorldTranslation = startPosition;
       
       //var direction = this.Random.Real3(1, 1);
-      object.RigidBody.Velocity = this.Random.Real3(0, this.RandomVelocity);
+      var vx = 2 * (this.Random.Real() - 0.5) * this.RandomVelocity.X;
+      var vy = 2 * (this.Random.Real() - 0.5) * this.RandomVelocity.Y;
+      var vz = 2 * (this.Random.Real() - 0.5) * this.RandomVelocity.Z;
+      object.RigidBody.Velocity = Real3(vx, vy, vz);
       
       this.Particles.Add(object);
     }

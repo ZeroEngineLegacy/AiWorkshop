@@ -28,7 +28,7 @@ class TimedDeath : ZilchComponent
         if(this.SendsDeathEvent)
         {
             // Let anyone listening know we just died.
-            var toSend = ZilchEvent();
+            var toSend = DeathEvent();
             this.Owner.DispatchEvent(Events.Death, toSend);
         }
         
