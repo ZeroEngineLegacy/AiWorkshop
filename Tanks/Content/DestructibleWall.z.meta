@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "DestructibleWall",
-		uint64 ResourceId = 5573fa23ccd2e538,
-	},
-},

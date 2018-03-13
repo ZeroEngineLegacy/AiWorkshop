@@ -19,10 +19,13 @@ Cog
 		var Lifetime = 1
 		var LifetimeVariance = 0.5
 		var RandomVelocity = Real3{7, 7, 7}
+		var EmitterSize = Real3{0, 0, 0}
 		var TimeGradient = "591ab9ca354f58d9:FadeOut"
 	}
-	ColorPiece 
+	ObjectColorManager 
 	{
-		var Primary = Real4{0.643137276, 0.643137276, 0.643137276, 1}
+		var ColorGlowFactor = 1
+		var Primary = Real4{1, 1, 1, 1}
+		var Gradient = "50a5ee1707f0fb60:DefaultColorGradient"
 	}
 }

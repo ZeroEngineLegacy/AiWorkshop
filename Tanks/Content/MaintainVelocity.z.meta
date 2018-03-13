@@ -1,15 +1,17 @@
-TextContent = 
+[Version:1]
+TextContent 
 {
-	ZilchScriptBuilder = 
+	ContentTags 
 	{
-		string Name = "MaintainVelocity",
-		uint64 ResourceId = 532e2ab87b298117,
-	},
-	ContentTags = 
+		var Tags = Array
+		{
+			"Tank"
+			"BasicGameplay"
+		}
+	}
+	ZilchScriptBuilder 
 	{
-		Array Tags = 
-		[
-			"BasicGameplay",
-		],
-	},
-},
+		var Name = "MaintainVelocity"
+		var ResourceId = 0x532e2ab87b298117
+	}
+}

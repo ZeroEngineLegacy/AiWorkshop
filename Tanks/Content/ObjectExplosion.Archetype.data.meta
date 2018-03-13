@@ -4,7 +4,7 @@ DataContent
 	DataBuilder 
 	{
 		var Name = "ObjectExplosion"
-		var ResourceId = 0x55667fd005d890ee
+		var ResourceId = 0x5a845255fd31e3ef
 		var LoaderType = "Cog"
 		var Version = 0
 		var ShowInEditor = true

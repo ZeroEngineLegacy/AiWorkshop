@@ -1,15 +1,17 @@
-TextContent = 
+[Version:1]
+TextContent 
 {
-	ZilchScriptBuilder = 
+	ContentTags 
 	{
-		string Name = "FadeOut",
-		uint64 ResourceId = 53e79429fa3ec2aa,
-	},
-	ContentTags = 
+		var Tags = Array
+		{
+			"Tank"
+			"BasicGameplay"
+		}
+	}
+	ZilchScriptBuilder 
 	{
-		Array Tags = 
-		[
-			"BasicGameplay",
-		],
-	},
-},
+		var Name = "FadeOut"
+		var ResourceId = 0x53e79429fa3ec2aa
+	}
+}

@@ -1,4 +1,0 @@
-[RunInEditor]
-class Colored : ZilchComponent
-{
-}

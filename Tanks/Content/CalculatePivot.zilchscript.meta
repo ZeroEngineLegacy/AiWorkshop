@@ -5,6 +5,7 @@ TextContent
 	{
 		var Tags = Array
 		{
+			"Tank"
 			"ZilchScript"
 		}
 	}

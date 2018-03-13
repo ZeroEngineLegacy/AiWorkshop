@@ -26,14 +26,14 @@ Cog
 			}
 			Hierarchy 
 			{
-				Cog [Id:0x5ab4e4980b4055c8][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4e4980b4055c8]
 				{
 					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.0776223391, 0.227334827, 0}
-						var Rotation = Quaternion{0, 0, -0.141201377, 0.989980876}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, -0.141201377, 0.989980876}
 					}
 					Hierarchy 
 					{
@@ -43,8 +43,8 @@ Cog
 							Transform 
 							{
 								var Translation = Real3{-0.5, -0.0375000015, 0.25}
-								var Rotation = Quaternion{0, 0, 0, 1}
 								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
 							}
 							Model 
 							{
@@ -58,6 +58,15 @@ Cog
 								var Material = "5ab406fcaf0c9e95:Tread"
 								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
 							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
 							AlbedoValueParam 
 							{
 								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
@@ -65,175 +74,916 @@ Cog
 						}
 					}
 				}
-				Cog [Id:0x5ab4ded6b4e08a79][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4ded6b4e08a79]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.145263195, 0.205759212, 0}
-						var Rotation = Quaternion{0, 0, -0.158269554, 0.987395942}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, -0.158269554, 0.987395942}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4ded6b4cfc8ae][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4ded6b4cfc8ae]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.21241042, 0.182725817, 0}
-						var Rotation = Quaternion{0, 0, -0.177767307, 0.984072626}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, -0.177767307, 0.984072626}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4ded5b4aaacd0][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4ded5b4aaacd0]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.277563184, 0.154719621, 0}
-						var Rotation = Quaternion{0, 0, -0.225110903, 0.974333167}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, -0.225110903, 0.974333167}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4ded5b48dfa90][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4ded5b48dfa90]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.329730242, 0.109287217, 0}
-						var Rotation = Quaternion{0, 0, -0.535128891, 0.844770491}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, -0.535128891, 0.844770491}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a24b99e][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a24b99e]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.314332604, 0.0466635525, 0}
-						var Rotation = Quaternion{0, 0, 0.907975793, -0.419022739}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.907975793, -0.419022739}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a24cdcb][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a24cdcb]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.249309987, 0.0215824582, 0}
-						var Rotation = Quaternion{0, 0, 0.99662292, -0.0821144804}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.99662292, -0.0821144804}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a24dc38][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a24dc38]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.178556949, 0.0178511366, 0}
-						var Rotation = Quaternion{0, 0, 0.999971032, -0.00761139579}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.999971032, -0.00761139579}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a24ee87][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a24ee87]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.107591882, 0.0199951194, 0}
-						var Rotation = Quaternion{0, 0, 0.999969602, 0.00780474767}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.999969602, 0.00780474767}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a24fb10][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a24fb10]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.036611218, 0.0202444065, 0}
-						var Rotation = Quaternion{0, 0, 0.999796331, -0.0201815534}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.999796331, -0.0201815534}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a4575ef][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a4575ef]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.0343062952, 0.0169040188, 0}
-						var Rotation = Quaternion{0, 0, 0.999496639, -0.0317251645}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.999496639, -0.0317251645}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a458550][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a458550]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.105203435, 0.0132269049, 0}
-						var Rotation = Quaternion{0, 0, 0.999859273, -0.0167754944}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.999859273, -0.0167754944}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a4599c4][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a4599c4]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.176087677, 0.0149659477, 0}
-						var Rotation = Quaternion{0, 0, 0.999382079, 0.035151232}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.999382079, 0.035151232}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a45abba][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a45abba]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.24239634, 0.0373634472, 0}
-						var Rotation = Quaternion{0, 0, 0.957122028, 0.289685369}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.957122028, 0.289685369}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedd8a45b8d8][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedd8a45b8d8]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.274432719, 0.096194379, 0}
-						var Rotation = Quaternion{0, 0, 0.740701675, 0.671834171}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.740701675, 0.671834171}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedf8aa2ec5d][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedf8aa2ec5d]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.242588773, 0.158482879, 0}
-						var Rotation = Quaternion{0, 0, 0.388984144, 0.921244442}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.388984144, 0.921244442}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedf8aa2f9df][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedf8aa2f9df]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.190613642, 0.206697419, 0}
-						var Rotation = Quaternion{0, 0, 0.338163257, 0.941087484}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.338163257, 0.941087484}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedf8aa307af][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedf8aa307af]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.129947573, 0.243136972, 0}
-						var Rotation = Quaternion{0, 0, 0.222725928, 0.974881172}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.222725928, 0.974881172}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedf8aa3140d][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedf8aa3140d]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{-0.0606465265, 0.255950093, 0}
-						var Rotation = Quaternion{0, 0, 0.0295630936, 0.999562919}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0.0295630936, 0.999562919}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
-				Cog [Id:0x5ab4dedf8aa324c6][InheritId:"5567a69c4c191bc3:TankTread"]
+				Cog [Id:0x5ab4dedf8aa324c6]
 				{
+					var Name = "TankTread"
 					Transform 
 					{
 						var Translation = Real3{0.00944270566, 0.2458487, 0}
-						var Rotation = Quaternion{0, 0, -0.111710727, 0.993740857}
 						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, -0.111710727, 0.993740857}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5ab407408d4f6f4b]
+						{
+							var Name = "TreadPiece"
+							Transform 
+							{
+								var Translation = Real3{-0.501069486, -0.0391356423, 0.25}
+								var Scale = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "5ab406fcaf0c9e95:Tread"
+								var Mesh = "5aa3544729cc9e46:Tank_TankTread"
+							}
+							BoxCollider 
+							{
+								var Ghost = false
+								var SendsEvents = true
+								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var Offset = Real3{50.1068993, 3.91355991, -25}
+								var HalfSize = Real3{3.25, 1, 4.625}
+							}
+							AlbedoValueParam 
+							{
+								var AlbedoValue = Real4{0.274509817, 0.274509817, 0.274509817, 1}
+							}
+						}
 					}
 				}
 			}

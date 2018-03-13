@@ -1,6 +1,13 @@
 [Version:1]
 TextContent 
 {
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Tank"
+		}
+	}
 	ZilchScriptBuilder 
 	{
 		var Name = "TileLayoutHelper"

@@ -4,7 +4,7 @@ DataContent
 	DataBuilder 
 	{
 		var Name = "WallRegen"
-		var ResourceId = 0x5573cd1a0b92e93d
+		var ResourceId = 0x5a845255fd297019
 		var LoaderType = "Cog"
 		var Version = 0
 		var ShowInEditor = true

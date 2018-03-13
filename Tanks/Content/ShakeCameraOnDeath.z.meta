@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "ShakeCameraOnDeath",
-		uint64 ResourceId = 5506de0d3f975477,
-	},
-},

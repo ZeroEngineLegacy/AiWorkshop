@@ -12,7 +12,7 @@ Cog
 	{
 		Cog [Id:0x5ab19feb5f4c1fea]
 		{
-			var Name = "TurretPivot"
+			var Name = "Turret"
 			Transform 
 			{
 				var Translation = Real3{0, 0, 0}
@@ -34,14 +34,14 @@ Cog
 			}
 			Turret 
 			{
-				var Projectile = "55667225705eec56:Projectile"
+				var Projectile = "55667225705eec56:TurretProjectile"
 				var ProjectileSpeed = 20
 				var FireSpeed = 0.5
-				var Particles = "55667c6827ab2fa1:FireProjectiles"
+				var Particles = "55667c6827ab2fa1:TurretFireParticles"
 				var FireAnimation = "556677979c40a585:TurretFire"
 				var SpawnPos = CogPath
 				{
-					var Path = "Turret/Barrel/Muzzle"
+					var Path = "TurretMesh/Barrel/Muzzle"
 					var ErrorOnResolveToNull = false
 					var ErrorOnPathCantCompute = false
 					var ErrorOnDirectLinkFail = false
@@ -59,7 +59,7 @@ Cog
 			{
 				Cog [Id:0x5abb7a8a333088b9]
 				{
-					var Name = "Turret"
+					var Name = "TurretMesh"
 					Transform 
 					{
 						var Translation = Real3{-2.54753304, -18.2471275, 1.90734863e-06}
@@ -78,11 +78,7 @@ Cog
 						var Material = "5ab4c3156f2acf66:Tank"
 						var Mesh = "5aa3544729cc9e58:Tank_TankTurretGeneratedMeshNode0"
 					}
-					AlbedoValueParam 
-					{
-						var AlbedoValue = Real4{0.21960783, 0.509803951, 0.811764717, 1}
-					}
-					Colored 
+					ManagedColor 
 					{
 					}
 					Hierarchy 
@@ -108,9 +104,8 @@ Cog
 								var Material = "5ab4c3156f2acf66:Tank"
 								var Mesh = "5aa3544729cc9e60:Tank_TankTurretGeneratedMeshNode1"
 							}
-							AlbedoValueParam 
+							ManagedColor 
 							{
-								var AlbedoValue = Real4{0.21960783, 0.509803951, 0.811764717, 1}
 							}
 						}
 						Cog [Id:0x5abb7a8b335e1696]
@@ -162,7 +157,7 @@ Cog
 							}
 							AlbedoValueParam 
 							{
-								var AlbedoValue = Real4{1, 1, 1, 1}
+								var AlbedoValue = Real4{0.784313738, 0.784313738, 0.784313738, 1}
 							}
 							Hierarchy 
 							{
@@ -189,7 +184,7 @@ Cog
 									}
 									AlbedoValueParam 
 									{
-										var AlbedoValue = Real4{0.709803939, 0.709803939, 0.709803939, 1}
+										var AlbedoValue = Real4{0.588235319, 0.588235319, 0.588235319, 1}
 									}
 									Orientation 
 									{

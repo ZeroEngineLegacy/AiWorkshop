@@ -372,8 +372,8 @@ RichAnimation
 					Object
 					{
 						var Type = TrackType.Object
-						var Name = "Turret"
-						var Path = "/Turret"
+						var Name = "TurretMesh"
+						var Path = "/TurretMesh"
 						var Disabled = false
 						var PropertyTypeName = ""
 						var KeyFrames = Array
@@ -385,7 +385,7 @@ RichAnimation
 							{
 								var Type = TrackType.Object
 								var Name = "Barrel"
-								var Path = "/Turret/Barrel"
+								var Path = "/TurretMesh/Barrel"
 								var Disabled = false
 								var PropertyTypeName = ""
 								var KeyFrames = Array
