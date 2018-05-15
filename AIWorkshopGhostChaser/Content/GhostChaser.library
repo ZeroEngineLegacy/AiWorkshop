@@ -1,6 +1,6 @@
 ContentLibrary = 
 {
-	string Name = "Ghost_Chaser",
+	string Name = "GhostChaser",
 	uint64 LibraryId = 5560cbc112377e1c,
 	string SourceControlType = "",
 	bool ReadOnly = false,
