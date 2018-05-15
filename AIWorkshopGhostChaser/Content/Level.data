@@ -156,7 +156,7 @@ Level
 		{
 			var NearPlane = 0.5
 			var FarPlane = 200
-			var PerspectiveMode = PerspectiveMode.Perspective
+			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
 			var Size = 20
 		}

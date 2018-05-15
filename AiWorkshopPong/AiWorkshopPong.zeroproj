@@ -1,20 +1,30 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	Project = 
+	var Name = ""
+	ProjectSettings 
 	{
-		string ProjectName = "AiWorkshopPong",
-		string ProjectOwner = "",
-		string DefaultLevel = "Level",
-		string ProjectSpace = "Space",
-		uint ProjectEngineRevision = 11972,
-		bool AutoTakeProjectScreenshot = false,
-	},
-	EditorSettings = 
+		var ProjectName = "AiWorkshopPong"
+		var ProjectOwner = ""
+		var DefaultLevel = "Level"
+		var ProjectSpace = "Space"
+		var AutoTakeProjectScreenshot = false
+		var Guid = 0x5aad8e6518df2f88
+	}
+	EditorSettings 
 	{
-		EditorMode EditorMode = Mode2D,
-		bool ViewCube = true,
-		float ViewCubeViewportSize = 150,
-		ScriptReloadMethod ScriptReloadEditor = ReInitializeObjects,
-		ScriptReloadMethod ScriptReloadGame = PatchObjects,
-	},
-},
+		var ViewCube = true
+		var ViewCubeSize = 0.150000006
+		var AutoUpdateContentChanges = true
+	}
+	LauncherProjectInfo 
+	{
+		var Tags = ""
+		var ExperimentalBranchName = ""
+		var MajorVersion = 1
+		var MinorVersion = 4
+		var PatchVersion = 0
+		var RevisionId = 969
+		var ShortChangeSet = "89be6c88d139"
+	}
+}
