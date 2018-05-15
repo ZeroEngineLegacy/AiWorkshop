@@ -1,0 +1,27 @@
+class WanderRhinoAi : ZilchComponent
+{
+    // All logic is done through the rhino
+    [Dependency] var Rhino : Rhino;
+    
+    [Property]
+    var WanderRange : Real = 2;
+    
+    var StartingPosition : Real3 = Real3(0);
+    
+    var WanderingRight : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        // We want our logic to run every frame
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        // Store our starting position
+        this.StartingPosition = this.Owner.Transform.Translation;
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //------------------------------------------------------- Student Code Below
+        
+    }
+}

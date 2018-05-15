@@ -1,0 +1,57 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "EyeLeft",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-2.88714, 0, 0],
+		Vec3 Scale = [0.3, 0.3, 0.3],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "555b72e3dd9d5569:Character",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [0.34, 0.34, 0.34, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Pupil",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.176809, -0.0828701, 0.251521],
+				Vec3 Scale = [0.816746, 0.816746, 0.816746],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "555b72e3dd9d5569:Character",
+				string MeshName = "4de0354322b376ae:Sphere",
+				Vec4 Color = [0, 0, 0, 1],
+			},
+		},
+	},
+},

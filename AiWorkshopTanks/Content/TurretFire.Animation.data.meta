@@ -1,0 +1,9 @@
+DataContent = 
+{
+	RichAnimationBuilder = 
+	{
+		string Name = "TurretFire",
+		uint64 ResourceId = 556677979c40a585,
+		string PreviewArchetype = "",
+	},
+},

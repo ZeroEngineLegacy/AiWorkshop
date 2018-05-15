@@ -1,0 +1,50 @@
+class FloorTile : ZilchComponent
+{
+    [Property]
+    var Color : Real4 = Real4();
+    
+    [Property]
+    var DefaultGlow : Real4 = Real4();
+    
+    var CollisionCount : Integer = 0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(this.CollisionCount == 0)
+        {
+            var color = this.DefaultGlow;
+            
+            var hitRoot = event.OtherObject.FindRoot();
+            if(hitRoot.Color != null)
+            {
+                color = hitRoot.Color.Glow;
+            }
+            
+            this.AnimateToColor(color, 0.4);
+        }
+        
+        this.CollisionCount += 1;
+    }
+
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        this.CollisionCount -= 1;
+        
+        if(this.CollisionCount == 0)
+        {
+            this.AnimateToColor(this.Color, 0.4);
+        }
+    }
+    
+    function AnimateToColor(color : Real4, time : Real)
+    {
+        var seq = Action.Sequence(this.Owner.Actions);
+        Action.Property(seq, @this.Owner.Model.Color, color, time, Ease.QuadOut);
+    }
+}

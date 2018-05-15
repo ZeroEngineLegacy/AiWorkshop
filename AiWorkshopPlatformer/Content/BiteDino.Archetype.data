@@ -1,0 +1,1689 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BiteControl",
+	},
+	Archetyped = 
+	{
+		string Name = "544c63547c0ae71a:BiteDino",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [2.99775, -0.988215, 1.20588e-007],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	AnimationGraph = 
+	{
+		bool Active = true,
+		AnimPlayMode PlayMode = PlayOnce,
+		float TimeScale = 1,
+		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+		uint64 DebugPreviewId = 3f8000003de4b6d5,
+	},
+	SimpleAnimation = 
+	{
+		string AnimationName = "544c4b49faafba99:BiteDinoIdle",
+		AnimPlayMode PlayMode = Loop,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Body",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.00947301, 0.959463, -1.20588e-007],
+				Vec3 Scale = [0.8, 0.8, 0.8],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "54489dcc19ab944b:BiteDinoBody",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "Scarf",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.219811, 0.524933, 0.5],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Sprite = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = false,
+						Vec4 Color = [1, 1, 1, 1],
+						BlendMode BlendMode = Alpha,
+						SpriteGeometryMode GeometryMode = ZPlane,
+						string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+						string SpriteSource = "5441b6ba7ff551bb:BiteDinoScarf",
+						bool RenderMask = false,
+						bool FlipX = false,
+						bool FlipY = false,
+						bool OnTop = false,
+						bool AnimationActive = true,
+						float AnimationSpeed = 1,
+						uint StartFrame = 0,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "ScarfPivot2",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.15274, 0.11232, -2.12625],
+								Vec3 Scale = [1.25, 1.25, 1.25],
+								Quat Rotation = [0, 0, -0.0280963, 0.999605],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Named = 
+									{
+										string Name = "ScarfPart2",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.151134, 0.0543807, 0.00100005],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Sprite = 
+									{
+										bool Visible = true,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5448806d32180a98:BiteDinoScarfPart2",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 6,
+							},
+							Named = 
+							{
+								string Name = "ScarfPivot1",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.199996, 0.0825272, -0.5],
+								Vec3 Scale = [1.25, 1.25, 1.25],
+								Quat Rotation = [0, 0, -0.0368712, 0.99932],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 7,
+									},
+									Named = 
+									{
+										string Name = "ScarfPart1",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.255636, 0.0221017, -1],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Sprite = 
+									{
+										bool Visible = true,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5448806d3227fecd:BiteDinoScarfPart1",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 8,
+					},
+					Named = 
+					{
+						string Name = "ArmPivotR",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.41093, 0.368296, 2],
+						Vec3 Scale = [1.25, 1.25, 1.25],
+						Quat Rotation = [0, 0, -0.258819, 0.965926],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 9,
+							},
+							Named = 
+							{
+								string Name = "ArmR",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.0697605, -0.0671984, 0.5],
+								Vec3 Scale = [0.8, 0.8, 0.8],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Sprite = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								Vec4 Color = [1, 1, 1, 1],
+								BlendMode BlendMode = Alpha,
+								SpriteGeometryMode GeometryMode = ZPlane,
+								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+								string SpriteSource = "5441b6ba7ff4de38:BiteDinoRightArm",
+								bool RenderMask = false,
+								bool FlipX = false,
+								bool FlipY = false,
+								bool OnTop = false,
+								bool AnimationActive = true,
+								float AnimationSpeed = 1,
+								uint StartFrame = 0,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 10,
+									},
+									Named = 
+									{
+										string Name = "ElbowPivotR",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.0765889, -0.224136, -0.625],
+										Vec3 Scale = [1.25, 1.25, 1.25],
+										Quat Rotation = [0, 0, 0.023533, 0.999723],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 11,
+											},
+											Named = 
+											{
+												string Name = "HandR",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.137585, -0.336734, 1],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = true,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff505b2:BiteDinoRightHand",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 12,
+											},
+											Named = 
+											{
+												string Name = "HandGrab1R",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.137585, -0.336734, 1],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff51420:BiteDinoRightHandGrab1",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 13,
+											},
+											Named = 
+											{
+												string Name = "HandGrab2R",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.137585, -0.336734, 1],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff5204c:BiteDinoRightHandGrab2",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 14,
+											},
+											Named = 
+											{
+												string Name = "HandPoint1R",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.137585, -0.336734, 1],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff52af2:BiteDinoRightHandPoint1",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 15,
+											},
+											Named = 
+											{
+												string Name = "HandPoint2R",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.137585, -0.336734, 1],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff5347e:BiteDinoRightHandPoint2",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 16,
+					},
+					Named = 
+					{
+						string Name = "ArmPivotL",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.412707, 0.406059, -0.5],
+						Vec3 Scale = [1.25, 1.25, 1.25],
+						Quat Rotation = [0, 0, -0.0156538, 0.999877],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 17,
+							},
+							Named = 
+							{
+								string Name = "ArmL",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.086782, -0.0737822, -0.3],
+								Vec3 Scale = [0.8, 0.8, 0.8],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Sprite = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								Vec4 Color = [1, 1, 1, 1],
+								BlendMode BlendMode = Alpha,
+								SpriteGeometryMode GeometryMode = ZPlane,
+								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+								string SpriteSource = "5441b6ba7ff464a0:BiteDinoLeftArm",
+								bool RenderMask = false,
+								bool FlipX = false,
+								bool FlipY = false,
+								bool OnTop = false,
+								bool AnimationActive = true,
+								float AnimationSpeed = 1,
+								uint StartFrame = 0,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 18,
+									},
+									Named = 
+									{
+										string Name = "ElbowPivotL",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.121891, -0.126639, 0.375],
+										Vec3 Scale = [1.25, 1.25, 1.25],
+										Quat Rotation = [0, 0, -0.0338159, 0.999428],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 19,
+											},
+											Named = 
+											{
+												string Name = "HandL",
+											},
+											EditorFlags = 
+											{
+												bool Locked = false,
+												bool Hidden = true,
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.192531, -0.335361, -0.5],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "544dc1c577a609a0:BiteDinoLeftHand",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 20,
+											},
+											Named = 
+											{
+												string Name = "HandPoint1L",
+											},
+											EditorFlags = 
+											{
+												bool Locked = false,
+												bool Hidden = true,
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.192531, -0.335361, -0.5],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "544dc1c577a62fac:BiteDinoLeftHandPoint1",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 21,
+											},
+											Named = 
+											{
+												string Name = "HandPoint2L",
+											},
+											EditorFlags = 
+											{
+												bool Locked = false,
+												bool Hidden = true,
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.192531, -0.335361, -0.5],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "544dc1c577a63d1a:BiteDinoLeftHandPoint2",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 22,
+											},
+											Named = 
+											{
+												string Name = "HandGrab1L",
+											},
+											EditorFlags = 
+											{
+												bool Locked = false,
+												bool Hidden = true,
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.192531, -0.335361, -0.5],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "544dc1c577a613fc:BiteDinoLeftHandGrab1",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 23,
+											},
+											Named = 
+											{
+												string Name = "HandGrab2L",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.192531, -0.335361, -0.5],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, -0.000179615, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = true,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "544dc1c577a621f5:BiteDinoLeftHandGrab2",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+											Hierarchy = 
+											{
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 24,
+											},
+											Named = 
+											{
+												string Name = "Nails1L",
+											},
+											EditorFlags = 
+											{
+												bool Locked = false,
+												bool Hidden = true,
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.392763, -0.434453, 0.2],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, -0.000179615, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff49aab:BiteDinoLeftHandNails1",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 25,
+											},
+											Named = 
+											{
+												string Name = "Nails2L",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.381778, -0.423539, 0.2],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, -0.000179615, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = true,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff4ac3a:BiteDinoLeftHandNails2",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 26,
+											},
+											Named = 
+											{
+												string Name = "Twig",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.832541, -0.115868, -0.3],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0, 0, -0.0657428, 0.997837],
+											},
+											Sprite = 
+											{
+												bool Visible = true,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff57201:BiteDinoTwig",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 27,
+					},
+					Named = 
+					{
+						string Name = "TailPivot",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.00558853, -0.741413, 1.35355e-007],
+						Vec3 Scale = [1.25, 1.25, 1.25],
+						Quat Rotation = [0, 0, 0.00861823, 0.999963],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 28,
+							},
+							Named = 
+							{
+								string Name = "Tail",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.512212, 0.630148, -0.1],
+								Vec3 Scale = [0.8, 0.8, 0.8],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Sprite = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								Vec4 Color = [1, 1, 1, 1],
+								BlendMode BlendMode = Alpha,
+								SpriteGeometryMode GeometryMode = ZPlane,
+								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+								string SpriteSource = "5441b6ba7ff568c3:BiteDinoTail",
+								bool RenderMask = false,
+								bool FlipX = false,
+								bool FlipY = false,
+								bool OnTop = false,
+								bool AnimationActive = true,
+								float AnimationSpeed = 1,
+								uint StartFrame = 0,
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 29,
+					},
+					Named = 
+					{
+						string Name = "HeadPivot",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.157361, 0.629652, 1.50734e-007],
+						Vec3 Scale = [1.25, 1.25, 1.25],
+						Quat Rotation = [0, 0, -0.0100869, 0.999949],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 30,
+							},
+							Named = 
+							{
+								string Name = "Head",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.135888, 0.711269, 1],
+								Vec3 Scale = [0.8, 0.8, 0.8],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Sprite = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								Vec4 Color = [1, 1, 1, 1],
+								BlendMode BlendMode = Alpha,
+								SpriteGeometryMode GeometryMode = ZPlane,
+								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+								string SpriteSource = "5441b6ba7ff420cf:BiteDinoHeadNoEye",
+								bool RenderMask = false,
+								bool FlipX = false,
+								bool FlipY = false,
+								bool OnTop = false,
+								bool AnimationActive = true,
+								float AnimationSpeed = 1,
+								uint StartFrame = 0,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 31,
+									},
+									Named = 
+									{
+										string Name = "Eye",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.178783, -0.0353184, 1.25],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Sprite = 
+									{
+										bool Visible = true,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "544e2838b38ea699:BiteDinoEye",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 32,
+									},
+									Named = 
+									{
+										string Name = "Eye4",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.17688, -0.0393074, 3],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0.026177, 0.999657],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5441b6ba7ff3fc47:BiteDinoEye4",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+									Hierarchy = 
+									{
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 33,
+									},
+									Named = 
+									{
+										string Name = "Eye5",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.177475, -0.033821, 3],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0.026177, 0.999657],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5441b6ba7ff40822:BiteDinoEye5",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 34,
+							},
+							Named = 
+							{
+								string Name = "Head2",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.260238, 0.668088, 2],
+								Vec3 Scale = [0.8, 0.8, 0.8],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Sprite = 
+							{
+								bool Visible = false,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								Vec4 Color = [1, 1, 1, 1],
+								BlendMode BlendMode = Alpha,
+								SpriteGeometryMode GeometryMode = ZPlane,
+								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+								string SpriteSource = "5441b6ba7ff453c5:BiteDinoHeadSideTop",
+								bool RenderMask = false,
+								bool FlipX = false,
+								bool FlipY = false,
+								bool OnTop = false,
+								bool AnimationActive = true,
+								float AnimationSpeed = 1,
+								uint StartFrame = 0,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 35,
+									},
+									Named = 
+									{
+										string Name = "Teeth",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.222744, -0.595008, 3],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5441b6ba7ff44a62:BiteDinoHeadSideTeeth",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 36,
+									},
+									Named = 
+									{
+										string Name = "JawPivot",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.18339, -0.514593, -1.9491e-007],
+										Vec3 Scale = [1.25, 1.25, 1.25],
+										Quat Rotation = [0, 0, -0.0839516, 0.99647],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 37,
+											},
+											Named = 
+											{
+												string Name = "Jaw",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.377859, -0.10558, 2.2],
+												Vec3 Scale = [0.8, 0.8, 0.8],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											Sprite = 
+											{
+												bool Visible = false,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = false,
+												Vec4 Color = [1, 1, 1, 1],
+												BlendMode BlendMode = Alpha,
+												SpriteGeometryMode GeometryMode = ZPlane,
+												string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+												string SpriteSource = "5441b6ba7ff4345c:BiteDinoHeadSideMouth",
+												bool RenderMask = false,
+												bool FlipX = false,
+												bool FlipY = false,
+												bool OnTop = false,
+												bool AnimationActive = true,
+												float AnimationSpeed = 1,
+												uint StartFrame = 0,
+											},
+										},
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 38,
+									},
+									Named = 
+									{
+										string Name = "Eye",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.0219927, 0.018658, 1.2],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "544e2838b38ea699:BiteDinoEye",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 39,
+									},
+									Named = 
+									{
+										string Name = "Eye4",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.0238955, -0.00325, 1.75],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0.026177, 0.999657],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5441b6ba7ff3fc47:BiteDinoEye4",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+									Hierarchy = 
+									{
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 40,
+									},
+									Named = 
+									{
+										string Name = "Eye5",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.0233006, 0.0201555, 1.75],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0.026177, 0.999657],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5441b6ba7ff40822:BiteDinoEye5",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 41,
+							},
+							Named = 
+							{
+								string Name = "Head3",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.275109, 0.630279, 1],
+								Vec3 Scale = [0.8, 0.8, 0.8],
+								Quat Rotation = [0, 0, -0.026177, 0.999657],
+							},
+							Sprite = 
+							{
+								bool Visible = false,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								Vec4 Color = [1, 1, 1, 1],
+								BlendMode BlendMode = Alpha,
+								SpriteGeometryMode GeometryMode = ZPlane,
+								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+								string SpriteSource = "5441b6ba7ff43e6f:BiteDinoHeadSideNoEye",
+								bool RenderMask = false,
+								bool FlipX = false,
+								bool FlipY = false,
+								bool OnTop = false,
+								bool AnimationActive = true,
+								float AnimationSpeed = 1,
+								uint StartFrame = 0,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 42,
+									},
+									Named = 
+									{
+										string Name = "Eye",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.0277623, 0.10549, 2.5],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "544e2838b38ea699:BiteDinoEye",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 43,
+									},
+									Named = 
+									{
+										string Name = "Eye4",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.0262178, 0.103206, 3],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5441b6ba7ff3fc47:BiteDinoEye4",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 44,
+									},
+									Named = 
+									{
+										string Name = "Eye5",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.0265255, 0.108716, 3],
+										Vec3 Scale = [1.125, 1.125, 1.125],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Sprite = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = false,
+										Vec4 Color = [1, 1, 1, 1],
+										BlendMode BlendMode = Alpha,
+										SpriteGeometryMode GeometryMode = ZPlane,
+										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+										string SpriteSource = "5441b6ba7ff40822:BiteDinoEye5",
+										bool RenderMask = false,
+										bool FlipX = false,
+										bool FlipY = false,
+										bool OnTop = false,
+										bool AnimationActive = true,
+										float AnimationSpeed = 1,
+										uint StartFrame = 0,
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 45,
+			},
+			Named = 
+			{
+				string Name = "LegL",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.377211, 0.637738, -0.1],
+				Vec3 Scale = [0.8, 0.8, 0.8],
+				Quat Rotation = [0, 0, -0.00728211, 0.999973],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "5441b6ba7ff4cfd1:BiteDinoLeftLeg",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 46,
+					},
+					Named = 
+					{
+						string Name = "FeetPivotL",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.0509377, -0.482696, 0.125],
+						Vec3 Scale = [1.25, 1.25, 1.25],
+						Quat Rotation = [0, 0, 0.00728211, 0.999973],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 47,
+							},
+							Named = 
+							{
+								string Name = "FeetL",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.193833, -0.0851825, -0.3],
+								Vec3 Scale = [0.8, 0.8, 0.8],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Sprite = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								Vec4 Color = [1, 1, 1, 1],
+								BlendMode BlendMode = Alpha,
+								SpriteGeometryMode GeometryMode = ZPlane,
+								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+								string SpriteSource = "5441b6ba7ff46f21:BiteDinoLeftFeet",
+								bool RenderMask = false,
+								bool FlipX = false,
+								bool FlipY = false,
+								bool OnTop = false,
+								bool AnimationActive = true,
+								float AnimationSpeed = 1,
+								uint StartFrame = 0,
+							},
+						},
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 48,
+			},
+			Named = 
+			{
+				string Name = "LegR",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.321234, 0.628432, 1],
+				Vec3 Scale = [0.8, 0.8, 0.8],
+				Quat Rotation = [0, 0, -0.00728211, 0.999973],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "5441b6ba7ff53e99:BiteDinoRightLeg",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 49,
+					},
+					Named = 
+					{
+						string Name = "FeetPivotR",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.158826, -0.468963, -0.625],
+						Vec3 Scale = [1.25, 1.25, 1.25],
+						Quat Rotation = [0, 0, 0.00728211, 0.999973],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 50,
+							},
+							Named = 
+							{
+								string Name = "FeetR",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.219491, -0.13889, 0.4],
+								Vec3 Scale = [0.8, 0.8, 0.8],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Sprite = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								Vec4 Color = [1, 1, 1, 1],
+								BlendMode BlendMode = Alpha,
+								SpriteGeometryMode GeometryMode = ZPlane,
+								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+								string SpriteSource = "5441b6ba7ff4e76c:BiteDinoRightFeet",
+								bool RenderMask = false,
+								bool FlipX = false,
+								bool FlipY = false,
+								bool OnTop = false,
+								bool AnimationActive = true,
+								float AnimationSpeed = 1,
+								uint StartFrame = 0,
+							},
+							Hierarchy = 
+							{
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},

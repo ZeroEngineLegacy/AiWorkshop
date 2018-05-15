@@ -1,0 +1,395 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Tank",
+	},
+	Archetyped = 
+	{
+		string Name = "5567a7f28749ec47:Tank",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "pCylinder3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.255192, 0.18247, 0],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0.707107, 0.707107],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "TankGun",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [1.52588e-005, -150.807, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 3.08149e-033, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = true,
+						bool CastShadows = true,
+						string MaterialName = "5567a7f2877aa4d9:lambert3",
+						string MeshName = "5567a7f2874d4fe0:Tank.TankGun",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 4,
+					},
+					Named = 
+					{
+						string Name = "TankTurretShaft",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-5.68434e-014, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 3.08149e-033, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = true,
+						bool CastShadows = true,
+						string MaterialName = "5567a7f2877aa4d9:lambert3",
+						string MeshName = "5567a7f2874d4fe5:Tank.TankTurretShaft",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "polySurface2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 0.0401708, -0.25],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877adad8:lambert1",
+				string MeshName = "5567a7f2874d4fe7:Tank.polySurface2",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "pCylinder39",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0473661, 0.0662941, 0],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877aa4d9:lambert3",
+				string MeshName = "5567a7f2874d4fe9:Tank.pCylinder39",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "polySurface4",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877aa4d9:lambert3",
+				string MeshName = "5567a7f2874d4feb:Tank.polySurface4",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "pCube9",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.106754, 0.203665, 0.0768827],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877adad8:lambert1",
+				string MeshName = "5567a7f2874d4fed:Tank.pCube9",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "polySurface10",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.273731, -0.0321185, -0.193126],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877aa4d9:lambert3",
+				string MeshName = "5567a7f2874d4fef:Tank.polySurface10",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "pCube11",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0.0152355, -0.239415],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877aa4d9:lambert3",
+				string MeshName = "5567a7f2874d4ff1:Tank.pCube11",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Named = 
+			{
+				string Name = "polySurface11",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0691578, 0.0708137, -0.193233],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877aa4d9:lambert3",
+				string MeshName = "5567a7f2874d4ff2:Tank.polySurface11",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 12,
+			},
+			Named = 
+			{
+				string Name = "polySurface12",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.190845, -0.0151433, -0.193126],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877aa4d9:lambert3",
+				string MeshName = "5567a7f2874d4ff4:Tank.polySurface12",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 13,
+			},
+			Named = 
+			{
+				string Name = "TankTread",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.501069, 0.0362952, -0.25],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877b11c3:lambert2",
+				string MeshName = "5567a7f2874d4ff6:Tank.TankTread",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 14,
+			},
+			Named = 
+			{
+				string Name = "pCube13",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.501069, 0.0388663, -0.25],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877b11c3:lambert2",
+				string MeshName = "5567a7f2874d4ff8:Tank.pCube13",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 15,
+			},
+			Named = 
+			{
+				string Name = "TankTurret",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0473661, 0.130931, 0],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5567a7f2877b56d5:TankTankTurretMulti",
+				string MeshName = "5567a7f2874d4ffa:Tank.TankTurret",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

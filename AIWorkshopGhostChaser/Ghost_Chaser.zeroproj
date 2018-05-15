@@ -1,0 +1,30 @@
+Cog = 
+{
+	Project = 
+	{
+		string ProjectName = "Ghost_Chaser",
+		string ProjectOwner = "",
+		string DefaultLevel = "Level",
+		string ProjectSpace = "Space",
+		uint ProjectEngineRevision = 11972,
+		bool AutoTakeProjectScreenshot = true,
+	},
+	EditorSettings = 
+	{
+		EditorMode EditorMode = Mode2D,
+		bool ViewCube = true,
+		float ViewCubeViewportSize = 150,
+		ScriptReloadMethod ScriptReloadEditor = ReInitializeObjects,
+		ScriptReloadMethod ScriptReloadGame = PatchObjects,
+	},
+	LauncherProjectInfo = 
+	{
+		string Tags = "",
+		string ExperimentalBranchName = "",
+		string MajorVersion = "0",
+		string MinorVersion = "0",
+		string PatchVersion = "0",
+		string RevisionId = "11972",
+		string ShortChangeSet = "",
+	},
+},

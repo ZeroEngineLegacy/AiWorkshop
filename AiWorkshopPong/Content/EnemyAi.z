@@ -1,0 +1,24 @@
+class EnemyAi : ZilchComponent
+{
+    // We must have a paddle Component
+    [Dependency] var Paddle : Paddle;
+
+    function Initialize(init : CogInitializer)
+    {
+        // We want to run our Ai logic every time the engine updates logic
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // Find the ball object
+        var ball = this.Space.FindObjectByName("Ball").Ball;
+        
+        var ballVelocity = ball.Velocity;
+        var ballPosition = ball.Position;
+        var ourPosition = this.Paddle.Position;
+        
+        //------------------------------------------------------- Student Code Below
+        
+    }
+}

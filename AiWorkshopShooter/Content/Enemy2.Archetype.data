@@ -1,0 +1,98 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Enemy2",
+	},
+	Archetyped = 
+	{
+		string Name = "524b6ee71534b3a3:Enemy2",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [5.31976, -6.43842, 0.0788651],
+		Vec3 Scale = [0.5, 0.5, 0.5],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "524e0209b31d02b9:enemy2",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = true,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "524aa1bdfe39bd0e:Enemy",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1.73392,
+	},
+	CreateOnDeath = 
+	{
+		string ArchetypeToCreate = "5245c0b5ff67c38d:RedPlasmaExplosion",
+		bool InheritVelocity = false,
+	},
+	DragEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = false,
+		float Drag = 3,
+	},
+	Health = 
+	{
+		float MaxHealth = 200,
+		bool DestroyAtZeroHealth = true,
+		float DamageScalar = 1,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 0, 1],
+		Vec3 UpVector = [0, -5.96046e-008, 1],
+		Vec3 ForwardVector = [-0, -1, -5.96046e-008],
+		OrientationBases DefaultBases = Custom,
+	},
+	Ship = 
+	{
+		float Speed = 4,
+		string Projectile = "5245faddd40ddded:RedProjectile",
+		float ProjectileSpeed = 25,
+		float TimeBetweenShots = 2,
+	},
+	EnemyAi2 = 
+	{
+	},
+	Hierarchy = 
+	{
+	},
+},

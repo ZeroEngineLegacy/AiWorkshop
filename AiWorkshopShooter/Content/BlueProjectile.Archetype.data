@@ -1,0 +1,144 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BlueProjectile",
+	},
+	Archetyped = 
+	{
+		string Name = "5246262451eab1da:GreenProjectile",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [7.24025, 4.26175, 8.44508],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "524aa1affd706143:EnemyProjectile",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 0.2,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = true,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	DamageOnCollide = 
+	{
+		float Damage = 20,
+		bool SendsDeathEvent = true,
+		bool DieOnCollide = true,
+	},
+	TimedDeath = 
+	{
+		float Lifetime = 3,
+		bool SendsDeathEvent = true,
+		bool AutoDestroy = true,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardYUpZ,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Particles",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.477, 0],
+				Vec3 Scale = [0.573678, 0.573678, 0.573678],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = LocalSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "52437a75369c57aa:Laser",
+				Vec4 Tint = [1, 1, 1, 1],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [2, 2, 2],
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 0,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 55,
+				float EmitVariance = 0,
+				float Size = 0.5,
+				float SizeVariance = 0,
+				float Lifetime = 0.3,
+				float LifetimeVariance = 0,
+				float Spin = 0,
+				float SpinVariance = 0,
+				bool RandomSpin = false,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, -0.3, 0],
+				Vec3 RandomVelocity = [0, 0, 0],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0, 0.5, 0],
+				bool FastMovingEmitter = false,
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [0.275, 0.67375, 1, 1],
+				Vec4 Color1 = [0.38, 0.6838, 1, 1],
+				Vec4 Color2 = [0.17, 0.4771, 1, 1],
+				Vec4 Color3 = [0.28, 0.46, 1, 1],
+				Vec4 Color4 = [0.095, 0.2941, 1, 0],
+			},
+			Hierarchy = 
+			{
+			},
+		},
+	},
+},

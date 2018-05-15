@@ -1,0 +1,44 @@
+class RhinoAi : ZilchComponent
+{
+    // All logic is done through the rhino
+    [Dependency] var Rhino : Rhino;
+    
+    // How many seconds before we switch directions when wandering
+    [Property] var TimeBetweenSwitch : Real = 3.0;
+    
+    // Used to keep track of which direction we're wandering in
+    var Left : Boolean = true;
+    
+    // How long it has been since we've switched directions
+    var TimeSinceSwitch : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        // We want our logic to run every frame
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        // Used to jump over gaps when we hit the jump object
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //------------------------------------------------------- Student Code Below
+        // Don't do anything if we're dead or attacking
+        if(this.Rhino.Dead || this.Rhino.Attacking)
+        {
+            return;
+        }
+        
+        var playerPos = this.Rhino.PlayerPosition;
+        var ourPos = this.Rhino.OurPosition;
+        
+        
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        // If we hit the jump point, we want to jump
+        
+    }
+}

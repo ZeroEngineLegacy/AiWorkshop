@@ -1,0 +1,46 @@
+class PlayerController : ZilchComponent
+{
+    [Property] var Speed : Integer = 1;
+    [Dependency] var Square : Square;
+    
+    function Initialize(init : CogInitializer)
+    {
+        // We want to run our player logic every time the engine updates logic
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    // These are functions
+    function MoveRight(dt : Real)
+    {
+        // Need to add Real3(1,0,0)
+        this.Owner.Transform.Translation += Real3(this.Speed * dt, 0, 0);
+    }
+    
+    function MoveLeft(dt : Real)
+    {
+        // Need to add Real3(-1,0,0)
+        //------------------------------------------------------- Student Code Below
+        
+    }
+    
+    function MoveUp(dt : Real)
+    {
+        // Need to add Real3(0,1,0)
+        //------------------------------------------------------- Student Code Below
+        
+    }
+    
+    function MoveDown(dt : Real)
+    {
+        // Need to add Real3(0,-1,0)
+        //------------------------------------------------------- Student Code Below
+        
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //------------------------------------------------------- Student Code Below
+        
+    }
+}

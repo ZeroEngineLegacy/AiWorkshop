@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	TextureBuilder = 
+	{
+		string Name = "SmallRock2",
+		uint64 ResourceId = 524514a2eb01ded4,
+		OutputTextureFormat Format = AutoColor,
+		FixPowerOf2 FixPowerOf2 = Auto,
+		ImageFilter ResizeFilter = Cubic,
+		bool GenerateMipMaps = true,
+		ImageFilter MipFilter = Cubic,
+	},
+	ContentTags = 
+	{
+		object Tags = 
+		[
+			"Particles",
+		],
+	},
+},

@@ -1,0 +1,17 @@
+class PlayerController : ZilchComponent
+{
+    // We require the character
+    [Dependency] var Character : Character;
+    
+    function Initialize(init : CogInitializer)
+    {
+        // We want our code to run every frame
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //------------------------------------------------------- Student Code Below
+        
+    }
+}

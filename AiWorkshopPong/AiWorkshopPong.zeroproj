@@ -1,0 +1,20 @@
+Cog = 
+{
+	Project = 
+	{
+		string ProjectName = "AiWorkshopPong",
+		string ProjectOwner = "",
+		string DefaultLevel = "Level",
+		string ProjectSpace = "Space",
+		uint ProjectEngineRevision = 11972,
+		bool AutoTakeProjectScreenshot = false,
+	},
+	EditorSettings = 
+	{
+		EditorMode EditorMode = Mode2D,
+		bool ViewCube = true,
+		float ViewCubeViewportSize = 150,
+		ScriptReloadMethod ScriptReloadEditor = ReInitializeObjects,
+		ScriptReloadMethod ScriptReloadGame = PatchObjects,
+	},
+},

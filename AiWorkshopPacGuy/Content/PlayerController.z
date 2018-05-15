@@ -1,0 +1,17 @@
+class PlayerController : ZilchComponent
+{
+    // All movement should be done through the player
+    [Dependency] var Player : Player;
+    
+    function Initialize(init : CogInitializer)
+    {
+        // We want our logic to run every update
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //------------------------------------------------------- Student Code Below
+        
+    }
+}

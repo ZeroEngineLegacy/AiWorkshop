@@ -1,0 +1,17 @@
+class BirdAi : ZilchComponent
+{
+    // We rely on the bird for functionality
+    [Dependency] var Bird : Bird;
+    
+    function Initialize(init : CogInitializer)
+    {
+        // Run our logic every frame
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //------------------------------------------------------- Student Code Below
+        
+    }
+}

@@ -1,0 +1,67 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Dot",
+	},
+	Archetyped = 
+	{
+		string Name = "557d4e13c787d225:Dot",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-7.5, 5, 0],
+		Vec3 Scale = [0.1, 0.1, 0.1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "5539dfb294db52e0:Dot",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "555b7e1173b1f5df:Collectible",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [0.1, 0.757, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = true,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [0.32485, 0.559837, 0.73, 1],
+		float Intensity = 0.57,
+		float Range = 2.29266,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+},

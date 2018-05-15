@@ -1,0 +1,28 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Alpha,
+	},
+	DoubledSide = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 0,
+		string EmissiveMapTexture = "55657f9022a114b2:FloorTexture6",
+		Vec2 EmissiveScroll = [0, 0],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	ModulateModelColor = 
+	{
+	},
+	ColorDiffuse = 
+	{
+		Vec4 DiffuseColor = [1, 1, 1, 0.045],
+	},
+},

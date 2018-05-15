@@ -1,0 +1,20 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "Enemy4",
+		uint64 ResourceId = 5558fcf627391536,
+		string LoaderType = "Cog",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Archetype",
+			"Enemy",
+			"Cog",
+		],
+	},
+},

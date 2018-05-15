@@ -1,0 +1,14 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	ColorDiffuse = 
+	{
+		Vec4 DiffuseColor = [1, 0, 0, 1],
+	},
+	DecalBlock = 
+	{
+		bool DepthLimit = true,
+	},
+},

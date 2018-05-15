@@ -1,0 +1,95 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Enemy1",
+	},
+	Archetyped = 
+	{
+		string Name = "52443359205b3b68:Enemy1",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [0.6, 0.6, 0.6],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "524aa9f463a3dd21:enemy_new",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = true,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	CapsuleCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "524aa1bdfe39bd0e:Enemy",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+		float Height = 1.5,
+		uint Direction = 1,
+	},
+	CreateOnDeath = 
+	{
+		string ArchetypeToCreate = "5558fc5231b56d92:YellowPlasmaExplosion",
+		bool InheritVelocity = false,
+	},
+	Health = 
+	{
+		float MaxHealth = 200,
+		bool DestroyAtZeroHealth = true,
+		float DamageScalar = 1,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 0, 1],
+		Vec3 UpVector = [-0, 0, 1],
+		Vec3 ForwardVector = [-8.74228e-008, -1, -0],
+		OrientationBases DefaultBases = Custom,
+	},
+	Ship = 
+	{
+		float Speed = 4,
+		string Projectile = "5245faddd40ddded:RedProjectile",
+		float ProjectileSpeed = 25,
+		float TimeBetweenShots = 3,
+		string HomingProjectile = "555c9c582df2e42e:HomingProjectile",
+	},
+	EnemyAi1 = 
+	{
+	},
+	Hierarchy = 
+	{
+	},
+},

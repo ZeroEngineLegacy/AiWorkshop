@@ -1,0 +1,27 @@
+[RunInEditor]
+class Color : ZilchComponent
+{
+    [Property]
+    var Color : Real4 = Real4(1);
+    
+    sends ColorEvent : ZilchEvent;
+    
+    function Initialize(init : CogInitializer)
+    {
+        
+        if(this.Owner.FindRoot() == this.Owner)
+        {
+            var colorEvent = ZilchEvent();
+            this.Owner.DispatchDown(Events.ColorEvent, colorEvent);
+        }
+        else
+        {
+            Zero.Connect(this.Owner, Events.ColorEvent, this.OnColorEvent);
+        }
+    }
+    
+    function OnColorEvent(event : Event)
+    {
+        this.Owner.Sprite.Color = this.Owner.FindRoot().Color.Color;
+    }
+}

@@ -1,0 +1,20 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "RhinoDino",
+		uint64 ResourceId = 545366cb773fdc05,
+		string LoaderType = "Cog",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Rhino",
+			"Dino",
+			"RhinoDinoSprite",
+		],
+	},
+},
