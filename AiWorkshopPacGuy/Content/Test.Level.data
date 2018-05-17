@@ -4,11 +4,20 @@ Level
 	Cog [ContextId:1]
 	{
 		var Name = "LevelSettings"
+		GravityEffect 
+		{
+			var Active = true
+			var WakeUpOnChange = false
+			var DebugDrawEffect = false
+			var LocalSpaceDirection = true
+			var Strength = 10
+			var Direction = Real3{0, -1, 0}
+		}
 		DragEffect 
 		{
 			var Active = true
 			var WakeUpOnChange = false
-			var DebugDrawEffect = true
+			var DebugDrawEffect = false
 			var LinearDamping = 0.200000003
 			var AngularDamping = 0.100000001
 			var LinearDrag = 0
@@ -16,11 +25,11 @@ Level
 		}
 		GridDraw 
 		{
-			var Active = false
+			var Active = true
 			var HalfCellOffset = false
 			var CellSize = 1
-			var Axis = AxisDirection.Z
-			var Lines = 40
+			var Axis = AxisDirection.Y
+			var Lines = 100
 			var DrawAxisOrigins = true
 			var AlwaysDrawInEditor = true
 			var DrawInGame = false
@@ -28,11 +37,6 @@ Level
 			var GridHighlight = Real4{0, 0, 0, 0.400000006}
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
-		}
-		RandomContext 
-		{
-			var RandomSeed = true
-			var Seed = 3315428214
 		}
 	}
 	Cog [ContextId:2]
@@ -42,15 +46,15 @@ Level
 		{
 			var GeometryDebug = GeometryValue.None
 			var EditorDebugDraw = true
-			var GameDebugDraw = false
+			var GameDebugDraw = true
 			var RenderDiffuse = true
 			var RenderSpecular = true
 			var RenderSkybox = false
-			var Skybox = "59391155863490b1:WhiteSkybox"
+			var Skybox = "null"
 			var ClearColor = Real4{0, 0, 0, 1}
 			var DirectLighting = true
 			var IndirectLighting = true
-			var IndirectIntensity = 0.0612249002
+			var IndirectIntensity = 1
 			var ToneMap = true
 		}
 		Bloom 
@@ -68,36 +72,44 @@ Level
 	}
 	Cog [ContextId:3]
 	{
-		var Name = "EditorCamera"
+		var Name = "DirectionalLightShadows"
 		Transform 
 		{
-			var Translation = Real3{-0.848148704, 2.06696129, 12.0868664}
+			var Translation = Real3{0, 20, 20}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-1.92252202e-07, -0.0261780005, -5.0345057e-09, 0.999657333}
+			var Rotation = Quaternion{-0.382683456, 0, 0, 0.923879504}
 		}
-		Camera 
+		SelectionIcon 
 		{
-			var NearPlane = 0.5
-			var FarPlane = 500
-			var PerspectiveMode = PerspectiveMode.Perspective
-			var FieldOfView = 45
-			var Size = 29.8365479
+			var Visible = true
+			var VisibilityEvents = true
+			var Material = "56581e2bb81777be:DebugDrawOnTop"
+			var SpriteSource = "58f8e4be736f5ea2:LightIcon"
+			var ViewScale = 1
+			var OverrideSelections = true
 		}
-		EditorCameraController 
+		Model 
 		{
-			var ControlMode = ControlMode.Orbit
-			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 11.999239
-			var VerticalAngle = 3.84636223e-07
-			var HorizontalAngle = 0.0523619503
-			var LookTarget = Real3{-0.220132262, 2.06695676, 0.104072109}
-			var MoveSensitivity = 1
+			var Visible = true
+			var ViewCulling = false
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "580267aabbf7843e:DirectionalLightShadows"
+			var Mesh = "59040f1e835d03e1:Triangle"
+		}
+		DirectionalLight 
+		{
+			var LightColor = Real4{1, 1, 1, 1}
+			var LightIntensity = 5
 		}
 		CameraViewport 
 		{
 			var RenderInEditor = true
-			var RenderInGame = false
-			var RenderOrder = 0
+			var RenderInGame = true
+			var RenderOrder = -1
 			var CameraPath = CogPath
 			{
 				var Path = "."
@@ -115,7 +127,7 @@ Level
 			}
 			var RendererPath = CogPath
 			{
-				var Path = ":/Renderer"
+				var Path = "."
 				var ErrorOnResolveToNull = false
 				var ErrorOnPathCantCompute = false
 				var ErrorOnDirectLinkFail = false
@@ -123,41 +135,46 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 2
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
 			var ResolutionOrAspect = Integer2{1920, 1080}
-			var RenderToViewport = true
-			var ForwardViewportEvents = true
+			var RenderToViewport = false
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
 			var MarginColor = Real4{0, 0, 0, 1}
 			var NormalizedSize = Real2{1, 1}
 			var NormalizedOffset = Real2{0, 0}
 		}
+		Camera 
+		{
+			var NearPlane = 0.100000001
+			var FarPlane = 100
+			var PerspectiveMode = PerspectiveMode.Orthographic
+			var FieldOfView = 45
+			var Size = 64
+		}
+		ShadowRenderer 
+		{
+			var ResolutionValue = ShadowResolution.High
+			var NormalOffsetBias = 0.100000001
+		}
 	}
 	Cog [ContextId:4]
 	{
-		var Name = "Camera"
+		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0, -13.1842003, 38.8384018}
+			var Translation = Real3{-12.279645, 8.7895031, 30.0903511}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0.129660994, 0, 0, 0.991558015}
-		}
-		Camera 
-		{
-			var NearPlane = 0.5
-			var FarPlane = 200
-			var PerspectiveMode = PerspectiveMode.Perspective
-			var FieldOfView = 45
-			var Size = 20
+			var Rotation = Quaternion{-0.100869536, -0.191502154, -0.0197898187, 0.976094544}
 		}
 		CameraViewport 
 		{
-			var RenderInEditor = false
-			var RenderInGame = true
+			var RenderInEditor = true
+			var RenderInGame = false
 			var RenderOrder = 0
 			var CameraPath = CogPath
 			{
@@ -191,62 +208,185 @@ Level
 			}
 			var ResolutionOrAspect = Integer2{1920, 1080}
 			var RenderToViewport = true
-			var ForwardViewportEvents = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
 			var MarginColor = Real4{0, 0, 0, 1}
 			var NormalizedSize = Real2{1, 1}
 			var NormalizedOffset = Real2{0, 0}
 		}
-		Hierarchy 
+		Camera 
 		{
+			var NearPlane = 0.100000001
+			var FarPlane = 200
+			var PerspectiveMode = PerspectiveMode.Perspective
+			var FieldOfView = 60
+			var Size = 20
+		}
+		EditorCameraController 
+		{
+			var ControlMode = ControlMode.Orbit
+			var Previous3DMode = ControlMode.Orbit
+			var LookDistance = 33.201149
+			var VerticalAngle = 0.20594883
+			var HorizontalAngle = 0.387463093
+			var LookTarget = Real3{0, 2, 0}
+			var MoveSensitivity = 1
 		}
 	}
 	Cog [ContextId:5]
 	{
-		var Name = "DirectionalLight"
+		var Name = "GameCamera"
 		Transform 
 		{
-			var Translation = Real3{-0.337338954, 1.4602685, 15.2268867}
+			var Translation = Real3{0, 2, 10}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.161188245, 0, 0, 0.986923754}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		SelectionIcon 
 		{
 			var Visible = true
 			var VisibilityEvents = true
 			var Material = "56581e2bb81777be:DebugDrawOnTop"
-			var SpriteSource = "58f8e4be736f5ea2:LightIcon"
+			var SpriteSource = "58f8e4be7360cf7c:CameraIcon"
 			var ViewScale = 1
 			var OverrideSelections = true
+		}
+		CameraViewport 
+		{
+			var RenderInEditor = false
+			var RenderInGame = true
+			var RenderOrder = 0
+			var CameraPath = CogPath
+			{
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 5
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var RendererPath = CogPath
+			{
+				var Path = ":/Renderer"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 2
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
+			var ViewportScaling = ViewportScaling.Letterbox
+			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
+		}
+		Camera 
+		{
+			var NearPlane = 0.100000001
+			var FarPlane = 200
+			var PerspectiveMode = PerspectiveMode.Perspective
+			var FieldOfView = 60
+			var Size = 20
+		}
+		SoundListener 
+		{
+			var Active = true
+			var AttenuationScale = 1
+		}
+	}
+	Cog [ContextId:6]
+	{
+		var Name = "Cube"
+		Transform 
+		{
+			var Translation = Real3{0, 0, 0}
+			var Scale = Real3{20, 1, 20}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Model 
 		{
 			var Visible = true
-			var ViewCulling = false
+			var ViewCulling = true
 			var VisibilityEvents = true
 			var OverrideBoundingBox = false
 			var LocalAabbCenter = Real3{0, 0, 0}
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
-			var Material = "581a79008d1b94fe:DirectionalLight"
-			var Mesh = "59040f1e835d03e1:Triangle"
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b345ae:Cube"
 		}
-		DirectionalLight 
+		BoxCollider 
 		{
-			var LightColor = Real4{1, 1, 1, 1}
-			var LightIntensity = 1.66761601
-		}
-		Hierarchy 
-		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:6]
+	Cog [ContextId:7]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{0, 2, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+	}
+	Cog [ContextId:8]
 	{
 		var Name = "PointLight"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 8.55203056}
-			var Scale = Real3{36.5573463, 36.5573463, 36.5573463}
+			var Translation = Real3{2.07944059, 1.94226956, 1.89416027}
+			var Scale = Real3{20, 20, 20}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		SelectionIcon 
@@ -273,2220 +413,15 @@ Level
 		PointLight 
 		{
 			var LightColor = Real4{1, 1, 1, 1}
-			var LightIntensity = 100
-			var FalloffRadius = 18.2786732
+			var LightIntensity = 20
+			var FalloffRadius = 10
 			var LightRadius = 0
 		}
 		Hierarchy 
 		{
 		}
 	}
-	Cog [ContextId:7]
-	{
-		var Name = "Collectibles"
-		Transform 
-		{
-			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a205121][InheritId:"557d4e13c787d225:Dot"][ContextId:8]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, 13, 0}
-				}
-			}
-			Cog [Id:0x5aadb9b1227df9bd][InheritId:"557d4e13c787d225:Dot"][ContextId:9]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d438c45][InheritId:"557d4e13c787d225:Dot"][ContextId:10]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf65db][InheritId:"557d4e13c787d225:Dot"][ContextId:11]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.499999, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba2a39d7e3cf][InheritId:"557d4e13c787d225:Dot"][ContextId:12]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.499999, -13.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba2b398f1215][InheritId:"557d4e13c787d225:Dot"][ContextId:13]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.499999, -12.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba2839649b20][InheritId:"557d4e13c787d225:Dot"][ContextId:14]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.499999, -9.99999809, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad54ceb5bc3][InheritId:"557d4e13c787d225:Dot"][ContextId:15]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.49999905, -9.99999809, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba29390fee58][InheritId:"557d4e13c787d225:Dot"][ContextId:16]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.499999, -10.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad54ceb5c2b][InheritId:"557d4e13c787d225:Dot"][ContextId:17]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.49999905, -10.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba2e38ede718][InheritId:"557d4e13c787d225:Dot"][ContextId:18]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.499999, -8.99999809, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba2f38db884f][InheritId:"557d4e13c787d225:Dot"][ContextId:19]
-			{
-				Transform 
-				{
-					var Translation = Real3{-11.499999, -8.99999809, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba2d3867fc78][InheritId:"557d4e13c787d225:Dot"][ContextId:20]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.499999, -7.99999809, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba2d38487681][InheritId:"557d4e13c787d225:Dot"][ContextId:21]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.499999, -6.99999809, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9f11f9f0a4d][InheritId:"557d4e13c787d225:Dot"][ContextId:22]
-			{
-				Transform 
-				{
-					var Translation = Real3{-11.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba59298f2019][InheritId:"557d4e13c787d225:Dot"][ContextId:23]
-			{
-				Transform 
-				{
-					var Translation = Real3{-11.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba623542e7d5][InheritId:"557d4e13c787d225:Dot"][ContextId:24]
-			{
-				Transform 
-				{
-					var Translation = Real3{-11.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba173e94d341][InheritId:"557d4e13c787d225:Dot"][ContextId:25]
-			{
-				Transform 
-				{
-					var Translation = Real3{-11.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba143e277524][InheritId:"557d4e13c787d225:Dot"][ContextId:26]
-			{
-				Transform 
-				{
-					var Translation = Real3{-11.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba6034fba8bb][InheritId:"557d4e13c787d225:Dot"][ContextId:27]
-			{
-				Transform 
-				{
-					var Translation = Real3{9.49999809, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfa2b][InheritId:"557d4e13c787d225:Dot"][ContextId:28]
-			{
-				Transform 
-				{
-					var Translation = Real3{2.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00e88b][InheritId:"557d4e13c787d225:Dot"][ContextId:29]
-			{
-				Transform 
-				{
-					var Translation = Real3{2.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d438cd3][InheritId:"557d4e13c787d225:Dot"][ContextId:30]
-			{
-				Transform 
-				{
-					var Translation = Real3{2.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf6670][InheritId:"557d4e13c787d225:Dot"][ContextId:31]
-			{
-				Transform 
-				{
-					var Translation = Real3{-11.499999, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9991abb22d7][InheritId:"557d4e13c787d225:Dot"][ContextId:32]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba59298f20c5][InheritId:"557d4e13c787d225:Dot"][ContextId:33]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba623542e8e1][InheritId:"557d4e13c787d225:Dot"][ContextId:34]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba173e94d44e][InheritId:"557d4e13c787d225:Dot"][ContextId:35]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba143e27765a][InheritId:"557d4e13c787d225:Dot"][ContextId:36]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad54ceb5e5f][InheritId:"557d4e13c787d225:Dot"][ContextId:37]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba6034fba9ad][InheritId:"557d4e13c787d225:Dot"][ContextId:38]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.4999981, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfa96][InheritId:"557d4e13c787d225:Dot"][ContextId:39]
-			{
-				Transform 
-				{
-					var Translation = Real3{3.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00e963][InheritId:"557d4e13c787d225:Dot"][ContextId:40]
-			{
-				Transform 
-				{
-					var Translation = Real3{3.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d438d4f][InheritId:"557d4e13c787d225:Dot"][ContextId:41]
-			{
-				Transform 
-				{
-					var Translation = Real3{3.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf6703][InheritId:"557d4e13c787d225:Dot"][ContextId:42]
-			{
-				Transform 
-				{
-					var Translation = Real3{-10.499999, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb99e1a7a7278][InheritId:"557d4e13c787d225:Dot"][ContextId:43]
-			{
-				Transform 
-				{
-					var Translation = Real3{-9.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba59298f218a][InheritId:"557d4e13c787d225:Dot"][ContextId:44]
-			{
-				Transform 
-				{
-					var Translation = Real3{-9.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba623542e9ce][InheritId:"557d4e13c787d225:Dot"][ContextId:45]
-			{
-				Transform 
-				{
-					var Translation = Real3{-9.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba173e94d574][InheritId:"557d4e13c787d225:Dot"][ContextId:46]
-			{
-				Transform 
-				{
-					var Translation = Real3{-9.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba143e277807][InheritId:"557d4e13c787d225:Dot"][ContextId:47]
-			{
-				Transform 
-				{
-					var Translation = Real3{-9.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad54ceb5fa3][InheritId:"557d4e13c787d225:Dot"][ContextId:48]
-			{
-				Transform 
-				{
-					var Translation = Real3{-3.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba6034fbaa91][InheritId:"557d4e13c787d225:Dot"][ContextId:49]
-			{
-				Transform 
-				{
-					var Translation = Real3{11.4999981, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfafd][InheritId:"557d4e13c787d225:Dot"][ContextId:50]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00ea36][InheritId:"557d4e13c787d225:Dot"][ContextId:51]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba0c330cc598][InheritId:"557d4e13c787d225:Dot"][ContextId:52]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, 8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba0d32e5f739][InheritId:"557d4e13c787d225:Dot"][ContextId:53]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, 7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d438dd1][InheritId:"557d4e13c787d225:Dot"][ContextId:54]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf6795][InheritId:"557d4e13c787d225:Dot"][ContextId:55]
-			{
-				Transform 
-				{
-					var Translation = Real3{-9.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb99f1a3c7f3f][InheritId:"557d4e13c787d225:Dot"][ContextId:56]
-			{
-				Transform 
-				{
-					var Translation = Real3{-8.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba59298f2236][InheritId:"557d4e13c787d225:Dot"][ContextId:57]
-			{
-				Transform 
-				{
-					var Translation = Real3{-8.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba623542eaf4][InheritId:"557d4e13c787d225:Dot"][ContextId:58]
-			{
-				Transform 
-				{
-					var Translation = Real3{-8.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba173e94d6aa][InheritId:"557d4e13c787d225:Dot"][ContextId:59]
-			{
-				Transform 
-				{
-					var Translation = Real3{-8.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba143e27795e][InheritId:"557d4e13c787d225:Dot"][ContextId:60]
-			{
-				Transform 
-				{
-					var Translation = Real3{-8.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad54ceb612f][InheritId:"557d4e13c787d225:Dot"][ContextId:61]
-			{
-				Transform 
-				{
-					var Translation = Real3{-2.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaee4fe0d75c][InheritId:"557d4e13c787d225:Dot"][ContextId:62]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaef4fd1a6eb][InheritId:"557d4e13c787d225:Dot"][ContextId:63]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, -13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaec4f889399][InheritId:"557d4e13c787d225:Dot"][ContextId:64]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, -14, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaec4f62d26c][InheritId:"557d4e13c787d225:Dot"][ContextId:65]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, -14, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbae24f2293a1][InheritId:"557d4e13c787d225:Dot"][ContextId:66]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, -13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbae34eeb84f7][InheritId:"557d4e13c787d225:Dot"][ContextId:67]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbae04edc87d2][InheritId:"557d4e13c787d225:Dot"][ContextId:68]
-			{
-				Transform 
-				{
-					var Translation = Real3{2.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbae04eb6d451][InheritId:"557d4e13c787d225:Dot"][ContextId:69]
-			{
-				Transform 
-				{
-					var Translation = Real3{3.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbae14e90470e][InheritId:"557d4e13c787d225:Dot"][ContextId:70]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbae64e47332d][InheritId:"557d4e13c787d225:Dot"][ContextId:71]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, -11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbae74e25259c][InheritId:"557d4e13c787d225:Dot"][ContextId:72]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, -10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbae44e10467c][InheritId:"557d4e13c787d225:Dot"][ContextId:73]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.5, -10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbafa49831d3b][InheritId:"557d4e13c787d225:Dot"][ContextId:74]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbafb494f5ace][InheritId:"557d4e13c787d225:Dot"][ContextId:75]
-			{
-				Transform 
-				{
-					var Translation = Real3{11.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaf8490c66ff][InheritId:"557d4e13c787d225:Dot"][ContextId:76]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, -8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaf948e6b57e][InheritId:"557d4e13c787d225:Dot"][ContextId:77]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, -7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaf948c6f177][InheritId:"557d4e13c787d225:Dot"][ContextId:78]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaff489f76a3][InheritId:"557d4e13c787d225:Dot"][ContextId:79]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, -13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaff48766722][InheritId:"557d4e13c787d225:Dot"][ContextId:80]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, -14, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbafc482182c8][InheritId:"557d4e13c787d225:Dot"][ContextId:81]
-			{
-				Transform 
-				{
-					var Translation = Real3{11.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbafd4be93f46][InheritId:"557d4e13c787d225:Dot"][ContextId:82]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaf04b916747][InheritId:"557d4e13c787d225:Dot"][ContextId:83]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.5, -11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaf14b549d04][InheritId:"557d4e13c787d225:Dot"][ContextId:84]
-			{
-				Transform 
-				{
-					var Translation = Real3{9.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbaf64b129615][InheritId:"557d4e13c787d225:Dot"][ContextId:85]
-			{
-				Transform 
-				{
-					var Translation = Real3{8.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba6034fbab78][InheritId:"557d4e13c787d225:Dot"][ContextId:86]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.4999981, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfb5e][InheritId:"557d4e13c787d225:Dot"][ContextId:87]
-			{
-				Transform 
-				{
-					var Translation = Real3{5.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00eb00][InheritId:"557d4e13c787d225:Dot"][ContextId:88]
-			{
-				Transform 
-				{
-					var Translation = Real3{5.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d438e63][InheritId:"557d4e13c787d225:Dot"][ContextId:89]
-			{
-				Transform 
-				{
-					var Translation = Real3{5.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf682e][InheritId:"557d4e13c787d225:Dot"][ContextId:90]
-			{
-				Transform 
-				{
-					var Translation = Real3{-8.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb99c1a121791][InheritId:"557d4e13c787d225:Dot"][ContextId:91]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba043d83894e][InheritId:"557d4e13c787d225:Dot"][ContextId:92]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1a3d36e8d8][InheritId:"557d4e13c787d225:Dot"][ContextId:93]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 3.00000048, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f3b8f][InheritId:"557d4e13c787d225:Dot"][ContextId:94]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 3.00000048, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba193c648779][InheritId:"557d4e13c787d225:Dot"][ContextId:95]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -1.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f3bf6][InheritId:"557d4e13c787d225:Dot"][ContextId:96]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -1.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1f3c1055be][InheritId:"557d4e13c787d225:Dot"][ContextId:97]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -6.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f3c58][InheritId:"557d4e13c787d225:Dot"][ContextId:98]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -6.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfbc3][InheritId:"557d4e13c787d225:Dot"][ContextId:99]
-			{
-				Transform 
-				{
-					var Translation = Real3{6.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00ebc9][InheritId:"557d4e13c787d225:Dot"][ContextId:100]
-			{
-				Transform 
-				{
-					var Translation = Real3{6.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d438ee1][InheritId:"557d4e13c787d225:Dot"][ContextId:101]
-			{
-				Transform 
-				{
-					var Translation = Real3{6.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf68c5][InheritId:"557d4e13c787d225:Dot"][ContextId:102]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb99d25ac97c1][InheritId:"557d4e13c787d225:Dot"][ContextId:103]
-			{
-				Transform 
-				{
-					var Translation = Real3{-6.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00ec6e][InheritId:"557d4e13c787d225:Dot"][ContextId:104]
-			{
-				Transform 
-				{
-					var Translation = Real3{-6.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfc24][InheritId:"557d4e13c787d225:Dot"][ContextId:105]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d438f5a][InheritId:"557d4e13c787d225:Dot"][ContextId:106]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf6953][InheritId:"557d4e13c787d225:Dot"][ContextId:107]
-			{
-				Transform 
-				{
-					var Translation = Real3{-6.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9932567663b][InheritId:"557d4e13c787d225:Dot"][ContextId:108]
-			{
-				Transform 
-				{
-					var Translation = Real3{-5.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00ed68][InheritId:"557d4e13c787d225:Dot"][ContextId:109]
-			{
-				Transform 
-				{
-					var Translation = Real3{-5.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfc8a][InheritId:"557d4e13c787d225:Dot"][ContextId:110]
-			{
-				Transform 
-				{
-					var Translation = Real3{8.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00ee7d][InheritId:"557d4e13c787d225:Dot"][ContextId:111]
-			{
-				Transform 
-				{
-					var Translation = Real3{8.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d438fd3][InheritId:"557d4e13c787d225:Dot"][ContextId:112]
-			{
-				Transform 
-				{
-					var Translation = Real3{8.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf69e1][InheritId:"557d4e13c787d225:Dot"][ContextId:113]
-			{
-				Transform 
-				{
-					var Translation = Real3{-5.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb993255e4c6f][InheritId:"557d4e13c787d225:Dot"][ContextId:114]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00ef32][InheritId:"557d4e13c787d225:Dot"][ContextId:115]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba7f368ad688][InheritId:"557d4e13c787d225:Dot"][ContextId:116]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.5, 8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba7c3649e179][InheritId:"557d4e13c787d225:Dot"][ContextId:117]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.5, 7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba7d3628f686][InheritId:"557d4e13c787d225:Dot"][ContextId:118]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3c4548d2b1][InheritId:"557d4e13c787d225:Dot"][ContextId:119]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3747fccbf7][InheritId:"557d4e13c787d225:Dot"][ContextId:120]
-			{
-				Transform 
-				{
-					var Translation = Real3{2.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad843899ae7][InheritId:"557d4e13c787d225:Dot"][ContextId:121]
-			{
-				Transform 
-				{
-					var Translation = Real3{2.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbade435b1078][InheritId:"557d4e13c787d225:Dot"][ContextId:122]
-			{
-				Transform 
-				{
-					var Translation = Real3{-6.49999905, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac846dac20a][InheritId:"557d4e13c787d225:Dot"][ContextId:123]
-			{
-				Transform 
-				{
-					var Translation = Real3{9.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3344dcf887][InheritId:"557d4e13c787d225:Dot"][ContextId:124]
-			{
-				Transform 
-				{
-					var Translation = Real3{-5.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3747fccc5d][InheritId:"557d4e13c787d225:Dot"][ContextId:125]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac3419edf72][InheritId:"557d4e13c787d225:Dot"][ContextId:126]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, -7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac3414ca012][InheritId:"557d4e13c787d225:Dot"][ContextId:127]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, -8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac141062a08][InheritId:"557d4e13c787d225:Dot"][ContextId:128]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac846dac28a][InheritId:"557d4e13c787d225:Dot"][ContextId:129]
-			{
-				Transform 
-				{
-					var Translation = Real3{8.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba30449f0dea][InheritId:"557d4e13c787d225:Dot"][ContextId:130]
-			{
-				Transform 
-				{
-					var Translation = Real3{-6.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba0e33838823][InheritId:"557d4e13c787d225:Dot"][ContextId:131]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba72361f0273][InheritId:"557d4e13c787d225:Dot"][ContextId:132]
-			{
-				Transform 
-				{
-					var Translation = Real3{-3.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3c4548d32c][InheritId:"557d4e13c787d225:Dot"][ContextId:133]
-			{
-				Transform 
-				{
-					var Translation = Real3{-3.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3747fccd1d][InheritId:"557d4e13c787d225:Dot"][ContextId:134]
-			{
-				Transform 
-				{
-					var Translation = Real3{3.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad843899c5a][InheritId:"557d4e13c787d225:Dot"][ContextId:135]
-			{
-				Transform 
-				{
-					var Translation = Real3{3.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbade435b11e8][InheritId:"557d4e13c787d225:Dot"][ContextId:136]
-			{
-				Transform 
-				{
-					var Translation = Real3{-5.49999905, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac846dac343][InheritId:"557d4e13c787d225:Dot"][ContextId:137]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba0e33838881][InheritId:"557d4e13c787d225:Dot"][ContextId:138]
-			{
-				Transform 
-				{
-					var Translation = Real3{2.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba7231fa74bd][InheritId:"557d4e13c787d225:Dot"][ContextId:139]
-			{
-				Transform 
-				{
-					var Translation = Real3{-2.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3c4548d39c][InheritId:"557d4e13c787d225:Dot"][ContextId:140]
-			{
-				Transform 
-				{
-					var Translation = Real3{-2.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3747fccdb4][InheritId:"557d4e13c787d225:Dot"][ContextId:141]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad843899d23][InheritId:"557d4e13c787d225:Dot"][ContextId:142]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbade435b12d9][InheritId:"557d4e13c787d225:Dot"][ContextId:143]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.49999905, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac846dac3ed][InheritId:"557d4e13c787d225:Dot"][ContextId:144]
-			{
-				Transform 
-				{
-					var Translation = Real3{11.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba0e338388db][InheritId:"557d4e13c787d225:Dot"][ContextId:145]
-			{
-				Transform 
-				{
-					var Translation = Real3{3.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba7331aedc3e][InheritId:"557d4e13c787d225:Dot"][ContextId:146]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3c4548d412][InheritId:"557d4e13c787d225:Dot"][ContextId:147]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac3419ee175][InheritId:"557d4e13c787d225:Dot"][ContextId:148]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, -7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac3414ca470][InheritId:"557d4e13c787d225:Dot"][ContextId:149]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, -8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac141062bd1][InheritId:"557d4e13c787d225:Dot"][ContextId:150]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba3747fcce42][InheritId:"557d4e13c787d225:Dot"][ContextId:151]
-			{
-				Transform 
-				{
-					var Translation = Real3{5.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad843899e1f][InheritId:"557d4e13c787d225:Dot"][ContextId:152]
-			{
-				Transform 
-				{
-					var Translation = Real3{5.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbade435b13e8][InheritId:"557d4e13c787d225:Dot"][ContextId:153]
-			{
-				Transform 
-				{
-					var Translation = Real3{-3.49999905, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbac846dac4b4][InheritId:"557d4e13c787d225:Dot"][ContextId:154]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba0e33838933][InheritId:"557d4e13c787d225:Dot"][ContextId:155]
-			{
-				Transform 
-				{
-					var Translation = Real3{4.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfcea][InheritId:"557d4e13c787d225:Dot"][ContextId:156]
-			{
-				Transform 
-				{
-					var Translation = Real3{9.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00ef9e][InheritId:"557d4e13c787d225:Dot"][ContextId:157]
-			{
-				Transform 
-				{
-					var Translation = Real3{9.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d439051][InheritId:"557d4e13c787d225:Dot"][ContextId:158]
-			{
-				Transform 
-				{
-					var Translation = Real3{9.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf6a73][InheritId:"557d4e13c787d225:Dot"][ContextId:159]
-			{
-				Transform 
-				{
-					var Translation = Real3{-4.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9902534f63e][InheritId:"557d4e13c787d225:Dot"][ContextId:160]
-			{
-				Transform 
-				{
-					var Translation = Real3{-3.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00f039][InheritId:"557d4e13c787d225:Dot"][ContextId:161]
-			{
-				Transform 
-				{
-					var Translation = Real3{-3.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfd4f][InheritId:"557d4e13c787d225:Dot"][ContextId:162]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00f095][InheritId:"557d4e13c787d225:Dot"][ContextId:163]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d4390cc][InheritId:"557d4e13c787d225:Dot"][ContextId:164]
-			{
-				Transform 
-				{
-					var Translation = Real3{10.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf6b0f][InheritId:"557d4e13c787d225:Dot"][ContextId:165]
-			{
-				Transform 
-				{
-					var Translation = Real3{-3.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb99124e88492][InheritId:"557d4e13c787d225:Dot"][ContextId:166]
-			{
-				Transform 
-				{
-					var Translation = Real3{-2.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00f12f][InheritId:"557d4e13c787d225:Dot"][ContextId:167]
-			{
-				Transform 
-				{
-					var Translation = Real3{-2.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfdb2][InheritId:"557d4e13c787d225:Dot"][ContextId:168]
-			{
-				Transform 
-				{
-					var Translation = Real3{11.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba552b00f18e][InheritId:"557d4e13c787d225:Dot"][ContextId:169]
-			{
-				Transform 
-				{
-					var Translation = Real3{11.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d439149][InheritId:"557d4e13c787d225:Dot"][ContextId:170]
-			{
-				Transform 
-				{
-					var Translation = Real3{11.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf6bac][InheritId:"557d4e13c787d225:Dot"][ContextId:171]
-			{
-				Transform 
-				{
-					var Translation = Real3{-2.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb99624d740ee][InheritId:"557d4e13c787d225:Dot"][ContextId:172]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9b1227dfe0b][InheritId:"557d4e13c787d225:Dot"][ContextId:173]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, 13, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba4a2d4391bf][InheritId:"557d4e13c787d225:Dot"][ContextId:174]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba492cdf6c3d][InheritId:"557d4e13c787d225:Dot"][ContextId:175]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.49999905, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba422fc3d089][InheritId:"557d4e13c787d225:Dot"][ContextId:176]
-			{
-				Transform 
-				{
-					var Translation = Real3{-0.499999046, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba462ee72e15][InheritId:"557d4e13c787d225:Dot"][ContextId:177]
-			{
-				Transform 
-				{
-					var Translation = Real3{0.500000954, -14.9999981, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9972498d236][InheritId:"557d4e13c787d225:Dot"][ContextId:178]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, 12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9ac26bc48d7][InheritId:"557d4e13c787d225:Dot"][ContextId:179]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba043d8395e5][InheritId:"557d4e13c787d225:Dot"][ContextId:180]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f416d][InheritId:"557d4e13c787d225:Dot"][ContextId:181]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1a3d36ede9][InheritId:"557d4e13c787d225:Dot"][ContextId:182]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 2.00000048, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f41c9][InheritId:"557d4e13c787d225:Dot"][ContextId:183]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 2.00000048, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba193c648d4a][InheritId:"557d4e13c787d225:Dot"][ContextId:184]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -2.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f4224][InheritId:"557d4e13c787d225:Dot"][ContextId:185]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -2.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1f3c105b52][InheritId:"557d4e13c787d225:Dot"][ContextId:186]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -7.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f427d][InheritId:"557d4e13c787d225:Dot"][ContextId:187]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -7.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9ad267cb663][InheritId:"557d4e13c787d225:Dot"][ContextId:188]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, 12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a021ff3cce][InheritId:"557d4e13c787d225:Dot"][ContextId:189]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, 12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a1218a0557][InheritId:"557d4e13c787d225:Dot"][ContextId:190]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a7215bd25d][InheritId:"557d4e13c787d225:Dot"][ContextId:191]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, 12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb994244a4e61][InheritId:"557d4e13c787d225:Dot"][ContextId:192]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, 11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9ac26bc4935][InheritId:"557d4e13c787d225:Dot"][ContextId:193]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba043d8397e0][InheritId:"557d4e13c787d225:Dot"][ContextId:194]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f4364][InheritId:"557d4e13c787d225:Dot"][ContextId:195]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1a3d36ef4d][InheritId:"557d4e13c787d225:Dot"][ContextId:196]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 1.00000048, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f43c2][InheritId:"557d4e13c787d225:Dot"][ContextId:197]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 1.00000048, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba193c648e51][InheritId:"557d4e13c787d225:Dot"][ContextId:198]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -3.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f4424][InheritId:"557d4e13c787d225:Dot"][ContextId:199]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -3.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1f3c105c6e][InheritId:"557d4e13c787d225:Dot"][ContextId:200]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f4479][InheritId:"557d4e13c787d225:Dot"][ContextId:201]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a021ff3d5a][InheritId:"557d4e13c787d225:Dot"][ContextId:202]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, 11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a1218a0622][InheritId:"557d4e13c787d225:Dot"][ContextId:203]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb995243e8203][InheritId:"557d4e13c787d225:Dot"][ContextId:204]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, 10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9ac26bc4992][InheritId:"557d4e13c787d225:Dot"][ContextId:205]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba043d839a12][InheritId:"557d4e13c787d225:Dot"][ContextId:206]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 5, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f455e][InheritId:"557d4e13c787d225:Dot"][ContextId:207]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 5, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1a3d36f080][InheritId:"557d4e13c787d225:Dot"][ContextId:208]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 4.76837158e-07, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f45b7][InheritId:"557d4e13c787d225:Dot"][ContextId:209]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 4.76837158e-07, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba193c648f42][InheritId:"557d4e13c787d225:Dot"][ContextId:210]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -4.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f4613][InheritId:"557d4e13c787d225:Dot"][ContextId:211]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -4.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1f3c105d9e][InheritId:"557d4e13c787d225:Dot"][ContextId:212]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f466e][InheritId:"557d4e13c787d225:Dot"][ContextId:213]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9ad267cb758][InheritId:"557d4e13c787d225:Dot"][ContextId:214]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, 10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a021ff3ddf][InheritId:"557d4e13c787d225:Dot"][ContextId:215]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, 10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a1218a06ce][InheritId:"557d4e13c787d225:Dot"][ContextId:216]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a7215bd3da][InheritId:"557d4e13c787d225:Dot"][ContextId:217]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, 10, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba67342dc8f5][InheritId:"557d4e13c787d225:Dot"][ContextId:218]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, 8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba6537f600bd][InheritId:"557d4e13c787d225:Dot"][ContextId:219]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, 8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9aa2410a898][InheritId:"557d4e13c787d225:Dot"][ContextId:220]
-			{
-				Transform 
-				{
-					var Translation = Real3{-1.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba682a72592a][InheritId:"557d4e13c787d225:Dot"][ContextId:221]
-			{
-				Transform 
-				{
-					var Translation = Real3{-0.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba6e2a38b3bd][InheritId:"557d4e13c787d225:Dot"][ContextId:222]
-			{
-				Transform 
-				{
-					var Translation = Real3{0.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9ac26bc49ef][InheritId:"557d4e13c787d225:Dot"][ContextId:223]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba043d839cdc][InheritId:"557d4e13c787d225:Dot"][ContextId:224]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, 4, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f47bc][InheritId:"557d4e13c787d225:Dot"][ContextId:225]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 4, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1a3d36f1ca][InheritId:"557d4e13c787d225:Dot"][ContextId:226]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -0.999999523, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f4820][InheritId:"557d4e13c787d225:Dot"][ContextId:227]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -0.999999523, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba193c64908e][InheritId:"557d4e13c787d225:Dot"][ContextId:228]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -5.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f4879][InheritId:"557d4e13c787d225:Dot"][ContextId:229]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -5.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbacf46276b16][InheritId:"557d4e13c787d225:Dot"][ContextId:230]
-			{
-				Transform 
-				{
-					var Translation = Real3{6.5, -5.99999952, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbad84389a5a1][InheritId:"557d4e13c787d225:Dot"][ContextId:231]
-			{
-				Transform 
-				{
-					var Translation = Real3{6.5, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadbade435b1c3a][InheritId:"557d4e13c787d225:Dot"][ContextId:232]
-			{
-				Transform 
-				{
-					var Translation = Real3{-2.49999905, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba1f3c105f0a][InheritId:"557d4e13c787d225:Dot"][ContextId:233]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f48d0][InheritId:"557d4e13c787d225:Dot"][ContextId:234]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba133f44b742][InheritId:"557d4e13c787d225:Dot"][ContextId:235]
-			{
-				Transform 
-				{
-					var Translation = Real3{-7.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba383a2f4926][InheritId:"557d4e13c787d225:Dot"][ContextId:236]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9ad267cb7d2][InheritId:"557d4e13c787d225:Dot"][ContextId:237]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba623542f26f][InheritId:"557d4e13c787d225:Dot"][ContextId:238]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba173e94e06c][InheritId:"557d4e13c787d225:Dot"][ContextId:239]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, -6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba143e27837f][InheritId:"557d4e13c787d225:Dot"][ContextId:240]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, -12, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba6034fbb19a][InheritId:"557d4e13c787d225:Dot"][ContextId:241]
-			{
-				Transform 
-				{
-					var Translation = Real3{8.49999809, 6, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a021ff3e63][InheritId:"557d4e13c787d225:Dot"][ContextId:242]
-			{
-				Transform 
-				{
-					var Translation = Real3{1.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a1218a0774][InheritId:"557d4e13c787d225:Dot"][ContextId:243]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aab010cfbece944][InheritId:"557d4e13c787d225:Dot"][ContextId:244]
-			{
-				Transform 
-				{
-					var Translation = Real3{7.5, 8, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadb9a7215bd490][InheritId:"557d4e13c787d225:Dot"][ContextId:245]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, 9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba67342dca17][InheritId:"557d4e13c787d225:Dot"][ContextId:246]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.5, 7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aadba6537f60201][InheritId:"557d4e13c787d225:Dot"][ContextId:247]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, 7, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
-				}
-			}
-			Cog [Id:0x5aad82319a2052ba][InheritId:"5539ddd52414c9f8:FreezeDot"][ContextId:248]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5, 11, 0}
-				}
-			}
-			Cog [Id:0x5aadb117acb59544][InheritId:"5539ddd52414c9f8:FreezeDot"][ContextId:249]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.4999981, 11, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.300000012, 0.300000012, 0.300000012}
-				}
-			}
-			Cog [Id:0x5aadb115ac47ebec][InheritId:"5539ddd52414c9f8:FreezeDot"][ContextId:250]
-			{
-				Transform 
-				{
-					var Translation = Real3{12.4999981, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.300000012, 0.300000012, 0.300000012}
-				}
-			}
-			Cog [Id:0x5aadb12aac077cbb][InheritId:"5539ddd52414c9f8:FreezeDot"][ContextId:251]
-			{
-				Transform 
-				{
-					var Translation = Real3{-12.5000019, -9, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{0.300000012, 0.300000012, 0.300000012}
-				}
-			}
-		}
-	}
-	Cog [ContextId:252]
+	Cog [ContextId:9]
 	{
 		var Name = "Walls"
 		Transform 
@@ -2497,7 +432,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5aad82319a20cc9f][ContextId:253]
+			Cog [Id:0x5aad82319a20cc9f][ContextId:10]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2528,7 +463,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cca5][ContextId:254]
+			Cog [Id:0x5aad82319a20cca5][ContextId:11]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2559,7 +494,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cca7][ContextId:255]
+			Cog [Id:0x5aad82319a20cca7][ContextId:12]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2590,7 +525,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cca9][ContextId:256]
+			Cog [Id:0x5aad82319a20cca9][ContextId:13]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2621,7 +556,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccac][ContextId:257]
+			Cog [Id:0x5aad82319a20ccac][ContextId:14]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2652,7 +587,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccaf][ContextId:258]
+			Cog [Id:0x5aad82319a20ccaf][ContextId:15]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2683,7 +618,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccb1][ContextId:259]
+			Cog [Id:0x5aad82319a20ccb1][ContextId:16]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2714,7 +649,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccb3][ContextId:260]
+			Cog [Id:0x5aad82319a20ccb3][ContextId:17]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2745,7 +680,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccb5][ContextId:261]
+			Cog [Id:0x5aad82319a20ccb5][ContextId:18]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2776,7 +711,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccb7][ContextId:262]
+			Cog [Id:0x5aad82319a20ccb7][ContextId:19]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2807,7 +742,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccb9][ContextId:263]
+			Cog [Id:0x5aad82319a20ccb9][ContextId:20]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2838,7 +773,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccba][ContextId:264]
+			Cog [Id:0x5aad82319a20ccba][ContextId:21]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2869,7 +804,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccbc][ContextId:265]
+			Cog [Id:0x5aad82319a20ccbc][ContextId:22]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2900,7 +835,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccbe][ContextId:266]
+			Cog [Id:0x5aad82319a20ccbe][ContextId:23]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2931,7 +866,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccc0][ContextId:267]
+			Cog [Id:0x5aad82319a20ccc0][ContextId:24]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2962,7 +897,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccc2][ContextId:268]
+			Cog [Id:0x5aad82319a20ccc2][ContextId:25]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -2993,7 +928,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccc5][ContextId:269]
+			Cog [Id:0x5aad82319a20ccc5][ContextId:26]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3024,7 +959,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccc7][ContextId:270]
+			Cog [Id:0x5aad82319a20ccc7][ContextId:27]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3055,7 +990,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccc8][ContextId:271]
+			Cog [Id:0x5aad82319a20ccc8][ContextId:28]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3086,7 +1021,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccca][ContextId:272]
+			Cog [Id:0x5aad82319a20ccca][ContextId:29]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3117,7 +1052,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cccc][ContextId:273]
+			Cog [Id:0x5aad82319a20cccc][ContextId:30]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3148,7 +1083,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccce][ContextId:274]
+			Cog [Id:0x5aad82319a20ccce][ContextId:31]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3179,7 +1114,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccd1][ContextId:275]
+			Cog [Id:0x5aad82319a20ccd1][ContextId:32]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3210,7 +1145,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccd3][ContextId:276]
+			Cog [Id:0x5aad82319a20ccd3][ContextId:33]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3241,7 +1176,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccd4][ContextId:277]
+			Cog [Id:0x5aad82319a20ccd4][ContextId:34]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3272,7 +1207,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccd6][ContextId:278]
+			Cog [Id:0x5aad82319a20ccd6][ContextId:35]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3303,7 +1238,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccd8][ContextId:279]
+			Cog [Id:0x5aad82319a20ccd8][ContextId:36]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3334,7 +1269,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccda][ContextId:280]
+			Cog [Id:0x5aad82319a20ccda][ContextId:37]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3365,7 +1300,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccdb][ContextId:281]
+			Cog [Id:0x5aad82319a20ccdb][ContextId:38]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3396,7 +1331,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccde][ContextId:282]
+			Cog [Id:0x5aad82319a20ccde][ContextId:39]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3427,7 +1362,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cce0][ContextId:283]
+			Cog [Id:0x5aad82319a20cce0][ContextId:40]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3458,7 +1393,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cce2][ContextId:284]
+			Cog [Id:0x5aad82319a20cce2][ContextId:41]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3489,7 +1424,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cce3][ContextId:285]
+			Cog [Id:0x5aad82319a20cce3][ContextId:42]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3520,7 +1455,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cce5][ContextId:286]
+			Cog [Id:0x5aad82319a20cce5][ContextId:43]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3551,7 +1486,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cce7][ContextId:287]
+			Cog [Id:0x5aad82319a20cce7][ContextId:44]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3582,7 +1517,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cce9][ContextId:288]
+			Cog [Id:0x5aad82319a20cce9][ContextId:45]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3613,7 +1548,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccea][ContextId:289]
+			Cog [Id:0x5aad82319a20ccea][ContextId:46]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3644,7 +1579,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccec][ContextId:290]
+			Cog [Id:0x5aad82319a20ccec][ContextId:47]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3675,7 +1610,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cced][ContextId:291]
+			Cog [Id:0x5aad82319a20cced][ContextId:48]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3706,7 +1641,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccef][ContextId:292]
+			Cog [Id:0x5aad82319a20ccef][ContextId:49]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3737,7 +1672,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccf1][ContextId:293]
+			Cog [Id:0x5aad82319a20ccf1][ContextId:50]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3768,7 +1703,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccf3][ContextId:294]
+			Cog [Id:0x5aad82319a20ccf3][ContextId:51]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3799,7 +1734,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccf4][ContextId:295]
+			Cog [Id:0x5aad82319a20ccf4][ContextId:52]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3830,7 +1765,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccf6][ContextId:296]
+			Cog [Id:0x5aad82319a20ccf6][ContextId:53]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3861,7 +1796,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccf8][ContextId:297]
+			Cog [Id:0x5aad82319a20ccf8][ContextId:54]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3892,7 +1827,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccfa][ContextId:298]
+			Cog [Id:0x5aad82319a20ccfa][ContextId:55]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3923,7 +1858,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccfc][ContextId:299]
+			Cog [Id:0x5aad82319a20ccfc][ContextId:56]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3954,7 +1889,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ccfe][ContextId:300]
+			Cog [Id:0x5aad82319a20ccfe][ContextId:57]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -3985,7 +1920,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd00][ContextId:301]
+			Cog [Id:0x5aad82319a20cd00][ContextId:58]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4016,7 +1951,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd01][ContextId:302]
+			Cog [Id:0x5aad82319a20cd01][ContextId:59]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4047,7 +1982,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd03][ContextId:303]
+			Cog [Id:0x5aad82319a20cd03][ContextId:60]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4078,7 +2013,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd05][ContextId:304]
+			Cog [Id:0x5aad82319a20cd05][ContextId:61]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4109,7 +2044,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd07][ContextId:305]
+			Cog [Id:0x5aad82319a20cd07][ContextId:62]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4140,7 +2075,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd09][ContextId:306]
+			Cog [Id:0x5aad82319a20cd09][ContextId:63]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4171,7 +2106,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd11][ContextId:307]
+			Cog [Id:0x5aad82319a20cd11][ContextId:64]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4202,7 +2137,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd13][ContextId:308]
+			Cog [Id:0x5aad82319a20cd13][ContextId:65]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4233,7 +2168,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd16][ContextId:309]
+			Cog [Id:0x5aad82319a20cd16][ContextId:66]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4264,7 +2199,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd18][ContextId:310]
+			Cog [Id:0x5aad82319a20cd18][ContextId:67]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4295,7 +2230,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd1a][ContextId:311]
+			Cog [Id:0x5aad82319a20cd1a][ContextId:68]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4326,7 +2261,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd1c][ContextId:312]
+			Cog [Id:0x5aad82319a20cd1c][ContextId:69]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4357,7 +2292,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd1e][ContextId:313]
+			Cog [Id:0x5aad82319a20cd1e][ContextId:70]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4388,7 +2323,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd21][ContextId:314]
+			Cog [Id:0x5aad82319a20cd21][ContextId:71]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4419,7 +2354,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd23][ContextId:315]
+			Cog [Id:0x5aad82319a20cd23][ContextId:72]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4450,7 +2385,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd25][ContextId:316]
+			Cog [Id:0x5aad82319a20cd25][ContextId:73]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4481,7 +2416,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd27][ContextId:317]
+			Cog [Id:0x5aad82319a20cd27][ContextId:74]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4512,7 +2447,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd29][ContextId:318]
+			Cog [Id:0x5aad82319a20cd29][ContextId:75]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4543,7 +2478,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd2b][ContextId:319]
+			Cog [Id:0x5aad82319a20cd2b][ContextId:76]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4574,7 +2509,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd2c][ContextId:320]
+			Cog [Id:0x5aad82319a20cd2c][ContextId:77]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4605,7 +2540,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd2e][ContextId:321]
+			Cog [Id:0x5aad82319a20cd2e][ContextId:78]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4636,7 +2571,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd30][ContextId:322]
+			Cog [Id:0x5aad82319a20cd30][ContextId:79]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4667,7 +2602,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd32][ContextId:323]
+			Cog [Id:0x5aad82319a20cd32][ContextId:80]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4698,7 +2633,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd34][ContextId:324]
+			Cog [Id:0x5aad82319a20cd34][ContextId:81]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4729,7 +2664,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd36][ContextId:325]
+			Cog [Id:0x5aad82319a20cd36][ContextId:82]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4760,7 +2695,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd38][ContextId:326]
+			Cog [Id:0x5aad82319a20cd38][ContextId:83]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4791,7 +2726,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd3a][ContextId:327]
+			Cog [Id:0x5aad82319a20cd3a][ContextId:84]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4822,7 +2757,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd3c][ContextId:328]
+			Cog [Id:0x5aad82319a20cd3c][ContextId:85]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4853,7 +2788,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd3e][ContextId:329]
+			Cog [Id:0x5aad82319a20cd3e][ContextId:86]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4884,7 +2819,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd40][ContextId:330]
+			Cog [Id:0x5aad82319a20cd40][ContextId:87]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4915,7 +2850,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd42][ContextId:331]
+			Cog [Id:0x5aad82319a20cd42][ContextId:88]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4946,7 +2881,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd44][ContextId:332]
+			Cog [Id:0x5aad82319a20cd44][ContextId:89]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -4977,7 +2912,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd46][ContextId:333]
+			Cog [Id:0x5aad82319a20cd46][ContextId:90]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5008,7 +2943,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd49][ContextId:334]
+			Cog [Id:0x5aad82319a20cd49][ContextId:91]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5039,7 +2974,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd4c][ContextId:335]
+			Cog [Id:0x5aad82319a20cd4c][ContextId:92]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5070,7 +3005,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd4e][ContextId:336]
+			Cog [Id:0x5aad82319a20cd4e][ContextId:93]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5101,7 +3036,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd50][ContextId:337]
+			Cog [Id:0x5aad82319a20cd50][ContextId:94]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5132,7 +3067,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd51][ContextId:338]
+			Cog [Id:0x5aad82319a20cd51][ContextId:95]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5163,7 +3098,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd53][ContextId:339]
+			Cog [Id:0x5aad82319a20cd53][ContextId:96]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5194,7 +3129,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd55][ContextId:340]
+			Cog [Id:0x5aad82319a20cd55][ContextId:97]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5225,7 +3160,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd57][ContextId:341]
+			Cog [Id:0x5aad82319a20cd57][ContextId:98]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5256,7 +3191,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd59][ContextId:342]
+			Cog [Id:0x5aad82319a20cd59][ContextId:99]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5287,7 +3222,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd5a][ContextId:343]
+			Cog [Id:0x5aad82319a20cd5a][ContextId:100]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5318,7 +3253,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd5c][ContextId:344]
+			Cog [Id:0x5aad82319a20cd5c][ContextId:101]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5349,7 +3284,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd5e][ContextId:345]
+			Cog [Id:0x5aad82319a20cd5e][ContextId:102]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5380,7 +3315,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd5f][ContextId:346]
+			Cog [Id:0x5aad82319a20cd5f][ContextId:103]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5411,7 +3346,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd61][ContextId:347]
+			Cog [Id:0x5aad82319a20cd61][ContextId:104]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5442,7 +3377,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd63][ContextId:348]
+			Cog [Id:0x5aad82319a20cd63][ContextId:105]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5473,7 +3408,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd65][ContextId:349]
+			Cog [Id:0x5aad82319a20cd65][ContextId:106]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5504,7 +3439,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd67][ContextId:350]
+			Cog [Id:0x5aad82319a20cd67][ContextId:107]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5535,7 +3470,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd69][ContextId:351]
+			Cog [Id:0x5aad82319a20cd69][ContextId:108]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5566,7 +3501,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd6b][ContextId:352]
+			Cog [Id:0x5aad82319a20cd6b][ContextId:109]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5597,7 +3532,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd6d][ContextId:353]
+			Cog [Id:0x5aad82319a20cd6d][ContextId:110]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5628,7 +3563,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd6f][ContextId:354]
+			Cog [Id:0x5aad82319a20cd6f][ContextId:111]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5659,7 +3594,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd71][ContextId:355]
+			Cog [Id:0x5aad82319a20cd71][ContextId:112]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5690,7 +3625,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd72][ContextId:356]
+			Cog [Id:0x5aad82319a20cd72][ContextId:113]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5721,7 +3656,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd74][ContextId:357]
+			Cog [Id:0x5aad82319a20cd74][ContextId:114]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5752,7 +3687,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd76][ContextId:358]
+			Cog [Id:0x5aad82319a20cd76][ContextId:115]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5783,7 +3718,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd77][ContextId:359]
+			Cog [Id:0x5aad82319a20cd77][ContextId:116]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5814,7 +3749,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd7a][ContextId:360]
+			Cog [Id:0x5aad82319a20cd7a][ContextId:117]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5845,7 +3780,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd7c][ContextId:361]
+			Cog [Id:0x5aad82319a20cd7c][ContextId:118]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5876,7 +3811,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd7e][ContextId:362]
+			Cog [Id:0x5aad82319a20cd7e][ContextId:119]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5907,7 +3842,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd80][ContextId:363]
+			Cog [Id:0x5aad82319a20cd80][ContextId:120]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5938,7 +3873,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd82][ContextId:364]
+			Cog [Id:0x5aad82319a20cd82][ContextId:121]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -5969,7 +3904,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd84][ContextId:365]
+			Cog [Id:0x5aad82319a20cd84][ContextId:122]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6000,7 +3935,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd86][ContextId:366]
+			Cog [Id:0x5aad82319a20cd86][ContextId:123]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6031,7 +3966,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd88][ContextId:367]
+			Cog [Id:0x5aad82319a20cd88][ContextId:124]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6062,7 +3997,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd8a][ContextId:368]
+			Cog [Id:0x5aad82319a20cd8a][ContextId:125]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6093,7 +4028,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd8c][ContextId:369]
+			Cog [Id:0x5aad82319a20cd8c][ContextId:126]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6124,7 +4059,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd8e][ContextId:370]
+			Cog [Id:0x5aad82319a20cd8e][ContextId:127]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6155,7 +4090,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd90][ContextId:371]
+			Cog [Id:0x5aad82319a20cd90][ContextId:128]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6186,7 +4121,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd92][ContextId:372]
+			Cog [Id:0x5aad82319a20cd92][ContextId:129]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6217,7 +4152,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd93][ContextId:373]
+			Cog [Id:0x5aad82319a20cd93][ContextId:130]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6248,7 +4183,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd95][ContextId:374]
+			Cog [Id:0x5aad82319a20cd95][ContextId:131]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6279,7 +4214,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd97][ContextId:375]
+			Cog [Id:0x5aad82319a20cd97][ContextId:132]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6310,7 +4245,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd98][ContextId:376]
+			Cog [Id:0x5aad82319a20cd98][ContextId:133]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6341,7 +4276,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd9a][ContextId:377]
+			Cog [Id:0x5aad82319a20cd9a][ContextId:134]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6372,7 +4307,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd9d][ContextId:378]
+			Cog [Id:0x5aad82319a20cd9d][ContextId:135]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6403,7 +4338,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cd9e][ContextId:379]
+			Cog [Id:0x5aad82319a20cd9e][ContextId:136]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6434,7 +4369,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cda0][ContextId:380]
+			Cog [Id:0x5aad82319a20cda0][ContextId:137]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6465,7 +4400,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cda2][ContextId:381]
+			Cog [Id:0x5aad82319a20cda2][ContextId:138]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6496,7 +4431,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cda4][ContextId:382]
+			Cog [Id:0x5aad82319a20cda4][ContextId:139]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6527,7 +4462,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cda6][ContextId:383]
+			Cog [Id:0x5aad82319a20cda6][ContextId:140]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6558,7 +4493,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cda8][ContextId:384]
+			Cog [Id:0x5aad82319a20cda8][ContextId:141]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6589,7 +4524,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdaa][ContextId:385]
+			Cog [Id:0x5aad82319a20cdaa][ContextId:142]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6620,7 +4555,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdab][ContextId:386]
+			Cog [Id:0x5aad82319a20cdab][ContextId:143]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6651,7 +4586,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdad][ContextId:387]
+			Cog [Id:0x5aad82319a20cdad][ContextId:144]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6682,7 +4617,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdae][ContextId:388]
+			Cog [Id:0x5aad82319a20cdae][ContextId:145]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6713,7 +4648,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdb0][ContextId:389]
+			Cog [Id:0x5aad82319a20cdb0][ContextId:146]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6744,7 +4679,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdb2][ContextId:390]
+			Cog [Id:0x5aad82319a20cdb2][ContextId:147]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6775,7 +4710,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdb4][ContextId:391]
+			Cog [Id:0x5aad82319a20cdb4][ContextId:148]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6806,7 +4741,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdb7][ContextId:392]
+			Cog [Id:0x5aad82319a20cdb7][ContextId:149]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6837,7 +4772,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdb9][ContextId:393]
+			Cog [Id:0x5aad82319a20cdb9][ContextId:150]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6868,7 +4803,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdbb][ContextId:394]
+			Cog [Id:0x5aad82319a20cdbb][ContextId:151]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6899,7 +4834,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdbd][ContextId:395]
+			Cog [Id:0x5aad82319a20cdbd][ContextId:152]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6930,7 +4865,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdbf][ContextId:396]
+			Cog [Id:0x5aad82319a20cdbf][ContextId:153]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6961,7 +4896,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdc0][ContextId:397]
+			Cog [Id:0x5aad82319a20cdc0][ContextId:154]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -6992,7 +4927,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdc2][ContextId:398]
+			Cog [Id:0x5aad82319a20cdc2][ContextId:155]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7023,7 +4958,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdc4][ContextId:399]
+			Cog [Id:0x5aad82319a20cdc4][ContextId:156]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7054,7 +4989,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdc6][ContextId:400]
+			Cog [Id:0x5aad82319a20cdc6][ContextId:157]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7085,7 +5020,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdc7][ContextId:401]
+			Cog [Id:0x5aad82319a20cdc7][ContextId:158]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7116,7 +5051,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdc9][ContextId:402]
+			Cog [Id:0x5aad82319a20cdc9][ContextId:159]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7147,7 +5082,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdcb][ContextId:403]
+			Cog [Id:0x5aad82319a20cdcb][ContextId:160]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7178,7 +5113,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdcc][ContextId:404]
+			Cog [Id:0x5aad82319a20cdcc][ContextId:161]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7209,7 +5144,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdcf][ContextId:405]
+			Cog [Id:0x5aad82319a20cdcf][ContextId:162]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7240,7 +5175,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdd1][ContextId:406]
+			Cog [Id:0x5aad82319a20cdd1][ContextId:163]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7271,7 +5206,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdd2][ContextId:407]
+			Cog [Id:0x5aad82319a20cdd2][ContextId:164]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7302,7 +5237,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdd4][ContextId:408]
+			Cog [Id:0x5aad82319a20cdd4][ContextId:165]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7333,7 +5268,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdd5][ContextId:409]
+			Cog [Id:0x5aad82319a20cdd5][ContextId:166]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7364,7 +5299,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdd7][ContextId:410]
+			Cog [Id:0x5aad82319a20cdd7][ContextId:167]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7395,7 +5330,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdd9][ContextId:411]
+			Cog [Id:0x5aad82319a20cdd9][ContextId:168]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7426,7 +5361,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cddb][ContextId:412]
+			Cog [Id:0x5aad82319a20cddb][ContextId:169]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7457,7 +5392,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdde][ContextId:413]
+			Cog [Id:0x5aad82319a20cdde][ContextId:170]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7488,7 +5423,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cde0][ContextId:414]
+			Cog [Id:0x5aad82319a20cde0][ContextId:171]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7519,7 +5454,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cde2][ContextId:415]
+			Cog [Id:0x5aad82319a20cde2][ContextId:172]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7550,7 +5485,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cde4][ContextId:416]
+			Cog [Id:0x5aad82319a20cde4][ContextId:173]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7581,7 +5516,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cde6][ContextId:417]
+			Cog [Id:0x5aad82319a20cde6][ContextId:174]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7612,7 +5547,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cde8][ContextId:418]
+			Cog [Id:0x5aad82319a20cde8][ContextId:175]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7643,7 +5578,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdea][ContextId:419]
+			Cog [Id:0x5aad82319a20cdea][ContextId:176]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7674,7 +5609,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdec][ContextId:420]
+			Cog [Id:0x5aad82319a20cdec][ContextId:177]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7705,7 +5640,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdee][ContextId:421]
+			Cog [Id:0x5aad82319a20cdee][ContextId:178]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7736,7 +5671,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdf0][ContextId:422]
+			Cog [Id:0x5aad82319a20cdf0][ContextId:179]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7767,7 +5702,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdf2][ContextId:423]
+			Cog [Id:0x5aad82319a20cdf2][ContextId:180]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7798,7 +5733,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdf4][ContextId:424]
+			Cog [Id:0x5aad82319a20cdf4][ContextId:181]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7829,7 +5764,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdf5][ContextId:425]
+			Cog [Id:0x5aad82319a20cdf5][ContextId:182]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7860,7 +5795,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdf7][ContextId:426]
+			Cog [Id:0x5aad82319a20cdf7][ContextId:183]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7891,7 +5826,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdf9][ContextId:427]
+			Cog [Id:0x5aad82319a20cdf9][ContextId:184]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7922,7 +5857,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdfb][ContextId:428]
+			Cog [Id:0x5aad82319a20cdfb][ContextId:185]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7953,7 +5888,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdfc][ContextId:429]
+			Cog [Id:0x5aad82319a20cdfc][ContextId:186]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -7984,7 +5919,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdfe][ContextId:430]
+			Cog [Id:0x5aad82319a20cdfe][ContextId:187]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8015,7 +5950,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cdff][ContextId:431]
+			Cog [Id:0x5aad82319a20cdff][ContextId:188]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8046,7 +5981,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce01][ContextId:432]
+			Cog [Id:0x5aad82319a20ce01][ContextId:189]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8077,7 +6012,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce03][ContextId:433]
+			Cog [Id:0x5aad82319a20ce03][ContextId:190]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8108,7 +6043,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce05][ContextId:434]
+			Cog [Id:0x5aad82319a20ce05][ContextId:191]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8139,7 +6074,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce06][ContextId:435]
+			Cog [Id:0x5aad82319a20ce06][ContextId:192]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8170,7 +6105,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce08][ContextId:436]
+			Cog [Id:0x5aad82319a20ce08][ContextId:193]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8201,7 +6136,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce09][ContextId:437]
+			Cog [Id:0x5aad82319a20ce09][ContextId:194]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8232,7 +6167,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce0b][ContextId:438]
+			Cog [Id:0x5aad82319a20ce0b][ContextId:195]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8263,7 +6198,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce0e][ContextId:439]
+			Cog [Id:0x5aad82319a20ce0e][ContextId:196]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8294,7 +6229,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce10][ContextId:440]
+			Cog [Id:0x5aad82319a20ce10][ContextId:197]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8325,7 +6260,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce11][ContextId:441]
+			Cog [Id:0x5aad82319a20ce11][ContextId:198]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8356,7 +6291,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce13][ContextId:442]
+			Cog [Id:0x5aad82319a20ce13][ContextId:199]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8387,7 +6322,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce16][ContextId:443]
+			Cog [Id:0x5aad82319a20ce16][ContextId:200]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8418,7 +6353,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce18][ContextId:444]
+			Cog [Id:0x5aad82319a20ce18][ContextId:201]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8449,7 +6384,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce1a][ContextId:445]
+			Cog [Id:0x5aad82319a20ce1a][ContextId:202]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8480,7 +6415,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce1c][ContextId:446]
+			Cog [Id:0x5aad82319a20ce1c][ContextId:203]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8511,7 +6446,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce1e][ContextId:447]
+			Cog [Id:0x5aad82319a20ce1e][ContextId:204]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8542,7 +6477,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce20][ContextId:448]
+			Cog [Id:0x5aad82319a20ce20][ContextId:205]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8573,7 +6508,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce22][ContextId:449]
+			Cog [Id:0x5aad82319a20ce22][ContextId:206]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8604,7 +6539,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce23][ContextId:450]
+			Cog [Id:0x5aad82319a20ce23][ContextId:207]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8635,7 +6570,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce25][ContextId:451]
+			Cog [Id:0x5aad82319a20ce25][ContextId:208]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8666,7 +6601,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce28][ContextId:452]
+			Cog [Id:0x5aad82319a20ce28][ContextId:209]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8697,7 +6632,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce2b][ContextId:453]
+			Cog [Id:0x5aad82319a20ce2b][ContextId:210]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8728,7 +6663,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce2d][ContextId:454]
+			Cog [Id:0x5aad82319a20ce2d][ContextId:211]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8759,7 +6694,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce2e][ContextId:455]
+			Cog [Id:0x5aad82319a20ce2e][ContextId:212]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8790,7 +6725,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce30][ContextId:456]
+			Cog [Id:0x5aad82319a20ce30][ContextId:213]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8821,7 +6756,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce32][ContextId:457]
+			Cog [Id:0x5aad82319a20ce32][ContextId:214]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8852,7 +6787,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce33][ContextId:458]
+			Cog [Id:0x5aad82319a20ce33][ContextId:215]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8883,7 +6818,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce35][ContextId:459]
+			Cog [Id:0x5aad82319a20ce35][ContextId:216]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8914,7 +6849,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce37][ContextId:460]
+			Cog [Id:0x5aad82319a20ce37][ContextId:217]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8945,7 +6880,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce39][ContextId:461]
+			Cog [Id:0x5aad82319a20ce39][ContextId:218]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -8976,7 +6911,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce3a][ContextId:462]
+			Cog [Id:0x5aad82319a20ce3a][ContextId:219]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9007,7 +6942,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce3d][ContextId:463]
+			Cog [Id:0x5aad82319a20ce3d][ContextId:220]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9038,7 +6973,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce3f][ContextId:464]
+			Cog [Id:0x5aad82319a20ce3f][ContextId:221]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9069,7 +7004,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce40][ContextId:465]
+			Cog [Id:0x5aad82319a20ce40][ContextId:222]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9100,7 +7035,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce42][ContextId:466]
+			Cog [Id:0x5aad82319a20ce42][ContextId:223]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9131,7 +7066,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce45][ContextId:467]
+			Cog [Id:0x5aad82319a20ce45][ContextId:224]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9162,7 +7097,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce47][ContextId:468]
+			Cog [Id:0x5aad82319a20ce47][ContextId:225]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9193,7 +7128,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce48][ContextId:469]
+			Cog [Id:0x5aad82319a20ce48][ContextId:226]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9224,7 +7159,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce4a][ContextId:470]
+			Cog [Id:0x5aad82319a20ce4a][ContextId:227]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9255,7 +7190,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce4c][ContextId:471]
+			Cog [Id:0x5aad82319a20ce4c][ContextId:228]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9286,7 +7221,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce4e][ContextId:472]
+			Cog [Id:0x5aad82319a20ce4e][ContextId:229]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9317,7 +7252,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce4f][ContextId:473]
+			Cog [Id:0x5aad82319a20ce4f][ContextId:230]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9348,7 +7283,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce51][ContextId:474]
+			Cog [Id:0x5aad82319a20ce51][ContextId:231]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9382,7 +7317,7 @@ Level
 				{
 				}
 			}
-			Cog [Id:0x5aad82319a20ce54][ContextId:475]
+			Cog [Id:0x5aad82319a20ce54][ContextId:232]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9413,7 +7348,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce55][ContextId:476]
+			Cog [Id:0x5aad82319a20ce55][ContextId:233]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9444,7 +7379,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce57][ContextId:477]
+			Cog [Id:0x5aad82319a20ce57][ContextId:234]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9475,7 +7410,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce59][ContextId:478]
+			Cog [Id:0x5aad82319a20ce59][ContextId:235]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9506,7 +7441,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce5b][ContextId:479]
+			Cog [Id:0x5aad82319a20ce5b][ContextId:236]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9537,7 +7472,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce5d][ContextId:480]
+			Cog [Id:0x5aad82319a20ce5d][ContextId:237]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9568,7 +7503,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce5f][ContextId:481]
+			Cog [Id:0x5aad82319a20ce5f][ContextId:238]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9599,7 +7534,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce60][ContextId:482]
+			Cog [Id:0x5aad82319a20ce60][ContextId:239]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9630,7 +7565,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce62][ContextId:483]
+			Cog [Id:0x5aad82319a20ce62][ContextId:240]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9661,7 +7596,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce63][ContextId:484]
+			Cog [Id:0x5aad82319a20ce63][ContextId:241]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9692,7 +7627,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce65][ContextId:485]
+			Cog [Id:0x5aad82319a20ce65][ContextId:242]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9723,7 +7658,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce67][ContextId:486]
+			Cog [Id:0x5aad82319a20ce67][ContextId:243]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9754,7 +7689,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce69][ContextId:487]
+			Cog [Id:0x5aad82319a20ce69][ContextId:244]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9785,7 +7720,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce6b][ContextId:488]
+			Cog [Id:0x5aad82319a20ce6b][ContextId:245]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9816,7 +7751,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce6c][ContextId:489]
+			Cog [Id:0x5aad82319a20ce6c][ContextId:246]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9847,7 +7782,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce6e][ContextId:490]
+			Cog [Id:0x5aad82319a20ce6e][ContextId:247]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9878,7 +7813,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce70][ContextId:491]
+			Cog [Id:0x5aad82319a20ce70][ContextId:248]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9909,7 +7844,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce72][ContextId:492]
+			Cog [Id:0x5aad82319a20ce72][ContextId:249]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9940,7 +7875,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce74][ContextId:493]
+			Cog [Id:0x5aad82319a20ce74][ContextId:250]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -9971,7 +7906,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce76][ContextId:494]
+			Cog [Id:0x5aad82319a20ce76][ContextId:251]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10002,7 +7937,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce78][ContextId:495]
+			Cog [Id:0x5aad82319a20ce78][ContextId:252]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10033,7 +7968,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce7a][ContextId:496]
+			Cog [Id:0x5aad82319a20ce7a][ContextId:253]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10064,7 +7999,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce7c][ContextId:497]
+			Cog [Id:0x5aad82319a20ce7c][ContextId:254]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10095,7 +8030,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce7f][ContextId:498]
+			Cog [Id:0x5aad82319a20ce7f][ContextId:255]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10126,7 +8061,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce81][ContextId:499]
+			Cog [Id:0x5aad82319a20ce81][ContextId:256]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10157,7 +8092,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce84][ContextId:500]
+			Cog [Id:0x5aad82319a20ce84][ContextId:257]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10188,7 +8123,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce86][ContextId:501]
+			Cog [Id:0x5aad82319a20ce86][ContextId:258]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10219,7 +8154,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce88][ContextId:502]
+			Cog [Id:0x5aad82319a20ce88][ContextId:259]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10250,7 +8185,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce8a][ContextId:503]
+			Cog [Id:0x5aad82319a20ce8a][ContextId:260]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10281,7 +8216,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce8c][ContextId:504]
+			Cog [Id:0x5aad82319a20ce8c][ContextId:261]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10312,7 +8247,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce8e][ContextId:505]
+			Cog [Id:0x5aad82319a20ce8e][ContextId:262]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10343,7 +8278,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce90][ContextId:506]
+			Cog [Id:0x5aad82319a20ce90][ContextId:263]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10374,7 +8309,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce92][ContextId:507]
+			Cog [Id:0x5aad82319a20ce92][ContextId:264]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10405,7 +8340,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce94][ContextId:508]
+			Cog [Id:0x5aad82319a20ce94][ContextId:265]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10436,7 +8371,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce96][ContextId:509]
+			Cog [Id:0x5aad82319a20ce96][ContextId:266]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10467,7 +8402,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce98][ContextId:510]
+			Cog [Id:0x5aad82319a20ce98][ContextId:267]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10498,7 +8433,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce9a][ContextId:511]
+			Cog [Id:0x5aad82319a20ce9a][ContextId:268]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10529,7 +8464,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce9c][ContextId:512]
+			Cog [Id:0x5aad82319a20ce9c][ContextId:269]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10560,7 +8495,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce9e][ContextId:513]
+			Cog [Id:0x5aad82319a20ce9e][ContextId:270]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10591,7 +8526,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ce9f][ContextId:514]
+			Cog [Id:0x5aad82319a20ce9f][ContextId:271]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10622,7 +8557,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cea1][ContextId:515]
+			Cog [Id:0x5aad82319a20cea1][ContextId:272]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10653,7 +8588,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cea3][ContextId:516]
+			Cog [Id:0x5aad82319a20cea3][ContextId:273]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10684,14 +8619,14 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cea4][ContextId:517]
+			Cog [Id:0x5aad82319a20cea4][ContextId:274]
 			{
 				var Name = "WallPiece"
 				Transform 
 				{
 					var Translation = Real3{6, -7.5, 0.25}
 					var Scale = Real3{1, 1, 1.5}
-					var Rotation = Quaternion{0, 0, 0.707106829, 0.707106829}
+					var Rotation = Quaternion{0, 0, 1, -4.37113989e-08}
 				}
 				Model 
 				{
@@ -10715,7 +8650,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cea6][ContextId:518]
+			Cog [Id:0x5aad82319a20cea6][ContextId:275]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10746,7 +8681,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cea8][ContextId:519]
+			Cog [Id:0x5aad82319a20cea8][ContextId:276]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10777,7 +8712,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceaa][ContextId:520]
+			Cog [Id:0x5aad82319a20ceaa][ContextId:277]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10808,7 +8743,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceac][ContextId:521]
+			Cog [Id:0x5aad82319a20ceac][ContextId:278]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10839,7 +8774,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceae][ContextId:522]
+			Cog [Id:0x5aad82319a20ceae][ContextId:279]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10870,7 +8805,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceb0][ContextId:523]
+			Cog [Id:0x5aad82319a20ceb0][ContextId:280]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10901,7 +8836,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceb2][ContextId:524]
+			Cog [Id:0x5aad82319a20ceb2][ContextId:281]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10932,7 +8867,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceb4][ContextId:525]
+			Cog [Id:0x5aad82319a20ceb4][ContextId:282]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10963,7 +8898,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceb5][ContextId:526]
+			Cog [Id:0x5aad82319a20ceb5][ContextId:283]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -10994,7 +8929,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceb7][ContextId:527]
+			Cog [Id:0x5aad82319a20ceb7][ContextId:284]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11025,7 +8960,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceb9][ContextId:528]
+			Cog [Id:0x5aad82319a20ceb9][ContextId:285]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11056,14 +8991,14 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cebc][ContextId:529]
+			Cog [Id:0x5aad82319a20cebc][ContextId:286]
 			{
 				var Name = "WallPiece"
 				Transform 
 				{
 					var Translation = Real3{11, -13.5, 0.25}
 					var Scale = Real3{1, 1, 1.5}
-					var Rotation = Quaternion{0, 0, 0.707106769, 0.707106829}
+					var Rotation = Quaternion{0, 0, 1, -4.37113989e-08}
 				}
 				Model 
 				{
@@ -11087,7 +9022,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cebe][ContextId:530]
+			Cog [Id:0x5aad82319a20cebe][ContextId:287]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11118,7 +9053,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cec0][ContextId:531]
+			Cog [Id:0x5aad82319a20cec0][ContextId:288]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11149,7 +9084,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cec3][ContextId:532]
+			Cog [Id:0x5aad82319a20cec3][ContextId:289]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11180,7 +9115,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cec4][ContextId:533]
+			Cog [Id:0x5aad82319a20cec4][ContextId:290]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11211,7 +9146,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cec6][ContextId:534]
+			Cog [Id:0x5aad82319a20cec6][ContextId:291]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11242,7 +9177,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cec8][ContextId:535]
+			Cog [Id:0x5aad82319a20cec8][ContextId:292]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11273,7 +9208,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceca][ContextId:536]
+			Cog [Id:0x5aad82319a20ceca][ContextId:293]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11304,7 +9239,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cecc][ContextId:537]
+			Cog [Id:0x5aad82319a20cecc][ContextId:294]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11335,7 +9270,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cece][ContextId:538]
+			Cog [Id:0x5aad82319a20cece][ContextId:295]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11366,7 +9301,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ced1][ContextId:539]
+			Cog [Id:0x5aad82319a20ced1][ContextId:296]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11397,7 +9332,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ced3][ContextId:540]
+			Cog [Id:0x5aad82319a20ced3][ContextId:297]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11428,7 +9363,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ced5][ContextId:541]
+			Cog [Id:0x5aad82319a20ced5][ContextId:298]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11459,7 +9394,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ced7][ContextId:542]
+			Cog [Id:0x5aad82319a20ced7][ContextId:299]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11490,7 +9425,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ced8][ContextId:543]
+			Cog [Id:0x5aad82319a20ced8][ContextId:300]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11521,7 +9456,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceda][ContextId:544]
+			Cog [Id:0x5aad82319a20ceda][ContextId:301]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11552,7 +9487,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cedc][ContextId:545]
+			Cog [Id:0x5aad82319a20cedc][ContextId:302]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11583,7 +9518,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cedd][ContextId:546]
+			Cog [Id:0x5aad82319a20cedd][ContextId:303]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11614,7 +9549,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cedf][ContextId:547]
+			Cog [Id:0x5aad82319a20cedf][ContextId:304]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11645,7 +9580,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cee1][ContextId:548]
+			Cog [Id:0x5aad82319a20cee1][ContextId:305]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11676,7 +9611,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cee3][ContextId:549]
+			Cog [Id:0x5aad82319a20cee3][ContextId:306]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11707,7 +9642,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cee4][ContextId:550]
+			Cog [Id:0x5aad82319a20cee4][ContextId:307]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11738,7 +9673,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cee6][ContextId:551]
+			Cog [Id:0x5aad82319a20cee6][ContextId:308]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11769,7 +9704,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cee8][ContextId:552]
+			Cog [Id:0x5aad82319a20cee8][ContextId:309]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11800,7 +9735,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceea][ContextId:553]
+			Cog [Id:0x5aad82319a20ceea][ContextId:310]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11831,7 +9766,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceec][ContextId:554]
+			Cog [Id:0x5aad82319a20ceec][ContextId:311]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11862,7 +9797,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceee][ContextId:555]
+			Cog [Id:0x5aad82319a20ceee][ContextId:312]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11893,7 +9828,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cef0][ContextId:556]
+			Cog [Id:0x5aad82319a20cef0][ContextId:313]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11924,7 +9859,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cef1][ContextId:557]
+			Cog [Id:0x5aad82319a20cef1][ContextId:314]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11955,7 +9890,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cef3][ContextId:558]
+			Cog [Id:0x5aad82319a20cef3][ContextId:315]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -11986,7 +9921,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cef5][ContextId:559]
+			Cog [Id:0x5aad82319a20cef5][ContextId:316]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12017,7 +9952,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cef7][ContextId:560]
+			Cog [Id:0x5aad82319a20cef7][ContextId:317]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12048,7 +9983,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cef9][ContextId:561]
+			Cog [Id:0x5aad82319a20cef9][ContextId:318]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12079,7 +10014,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cefb][ContextId:562]
+			Cog [Id:0x5aad82319a20cefb][ContextId:319]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12110,7 +10045,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cefd][ContextId:563]
+			Cog [Id:0x5aad82319a20cefd][ContextId:320]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12141,7 +10076,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20ceff][ContextId:564]
+			Cog [Id:0x5aad82319a20ceff][ContextId:321]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12172,7 +10107,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cf01][ContextId:565]
+			Cog [Id:0x5aad82319a20cf01][ContextId:322]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12203,7 +10138,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cf03][ContextId:566]
+			Cog [Id:0x5aad82319a20cf03][ContextId:323]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12234,7 +10169,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cf05][ContextId:567]
+			Cog [Id:0x5aad82319a20cf05][ContextId:324]
 			{
 				var Name = "WallPiece"
 				Transform 
@@ -12265,7 +10200,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5aad82319a20cf07][ContextId:568]
+			Cog [Id:0x5aad82319a20cf07][ContextId:325]
 			{
 				var Name = "Door"
 				Transform 
@@ -12294,1000 +10229,6 @@ Level
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
 					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
-				}
-			}
-		}
-	}
-	Cog [ContextId:569]
-	{
-		var Name = "Floor"
-		EditorFlags 
-		{
-			var Locked = true
-			var Hidden = false
-		}
-		Transform 
-		{
-			var Translation = Real3{0, -1, -1}
-			var Scale = Real3{29, 32, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "555b72442f10ae35:Floor"
-			var Mesh = "4de0354322b345ae:Cube"
-		}
-	}
-	Cog [ContextId:570]
-	{
-		var Name = "PacGuy"
-		Transform 
-		{
-			var Translation = Real3{0, -9, 0.100000001}
-			var Scale = Real3{1.39999998, 1.39999998, 1.39999998}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "555b72e3dd9d5569:Character"
-			var Mesh = "4de0354322b376ae:Sphere"
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "5539d83412a136b2:MovementCollider"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.625, 0.625, 0.625}
-		}
-		SweptController 
-		{
-			var WorldUp = Real3{0, 0, 1}
-			var LockZAxis = true
-			var ForwardEvents = false
-			var Gravity = 0
-			var JumpSpeed = 0
-			var JumpCancelFactor = 0
-			var MaxMoveSpeed = 7
-			var MaxFallSpeed = 0
-			var GroundAcceleration = 50
-			var AirAcceleration = 500
-			var GroundDeceleration = 50
-			var AirDeceleration = 500
-			var MaxGroundSlope = 45
-			var MaxCeilingSlope = 45
-			var GroundSnapDistance = 0.100000001
-			var ControllerVelocity = Real3{0, 0, 0}
-			var Grounded = true
-			var Jumping = false
-			var GroundTraction = 1
-			var AirTraction = 1
-		}
-		Character 
-		{
-			var Speed = 7
-			var CanMoveOpposite = true
-			var Color = Real4{3, 2.54639983, 0.165000021, 1}
-		}
-		Player 
-		{
-		}
-		PlayerController 
-		{
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a3fcee0][ContextId:571]
-			{
-				var Name = "CharacterCollision"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SphereCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "5539dfa79add9802:PacGuy"
-					var Offset = Real3{0, 0, 0}
-					var Radius = 0.5
-				}
-			}
-			Cog [Id:0x5aadb489bd2a3fb8][ContextId:572]
-			{
-				var Name = "Light"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{5.71428585, 5.71428585, 5.71428585}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SelectionIcon 
-				{
-					var Visible = true
-					var VisibilityEvents = true
-					var Material = "56581e2bb81777be:DebugDrawOnTop"
-					var SpriteSource = "58f8e4be736f5ea2:LightIcon"
-					var ViewScale = 1
-					var OverrideSelections = true
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "580644d674646690:PointLight"
-					var Mesh = "4de0354322b376ae:Sphere"
-				}
-				PointLight 
-				{
-					var LightColor = Real4{1, 0.990000129, 0, 1}
-					var LightIntensity = 4
-					var FalloffRadius = 4
-					var LightRadius = 0
-				}
-				Hierarchy 
-				{
-				}
-			}
-		}
-	}
-	Cog [ContextId:573]
-	{
-		var Name = "Teleporter"
-		Transform 
-		{
-			var Translation = Real3{15, 0, 0}
-			var Scale = Real3{1, 1, 1.5}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		BoxCollider 
-		{
-			var Ghost = true
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
-		}
-		Teleporter 
-		{
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a3fd2ae][ContextId:574]
-			{
-				var Name = "Destination"
-				Transform 
-				{
-					var Translation = Real3{-28, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-			}
-		}
-	}
-	Cog [ContextId:575]
-	{
-		var Name = "Teleporter"
-		Transform 
-		{
-			var Translation = Real3{-15, 0, 0}
-			var Scale = Real3{1, 1, 1.5}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		BoxCollider 
-		{
-			var Ghost = true
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
-		}
-		Teleporter 
-		{
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a3fd39a][ContextId:576]
-			{
-				var Name = "Destination"
-				Transform 
-				{
-					var Translation = Real3{28, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-			}
-		}
-	}
-	Cog [ContextId:577]
-	{
-		var Name = "PurpleGhost"
-		Transform 
-		{
-			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{1.39999998, 1.39999998, 1.39999998}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "555b72e3dd9d5569:Character"
-			var Mesh = "4de0354322b376ae:Sphere"
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "5539d83412a136b2:MovementCollider"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.625, 0.625, 0.625}
-		}
-		SweptController 
-		{
-			var WorldUp = Real3{0, 0, 1}
-			var LockZAxis = true
-			var ForwardEvents = false
-			var Gravity = 0
-			var JumpSpeed = 0
-			var JumpCancelFactor = 0
-			var MaxMoveSpeed = 7
-			var MaxFallSpeed = 0
-			var GroundAcceleration = 50
-			var AirAcceleration = 500
-			var GroundDeceleration = 50
-			var AirDeceleration = 500
-			var MaxGroundSlope = 45
-			var MaxCeilingSlope = 45
-			var GroundSnapDistance = 0.100000001
-			var ControllerVelocity = Real3{0, 0, 0}
-			var Grounded = true
-			var Jumping = false
-			var GroundTraction = 1
-			var AirTraction = 1
-		}
-		Character 
-		{
-			var Speed = 7
-			var CanMoveOpposite = false
-			var Color = Real4{3.17647099, 0.723529339, 4.5, 1}
-		}
-		Ghost 
-		{
-			var GhostColor = Real4{3.17646861, 0.723528028, 4.5, 1}
-			var FrozenColor = Real4{0, 0.42000103, 6, 1}
-			var FrozenFlashColor = Real4{3, 3, 3, 1}
-			var DotLimit = 1
-		}
-		PurpleGhostAi 
-		{
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a3fd9b8][ContextId:578]
-			{
-				var Name = "CharacterCollision"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SphereCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "555bf8255a60d639:Ghost"
-					var Offset = Real3{0, 0, 0}
-					var Radius = 0.5
-				}
-			}
-			Cog [Id:0x5aad82319a3fd9ba][InheritId:"553ebfb7a5fa0572:Eye"][ContextId:579]
-			{
-				Transform 
-				{
-					var Translation = Real3{-0.200000003, 0, 0}
-				}
-			}
-			Cog [Id:0x5aad82319a3fd9bc][InheritId:"553ebfb7a5fa0572:Eye"][ContextId:580]
-			{
-				var Name = "RightLeft"
-				Transform 
-				{
-					var Translation = Real3{0.200000003, 0, 0}
-				}
-			}
-			Cog [Id:0x5aadb253ca5fdfc1][ContextId:581]
-			{
-				var Name = "Light"
-				Transform 
-				{
-					var Translation = Real3{0, 2.14285707, 0}
-					var Scale = Real3{5.71428585, 5.71428585, 5.71428585}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SelectionIcon 
-				{
-					var Visible = true
-					var VisibilityEvents = true
-					var Material = "56581e2bb81777be:DebugDrawOnTop"
-					var SpriteSource = "58f8e4be736f5ea2:LightIcon"
-					var ViewScale = 1
-					var OverrideSelections = true
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "580644d674646690:PointLight"
-					var Mesh = "4de0354322b376ae:Sphere"
-				}
-				PointLight 
-				{
-					var LightColor = Real4{0.70588243, 0.160784304, 1, 1}
-					var LightIntensity = 4
-					var FalloffRadius = 4
-					var LightRadius = 0
-				}
-				Hierarchy 
-				{
-				}
-			}
-		}
-	}
-	Cog [ContextId:582]
-	{
-		var Name = "BlueGhost"
-		Transform 
-		{
-			var Translation = Real3{-1.5, 0, 0}
-			var Scale = Real3{1.39999998, 1.39999998, 1.39999998}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "555b72e3dd9d5569:Character"
-			var Mesh = "4de0354322b376ae:Sphere"
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "5539d83412a136b2:MovementCollider"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.625, 0.625, 0.625}
-		}
-		SweptController 
-		{
-			var WorldUp = Real3{0, 0, 1}
-			var LockZAxis = true
-			var ForwardEvents = false
-			var Gravity = 0
-			var JumpSpeed = 0
-			var JumpCancelFactor = 0
-			var MaxMoveSpeed = 7
-			var MaxFallSpeed = 0
-			var GroundAcceleration = 50
-			var AirAcceleration = 500
-			var GroundDeceleration = 50
-			var AirDeceleration = 500
-			var MaxGroundSlope = 45
-			var MaxCeilingSlope = 45
-			var GroundSnapDistance = 0.100000001
-			var ControllerVelocity = Real3{0, 0, 0}
-			var Grounded = true
-			var Jumping = false
-			var GroundTraction = 1
-			var AirTraction = 1
-		}
-		Character 
-		{
-			var Speed = 7
-			var CanMoveOpposite = false
-			var Color = Real4{1.29019594, 2.84117627, 3.5, 1}
-		}
-		Ghost 
-		{
-			var GhostColor = Real4{1.29019594, 2.84117627, 3.5, 1}
-			var FrozenColor = Real4{0, 0.42000103, 6, 1}
-			var FrozenFlashColor = Real4{3, 3, 3, 1}
-			var DotLimit = 30
-		}
-		BlueGhostAi 
-		{
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a3fd9b8][ContextId:583]
-			{
-				var Name = "CharacterCollision"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SphereCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "555bf8255a60d639:Ghost"
-					var Offset = Real3{0, 0, 0}
-					var Radius = 0.5
-				}
-			}
-			Cog [Id:0x5aad82319a3fd9ba][InheritId:"553ebfb7a5fa0572:Eye"][ContextId:584]
-			{
-				Transform 
-				{
-					var Translation = Real3{-0.200000003, 0, 0}
-				}
-			}
-			Cog [Id:0x5aad82319a3fd9bc][InheritId:"553ebfb7a5fa0572:Eye"][ContextId:585]
-			{
-				var Name = "RightLeft"
-				Transform 
-				{
-					var Translation = Real3{0.200000003, 0, 0}
-				}
-			}
-			Cog [Id:0x5aadb256d5d572fc][ContextId:586]
-			{
-				var Name = "Light"
-				Transform 
-				{
-					var Translation = Real3{1.07142854, 2.14285707, 0}
-					var Scale = Real3{5.71428585, 5.71428585, 5.71428585}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SelectionIcon 
-				{
-					var Visible = true
-					var VisibilityEvents = true
-					var Material = "56581e2bb81777be:DebugDrawOnTop"
-					var SpriteSource = "58f8e4be736f5ea2:LightIcon"
-					var ViewScale = 1
-					var OverrideSelections = true
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "580644d674646690:PointLight"
-					var Mesh = "4de0354322b376ae:Sphere"
-				}
-				PointLight 
-				{
-					var LightColor = Real4{0.368627429, 0.811764657, 1, 1}
-					var LightIntensity = 4
-					var FalloffRadius = 4
-					var LightRadius = 0
-				}
-				Hierarchy 
-				{
-				}
-			}
-		}
-	}
-	Cog [ContextId:587]
-	{
-		var Name = "OrangeGhost"
-		Transform 
-		{
-			var Translation = Real3{1.5, 0, 0}
-			var Scale = Real3{1.39999998, 1.39999998, 1.39999998}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "555b72e3dd9d5569:Character"
-			var Mesh = "4de0354322b376ae:Sphere"
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "5539d83412a136b2:MovementCollider"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.625, 0.625, 0.625}
-		}
-		SweptController 
-		{
-			var WorldUp = Real3{0, 0, 1}
-			var LockZAxis = true
-			var ForwardEvents = false
-			var Gravity = 0
-			var JumpSpeed = 0
-			var JumpCancelFactor = 0
-			var MaxMoveSpeed = 7
-			var MaxFallSpeed = 0
-			var GroundAcceleration = 50
-			var AirAcceleration = 500
-			var GroundDeceleration = 50
-			var AirDeceleration = 500
-			var MaxGroundSlope = 45
-			var MaxCeilingSlope = 45
-			var GroundSnapDistance = 0.100000001
-			var ControllerVelocity = Real3{0, 0, 0}
-			var Grounded = true
-			var Jumping = false
-			var GroundTraction = 1
-			var AirTraction = 1
-		}
-		Character 
-		{
-			var Speed = 7
-			var CanMoveOpposite = false
-			var Color = Real4{3.5, 2.37451005, 0.672549188, 1}
-		}
-		Ghost 
-		{
-			var GhostColor = Real4{3.5, 2.37444925, 0.678413987, 1}
-			var FrozenColor = Real4{0, 0.42000103, 6, 1}
-			var FrozenFlashColor = Real4{3, 3, 3, 1}
-			var DotLimit = 60
-		}
-		OrangeGhostAi 
-		{
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a3fd9b8][ContextId:588]
-			{
-				var Name = "CharacterCollision"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SphereCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "555bf8255a60d639:Ghost"
-					var Offset = Real3{0, 0, 0}
-					var Radius = 0.5
-				}
-			}
-			Cog [Id:0x5aad82319a3fd9ba][InheritId:"553ebfb7a5fa0572:Eye"][ContextId:589]
-			{
-				Transform 
-				{
-					var Translation = Real3{-0.200000003, 0, 0}
-				}
-			}
-			Cog [Id:0x5aad82319a3fd9bc][InheritId:"553ebfb7a5fa0572:Eye"][ContextId:590]
-			{
-				var Name = "RightLeft"
-				Transform 
-				{
-					var Translation = Real3{0.200000003, 0, 0}
-				}
-			}
-			Cog [Id:0x5aadb255d5275fbc][ContextId:591]
-			{
-				var Name = "Light"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{5.71428585, 5.71428585, 5.71428585}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SelectionIcon 
-				{
-					var Visible = true
-					var VisibilityEvents = true
-					var Material = "56581e2bb81777be:DebugDrawOnTop"
-					var SpriteSource = "58f8e4be736f5ea2:LightIcon"
-					var ViewScale = 1
-					var OverrideSelections = true
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "580644d674646690:PointLight"
-					var Mesh = "4de0354322b376ae:Sphere"
-				}
-				PointLight 
-				{
-					var LightColor = Real4{1, 0.678431451, 0.192156911, 1}
-					var LightIntensity = 4
-					var FalloffRadius = 4
-					var LightRadius = 0
-				}
-				Hierarchy 
-				{
-				}
-			}
-		}
-	}
-	Cog [ContextId:592]
-	{
-		var Name = "RedGhost"
-		Transform 
-		{
-			var Translation = Real3{0.0155081749, 3, 0}
-			var Scale = Real3{1.39999998, 1.39999998, 1.39999998}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "5828b036bd65b5d8:OpaqueFlat"
-			var Mesh = "4de0354322b376ae:Sphere"
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "5539d83412a136b2:MovementCollider"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.625, 0.625, 0.625}
-		}
-		SweptController 
-		{
-			var WorldUp = Real3{0, 0, 1}
-			var LockZAxis = true
-			var ForwardEvents = false
-			var Gravity = 0
-			var JumpSpeed = 0
-			var JumpCancelFactor = 0
-			var MaxMoveSpeed = 7
-			var MaxFallSpeed = 0
-			var GroundAcceleration = 50
-			var AirAcceleration = 500
-			var GroundDeceleration = 50
-			var AirDeceleration = 500
-			var MaxGroundSlope = 45
-			var MaxCeilingSlope = 45
-			var GroundSnapDistance = 0.100000001
-			var ControllerVelocity = Real3{0, 0, 0}
-			var Grounded = true
-			var Jumping = false
-			var GroundTraction = 1
-			var AirTraction = 1
-		}
-		Character 
-		{
-			var Speed = 7
-			var CanMoveOpposite = false
-			var Color = Real4{4.5, 0.829411745, 0.829411745, 1}
-		}
-		Ghost 
-		{
-			var GhostColor = Real4{4.5, 0.829413056, 0.829413056, 1}
-			var FrozenColor = Real4{0, 0.42000103, 6, 1}
-			var FrozenFlashColor = Real4{3, 3, 3, 1}
-			var DotLimit = 0
-		}
-		RedGhostAi 
-		{
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a3fe331][ContextId:593]
-			{
-				var Name = "CharacterCollision"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SphereCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "555bf8255a60d639:Ghost"
-					var Offset = Real3{0, 0, 0}
-					var Radius = 0.5
-				}
-			}
-			Cog [Id:0x5aad82319a3fe32c][InheritId:"553ebfb7a5fa0572:Eye"][ContextId:594]
-			{
-				Transform 
-				{
-					var Translation = Real3{-0.200000003, 0, 0}
-				}
-			}
-			Cog [Id:0x5aad82319a3fe32f][InheritId:"553ebfb7a5fa0572:Eye"][ContextId:595]
-			{
-				var Name = "EyeRight"
-				Transform 
-				{
-					var Translation = Real3{0.200000003, 0, 0}
-				}
-			}
-			Cog [Id:0x5aadb15799c5fdb3][ContextId:596]
-			{
-				var Name = "Light"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{5.71428585, 5.71428585, 5.71428585}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SelectionIcon 
-				{
-					var Visible = true
-					var VisibilityEvents = true
-					var Material = "56581e2bb81777be:DebugDrawOnTop"
-					var SpriteSource = "58f8e4be736f5ea2:LightIcon"
-					var ViewScale = 1
-					var OverrideSelections = true
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "580644d674646690:PointLight"
-					var Mesh = "4de0354322b376ae:Sphere"
-				}
-				PointLight 
-				{
-					var LightColor = Real4{1, 0.184313715, 0.184313715, 1}
-					var LightIntensity = 4
-					var FalloffRadius = 4
-					var LightRadius = 0
-				}
-				Hierarchy 
-				{
-				}
-			}
-		}
-	}
-	Cog [ContextId:597]
-	{
-		var Name = "GhostHouse"
-		Transform 
-		{
-			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		GhostHouse 
-		{
-			var RedGhost = CogPath
-			{
-				var Path = ":/RedGhost"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 592
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var PurpleGhost = CogPath
-			{
-				var Path = ":/PurpleGhost"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 577
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var BlueGhost = CogPath
-			{
-				var Path = ":/BlueGhost"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 582
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var OrangeGhost = CogPath
-			{
-				var Path = ":/OrangeGhost"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 587
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var CenterSpot = CogPath
-			{
-				var Path = "CenterSpot"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 598
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var SpawnPoint = CogPath
-			{
-				var Path = "SpawnPoint"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 599
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5aad82319a3fe7b8][ContextId:598]
-			{
-				var Name = "CenterSpot"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-			}
-			Cog [Id:0x5aad82319a3fe7bb][ContextId:599]
-			{
-				var Name = "SpawnPoint"
-				Transform 
-				{
-					var Translation = Real3{0, 3, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 			}
 		}

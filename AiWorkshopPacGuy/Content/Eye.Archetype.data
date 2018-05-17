@@ -1,57 +1,48 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "EyeLeft"
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{-2.88714004, 0, 0}
+		var Scale = Real3{0.300000012, 0.300000012, 0.300000012}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Model 
 	{
-		string Name = "EyeLeft",
-	},
-	Transform = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "555b72e3dd9d5569:Character"
+		var Mesh = "4de0354322b376ae:Sphere"
+	}
+	Hierarchy 
 	{
-		Vec3 Translation = [-2.88714, 0, 0],
-		Vec3 Scale = [0.3, 0.3, 0.3],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	Model = 
-	{
-		bool Visible = true,
-		bool VisibilityCulling = true,
-		bool VisibilityEvents = true,
-		bool CastShadows = true,
-		string MaterialName = "555b72e3dd9d5569:Character",
-		string MeshName = "4de0354322b376ae:Sphere",
-		Vec4 Color = [0.34, 0.34, 0.34, 1],
-	},
-	Hierarchy = 
-	{
-		Cog = 
+		Cog [Id:0x5aab2324f38c3dc3]
 		{
-			LinkId = 
+			var Name = "Pupil"
+			Transform 
 			{
-				uint Id = 2,
-			},
-			Named = 
+				var Translation = Real3{0.0724134594, -0.110474519, 0.251520991}
+				var Scale = Real3{0.667141378, 0.667141378, 0.667141378}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Model 
 			{
-				string Name = "Pupil",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0.176809, -0.0828701, 0.251521],
-				Vec3 Scale = [0.816746, 0.816746, 0.816746],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = true,
-				string MaterialName = "555b72e3dd9d5569:Character",
-				string MeshName = "4de0354322b376ae:Sphere",
-				Vec4 Color = [0, 0, 0, 1],
-			},
-		},
-	},
-},
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "5aab237ceef76bd5:EyePupil"
+				var Mesh = "4de0354322b376ae:Sphere"
+			}
+		}
+	}
+}

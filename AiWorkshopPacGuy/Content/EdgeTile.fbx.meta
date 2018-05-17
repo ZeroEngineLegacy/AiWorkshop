@@ -1,25 +1,31 @@
-GeometryContent = 
+[Version:1]
+GeometryContent 
 {
-	GeometryImport = 
+	GeometryImport 
 	{
-		bool ChangeWinding = false,
-		Vec3 Translation = [0, 0, 0],
-		Quat Rotation = [0.5, -0.5, -0.5, 0.5],
-		Vec3 Scale = [1, 1, 1],
-	},
-	MeshBuilder = 
+		var CollapsePivots = false
+		var OriginOffset = Real3{0, 0, 0}
+		var ScaleFactor = 1
+		var ChangeBasis = true
+		var XBasisTo = BasisType.PositiveX
+		var YBasisTo = BasisType.PositiveZ
+		var ZBasisTo = BasisType.NegativeY
+	}
+	MeshBuilder 
 	{
-		Array Meshes = 
-		[
+		var GenerateSmoothNormals = false
+		var SmoothingAngleDegreesThreshold = 30
+		var GenerateTangentSpace = true
+		var InvertUvYAxis = false
+		var FlipWindingOrder = false
+		var FlipNormals = false
+		var Meshes = Array
+		{
+			Object
 			{
-				string Name = "EdgeTile",
-				uint64 ResourceId = 555b49fdd220e62c,
-			},
-		],
-		MeshMode MeshMode = Single,
-		ResourceCompression CompressMesh = None,
-		Generation Normals = Import,
-		Generation Tangents = Import,
-		float SmoothingAngle = 60,
-	},
-},
+				var Name = "EdgeTile"
+				var ResourceId = 0x555b49fdd220e62c
+			}
+		}
+	}
+}

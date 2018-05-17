@@ -1,11 +1,12 @@
-DataContent = 
+[Version:1]
+DataContent 
 {
-	DataBuilder = 
+	DataBuilder 
 	{
-		string Name = "Door",
-		uint64 ResourceId = 553ed641df2ba127,
-		string LoaderType = "Material",
-		uint Version = 0,
-		bool ShowInEditor = true,
-	},
-},
+		var Name = "Door"
+		var ResourceId = 0x553ed641df2ba127
+		var LoaderType = "Material"
+		var Version = 0
+		var ShowInEditor = true
+	}
+}

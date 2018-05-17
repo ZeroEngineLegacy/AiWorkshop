@@ -3,9 +3,9 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "FreezeDot"
-		var ResourceId = 0x5539ddd52414c9f8
-		var LoaderType = "Cog"
+		var Name = "Nebula"
+		var ResourceId = 0x5aad866ab9c89e01
+		var LoaderType = "ColorGradient"
 		var Version = 0
 		var ShowInEditor = true
 	}
@@ -13,7 +13,7 @@ DataContent
 	{
 		var Tags = Array
 		{
-			"Archetype"
+			"ColorGradient"
 		}
 	}
 }

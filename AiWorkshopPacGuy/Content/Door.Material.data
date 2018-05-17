@@ -1,12 +1,17 @@
-Material = 
+[Version:1]
+Material 
 {
-	Phong = 
+	var RenderGroups = Array
 	{
-		float SpecularExponent = 40,
-		float SpecularScalar = 1,
-	},
-	ColorDiffuse = 
+		"581cffd64d449122:Opaque"
+	}
+	Phong 
 	{
-		Vec4 DiffuseColor = [0.913726, 0.368627, 1, 1],
-	},
-},
+		var SpecularExponent = 40
+		var SpecularScalar = 1
+	}
+	ColorDiffuse 
+	{
+		var DiffuseColor = Real4{0.913726, 0.368627, 1, 1}
+	}
+}

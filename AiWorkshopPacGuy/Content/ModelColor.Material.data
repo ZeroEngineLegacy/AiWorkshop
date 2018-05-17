@@ -1,13 +1,18 @@
-Material = 
+[Version:1]
+Material 
 {
-	Lambert = 
+	var RenderGroups = Array
 	{
-	},
-	ModulateModelColor = 
+		"581cffd64d449122:Opaque"
+	}
+	Lambert 
 	{
-	},
-	ColorDiffuse = 
+	}
+	ModulateModelColor 
 	{
-		Vec4 DiffuseColor = [1, 1, 1, 1],
-	},
-},
+	}
+	ColorDiffuse 
+	{
+		var DiffuseColor = Real4{1, 1, 1, 1}
+	}
+}

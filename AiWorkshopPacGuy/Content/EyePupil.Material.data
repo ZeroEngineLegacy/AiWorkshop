@@ -4,10 +4,11 @@ Material
 	var RenderGroups = Array
 	{
 		"581cffd64d449122:Opaque"
+		"580269d9a1d6b870:ShadowCasters"
 	}
 	AlbedoValue 
 	{
-		var AlbedoValue = Real4{0.193800017, 0.238488004, 0.285000026, 1}
+		var AlbedoValue = Real4{0, 0, 0, 1}
 		var GammaCorrect = true
 	}
 	MetallicValue 
@@ -17,5 +18,9 @@ Material
 	RoughnessValue 
 	{
 		var RoughnessValue = 1
+	}
+	SpecularValue 
+	{
+		var SpecularValue = 0.5
 	}
 }

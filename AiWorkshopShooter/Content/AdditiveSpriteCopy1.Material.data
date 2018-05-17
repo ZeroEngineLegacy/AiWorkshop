@@ -4,9 +4,12 @@ Material
 	var RenderGroups = Array
 	{
 		"582fad0ca055e4df:AdditiveBlend"
+		"5961eaa40f1649f6:ZSort"
 	}
-	ColorValue 
+	SpriteSourceColor 
 	{
-		var Color = Real4{0.600000143, 2.06400013, 3, 1}
+	}
+	GammaToLinearColor 
+	{
 	}
 }

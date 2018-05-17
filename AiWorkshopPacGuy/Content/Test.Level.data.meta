@@ -3,9 +3,9 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "FreezeDot"
-		var ResourceId = 0x5539ddd52414c9f8
-		var LoaderType = "Cog"
+		var Name = "Test"
+		var ResourceId = 0x5aadbd924ab32ca5
+		var LoaderType = "Level"
 		var Version = 0
 		var ShowInEditor = true
 	}
@@ -13,7 +13,7 @@ DataContent
 	{
 		var Tags = Array
 		{
-			"Archetype"
+			"Level"
 		}
 	}
 }

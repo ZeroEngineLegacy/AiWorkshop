@@ -1,10 +1,21 @@
-Material = 
+[Version:1]
+Material 
 {
-	ModulateModelColor = 
+	var RenderGroups = Array
 	{
-	},
-	ColorDiffuse = 
+		"581cffd64d449122:Opaque"
+	}
+	AlbedoValue 
 	{
-		Vec4 DiffuseColor = [1, 1, 1, 1],
-	},
-},
+		var AlbedoValue = Real4{1, 1, 1, 1}
+		var GammaCorrect = true
+	}
+	MetallicValue 
+	{
+		var MetallicValue = 0.994875848
+	}
+	RoughnessValue 
+	{
+		var RoughnessValue = 0.786774695
+	}
+}

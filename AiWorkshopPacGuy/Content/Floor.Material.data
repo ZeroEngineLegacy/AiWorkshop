@@ -1,16 +1,21 @@
-Material = 
+[Version:1]
+Material 
 {
-	Lambert = 
+	var RenderGroups = Array
 	{
-	},
-	ModulateModelColor = 
+		"581cffd64d449122:Opaque"
+	}
+	AlbedoValue 
 	{
-	},
-	TextureDiffuse = 
+		var AlbedoValue = Real4{0, 0, 0, 1}
+		var GammaCorrect = true
+	}
+	MetallicValue 
 	{
-		string DiffuseTexture = "4fab71e8bcb7a8ce:DefaultTexture",
-		Vec2 DiffuseScroll = [0, 0],
-		Vec2 DiffuseTiling = [1, 1],
-		Vec2 DiffuseOffset = [0, 0],
-	},
-},
+		var MetallicValue = 1.05575633
+	}
+	RoughnessValue 
+	{
+		var RoughnessValue = 0
+	}
+}
