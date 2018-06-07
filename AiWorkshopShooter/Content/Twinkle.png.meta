@@ -1,20 +1,20 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	TextureBuilder = 
+	SpriteSourceBuilder 
 	{
-		string Name = "Twinkle",
-		uint64 ResourceId = 52437a7536837e1f,
-		OutputTextureFormat Format = AutoColor,
-		FixPowerOf2 FixPowerOf2 = Auto,
-		ImageFilter ResizeFilter = Cubic,
-		bool GenerateMipMaps = true,
-		ImageFilter MipFilter = Cubic,
-	},
-	ContentTags = 
-	{
-		object Tags = 
-		[
-			"Particles",
-		],
-	},
-},
+		var Name = "Twinkle"
+		var ResourceId = 0x5aad8648b3f06dee
+		var FrameSizeX = 64
+		var FrameSizeY = 64
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 32
+		var OriginY = 32
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

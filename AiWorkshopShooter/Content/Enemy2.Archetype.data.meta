@@ -1,18 +1,19 @@
-DataContent = 
+[Version:1]
+DataContent 
 {
-	DataBuilder = 
+	DataBuilder 
 	{
-		string Name = "Enemy2",
-		uint64 ResourceId = 524b6ee71534b3a3,
-		string LoaderType = "Cog",
-		uint Version = 0,
-		bool ShowInEditor = true,
-	},
-	ContentTags = 
+		var Name = "Enemy2"
+		var ResourceId = 0x524b6ee71534b3a3
+		var LoaderType = "Cog"
+		var Version = 0
+		var ShowInEditor = true
+	}
+	ContentTags 
 	{
-		Array Tags = 
-		[
-			"Enemy",
-		],
-	},
-},
+		var Tags = Array
+		{
+			"Enemy"
+		}
+	}
+}

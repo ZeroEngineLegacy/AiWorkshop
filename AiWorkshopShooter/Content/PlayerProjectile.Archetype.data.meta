@@ -1,20 +1,21 @@
-DataContent = 
+[Version:1]
+DataContent 
 {
-	DataBuilder = 
+	DataBuilder 
 	{
-		string Name = "PlayerProjectile",
-		uint64 ResourceId = 555c9c4a2edc31d9,
-		string LoaderType = "Cog",
-		uint Version = 0,
-		bool ShowInEditor = true,
-	},
-	ContentTags = 
+		var Name = "PlayerProjectile"
+		var ResourceId = 0x555c9c4a2edc31d9
+		var LoaderType = "Cog"
+		var Version = 0
+		var ShowInEditor = true
+	}
+	ContentTags 
 	{
-		Array Tags = 
-		[
-			"Archetype",
-			"Cog",
-			"Projectile",
-		],
-	},
-},
+		var Tags = Array
+		{
+			"Archetype"
+			"Cog"
+			"Projectile"
+		}
+	}
+}

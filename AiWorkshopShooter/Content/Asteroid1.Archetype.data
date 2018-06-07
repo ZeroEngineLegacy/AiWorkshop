@@ -1,157 +1,140 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "Asteroid1"
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{13.8236322, 2.5268147, 0}
+		var Scale = Real3{0.719685018, 0.719685018, 0.719685018}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
 	{
-		string Name = "Asteroid1",
-	},
-	Archetyped = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5249d3b610efe585:rock1"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	SphereCollider 
 	{
-		string Name = "524d5479b5e51417:Asteroid1",
-	},
-	Transform = 
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var Radius = 1.39999998
+	}
+	RigidBody 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [0.719685, 0.719685, 0.719685],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	Sprite = 
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.Mode2D
+	}
+	Health 
 	{
-		bool Visible = true,
-		bool VisibilityCulling = true,
-		bool VisibilityEvents = true,
-		bool CastShadows = false,
-		Vec4 Color = [1, 1, 1, 1],
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5249d3b610efe585:rock1",
-		bool RenderMask = false,
-		bool FlipX = false,
-		bool FlipY = false,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-	},
-	SphereCollider = 
+		var MaxHealth = 15
+		var DestroyAtZeroHealth = true
+		var DamageScalar = 1
+	}
+	TimedDeath 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = false,
-		string MaterialName = "4faa6050b8692851:HardMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		float Radius = 1.4,
-	},
-	RigidBody = 
+		var Lifetime = 10
+		var SendsDeathEvent = true
+		var AutoDestroy = true
+	}
+	CreateOnDeath 
 	{
-		bool Static = false,
-		bool Asleep = false,
-		bool Kinematic = false,
-		bool RotationLocked = false,
-		bool Mode2D = false,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	Health = 
+		var ArchetypeToCreate = "5245cf74d7597c74:RockExplosion"
+		var InheritVelocity = true
+	}
+	Hierarchy 
 	{
-		float MaxHealth = 15,
-		bool DestroyAtZeroHealth = true,
-		float DamageScalar = 1,
-	},
-	TimedDeath = 
-	{
-		float Lifetime = 10,
-		bool SendsDeathEvent = true,
-		bool AutoDestroy = true,
-	},
-	CreateOnDeath = 
-	{
-		string ArchetypeToCreate = "5245cf74d7597c74:RockExplosion",
-		bool InheritVelocity = true,
-	},
-	Hierarchy = 
-	{
-		Cog = 
+		Cog [Id:0x5b4e9de4db292321]
 		{
-			LinkId = 
+			var Name = "Smoke"
+			Transform 
 			{
-				uint Id = 2,
-			},
-			Named = 
+				var Translation = Real3{0, 0, -1.06965005}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SpriteParticleSystem 
 			{
-				string Name = "Smoke",
-			},
-			Transform = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c50d330d372c3:AdditiveSprite"
+				var BoundingBoxSize = 2
+				var ChildSystem = false
+				var SystemSpace = SystemSpace.WorldSpace
+				var WarmUpTime = 0
+				var PreviewInEditor = false
+				var VertexColor = Real4{1, 1, 1, 0.74000001}
+				var GeometryMode = SpriteParticleGeometryMode.Billboarded
+				var SpriteSource = "5aad8648b3f4bf6d:Cloud"
+				var ParticleAnimation = SpriteParticleAnimationMode.Single
+				var ParticleSort = SpriteParticleSortMode.None
+				var BeamBaseScale = 1
+				var BeamVelocityScale = 1
+			}
+			LinearParticleAnimator 
 			{
-				Vec3 Translation = [0, 0, -1.06965],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SpriteParticleSystem = 
+				var Force = Real3{0, 0, 0}
+				var RandomForce = Real3{0, 0, 0}
+				var Torque = 0
+				var Growth = 0
+				var Dampening = 0
+				var Twist = Real3{0, 0, 0}
+			}
+			SphericalParticleEmitter 
 			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = false,
-				SystemChildMode ChildMode = Independent,
-				SystemSpace SystemSpace = WorldSpace,
-				uint DrawOrder = 0,
-				float WarmUpTime = 0,
-				ParticleGeometry GeometryMode = Billboarded,
-				ParticleRenderMode RenderMode = Additive,
-				ParticleSortMode SortMode = Youngest,
-				ParticleAnimation ParticleAnimation = Single,
-				string Texture = "52437a753692e732:Cloud",
-				Vec4 Tint = [1, 1, 1, 0.74],
-				float VelocityScale = 1,
-				float LengthScale = 1,
-				float MaxParticleSize = 100,
-				Vec3 SystemSize = [15, 15, 5],
-			},
-			LinearParticleAnimator = 
+				var Active = true
+				var EmitCount = 0
+				var EmitDelay = 0
+				var EmitRate = 15
+				var EmitVariance = 0
+				var EmitRateSoftStartTime = 0
+				var Size = 3
+				var SizeVariance = 0.5
+				var Lifetime = 2
+				var LifetimeVariance = 0.400000006
+				var Spin = 0
+				var SpinVariance = 15
+				var RandomSpin = true
+				var Fill = 0
+				var EmitterVelocityPercent = 5
+				var StartVelocity = Real3{0, 0, 0}
+				var RandomVelocity = Real3{0.100000001, 0.100000001, 1}
+				var TangentVelocity = Real3{0, 0, 0}
+				var EmitterSize = Real3{0.300000012, 0.300000012, 0}
+				var FastMovingEmitter = true
+			}
+			ParticleColorAnimator 
 			{
-				Vec3 Force = [0, 0, 0],
-				Vec3 RandomForce = [0, 0, 0],
-				float Torque = 0,
-				float Growth = 0,
-				float Dampening = 0,
-				Vec3 Twist = [0, 0, 0],
-			},
-			SphericalParticleEmitter = 
-			{
-				bool Active = true,
-				uint EmitCount = 0,
-				float EmitRate = 15,
-				float EmitVariance = 0,
-				float Size = 3,
-				float SizeVariance = 0.5,
-				float Lifetime = 2,
-				float LifetimeVariance = 0.4,
-				float Spin = 0,
-				float SpinVariance = 15,
-				bool RandomSpin = true,
-				float Fill = 0,
-				float EmitterVelocityPercent = 5,
-				Vec3 StartVelocity = [0, 0, 0],
-				Vec3 RandomVelocity = [0.1, 0.1, 1],
-				Vec3 TangentVelocity = [0, 0, 0],
-				Vec3 EmitterSize = [0.3, 0.3, 0],
-				bool FastMovingEmitter = true,
-			},
-			ParticleColorAnimator = 
-			{
-				Vec4 Color0 = [0.445, 0.445, 0.445, 0.345],
-				Vec4 Color1 = [0.375, 0.375, 0.375, 0.455],
-				Vec4 Color2 = [0.585, 0.585, 0.585, 0.425],
-				Vec4 Color3 = [0.385, 0.385, 0.385, 0.445],
-				Vec4 Color4 = [0.33, 0.33, 0.33, 0],
-			},
-		},
-	},
-},
+				var TimeGradient = "5b4e9d81e17498dc:Smoke"
+				var VelocityGradient = "null"
+				var MaxParticleSpeed = 5
+			}
+		}
+	}
+}

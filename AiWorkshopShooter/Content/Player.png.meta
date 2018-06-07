@@ -1,26 +1,20 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	ContentTags = 
+	SpriteSourceBuilder 
 	{
-		object Tags = 
-		[
-			"Ships",
-		],
-	},
-	SpriteSourceBuilder = 
-	{
-		string Name = "Player",
-		uint64 ResourceId = 524e0209b31d6983,
-		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 458,
-		uint FrameSizeY = 503,
-		uint FrameCount = 1,
-		float FrameDelay = 0.0833333,
-		float OriginX = 229,
-		float OriginY = 251,
-		float PixelsPerUnit = 210,
-		bool Smoothing = true,
-		bool Looping = true,
-		Vec4 Slices = [0, 0, 0, 0],
-	},
-},
+		var Name = "Player"
+		var ResourceId = 0x5aad8bd43cdef116
+		var FrameSizeX = 809
+		var FrameSizeY = 896
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 404
+		var OriginY = 448
+		var PixelsPerUnit = 375
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

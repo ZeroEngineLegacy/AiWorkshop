@@ -1,20 +1,20 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	TextureBuilder = 
+	SpriteSourceBuilder 
 	{
-		string Name = "SmallRock2",
-		uint64 ResourceId = 524514a2eb01ded4,
-		OutputTextureFormat Format = AutoColor,
-		FixPowerOf2 FixPowerOf2 = Auto,
-		ImageFilter ResizeFilter = Cubic,
-		bool GenerateMipMaps = true,
-		ImageFilter MipFilter = Cubic,
-	},
-	ContentTags = 
-	{
-		object Tags = 
-		[
-			"Particles",
-		],
-	},
-},
+		var Name = "SmallRock2"
+		var ResourceId = 0x5aad8648b3f29ffc
+		var FrameSizeX = 63
+		var FrameSizeY = 31
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 31
+		var OriginY = 15
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

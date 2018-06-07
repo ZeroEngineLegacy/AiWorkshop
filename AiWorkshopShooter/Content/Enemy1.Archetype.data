@@ -1,95 +1,83 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "Enemy1"
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{16.4971619, -3.10015678, -0.769809723}
+		var Scale = Real3{0.600000024, 0.600000024, 0.600000024}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
 	{
-		string Name = "Enemy1",
-	},
-	Archetyped = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "524aa9f463a3dd21:enemy_new"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	RigidBody 
 	{
-		string Name = "52443359205b3b68:Enemy1",
-	},
-	Transform = 
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.Mode2D
+	}
+	CapsuleCollider 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [0.6, 0.6, 0.6],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	Sprite = 
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "524aa1bdfe39bd0e:Enemy"
+		var Offset = Real3{0, 0, 0}
+		var Radius = 1
+		var Height = 1.5
+		var Direction = AxisDirection.Y
+		var ScalingMode = CapsuleScalingMode.PreserveHeight
+	}
+	CreateOnDeath 
 	{
-		bool Visible = true,
-		bool VisibilityCulling = true,
-		bool VisibilityEvents = true,
-		bool CastShadows = false,
-		Vec4 Color = [1, 1, 1, 1],
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "524aa9f463a3dd21:enemy_new",
-		bool RenderMask = false,
-		bool FlipX = false,
-		bool FlipY = false,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-	},
-	RigidBody = 
+		var ArchetypeToCreate = "5558fc5231b56d92:YellowPlasmaExplosion"
+		var InheritVelocity = false
+	}
+	Health 
 	{
-		bool Static = false,
-		bool Asleep = false,
-		bool Kinematic = false,
-		bool RotationLocked = false,
-		bool Mode2D = true,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	CapsuleCollider = 
+		var MaxHealth = 200
+		var DestroyAtZeroHealth = true
+		var DamageScalar = 1
+	}
+	Orientation 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = false,
-		string MaterialName = "4faa6050b8692851:HardMaterial",
-		string SerializedGroupName = "524aa1bdfe39bd0e:Enemy",
-		Vec3 Offset = [0, 0, 0],
-		float Radius = 1,
-		float Height = 1.5,
-		uint Direction = 1,
-	},
-	CreateOnDeath = 
+		var GlobalUp = Real3{0, 0, 1}
+		var LocalOrientationBasis = Quaternion{-3.09086197e-08, 0.707106769, 0.707106769, -3.09086197e-08}
+		var DefaultBases = OrientationBases.Custom
+	}
+	Ship 
 	{
-		string ArchetypeToCreate = "5558fc5231b56d92:YellowPlasmaExplosion",
-		bool InheritVelocity = false,
-	},
-	Health = 
+		var Speed = 4
+		var Projectile = "5245faddd40ddded:RedProjectile"
+		var ProjectileSpeed = 25
+		var TimeBetweenShots = 3
+		var HomingProjectile = "555c9c582df2e42e:HomingProjectile"
+	}
+	EnemyAi1 
 	{
-		float MaxHealth = 200,
-		bool DestroyAtZeroHealth = true,
-		float DamageScalar = 1,
-	},
-	Orientation = 
+	}
+	Hierarchy 
 	{
-		Vec3 GlobalUp = [0, 0, 1],
-		Vec3 UpVector = [-0, 0, 1],
-		Vec3 ForwardVector = [-8.74228e-008, -1, -0],
-		OrientationBases DefaultBases = Custom,
-	},
-	Ship = 
-	{
-		float Speed = 4,
-		string Projectile = "5245faddd40ddded:RedProjectile",
-		float ProjectileSpeed = 25,
-		float TimeBetweenShots = 3,
-		string HomingProjectile = "555c9c582df2e42e:HomingProjectile",
-	},
-	EnemyAi1 = 
-	{
-	},
-	Hierarchy = 
-	{
-	},
-},
+	}
+}

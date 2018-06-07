@@ -1,21 +1,20 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	TextureBuilder = 
+	SpriteSourceBuilder 
 	{
-		string Name = "Smoke2",
-		uint64 ResourceId = 52437a753684e01d,
-		OutputTextureFormat Format = AutoColor,
-		FixPowerOf2 FixPowerOf2 = Auto,
-		ImageFilter ResizeFilter = Cubic,
-		bool GenerateMipMaps = true,
-		ImageFilter MipFilter = Cubic,
-	},
-	ContentTags = 
-	{
-		object Tags = 
-		[
-			"Smoke",
-			"Particles",
-		],
-	},
-},
+		var Name = "Smoke2"
+		var ResourceId = 0x5aad8648b3f1c84c
+		var FrameSizeX = 256
+		var FrameSizeY = 256
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 128
+		var OriginY = 128
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
