@@ -104,7 +104,7 @@ Cog =
 	{
 		float WanderRange = 8,
 	},
-	Color = 
+	Color2 = 
 	{
 		Vec4 Color = [0, 0.0700002, 1, 1],
 	},

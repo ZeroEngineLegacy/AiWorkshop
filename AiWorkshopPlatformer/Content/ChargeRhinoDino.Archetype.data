@@ -104,7 +104,7 @@ Cog =
 	{
 		float Range = 2,
 	},
-	Color = 
+	Color2 = 
 	{
 		Vec4 Color = [1, 0, 0.000599861, 1],
 	},

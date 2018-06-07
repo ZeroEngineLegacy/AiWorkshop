@@ -1,5 +1,5 @@
 [RunInEditor]
-class Color : ZilchComponent
+class Color2 : ZilchComponent
 {
     [Property]
     var Color : Real4 = Real4(1);
@@ -22,6 +22,6 @@ class Color : ZilchComponent
     
     function OnColorEvent(event : Event)
     {
-        this.Owner.Sprite.Color = this.Owner.FindRoot().Color.Color;
+        this.Owner.Sprite.VertexColor = this.Owner.FindRoot().Color2.Color;
     }
 }

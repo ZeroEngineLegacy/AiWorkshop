@@ -1,26 +1,36 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	Project = 
+	var Name = ""
+	ProjectSettings 
 	{
-		string ProjectName = "AiWorkshopPlatformer",
-		string ProjectOwner = "",
-		string DefaultLevel = "Level",
-		string ProjectSpace = "Space",
-		uint ProjectEngineRevision = 12003,
-		bool AutoTakeProjectScreenshot = false,
-	},
-	EditorSettings = 
+		var ProjectName = "AiWorkshopPlatformer"
+		var ProjectOwner = ""
+		var DefaultLevel = "Level"
+		var ProjectSpace = "Space"
+		var AutoTakeProjectScreenshot = false
+		var Guid = 0x5b4eb66527357c41
+	}
+	EditorSettings 
 	{
-		EditorMode EditorMode = Mode2D,
-		bool ViewCube = true,
-		float ViewCubeViewportSize = 150,
-		ScriptReloadMethod ScriptReloadEditor = ReInitializeObjects,
-		ScriptReloadMethod ScriptReloadGame = PatchObjects,
-	},
-	ProjectDescription = 
+		var ViewCube = true
+		var ViewCubeSize = 0.150000006
+		var AutoUpdateContentChanges = true
+	}
+	ProjectDescription 
 	{
-		string ShortDescription = "",
-		string LongDescription = "",
-		string Tags = "",
-	},
-},
+		var ShortDescription = ""
+		var LongDescription = ""
+		var Tags = ""
+	}
+	LauncherProjectInfo 
+	{
+		var Tags = ""
+		var ExperimentalBranchName = ""
+		var MajorVersion = 1
+		var MinorVersion = 4
+		var PatchVersion = 0
+		var RevisionId = 1020
+		var ShortChangeSet = "a0e93f3c8771"
+	}
+}

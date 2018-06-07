@@ -33,7 +33,7 @@ class Bird : ZilchComponent
         if(dropObj != null)
         {
             // Detach it from ourself
-            dropObj.DetachRelative();
+            dropObj.Detach();
             
             // Set it to dynamic so that it falls
             dropObj.RigidBody.DynamicState = RigidBodyDynamicState.Dynamic;

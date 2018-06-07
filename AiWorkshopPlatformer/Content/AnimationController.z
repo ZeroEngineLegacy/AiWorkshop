@@ -38,7 +38,7 @@ class AnimationController : ZilchComponent
         
         if(this.CurrentState != state)
         {
-            this.SimpleAnimation.CrossBlend(this.States[state], 0.1, AnimPlayMode.Loop);
+            this.SimpleAnimation.CrossBlend(this.States[state], 0.1, AnimationPlayMode.Loop);
             this.CurrentState = state;
         }
     }
@@ -47,7 +47,7 @@ class AnimationController : ZilchComponent
     {
         if(!this.Attacking)
         {
-            this.SimpleAnimation.PlaySingle(this.AttackAnim, AnimPlayMode.PlayOnce);
+            this.SimpleAnimation.PlaySingle(this.AttackAnim, AnimationPlayMode.PlayOnce);
             this.Attacking = true;
         }
     }
@@ -56,7 +56,7 @@ class AnimationController : ZilchComponent
     {
         if(!this.Dying)
         {
-            this.SimpleAnimation.PlaySingle(this.DieAnim, AnimPlayMode.PlayOnce);
+            this.SimpleAnimation.PlaySingle(this.DieAnim, AnimationPlayMode.PlayOnce);
             this.Dying = true;
         }
     }
@@ -66,7 +66,7 @@ class AnimationController : ZilchComponent
         if(event.Animation == this.AttackAnim)
         {
             this.Attacking = false;
-            this.SimpleAnimation.PlaySingle(this.States[this.CurrentState], AnimPlayMode.Loop);
+            this.SimpleAnimation.PlaySingle(this.States[this.CurrentState], AnimationPlayMode.Loop);
         }
     }
 }
