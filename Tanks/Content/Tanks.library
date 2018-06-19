@@ -1,7 +1,0 @@
-ContentLibrary = 
-{
-	string Name = "AiWorkshopTanks",
-	uint64 LibraryId = 5567a54fc40ce6a6,
-	string SourceControlType = "",
-	bool ReadOnly = false,
-},
