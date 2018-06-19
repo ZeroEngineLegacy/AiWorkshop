@@ -12,7 +12,7 @@ Level
 		RandomContext 
 		{
 			var RandomSeed = true
-			var Seed = 949389108
+			var Seed = 94950138
 		}
 	}
 	Cog [ContextId:2]
@@ -42,7 +42,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-2.96448636, 6.63004589, 6.00283384}
+			var Translation = Real3{-2.67484975, 6.83897638, 19.9300957}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278e-08, 0, 1}
 		}
@@ -58,10 +58,10 @@ Level
 		{
 			var ControlMode = ControlMode.ZPlane
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 6.00283384
+			var LookDistance = 19.9300957
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-2.96448636, 6.63004589, 2.1675528e-10}
+			var LookTarget = Real3{-2.67484975, 6.83897638, 1.28771802e-08}
 			var MoveSensitivity = 1
 		}
 		CameraViewport 
@@ -984,81 +984,7 @@ Level
 				{
 				}
 			}
-			Cog [Id:0x5b4ebd86693e644d][ContextId:24]
-			{
-				var Name = "Particles"
-				Transform 
-				{
-					var Translation = Real3{-3.09085989, 38.7617989, -109.757004}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SpriteParticleSystem 
-				{
-					var Visible = true
-					var ViewCulling = false
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "5aad8006284e91e4:AdditiveSpriteCopy1"
-					var BoundingBoxSize = 2
-					var ChildSystem = false
-					var SystemSpace = SystemSpace.LocalSpace
-					var WarmUpTime = 4
-					var PreviewInEditor = true
-					var VertexColor = Real4{1.16999996, 1.16999996, 1.16999996, 0.0899999738}
-					var GeometryMode = SpriteParticleGeometryMode.Beam
-					var SpriteSource = "5244737e58e244d6:sky"
-					var ParticleAnimation = SpriteParticleAnimationMode.Single
-					var ParticleSort = SpriteParticleSortMode.None
-					var BeamBaseScale = 23.6206875
-					var BeamVelocityScale = 1
-				}
-				SphericalParticleEmitter 
-				{
-					var Active = true
-					var EmitCount = 0
-					var EmitDelay = 0
-					var EmitRate = 35
-					var EmitVariance = 0
-					var EmitRateSoftStartTime = 0
-					var Size = 40
-					var SizeVariance = 4
-					var Lifetime = 10
-					var LifetimeVariance = 0
-					var Spin = 0
-					var SpinVariance = 15
-					var RandomSpin = false
-					var Fill = 0.300000012
-					var EmitterVelocityPercent = 0
-					var StartVelocity = Real3{0, -10, 0}
-					var RandomVelocity = Real3{1, 25, 1}
-					var TangentVelocity = Real3{0, 0, 0}
-					var EmitterSize = Real3{200, 100, 10}
-					var FastMovingEmitter = false
-				}
-				LinearParticleAnimator 
-				{
-					var Force = Real3{0, 0, 0}
-					var RandomForce = Real3{0, 0, 0}
-					var Torque = 0
-					var Growth = 0
-					var Dampening = 0
-					var Twist = Real3{0, 0, 1}
-				}
-				ParticleColorAnimator 
-				{
-					var TimeGradient = "5aad866ab9c89e01:Nebula"
-					var VelocityGradient = "null"
-					var MaxParticleSpeed = 5
-				}
-				Hierarchy 
-				{
-				}
-			}
-			Cog [Id:0x5aad8a30f87ef91b][ContextId:25]
+			Cog [Id:0x5aad8a30f87ef91b][ContextId:24]
 			{
 				var Name = "Stars"
 				Transform 
@@ -1129,7 +1055,7 @@ Level
 					var MaxParticleSpeed = 5
 				}
 			}
-			Cog [Id:0x5aad8a30f87ef91e][ContextId:26]
+			Cog [Id:0x5aad8a30f87ef91e][ContextId:25]
 			{
 				var Name = "AsteroidSpawner"
 				Transform 
@@ -1146,7 +1072,7 @@ Level
 					var ArchetypeToSpawn = "524d5479b5e51417:Asteroid1"
 				}
 			}
-			Cog [Id:0x5aad8a30f87ef921][ContextId:27]
+			Cog [Id:0x5aad8a30f87ef921][ContextId:26]
 			{
 				var Name = "AsteroidSpawner"
 				Transform 
@@ -1165,7 +1091,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:28]
+	Cog [ContextId:27]
 	{
 		var Name = "Waves"
 		Transform 
@@ -1180,7 +1106,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5aad8a2cfc62429a][ContextId:29]
+			Cog [Id:0x5aad8a2cfc62429a][ContextId:28]
 			{
 				var Name = "Wave"
 				Transform 
@@ -1198,7 +1124,7 @@ Level
 					var TimeUntilNextWave = 10
 				}
 			}
-			Cog [Id:0x5b4e9aeee40474a4][ContextId:30]
+			Cog [Id:0x5b4e9aeee40474a4][ContextId:29]
 			{
 				var Name = "Wave"
 				Transform 
@@ -1216,7 +1142,7 @@ Level
 					var TimeUntilNextWave = 5
 				}
 			}
-			Cog [Id:0x5b4e9ae3e71b351b][ContextId:31]
+			Cog [Id:0x5b4e9ae3e71b351b][ContextId:30]
 			{
 				var Name = "Wave"
 				Transform 
@@ -1234,7 +1160,7 @@ Level
 					var TimeUntilNextWave = 5
 				}
 			}
-			Cog [Id:0x5b4e9ae4e1e976e9][ContextId:32]
+			Cog [Id:0x5b4e9ae4e1e976e9][ContextId:31]
 			{
 				var Name = "Wave"
 				Transform 
@@ -1252,7 +1178,7 @@ Level
 					var TimeUntilNextWave = 10
 				}
 			}
-			Cog [Id:0x5aad8a2cfc624300][ContextId:33]
+			Cog [Id:0x5aad8a2cfc624300][ContextId:32]
 			{
 				var Name = "Wave"
 				Transform 
@@ -1270,7 +1196,7 @@ Level
 					var TimeUntilNextWave = 15
 				}
 			}
-			Cog [Id:0x5b4e9af9e0f2ca8e][ContextId:34]
+			Cog [Id:0x5b4e9af9e0f2ca8e][ContextId:33]
 			{
 				var Name = "Wave"
 				Transform 
@@ -1290,7 +1216,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:35]
+	Cog [ContextId:34]
 	{
 		var Name = "Player"
 		Transform 
@@ -1395,7 +1321,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5aad8a30f87d3511][ContextId:36]
+			Cog [Id:0x5aad8a30f87d3511][ContextId:35]
 			{
 				var Name = "Smoke"
 				Transform 
@@ -1466,7 +1392,7 @@ Level
 					var MaxParticleSpeed = 5
 				}
 			}
-			Cog [Id:0x5aad8a30f87d3515][ContextId:37]
+			Cog [Id:0x5aad8a30f87d3515][ContextId:36]
 			{
 				var Name = "BasicParticleEffect"
 				Transform 

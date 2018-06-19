@@ -4,7 +4,7 @@ Cog
 	var Name = ""
 	ProjectSettings 
 	{
-		var ProjectName = "AiWorkshopShooter"
+		var ProjectName = "AiWorkshopSpaceBlaster"
 		var ProjectOwner = ""
 		var DefaultLevel = "Level"
 		var ProjectSpace = "Space"
