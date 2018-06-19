@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "FloorTile",
-		uint64 ResourceId = 55657a6828d2320a,
-	},
-},

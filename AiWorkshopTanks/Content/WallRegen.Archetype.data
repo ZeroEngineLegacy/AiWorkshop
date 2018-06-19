@@ -1,50 +1,51 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "WallRegen"
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{0.5, 0.5, 0.5}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Model 
 	{
-		string Name = "WallRegen",
-	},
-	Archetyped = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = false
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "5a8c705bfba4f1ac:Stipple"
+		var Mesh = "4de0354322b345ae:Cube"
+	}
+	AnimationGraph 
 	{
-		string Name = "5573cd1a0b92e93d:WallRegen",
-	},
-	Transform = 
+		var Active = true
+		var PlayMode = AnimationPlayMode.PlayOnce
+		var TimeScale = 1
+		var Animation = "4f8ebbde619389d0:DefaultAnimation"
+		var DebugPreviewId = 68736
+	}
+	SimpleAnimation 
 	{
-		Vec3 Translation = [2.75, 0.5, 3.5],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	Model = 
+		var Animation = "5573cd14088f90b1:WallRegen"
+		var PlayMode = AnimationPlayMode.PlayOnce
+	}
+	TimedDeath 
 	{
-		bool Visible = true,
-		bool VisibilityCulling = true,
-		bool VisibilityEvents = false,
-		bool CastShadows = true,
-		string MaterialName = "5573fa4dfd63fa0e:DestructibleWall",
-		string MeshName = "4de0354322b345ae:Cube",
-		Vec4 Color = [4, 3.0032, 0.44, 0],
-	},
-	AnimationGraph = 
+		var Lifetime = 2
+		var SendsDeathEvent = true
+		var AutoDestroy = true
+	}
+	StippleInputs 
 	{
-		bool Active = true,
-		AnimPlayMode PlayMode = PlayOnce,
-		float TimeScale = 1,
-		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-		uint64 DebugPreviewId = 68736b726f576941,
-	},
-	SimpleAnimation = 
-	{
-		string AnimationName = "5573cd14088f90b1:WallRegen",
-		AnimPlayMode PlayMode = PlayOnce,
-	},
-	TimedDeath = 
-	{
-		float Lifetime = 2,
-		bool SendsDeathEvent = true,
-		bool AutoDestroy = true,
-	},
-},
+		var AlbedoValue = Real4{1, 0.941176474, 0.109803915, 1}
+		var MetallicValue = 0.300000012
+		var RoughnessValue = 0.5
+		var SpecularValue = 0.5
+		var StippleDensity = 0
+		var StippleScale = 3
+	}
+}

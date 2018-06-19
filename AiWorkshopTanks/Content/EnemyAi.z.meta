@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "EnemyAi",
-		uint64 ResourceId = 55076ad6f84eafe3,
-	},
-},

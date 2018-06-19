@@ -1,9 +1,10 @@
-DataContent = 
+[Version:1]
+DataContent 
 {
-	RichAnimationBuilder = 
+	RichAnimationBuilder 
 	{
-		string Name = "WallRegen",
-		uint64 ResourceId = 5573cd14088f90b1,
-		string PreviewArchetype = "",
-	},
-},
+		var Name = "WallRegen"
+		var ResourceId = 0x5573cd14088f90b1
+		var PreviewArchetype = ""
+	}
+}

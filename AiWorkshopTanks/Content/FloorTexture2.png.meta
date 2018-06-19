@@ -1,20 +1,26 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	TextureBuilder = 
+	TextureInfo 
 	{
-		string Name = "FloorTexture2",
-		uint64 ResourceId = 55657f9022a194ca,
-		BuilderTextureType TextureType = Texture2D,
-		RgbUsage RgbUsage = Color,
-		AlphaUsage AlphaUsage = Transparency,
-		TextureCompression Compression = Compressed,
-		TextureWrapping Wrapping = Repeat,
-		TextureFilter Filter = Trilinear,
-		float Anisotropy = 1,
-		MipGeneration MipGeneration = All,
-		ImageFilter MipFilter = Box,
-		FixPowerOf2 FixPowerOf2 = Auto,
-		ImageFilter ResizeFilter = Box,
-		OutputTextureFormat Format = Updated,
-	},
-},
+		var FileType = "png"
+		var LoadFormat = "RGBA8"
+		var Dimensions = "64 x 64"
+		var Size = "0.021 MB"
+	}
+	TextureBuilder 
+	{
+		var Name = "FloorTexture2"
+		var ResourceId = 0x55657f9022a194ca
+		var Type = TextureType.Texture2D
+		var Compression = TextureCompression.None
+		var AddressingX = TextureAddressing.Repeat
+		var AddressingY = TextureAddressing.Repeat
+		var Filtering = TextureFiltering.Trilinear
+		var Anisotropy = TextureAnisotropy.x16
+		var MipMapping = TextureMipMapping.PreGenerated
+		var HalfScaleCount = 0
+		var PremultipliedAlpha = false
+		var GammaCorrection = false
+	}
+}

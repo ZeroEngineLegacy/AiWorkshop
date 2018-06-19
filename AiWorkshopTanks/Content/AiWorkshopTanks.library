@@ -1,7 +1,8 @@
-ContentLibrary = 
+[Version:1]
+ContentLibrary 
 {
-	string Name = "AiWorkshopTanks",
-	uint64 LibraryId = 5567a54fc40ce6a6,
-	string SourceControlType = "",
-	bool ReadOnly = false,
-},
+	var Name = "AiWorkshopTanks"
+	var LibraryId = 0x5b4f557bb3a7ec5f
+	var SourceControlType = ""
+	var ReadOnly = false
+}

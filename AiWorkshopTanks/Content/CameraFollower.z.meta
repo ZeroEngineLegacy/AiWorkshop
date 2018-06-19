@@ -1,8 +1,16 @@
-TextContent = 
+[Version:1]
+TextContent 
 {
-	ZilchScriptBuilder = 
+	ContentTags 
 	{
-		string Name = "CameraFollower",
-		uint64 ResourceId = 550692bf5fe44792,
-	},
-},
+		var Tags = Array
+		{
+			"Tank"
+		}
+	}
+	ZilchScriptBuilder 
+	{
+		var Name = "CameraFollower"
+		var ResourceId = 0x550692bf5fe44792
+	}
+}

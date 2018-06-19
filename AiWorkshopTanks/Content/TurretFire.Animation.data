@@ -1,619 +1,596 @@
-RichAnimation = 
+[Version:1]
+RichAnimation 
 {
-	float SampleTolerance = 0.05,
-	float Duration = 0.533333,
-	Object Root = 
+	var SampleTolerance = 0.0500000007
+	var Duration = 0.533333004
+	var Root = Object
 	{
-		TrackType Type = Object,
-		string Name = "Root",
-		string Path = "",
-		bool Disabled = false,
-		uint PropertyTypeId = 0,
-		string PropertyTypeName = "void",
-		Array KeyFrames = 
-		[
-		],
-		Array Children = 
-		[
+		var Type = TrackType.Object
+		var Name = "Root"
+		var Path = ""
+		var Disabled = false
+		var PropertyTypeName = "void"
+		var KeyFrames = Array
+		{
+		}
+		var Children = Array
+		{
+			Object
 			{
-				TrackType Type = Object,
-				string Name = "/",
-				string Path = "/",
-				bool Disabled = false,
-				uint PropertyTypeId = 0,
-				string PropertyTypeName = "",
-				Array KeyFrames = 
-				[
-				],
-				Array Children = 
-				[
+				var Type = TrackType.Object
+				var Name = "TurretAnchor"
+				var Path = "/"
+				var Disabled = false
+				var PropertyTypeName = ""
+				var KeyFrames = Array
+				{
+				}
+				var Children = Array
+				{
+					Object
 					{
-						TrackType Type = Component,
-						string Name = "Transform",
-						string Path = "Transform",
-						bool Disabled = false,
-						uint PropertyTypeId = 0,
-						string PropertyTypeName = "",
-						Array KeyFrames = 
-						[
-						],
-						Array Children = 
-						[
+						var Type = TrackType.Component
+						var Name = "Transform"
+						var Path = "Transform"
+						var Disabled = false
+						var PropertyTypeName = ""
+						var KeyFrames = Array
+						{
+						}
+						var Children = Array
+						{
+							Object
 							{
-								TrackType Type = Property,
-								string Name = "Rotation",
-								string Path = "Transform.Rotation",
-								bool Disabled = false,
-								uint PropertyTypeId = 10,
-								string PropertyTypeName = "Quat",
-								Array KeyFrames = 
-								[
-								],
-								Array Children = 
-								[
+								var Type = TrackType.Property
+								var Name = "Rotation"
+								var Path = "Transform.Rotation"
+								var Disabled = false
+								var PropertyTypeName = "Quaternion"
+								var KeyFrames = Array
+								{
+								}
+								var Children = Array
+								{
+									Object
 									{
-										TrackType Type = SubProperty,
-										string Name = "X",
-										string Path = "Transform.Rotation.X",
-										bool Disabled = false,
-										uint PropertyTypeId = 3,
-										string PropertyTypeName = "",
-										Array KeyFrames = 
-										[
+										var Type = TrackType.SubProperty
+										var Name = "X"
+										var Path = "Transform.Rotation.X"
+										var Disabled = false
+										var PropertyTypeName = "Real"
+										var KeyFrames = Array
+										{
+											Object
 											{
-												float key = 0,
-												Object value = 
+												var key = 0
+												var value = Object
 												{
-													float Time = 0,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.25,
-												Object value = 
+												var key = 0.25
+												var value = Object
 												{
-													float Time = 0.25,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0.25
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.5,
-												Object value = 
+												var key = 0.5
+												var value = Object
 												{
-													float Time = 0.5,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-										],
-										Array Children = 
-										[
-										],
-									},
+													var Time = 0.5
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+										}
+										var Children = Array
+										{
+										}
+									}
+									Object
 									{
-										TrackType Type = SubProperty,
-										string Name = "Y",
-										string Path = "Transform.Rotation.Y",
-										bool Disabled = false,
-										uint PropertyTypeId = 3,
-										string PropertyTypeName = "",
-										Array KeyFrames = 
-										[
+										var Type = TrackType.SubProperty
+										var Name = "Y"
+										var Path = "Transform.Rotation.Y"
+										var Disabled = false
+										var PropertyTypeName = "Real"
+										var KeyFrames = Array
+										{
+											Object
 											{
-												float key = 0,
-												Object value = 
+												var key = 0
+												var value = Object
 												{
-													float Time = 0,
-													float Value = -0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.25,
-												Object value = 
+												var key = 0.25
+												var value = Object
 												{
-													float Time = 0.25,
-													float Value = -0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0.25
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.5,
-												Object value = 
+												var key = 0.5
+												var value = Object
 												{
-													float Time = 0.5,
-													float Value = -0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-										],
-										Array Children = 
-										[
-										],
-									},
+													var Time = 0.5
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+										}
+										var Children = Array
+										{
+										}
+									}
+									Object
 									{
-										TrackType Type = SubProperty,
-										string Name = "Z",
-										string Path = "Transform.Rotation.Z",
-										bool Disabled = false,
-										uint PropertyTypeId = 3,
-										string PropertyTypeName = "",
-										Array KeyFrames = 
-										[
+										var Type = TrackType.SubProperty
+										var Name = "Z"
+										var Path = "Transform.Rotation.Z"
+										var Disabled = false
+										var PropertyTypeName = "Real"
+										var KeyFrames = Array
+										{
+											Object
 											{
-												float key = 0,
-												Object value = 
+												var key = 0
+												var value = Object
 												{
-													float Time = 0,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.25,
-												Object value = 
+												var key = 0.25
+												var value = Object
 												{
-													float Time = 0.25,
-													float Value = 0.997,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0.25
+													var Value = 0.996999979
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.5,
-												Object value = 
+												var key = 0.5
+												var value = Object
 												{
-													float Time = 0.5,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-										],
-										Array Children = 
-										[
-										],
-									},
-								],
-							},
+													var Time = 0.5
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+										}
+										var Children = Array
+										{
+										}
+									}
+								}
+							}
+							Object
 							{
-								TrackType Type = Property,
-								string Name = "Translation",
-								string Path = "Transform.Translation",
-								bool Disabled = false,
-								uint PropertyTypeId = 8,
-								string PropertyTypeName = "Vec3",
-								Array KeyFrames = 
-								[
-								],
-								Array Children = 
-								[
+								var Type = TrackType.Property
+								var Name = "Translation"
+								var Path = "Transform.Translation"
+								var Disabled = false
+								var PropertyTypeName = "Real3"
+								var KeyFrames = Array
+								{
+								}
+								var Children = Array
+								{
+									Object
 									{
-										TrackType Type = SubProperty,
-										string Name = "X",
-										string Path = "Transform.Translation.X",
-										bool Disabled = false,
-										uint PropertyTypeId = 3,
-										string PropertyTypeName = "",
-										Array KeyFrames = 
-										[
+										var Type = TrackType.SubProperty
+										var Name = "X"
+										var Path = "Transform.Translation.X"
+										var Disabled = false
+										var PropertyTypeName = "Real"
+										var KeyFrames = Array
+										{
+											Object
 											{
-												float key = 0,
-												Object value = 
+												var key = 0
+												var value = Object
 												{
-													float Time = 0,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.133333,
-												Object value = 
+												var key = 0.133332998
+												var value = Object
 												{
-													float Time = 0.133333,
-													float Value = -2.06682,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0.133332998
+													var Value = -2.06681991
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.5,
-												Object value = 
+												var key = 0.5
+												var value = Object
 												{
-													float Time = 0.5,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-										],
-										Array Children = 
-										[
-										],
-									},
+													var Time = 0.5
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+										}
+										var Children = Array
+										{
+										}
+									}
+									Object
 									{
-										TrackType Type = SubProperty,
-										string Name = "Y",
-										string Path = "Transform.Translation.Y",
-										bool Disabled = false,
-										uint PropertyTypeId = 3,
-										string PropertyTypeName = "",
-										Array KeyFrames = 
-										[
+										var Type = TrackType.SubProperty
+										var Name = "Y"
+										var Path = "Transform.Translation.Y"
+										var Disabled = false
+										var PropertyTypeName = "Real"
+										var KeyFrames = Array
+										{
+											Object
 											{
-												float key = 0,
-												Object value = 
+												var key = 0
+												var value = Object
 												{
-													float Time = 0,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.133333,
-												Object value = 
+												var key = 0.133332998
+												var value = Object
 												{
-													float Time = 0.133333,
-													float Value = -0.522134,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0.133332998
+													var Value = -0.522134006
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.5,
-												Object value = 
+												var key = 0.5
+												var value = Object
 												{
-													float Time = 0.5,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-										],
-										Array Children = 
-										[
-										],
-									},
+													var Time = 0.5
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+										}
+										var Children = Array
+										{
+										}
+									}
+									Object
 									{
-										TrackType Type = SubProperty,
-										string Name = "Z",
-										string Path = "Transform.Translation.Z",
-										bool Disabled = false,
-										uint PropertyTypeId = 3,
-										string PropertyTypeName = "",
-										Array KeyFrames = 
-										[
+										var Type = TrackType.SubProperty
+										var Name = "Z"
+										var Path = "Transform.Translation.Z"
+										var Disabled = false
+										var PropertyTypeName = "Real"
+										var KeyFrames = Array
+										{
+											Object
 											{
-												float key = 0,
-												Object value = 
+												var key = 0
+												var value = Object
 												{
-													float Time = 0,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.133333,
-												Object value = 
+												var key = 0.133332998
+												var value = Object
 												{
-													float Time = 0.133333,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
+													var Time = 0.133332998
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+											Object
 											{
-												float key = 0.5,
-												Object value = 
+												var key = 0.5
+												var value = Object
 												{
-													float Time = 0.5,
-													float Value = 0,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-										],
-										Array Children = 
-										[
-										],
-									},
-								],
-							},
-						],
-					},
+													var Time = 0.5
+													var Value = 0
+													var TangentIn = Real2{-0.0500000007, 0}
+													var TangentOut = Real2{0.0500000007, 0}
+													var EditorFlags = 0
+												}
+											}
+										}
+										var Children = Array
+										{
+										}
+									}
+								}
+							}
+						}
+					}
+					Object
 					{
-						TrackType Type = Object,
-						string Name = "Barrel",
-						string Path = "/Barrel",
-						bool Disabled = false,
-						uint PropertyTypeId = 0,
-						string PropertyTypeName = "",
-						Array KeyFrames = 
-						[
-						],
-						Array Children = 
-						[
+						var Type = TrackType.Object
+						var Name = "TurretMesh"
+						var Path = "/TurretMesh"
+						var Disabled = false
+						var PropertyTypeName = ""
+						var KeyFrames = Array
+						{
+						}
+						var Children = Array
+						{
+							Object
 							{
-								TrackType Type = Component,
-								string Name = "Transform",
-								string Path = "Transform",
-								bool Disabled = false,
-								uint PropertyTypeId = 0,
-								string PropertyTypeName = "",
-								Array KeyFrames = 
-								[
-								],
-								Array Children = 
-								[
+								var Type = TrackType.Object
+								var Name = "Barrel"
+								var Path = "/TurretMesh/Barrel"
+								var Disabled = false
+								var PropertyTypeName = ""
+								var KeyFrames = Array
+								{
+								}
+								var Children = Array
+								{
+									Object
 									{
-										TrackType Type = Property,
-										string Name = "Translation",
-										string Path = "Transform.Translation",
-										bool Disabled = false,
-										uint PropertyTypeId = 8,
-										string PropertyTypeName = "Vec3",
-										Array KeyFrames = 
-										[
-										],
-										Array Children = 
-										[
+										var Type = TrackType.Component
+										var Name = "Transform"
+										var Path = "Transform"
+										var Disabled = false
+										var PropertyTypeName = ""
+										var KeyFrames = Array
+										{
+										}
+										var Children = Array
+										{
+											Object
 											{
-												TrackType Type = SubProperty,
-												string Name = "X",
-												string Path = "Transform.Translation.X",
-												bool Disabled = false,
-												uint PropertyTypeId = 3,
-												string PropertyTypeName = "",
-												Array KeyFrames = 
-												[
+												var Type = TrackType.Property
+												var Name = "Translation"
+												var Path = "Transform.Translation"
+												var Disabled = false
+												var PropertyTypeName = "Real3"
+												var KeyFrames = Array
+												{
+												}
+												var Children = Array
+												{
+													Object
 													{
-														float key = 0,
-														Object value = 
+														var Type = TrackType.SubProperty
+														var Name = "X"
+														var Path = "Transform.Translation.X"
+														var Disabled = false
+														var PropertyTypeName = "Real"
+														var KeyFrames = Array
 														{
-															float Time = 0,
-															float Value = 30.2558,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
+															Object
+															{
+																var key = 0
+																var value = Object
+																{
+																	var Time = 0
+																	var Value = 30.2558002
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+															Object
+															{
+																var key = 0.133332998
+																var value = Object
+																{
+																	var Time = 0.133332998
+																	var Value = 23.0695
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+															Object
+															{
+																var key = 0.533333004
+																var value = Object
+																{
+																	var Time = 0.533333004
+																	var Value = 30.2558002
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+														}
+														var Children = Array
+														{
+														}
+													}
+													Object
 													{
-														float key = 0.133333,
-														Object value = 
+														var Type = TrackType.SubProperty
+														var Name = "Y"
+														var Path = "Transform.Translation.Y"
+														var Disabled = false
+														var PropertyTypeName = "Real"
+														var KeyFrames = Array
 														{
-															float Time = 0.133333,
-															float Value = 23.0695,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
+															Object
+															{
+																var key = 0
+																var value = Object
+																{
+																	var Time = 0
+																	var Value = 18.1919003
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+															Object
+															{
+																var key = 0.133332998
+																var value = Object
+																{
+																	var Time = 0.133332998
+																	var Value = 18.1919003
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+															Object
+															{
+																var key = 0.533333004
+																var value = Object
+																{
+																	var Time = 0.533333004
+																	var Value = 18.1919003
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+														}
+														var Children = Array
+														{
+														}
+													}
+													Object
 													{
-														float key = 0.533333,
-														Object value = 
+														var Type = TrackType.SubProperty
+														var Name = "Z"
+														var Path = "Transform.Translation.Z"
+														var Disabled = false
+														var PropertyTypeName = "Real"
+														var KeyFrames = Array
 														{
-															float Time = 0.533333,
-															float Value = 30.2558,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-												],
-												Array Children = 
-												[
-												],
-											},
-											{
-												TrackType Type = SubProperty,
-												string Name = "Y",
-												string Path = "Transform.Translation.Y",
-												bool Disabled = false,
-												uint PropertyTypeId = 3,
-												string PropertyTypeName = "",
-												Array KeyFrames = 
-												[
-													{
-														float key = 0,
-														Object value = 
+															Object
+															{
+																var key = 0
+																var value = Object
+																{
+																	var Time = 0
+																	var Value = 0
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+															Object
+															{
+																var key = 0.133332998
+																var value = Object
+																{
+																	var Time = 0.133332998
+																	var Value = 0
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+															Object
+															{
+																var key = 0.533333004
+																var value = Object
+																{
+																	var Time = 0.533333004
+																	var Value = 0
+																	var TangentIn = Real2{-0.0500000007, 0}
+																	var TangentOut = Real2{0.0500000007, 0}
+																	var EditorFlags = 0
+																}
+															}
+														}
+														var Children = Array
 														{
-															float Time = 0,
-															float Value = 5.1539,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.133333,
-														Object value = 
-														{
-															float Time = 0.133333,
-															float Value = 5.1539,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.533333,
-														Object value = 
-														{
-															float Time = 0.533333,
-															float Value = 5.1539,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-												],
-												Array Children = 
-												[
-												],
-											},
-											{
-												TrackType Type = SubProperty,
-												string Name = "Z",
-												string Path = "Transform.Translation.Z",
-												bool Disabled = false,
-												uint PropertyTypeId = 3,
-												string PropertyTypeName = "",
-												Array KeyFrames = 
-												[
-													{
-														float key = 0,
-														Object value = 
-														{
-															float Time = 0,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.133333,
-														Object value = 
-														{
-															float Time = 0.133333,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.533333,
-														Object value = 
-														{
-															float Time = 0.533333,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-												],
-												Array Children = 
-												[
-												],
-											},
-										],
-									},
-								],
-							},
-							{
-								TrackType Type = Object,
-								string Name = "Muzzle",
-								string Path = "/Barrel/Muzzle",
-								bool Disabled = false,
-								uint PropertyTypeId = 0,
-								string PropertyTypeName = "",
-								Array KeyFrames = 
-								[
-								],
-								Array Children = 
-								[
+														}
+													}
+												}
+											}
+										}
+									}
+									Object
 									{
-										TrackType Type = Object,
-										string Name = "Light",
-										string Path = "/Barrel/Muzzle/Light",
-										bool Disabled = false,
-										uint PropertyTypeId = 0,
-										string PropertyTypeName = "",
-										Array KeyFrames = 
-										[
-										],
-										Array Children = 
-										[
-											{
-												TrackType Type = Component,
-												string Name = "Light",
-												string Path = "Light",
-												bool Disabled = false,
-												uint PropertyTypeId = 0,
-												string PropertyTypeName = "",
-												Array KeyFrames = 
-												[
-												],
-												Array Children = 
-												[
-													{
-														TrackType Type = Property,
-														string Name = "Visible",
-														string Path = "Light.Visible",
-														bool Disabled = false,
-														uint PropertyTypeId = 5,
-														string PropertyTypeName = "bool",
-														Array KeyFrames = 
-														[
-															{
-																float key = 0,
-																Object value = 
-																{
-																	float Time = 0,
-																	bool Value = true,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-															{
-																float key = 0.1,
-																Object value = 
-																{
-																	float Time = 0.1,
-																	bool Value = false,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-														],
-														Array Children = 
-														[
-														],
-													},
-												],
-											},
-										],
-									},
-								],
-							},
-						],
-					},
-				],
-			},
-		],
-	},
-},
+										var Type = TrackType.Object
+										var Name = "Muzzle"
+										var Path = "/Barrel/Muzzle"
+										var Disabled = false
+										var PropertyTypeName = ""
+										var KeyFrames = Array
+										{
+										}
+										var Children = Array
+										{
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

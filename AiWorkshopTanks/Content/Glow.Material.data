@@ -1,25 +1,31 @@
-Material = 
+[Version:1]
+Material 
 {
-	Lambert = 
+	var RenderGroups = Array
 	{
-	},
-	Transparency = 
+		"581cffd64d449122:Opaque"
+		"580269d9a1d6b870:ShadowCasters"
+	}
+	AlbedoValue 
 	{
-		MaterialBlendMode BlendMode = Alpha,
-	},
-	EmissiveMapping = 
+		var AlbedoValue = Real4{1, 1, 1, 1}
+		var GammaCorrect = true
+	}
+	MetallicValue 
 	{
-		float EmissiveScale = 1,
-		string EmissiveMapTexture = "4fab71e8bcb7a8ce:DefaultTexture",
-		Vec2 EmissiveScroll = [0, 0],
-		Vec2 EmissiveTiling = [1, 1],
-		Vec2 EmissiveOffset = [0, 0],
-	},
-	ModulateModelColor = 
+		var MetallicValue = 1
+	}
+	RoughnessValue 
 	{
-	},
-	ColorDiffuse = 
+		var RoughnessValue = 1
+	}
+	SpecularValue 
 	{
-		Vec4 DiffuseColor = [1, 1, 1, 1],
-	},
-},
+		var SpecularValue = 0.5
+	}
+	EmissiveValue 
+	{
+		var EmissiveColor = Real4{0, 1, 0.0100002289, 1}
+		var EmissiveIntensity = 4
+	}
+}

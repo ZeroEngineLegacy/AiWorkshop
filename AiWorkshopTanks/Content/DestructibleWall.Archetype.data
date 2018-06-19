@@ -1,65 +1,58 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "DestructibleWall"
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{0.5, 0.5, 0.5}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Model 
 	{
-		string Name = "DestructibleWall",
-	},
-	Archetyped = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = false
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "5ab2ad12f9e3524b:Wall"
+		var Mesh = "4de0354322b345ae:Cube"
+	}
+	RigidBody 
 	{
-		string Name = "5573fa26cf8762eb:DestructibleWall",
-	},
-	Transform = 
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Static
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	BoxCollider 
 	{
-		Vec3 Translation = [0, 0, -0.5],
-		Vec3 Scale = [0.5, 0.5, 0.5],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	Model = 
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var HalfSize = Real3{0.5, 0.5, 0.5}
+	}
+	Health 
 	{
-		bool Visible = true,
-		bool VisibilityCulling = true,
-		bool VisibilityEvents = false,
-		bool CastShadows = true,
-		string MaterialName = "5567a53dc7d65950:ModelColor",
-		string MeshName = "4de0354322b345ae:Cube",
-		Vec4 Color = [1, 1, 1, 0.9999],
-	},
-	RigidBody = 
+		var MaxHealth = 7
+		var DestroyAtZeroHealth = false
+		var SendsHealthModified = true
+		var DamageScalar = 1
+	}
+	DestructibleWall 
 	{
-		bool Static = true,
-		bool Asleep = false,
-		bool Kinematic = false,
-		bool RotationLocked = false,
-		bool Mode2D = false,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	BoxCollider = 
+		var RegenTime = 7
+		var RegenObject = "5573cd1a0b92e93d:WallRegen"
+	}
+	AlbedoValueParam 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.5, 0.5, 0.5],
-	},
-	Health = 
-	{
-		float MaxHealth = 7,
-		bool DestroyAtZeroHealth = false,
-		bool SendsHealthModified = true,
-		float DamageScalar = 1,
-	},
-	DestructibleWall = 
-	{
-		float RegenTime = 7,
-		string RegenObject = "5573cd1a0b92e93d:WallRegen",
-	},
-},
+		var AlbedoValue = Real4{0.643137276, 0.643137276, 0.643137276, 1}
+	}
+}

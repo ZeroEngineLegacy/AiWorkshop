@@ -1,9 +1,0 @@
-DataContent = 
-{
-	RichAnimationBuilder = 
-	{
-		string Name = "FloorTileDim",
-		uint64 ResourceId = 55654dbe62501699,
-		string PreviewArchetype = "",
-	},
-},
