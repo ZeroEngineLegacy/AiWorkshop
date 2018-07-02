@@ -1,20 +1,20 @@
-DataContent = 
+[Version:1]
+DataContent 
 {
-	DataBuilder = 
+	DataBuilder 
 	{
-		string Name = "RhinoDino",
-		uint64 ResourceId = 545366cb773fdc05,
-		string LoaderType = "Cog",
-		uint Version = 0,
-		bool ShowInEditor = true,
-	},
-	ContentTags = 
+		var Name = "RhinoDino"
+		var ResourceId = 0x545366cb773fdc05
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+	ContentTags 
 	{
-		Array Tags = 
-		[
-			"Rhino",
-			"Dino",
-			"RhinoDinoSprite",
-		],
-	},
-},
+		var Tags = Array
+		{
+			"Rhino"
+			"Dino"
+			"RhinoDinoSprite"
+		}
+	}
+}

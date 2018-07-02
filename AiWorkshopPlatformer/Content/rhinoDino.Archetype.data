@@ -1,1184 +1,939 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "Rhino"
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{50.8566017, -0.308542013, 0}
+		var Scale = Real3{0.5, 0.5, 0.5}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	AnimationGraph 
 	{
-		string Name = "Rhino",
-	},
-	Archetyped = 
+		var Active = true
+		var PlayMode = AnimationPlayMode.PlayOnce
+		var TimeScale = 1
+		var Animation = "4f8ebbde619389d0:DefaultAnimation"
+		var DebugPreviewId = 3
+	}
+	SimpleAnimation 
 	{
-		string Name = "545366cb773fdc05:RhinoDino",
-	},
-	Transform = 
+		var Animation = "545366a36030d9f0:RhinoDinoIdle"
+		var PlayMode = AnimationPlayMode.Loop
+	}
+	BoxCollider 
 	{
-		Vec3 Translation = [50.8566, -0.308542, 0],
-		Vec3 Scale = [0.5, 0.5, 0.5],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	AnimationGraph = 
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 2, 0}
+		var HalfSize = Real3{2, 2, 0.5}
+	}
+	AnimationFlip 
 	{
-		bool Active = true,
-		AnimPlayMode PlayMode = PlayOnce,
-		float TimeScale = 1,
-		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-		uint64 DebugPreviewId = 3f8000003f000000,
-	},
-	SimpleAnimation = 
+		var Active = true
+	}
+	RigidBody 
 	{
-		string AnimationName = "545366a36030d9f0:RhinoDinoIdle",
-		AnimPlayMode PlayMode = Loop,
-	},
-	BoxCollider = 
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.Mode2D
+	}
+	SweptController 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 1.2, 0],
-		Vec3 Size = [1, 1.5, 0.5],
-	},
-	AnimationFlip = 
+		var WorldUp = Real3{0, 1, 0}
+		var LockZAxis = false
+		var ForwardEvents = false
+		var Gravity = 10
+		var JumpSpeed = 7
+		var JumpCancelFactor = 0.5
+		var MaxMoveSpeed = 10
+		var MaxFallSpeed = 50
+		var GroundAcceleration = 50
+		var AirAcceleration = 10
+		var GroundDeceleration = 50
+		var AirDeceleration = 10
+		var MaxGroundSlope = 45
+		var MaxCeilingSlope = 45
+		var GroundSnapDistance = 0.100000001
+		var ControllerVelocity = Real3{0, 0, 0}
+		var Grounded = true
+		var Jumping = false
+		var GroundTraction = 1
+		var AirTraction = 1
+	}
+	AnimationController 
 	{
-		bool Active = true,
-	},
-	RigidBody = 
+		var CurrentState = AnimationState.Idle
+		var Idle = "545366a36030d9f0:RhinoDinoIdle"
+		var Walk = "545317c04871ec4e:RhinoDinoWalk"
+		var Run = "5452240148551465:RhinoDinoCharge"
+		var Jump = "4f8ebbde619389d0:DefaultAnimation"
+		var Fall = "4f8ebbde619389d0:DefaultAnimation"
+		var AttackAnim = "5452041cf29ffd4b:RhinoDinoAttack"
+		var DieAnim = "5450fd252ccee22c:RhinoDinoDead"
+	}
+	Character 
 	{
-		bool Static = false,
-		bool Asleep = false,
-		bool Kinematic = true,
-		bool RotationLocked = false,
-		bool Mode2D = true,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	SweptController = 
+		var WalkSpeed = 1.39999998
+		var RunSpeed = 6
+		var Flip = true
+	}
+	Rhino 
 	{
-		Vec3 WorldUp = [0, 1, 0],
-		bool LockZAxis = false,
-		bool ForwardEvents = false,
-		float Gravity = 10,
-		float JumpSpeed = 7,
-		float JumpCancelFactor = 0.5,
-		float MaxMoveSpeed = 10,
-		float MaxFallSpeed = 50,
-		float GroundAcceleration = 50,
-		float AirAcceleration = 10,
-		float GroundDeceleration = 50,
-		float AirDeceleration = 10,
-		float MaxGroundSlope = 45,
-		float MaxCeilingSlope = 45,
-		float GroundSnapDistance = 0.1,
-		Vec3 ControllerVelocity = [0, 0, 0],
-		bool Grounded = true,
-		bool Jumping = false,
-		float GroundTraction = 1,
-		float AirTraction = 1,
-	},
-	AnimationController = 
+	}
+	RhinoAi 
 	{
-		Enum CurrentState = Idle,
-		string Idle = "545366a36030d9f0:RhinoDinoIdle",
-		string Walk = "545317c04871ec4e:RhinoDinoWalk",
-		string Run = "5452240148551465:RhinoDinoCharge",
-		string Jump = "",
-		string Fall = "",
-		string AttackAnim = "5452041cf29ffd4b:RhinoDinoAttack",
-		string DieAnim = "5450fd252ccee22c:RhinoDinoDead",
-	},
-	Character = 
+		var TimeBetweenSwitch = 3
+	}
+	Hierarchy 
 	{
-		float WalkSpeed = 1.4,
-		float RunSpeed = 6,
-		bool Flip = true,
-	},
-	Rhino = 
-	{
-	},
-	RhinoAi = 
-	{
-	},
-	Hierarchy = 
-	{
-		Cog = 
+		Cog [Id:0x5b605e8bdcdf02d4]
 		{
-			LinkId = 
+			var Name = "FrontLeg1R"
+			Transform 
 			{
-				uint Id = 2,
-			},
-			Named = 
+				var Translation = Real3{-1.13, 2.25, -0.5}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "FrontLeg1R",
-			},
-			Transform = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = false
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "54535bb94563d960:RhinoDinoFrontAltLegUpper"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+			Hierarchy 
 			{
-				Vec3 Translation = [-1.13, 2.25, -0.5],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "54535bb94563d960:RhinoDinoFrontAltLegUpper",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Hierarchy = 
-			{
-				Cog = 
+				Cog [Id:0x5b605e8bdcdf02db]
 				{
-					LinkId = 
+					var Name = "FrontLeg2PivotR"
+					Transform 
 					{
-						uint Id = 3,
-					},
-					Named = 
+						var Translation = Real3{-0.183669999, -0.668687999, 0.5}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "FrontLeg2PivotR",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [-0.18367, -0.668688, 0.5],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf02dd]
 						{
-							LinkId = 
+							var Name = "FrontLeg3PivotR"
+							Transform 
 							{
-								uint Id = 4,
-							},
-							Named = 
+								var Translation = Real3{0.482064992, -0.856486976, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Hierarchy 
 							{
-								string Name = "FrontLeg3PivotR",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.482065, -0.856487, 0],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Hierarchy = 
-							{
-								Cog = 
+								Cog [Id:0x5b605e8bdcdf02df]
 								{
-									LinkId = 
+									var Name = "FrontLeg3R"
+									Transform 
 									{
-										uint Id = 5,
-									},
-									Named = 
+										var Translation = Real3{-0.379281998, -0.0280696005, -1}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Sprite 
 									{
-										string Name = "FrontLeg3R",
-									},
-									Transform = 
-									{
-										Vec3 Translation = [-0.379282, -0.0280696, -1],
-										Vec3 Scale = [1, 1, 1],
-										Quat Rotation = [0, 0, 0, 1],
-									},
-									Sprite = 
-									{
-										bool Visible = true,
-										bool VisibilityCulling = true,
-										bool VisibilityEvents = false,
-										bool CastShadows = false,
-										Vec4 Color = [1, 1, 1, 1],
-										BlendMode BlendMode = Alpha,
-										SpriteGeometryMode GeometryMode = ZPlane,
-										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-										string SpriteSource = "54535bb94563be31:RhinoDinoFrontAltFeet",
-										bool RenderMask = false,
-										bool FlipX = false,
-										bool FlipY = false,
-										bool AnimationActive = true,
-										float AnimationSpeed = 1,
-										uint StartFrame = 0,
-									},
-								},
-							},
-						},
-						Cog = 
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = false
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "582c575af53d18c9:AlphaSprite"
+										var VertexColor = Real4{1, 1, 1, 1}
+										var GeometryMode = SpriteGeometryMode.ZPlane
+										var SpriteSource = "54535bb94563be31:RhinoDinoFrontAltFeet"
+										var FlipX = false
+										var FlipY = false
+										var AnimationActive = true
+										var AnimationSpeed = 1
+										var StartFrame = 0
+									}
+								}
+							}
+						}
+						Cog [Id:0x5b605e8bdcdf02e2]
 						{
-							LinkId = 
+							var Name = "FrontLeg2R"
+							Transform 
 							{
-								uint Id = 6,
-							},
-							Named = 
+								var Translation = Real3{0.258507997, -0.27787599, -0.699999988}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Sprite 
 							{
-								string Name = "FrontLeg2R",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.258508, -0.277876, -0.7],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb94563cfe5:RhinoDinoFrontAltLegLower",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-						},
-					},
-				},
-			},
-		},
-		Cog = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb94563cfe5:RhinoDinoFrontAltLegLower"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+						}
+					}
+				}
+			}
+		}
+		Cog [Id:0x5b605e8bdcdf02e4]
 		{
-			LinkId = 
+			var Name = "FrontLeg1L"
+			Transform 
 			{
-				uint Id = 7,
-			},
-			Named = 
+				var Translation = Real3{-0.600000024, 2.19499993, 2}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "FrontLeg1L",
-			},
-			Transform = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = false
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "54535bb94563f81e:RhinoDinoFrontLegUpper"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+			Hierarchy 
 			{
-				Vec3 Translation = [-0.6, 2.195, 2],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "54535bb94563f81e:RhinoDinoFrontLegUpper",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Hierarchy = 
-			{
-				Cog = 
+				Cog [Id:0x5b605e8bdcdf02e7]
 				{
-					LinkId = 
+					var Name = "FrontLeg2PivotL"
+					Transform 
 					{
-						uint Id = 8,
-					},
-					Named = 
+						var Translation = Real3{-0.184422001, -0.695680976, -2}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "FrontLeg2PivotL",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [-0.184422, -0.695681, -2],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf02e9]
 						{
-							LinkId = 
+							var Name = "FrontLeg3PivotL"
+							Transform 
 							{
-								uint Id = 9,
-							},
-							Named = 
+								var Translation = Real3{0.501644015, -0.917927027, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Hierarchy 
 							{
-								string Name = "FrontLeg3PivotL",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.501644, -0.917927, 0],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Hierarchy = 
-							{
-								Cog = 
+								Cog [Id:0x5b605e8bdcdf02eb]
 								{
-									LinkId = 
+									var Name = "FrontLeg3L"
+									Transform 
 									{
-										uint Id = 10,
-									},
-									Named = 
+										var Translation = Real3{-0.419155002, -0.0241285991, 1.5}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Sprite 
 									{
-										string Name = "FrontLeg3L",
-									},
-									Transform = 
-									{
-										Vec3 Translation = [-0.419155, -0.0241286, 1.5],
-										Vec3 Scale = [1, 1, 1],
-										Quat Rotation = [0, 0, 0, 1],
-									},
-									Sprite = 
-									{
-										bool Visible = true,
-										bool VisibilityCulling = true,
-										bool VisibilityEvents = false,
-										bool CastShadows = false,
-										Vec4 Color = [1, 1, 1, 1],
-										BlendMode BlendMode = Alpha,
-										SpriteGeometryMode GeometryMode = ZPlane,
-										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-										string SpriteSource = "54535bb94563e39a:RhinoDinoFrontFeet",
-										bool RenderMask = false,
-										bool FlipX = false,
-										bool FlipY = false,
-										bool AnimationActive = true,
-										float AnimationSpeed = 1,
-										uint StartFrame = 0,
-									},
-								},
-							},
-						},
-						Cog = 
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = false
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "582c575af53d18c9:AlphaSprite"
+										var VertexColor = Real4{1, 1, 1, 1}
+										var GeometryMode = SpriteGeometryMode.ZPlane
+										var SpriteSource = "54535bb94563e39a:RhinoDinoFrontFeet"
+										var FlipX = false
+										var FlipY = false
+										var AnimationActive = true
+										var AnimationSpeed = 1
+										var StartFrame = 0
+									}
+								}
+							}
+						}
+						Cog [Id:0x5b605e8bdcdf02ed]
 						{
-							LinkId = 
+							var Name = "FrontLeg2L"
+							Transform 
 							{
-								uint Id = 11,
-							},
-							Named = 
+								var Translation = Real3{0.266553998, -0.305382013, 1.79999995}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Sprite 
 							{
-								string Name = "FrontLeg2L",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.266554, -0.305382, 1.8],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb94563edc9:RhinoDinoFrontLegLower",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-						},
-					},
-				},
-			},
-		},
-		Cog = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb94563edc9:RhinoDinoFrontLegLower"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+						}
+					}
+				}
+			}
+		}
+		Cog [Id:0x5b605e8bdcdf02f0]
 		{
-			LinkId = 
+			var Name = "HindLeg1R"
+			Transform 
 			{
-				uint Id = 12,
-			},
-			Named = 
+				var Translation = Real3{0.600000024, 1.95000005, -1}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "HindLeg1R",
-			},
-			Transform = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = false
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "54535bb945642375:RhinoDinoHindAltLegUpper"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+			Hierarchy 
 			{
-				Vec3 Translation = [0.6, 1.95, -1],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "54535bb945642375:RhinoDinoHindAltLegUpper",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Hierarchy = 
-			{
-				Cog = 
+				Cog [Id:0x5b605e8bdcdf02f2]
 				{
-					LinkId = 
+					var Name = "HindLeg2PivotR"
+					Transform 
 					{
-						uint Id = 13,
-					},
-					Named = 
+						var Translation = Real3{0.446352005, -0.431740999, 1}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "HindLeg2PivotR",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0.446352, -0.431741, 1],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf02f4]
 						{
-							LinkId = 
+							var Name = "HindLeg3PivotR"
+							Transform 
 							{
-								uint Id = 14,
-							},
-							Named = 
+								var Translation = Real3{0.212065995, -0.637077987, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Hierarchy 
 							{
-								string Name = "HindLeg3PivotR",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.212066, -0.637078, 0],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Hierarchy = 
-							{
-								Cog = 
+								Cog [Id:0x5b605e8bdcdf02f6]
 								{
-									LinkId = 
+									var Name = "HindLeg3R"
+									Transform 
 									{
-										uint Id = 15,
-									},
-									Named = 
+										var Translation = Real3{-0.0391115993, -0.184496, -1.5}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Sprite 
 									{
-										string Name = "HindLeg3R",
-									},
-									Transform = 
-									{
-										Vec3 Translation = [-0.0391116, -0.184496, -1.5],
-										Vec3 Scale = [1, 1, 1],
-										Quat Rotation = [0, 0, 0, 1],
-									},
-									Sprite = 
-									{
-										bool Visible = true,
-										bool VisibilityCulling = true,
-										bool VisibilityEvents = false,
-										bool CastShadows = false,
-										Vec4 Color = [1, 1, 1, 1],
-										BlendMode BlendMode = Alpha,
-										SpriteGeometryMode GeometryMode = ZPlane,
-										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-										string SpriteSource = "54535bb945640eee:RhinoDinoHindAltFeet",
-										bool RenderMask = false,
-										bool FlipX = false,
-										bool FlipY = false,
-										bool AnimationActive = true,
-										float AnimationSpeed = 1,
-										uint StartFrame = 0,
-									},
-								},
-							},
-						},
-						Cog = 
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = false
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "582c575af53d18c9:AlphaSprite"
+										var VertexColor = Real4{1, 1, 1, 1}
+										var GeometryMode = SpriteGeometryMode.ZPlane
+										var SpriteSource = "54535bb945640eee:RhinoDinoHindAltFeet"
+										var FlipX = false
+										var FlipY = false
+										var AnimationActive = true
+										var AnimationSpeed = 1
+										var StartFrame = 0
+									}
+								}
+							}
+						}
+						Cog [Id:0x5b605e8bdcdf02f8]
 						{
-							LinkId = 
+							var Name = "HindLeg2R"
+							Transform 
 							{
-								uint Id = 16,
-							},
-							Named = 
+								var Translation = Real3{0.0723022968, -0.111713, -1.29999995}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Sprite 
 							{
-								string Name = "HindLeg2R",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.0723023, -0.111713, -1.3],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb94564194c:RhinoDinoHindAltLegLower",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-						},
-					},
-				},
-			},
-		},
-		Cog = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb94564194c:RhinoDinoHindAltLegLower"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+						}
+					}
+				}
+			}
+		}
+		Cog [Id:0x5b605e8bdcdf02fb]
 		{
-			LinkId = 
+			var Name = "HindLeg1L"
+			Transform 
 			{
-				uint Id = 17,
-			},
-			Named = 
+				var Translation = Real3{1.35000002, 1.95000005, 2.5}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "HindLeg1L",
-			},
-			Transform = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = false
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "54535bb9456441ae:RhinoDinoHindLegUpper"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+			Hierarchy 
 			{
-				Vec3 Translation = [1.35, 1.95, 2.5],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "54535bb9456441ae:RhinoDinoHindLegUpper",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Hierarchy = 
-			{
-				Cog = 
+				Cog [Id:0x5b605e8bdcdf02fd]
 				{
-					LinkId = 
+					var Name = "HindLeg2PivotL"
+					Transform 
 					{
-						uint Id = 18,
-					},
-					Named = 
+						var Translation = Real3{0.463842988, -0.52670902, -2.5}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "HindLeg2PivotL",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0.463843, -0.526709, -2.5],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf02ff]
 						{
-							LinkId = 
+							var Name = "HindLeg3PivotL"
+							Transform 
 							{
-								uint Id = 19,
-							},
-							Named = 
+								var Translation = Real3{0.208453998, -0.685836017, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Hierarchy 
 							{
-								string Name = "HindLeg3PivotL",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.208454, -0.685836, 0],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Hierarchy = 
-							{
-								Cog = 
+								Cog [Id:0x5b605e8bdcdf0301]
 								{
-									LinkId = 
+									var Name = "HindLeg3L"
+									Transform 
 									{
-										uint Id = 20,
-									},
-									Named = 
+										var Translation = Real3{-0.0336528011, -0.165233999, 2}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Sprite 
 									{
-										string Name = "HindLeg3L",
-									},
-									Transform = 
-									{
-										Vec3 Translation = [-0.0336528, -0.165234, 2],
-										Vec3 Scale = [1, 1, 1],
-										Quat Rotation = [0, 0, 0, 1],
-									},
-									Sprite = 
-									{
-										bool Visible = true,
-										bool VisibilityCulling = true,
-										bool VisibilityEvents = false,
-										bool CastShadows = false,
-										Vec4 Color = [1, 1, 1, 1],
-										BlendMode BlendMode = Alpha,
-										SpriteGeometryMode GeometryMode = ZPlane,
-										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-										string SpriteSource = "54535bb945642d1b:RhinoDinoHindFeet",
-										bool RenderMask = false,
-										bool FlipX = false,
-										bool FlipY = false,
-										bool AnimationActive = true,
-										float AnimationSpeed = 1,
-										uint StartFrame = 0,
-									},
-								},
-							},
-						},
-						Cog = 
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = false
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "582c575af53d18c9:AlphaSprite"
+										var VertexColor = Real4{1, 1, 1, 1}
+										var GeometryMode = SpriteGeometryMode.ZPlane
+										var SpriteSource = "54535bb945642d1b:RhinoDinoHindFeet"
+										var FlipX = false
+										var FlipY = false
+										var AnimationActive = true
+										var AnimationSpeed = 1
+										var StartFrame = 0
+									}
+								}
+							}
+						}
+						Cog [Id:0x5b605e8bdcdf0303]
 						{
-							LinkId = 
+							var Name = "HindLeg2L"
+							Transform 
 							{
-								uint Id = 21,
-							},
-							Named = 
+								var Translation = Real3{0.080518201, -0.100579999, 2.29999995}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Sprite 
 							{
-								string Name = "HindLeg2L",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.0805182, -0.10058, 2.3],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb9456437ad:RhinoDinoHindLegLower",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-						},
-					},
-				},
-			},
-		},
-		Cog = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb9456437ad:RhinoDinoHindLegLower"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+						}
+					}
+				}
+			}
+		}
+		Cog [Id:0x5b605e8bdcdf0306]
 		{
-			LinkId = 
+			var Name = "Body"
+			Transform 
 			{
-				uint Id = 22,
-			},
-			Named = 
+				var Translation = Real3{0, 2.40714002, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "Body",
-			},
-			Transform = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = false
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "54535bb94563af3d:RhinoDinoBody"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+			Hierarchy 
 			{
-				Vec3 Translation = [0, 2.40714, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "54535bb94563af3d:RhinoDinoBody",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Hierarchy = 
-			{
-				Cog = 
+				Cog [Id:0x5b605e8bdcdf0308]
 				{
-					LinkId = 
+					var Name = "NeckPivot"
+					Transform 
 					{
-						uint Id = 23,
-					},
-					Named = 
+						var Translation = Real3{-1.74918997, 0.140206993, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "NeckPivot",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [-1.74919, 0.140207, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf030a]
 						{
-							LinkId = 
+							var Name = "HeadPivot"
+							Transform 
 							{
-								uint Id = 24,
-							},
-							Named = 
+								var Translation = Real3{-0.312615991, -0.128043994, 1}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Hierarchy 
 							{
-								string Name = "HeadPivot",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [-0.312616, -0.128044, 1],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Hierarchy = 
-							{
-								Cog = 
+								Cog [Id:0x5b605e8bdcdf030d]
 								{
-									LinkId = 
+									var Name = "Head"
+									Transform 
 									{
-										uint Id = 25,
-									},
-									Named = 
+										var Translation = Real3{-0.856580019, 0.145365998, 7.15256022e-07}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Sprite 
 									{
-										string Name = "Head",
-									},
-									Transform = 
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = false
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "582c575af53d18c9:AlphaSprite"
+										var VertexColor = Real4{1, 1, 1, 1}
+										var GeometryMode = SpriteGeometryMode.ZPlane
+										var SpriteSource = "54535bb94564051d:RhinoDinoHead"
+										var FlipX = false
+										var FlipY = false
+										var AnimationActive = true
+										var AnimationSpeed = 1
+										var StartFrame = 0
+									}
+									Hierarchy 
 									{
-										Vec3 Translation = [-0.85658, 0.145366, 7.15256e-007],
-										Vec3 Scale = [1, 1, 1],
-										Quat Rotation = [0, 0, 0, 1],
-									},
-									Sprite = 
-									{
-										bool Visible = true,
-										bool VisibilityCulling = true,
-										bool VisibilityEvents = false,
-										bool CastShadows = false,
-										Vec4 Color = [1, 1, 1, 1],
-										BlendMode BlendMode = Alpha,
-										SpriteGeometryMode GeometryMode = ZPlane,
-										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-										string SpriteSource = "54535bb94564051d:RhinoDinoHead",
-										bool RenderMask = false,
-										bool FlipX = false,
-										bool FlipY = false,
-										bool AnimationActive = true,
-										float AnimationSpeed = 1,
-										uint StartFrame = 0,
-									},
-									Hierarchy = 
-									{
-									},
-								},
-							},
-						},
-						Cog = 
+										Cog [Id:0x5b6c42e88709264f]
+										{
+											var Name = "DamageRegion"
+											Transform 
+											{
+												var Translation = Real3{0, 0, 0}
+												var Scale = Real3{2.21887994, 2.52929997, 2}
+												var Rotation = Quaternion{0, 0, 0, 1}
+											}
+											Model 
+											{
+												var Visible = false
+												var ViewCulling = true
+												var VisibilityEvents = true
+												var OverrideBoundingBox = false
+												var LocalAabbCenter = Real3{0, 0, 0}
+												var LocalAabbHalfExtents = Real3{1, 1, 1}
+												var GroupSortValue = 0
+												var Material = "583afb5e7bf75e18:ZeroMaterial"
+												var Mesh = "4de0354322b345ae:Cube"
+											}
+											RigidBody 
+											{
+												var Velocity = Real3{0, 0, 0}
+												var AngularVelocity = Real3{0, 0, 0}
+												var DynamicState = RigidBodyDynamicState.Kinematic
+												var AllowSleep = true
+												var Asleep = false
+												var RotationLocked = false
+												var Mode2D = Mode2DStates.Mode2D
+											}
+											BoxCollider 
+											{
+												var Ghost = true
+												var SendsEvents = true
+												var Material = "5b6c56085f9899a9:Massless"
+												var CollisionGroup = "4e740859314e5515:DefaultGroup"
+												var Offset = Real3{0, 0, 0}
+												var HalfSize = Real3{0.5, 0.5, 0.5}
+											}
+											KillOnHit 
+											{
+												var Active = true
+												var VelocityThreshold = 0
+											}
+										}
+									}
+								}
+							}
+						}
+						Cog [Id:0x5b605e8bdcdf0310]
 						{
-							LinkId = 
+							var Name = "Neck"
+							Transform 
 							{
-								uint Id = 26,
-							},
-							Named = 
+								var Translation = Real3{-0.146190003, -0.108190998, 0.5}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Sprite 
 							{
-								string Name = "Neck",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [-0.14619, -0.108191, 0.5],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb945644c3f:RhinoDinoNeck",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-						},
-					},
-				},
-				Cog = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb945644c3f:RhinoDinoNeck"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+						}
+					}
+				}
+				Cog [Id:0x5b605e8bdcdf0312]
 				{
-					LinkId = 
+					var Name = "ArmorPivot1"
+					Transform 
 					{
-						uint Id = 27,
-					},
-					Named = 
+						var Translation = Real3{-1.31475997, -0.426970005, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "ArmorPivot1",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [-1.31476, -0.42697, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf0315]
 						{
-							LinkId = 
+							var Name = "Armor1"
+							Transform 
 							{
-								uint Id = 28,
-							},
-							Named = 
+								var Translation = Real3{0.722791016, 1.50084996, 0.400000006}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 7.45058015e-09, 1}
+							}
+							Sprite 
 							{
-								string Name = "Armor1",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.722791, 1.50085, 0.4],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 7.45058e-009, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb9456398a4:RhinoDinoArmorFront",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-						},
-					},
-				},
-				Cog = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb9456398a4:RhinoDinoArmorFront"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+						}
+					}
+				}
+				Cog [Id:0x5b605e8bdcdf0317]
 				{
-					LinkId = 
+					var Name = "ArmorPivot2"
+					Transform 
 					{
-						uint Id = 29,
-					},
-					Named = 
+						var Translation = Real3{-0.107400998, 0.188409001, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "ArmorPivot2",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [-0.107401, 0.188409, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf0319]
 						{
-							LinkId = 
+							var Name = "Armor2"
+							Transform 
 							{
-								uint Id = 30,
-							},
-							Named = 
+								var Translation = Real3{0.852389991, -0.0514506996, 0.300000012}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Sprite 
 							{
-								string Name = "Armor2",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.85239, -0.0514507, 0.3],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb94563a53f:RhinoDinoArmorMid",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-						},
-					},
-				},
-				Cog = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb94563a53f:RhinoDinoArmorMid"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+						}
+					}
+				}
+				Cog [Id:0x5b605e8bdcdf031c]
 				{
-					LinkId = 
+					var Name = "ArmorPivot3"
+					Transform 
 					{
-						uint Id = 31,
-					},
-					Named = 
+						var Translation = Real3{1.29825997, -0.169055998, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "ArmorPivot3",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [1.29826, -0.169056, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf031e]
 						{
-							LinkId = 
+							var Name = "Armor3"
+							Transform 
 							{
-								uint Id = 32,
-							},
-							Named = 
+								var Translation = Real3{0.324083, -0.238536, 0.200000003}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Sprite 
 							{
-								string Name = "Armor3",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.324083, -0.238536, 0.2],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb945638d45:RhinoDinoArmorBack",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-						},
-					},
-				},
-				Cog = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb945638d45:RhinoDinoArmorBack"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+						}
+					}
+				}
+				Cog [Id:0x5b605e8bdcdf0320]
 				{
-					LinkId = 
+					var Name = "TailPivot1"
+					Transform 
 					{
-						uint Id = 33,
-					},
-					Named = 
+						var Translation = Real3{2.09099007, 0.145405993, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Hierarchy 
 					{
-						string Name = "TailPivot1",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [2.09099, 0.145406, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Hierarchy = 
-					{
-						Cog = 
+						Cog [Id:0x5b605e8bdcdf0322]
 						{
-							LinkId = 
+							var Name = "TailPivot2"
+							Transform 
 							{
-								uint Id = 34,
-							},
-							Named = 
+								var Translation = Real3{0.470748007, -1.01995003, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Hierarchy 
 							{
-								string Name = "TailPivot2",
-							},
-							Transform = 
-							{
-								Vec3 Translation = [0.470748, -1.01995, 0],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Hierarchy = 
-							{
-								Cog = 
+								Cog [Id:0x5b605e8bdcdf0325]
 								{
-									LinkId = 
+									var Name = "Tail2"
+									Transform 
 									{
-										uint Id = 35,
-									},
-									Named = 
+										var Translation = Real3{0.355531991, -0.379648, 0.100000001}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Sprite 
 									{
-										string Name = "Tail2",
-									},
-									Transform = 
-									{
-										Vec3 Translation = [0.355532, -0.379648, 0.1],
-										Vec3 Scale = [1, 1, 1],
-										Quat Rotation = [0, 0, 0, 1],
-									},
-									Sprite = 
-									{
-										bool Visible = true,
-										bool VisibilityCulling = true,
-										bool VisibilityEvents = false,
-										bool CastShadows = false,
-										Vec4 Color = [1, 1, 1, 1],
-										BlendMode BlendMode = Alpha,
-										SpriteGeometryMode GeometryMode = ZPlane,
-										string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-										string SpriteSource = "54535bb94564594b:RhinoDinoTailLower",
-										bool RenderMask = false,
-										bool FlipX = false,
-										bool FlipY = false,
-										bool AnimationActive = true,
-										float AnimationSpeed = 1,
-										uint StartFrame = 0,
-									},
-								},
-							},
-						},
-						Cog = 
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = false
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "582c575af53d18c9:AlphaSprite"
+										var VertexColor = Real4{1, 1, 1, 1}
+										var GeometryMode = SpriteGeometryMode.ZPlane
+										var SpriteSource = "54535bb94564594b:RhinoDinoTailLower"
+										var FlipX = false
+										var FlipY = false
+										var AnimationActive = true
+										var AnimationSpeed = 1
+										var StartFrame = 0
+									}
+								}
+							}
+						}
+						Cog [Id:0x5b605e8bdcdf0327]
 						{
-							LinkId = 
+							var Name = "Tail1"
+							Transform 
 							{
-								uint Id = 36,
-							},
-							Named = 
+								var Translation = Real3{0.251020998, -0.488225996, -0.100000001}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Sprite 
 							{
-								string Name = "Tail1",
-							},
-							Transform = 
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = false
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "582c575af53d18c9:AlphaSprite"
+								var VertexColor = Real4{1, 1, 1, 1}
+								var GeometryMode = SpriteGeometryMode.ZPlane
+								var SpriteSource = "54535bb9456463c5:RhinoDinoTailUpper"
+								var FlipX = false
+								var FlipY = false
+								var AnimationActive = true
+								var AnimationSpeed = 1
+								var StartFrame = 0
+							}
+							Hierarchy 
 							{
-								Vec3 Translation = [0.251021, -0.488226, -0.1],
-								Vec3 Scale = [1, 1, 1],
-								Quat Rotation = [0, 0, 0, 1],
-							},
-							Sprite = 
-							{
-								bool Visible = true,
-								bool VisibilityCulling = true,
-								bool VisibilityEvents = false,
-								bool CastShadows = false,
-								Vec4 Color = [1, 1, 1, 1],
-								BlendMode BlendMode = Alpha,
-								SpriteGeometryMode GeometryMode = ZPlane,
-								string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-								string SpriteSource = "54535bb9456463c5:RhinoDinoTailUpper",
-								bool RenderMask = false,
-								bool FlipX = false,
-								bool FlipY = false,
-								bool AnimationActive = true,
-								float AnimationSpeed = 1,
-								uint StartFrame = 0,
-							},
-							Hierarchy = 
-							{
-							},
-						},
-					},
-				},
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 37,
-			},
-			Named = 
-			{
-				string Name = "DamageRegion",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-2.96258, 1.34122, 0.499],
-				Vec3 Scale = [2.21888, 2.5293, 2],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Model = 
-			{
-				bool Visible = false,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = true,
-				string MaterialName = "4de020863e85bb61:DefaultMaterial",
-				string MeshName = "4de0354322b345ae:Cube",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-			RigidBody = 
-			{
-				bool Static = false,
-				bool Asleep = false,
-				bool Kinematic = true,
-				bool RotationLocked = false,
-				bool Mode2D = true,
-				bool AllowSleep = true,
-				bool Inherit2DMode = true,
-				Vec3 Velocity = [0, 0, 0],
-				Vec3 AngularVelocity = [0, 0, 0],
-			},
-			BoxCollider = 
-			{
-				bool Ghost = true,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
-			},
-			KillOnHit = 
-			{
-				bool Active = true,
-				float VelocityThreshold = 0,
-			},
-		},
-	},
-},
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

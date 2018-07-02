@@ -41,7 +41,7 @@ Level
 		RandomContext 
 		{
 			var RandomSeed = true
-			var Seed = 2109887441
+			var Seed = 402570724
 		}
 	}
 	Cog [ContextId:2]
@@ -53,7 +53,7 @@ Level
 			var GameDebugDraw = true
 			var RenderDiffuse = true
 			var RenderSpecular = true
-			var RenderSkybox = true
+			var RenderSkybox = false
 			var Skybox = "5822dec85e380cf1:SimpleSkybox"
 			var ClearColor = Real4{0, 0, 0, 1}
 			var DirectLighting = true
@@ -82,7 +82,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{16.5707989, 2.07440877, 20.4512577}
+			var Translation = Real3{8.61018372, 3.18365192, 21.0762596}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -92,7 +92,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 4.35806513
+			var Size = 15.9910116
 		}
 		EditorCameraController 
 		{
@@ -101,7 +101,7 @@ Level
 			var LookDistance = 20.8262577
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{16.5707989, 2.07440877, -0.375}
+			var LookTarget = Real3{8.61018372, 3.18365192, 0.250001758}
 			var MoveSensitivity = 1
 		}
 		CameraViewport 
@@ -141,8 +141,8 @@ Level
 			}
 			var ResolutionOrAspect = Integer2{1920, 1080}
 			var RenderToViewport = true
-			var ForwardViewportEvents = true
-			var ViewportScaling = ViewportScaling.Fill
+			var ForwardViewportEvents = false
+			var ViewportScaling = ViewportScaling.Letterbox
 			var MarginColor = Real4{0, 0, 0, 1}
 			var NormalizedSize = Real2{1, 1}
 			var NormalizedOffset = Real2{0, 0}
@@ -160,31 +160,34 @@ Level
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
-		Microphone 
-		{
-			var Active = true
-		}
 		CameraController 
 		{
-			var Target = CogPath{			var Path = ":/Player"
-			var ErrorOnResolveToNull = false
-			var ErrorOnPathCantCompute = false
-			var ErrorOnDirectLinkFail = false
-			var UpdateCogOnPathChange = true
-			var UpdatePathOnCogChange = true
-			var UpdateCogOnInitialize = true
-			var ResolvedNullErrorOccurred = false
-			var ResolvedCog = 5
-			var PathPreference0 = CogPathPreference.CogRelative
-			var PathPreference1 = CogPathPreference.SpaceRelative
-			var PathPreference2 = CogPathPreference.Absolute
-}
+			var Target = CogPath
+			{
+				var Path = ":/Player"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 5
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
 			var DistanceFromCameraToPan = 2
 			var MinX = -5000
 		}
+		SoundListener 
+		{
+			var Active = true
+			var AttenuationScale = 1
+		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b4eb6d832cfda94][ContextId:5]
+			Cog [Id:0x5b4eb6d832cfda94][ContextId:6]
 			{
 				var Name = "Camera"
 				Transform 
@@ -197,24 +200,67 @@ Level
 				{
 					var NearPlane = 0.5
 					var FarPlane = 200
-					var PerspectiveMode = PerspectiveMode.Perspective
+					var PerspectiveMode = PerspectiveMode.Orthographic
 					var FieldOfView = 45
 					var Size = 15.5
 				}
 				CameraShake 
 				{
 					var CurrentIntensity = 0
-					var Dissipation = 0.7
+					var Dissipation = 0.699999988
+				}
+				CameraViewport 
+				{
+					var RenderInEditor = false
+					var RenderInGame = true
+					var RenderOrder = 0
+					var CameraPath = CogPath
+					{
+						var Path = "."
+						var ErrorOnResolveToNull = false
+						var ErrorOnPathCantCompute = false
+						var ErrorOnDirectLinkFail = false
+						var UpdateCogOnPathChange = true
+						var UpdatePathOnCogChange = true
+						var UpdateCogOnInitialize = true
+						var ResolvedNullErrorOccurred = false
+						var Cog = 6
+						var PathPreference0 = CogPathPreference.CogRelative
+						var PathPreference1 = CogPathPreference.SpaceRelative
+						var PathPreference2 = CogPathPreference.Absolute
+					}
+					var RendererPath = CogPath
+					{
+						var Path = ":/Renderer"
+						var ErrorOnResolveToNull = false
+						var ErrorOnPathCantCompute = false
+						var ErrorOnDirectLinkFail = false
+						var UpdateCogOnPathChange = true
+						var UpdatePathOnCogChange = true
+						var UpdateCogOnInitialize = true
+						var ResolvedNullErrorOccurred = false
+						var Cog = 2
+						var PathPreference0 = CogPathPreference.CogRelative
+						var PathPreference1 = CogPathPreference.SpaceRelative
+						var PathPreference2 = CogPathPreference.Absolute
+					}
+					var ResolutionOrAspect = Integer2{1920, 1080}
+					var RenderToViewport = true
+					var ForwardViewportEvents = true
+					var ViewportScaling = ViewportScaling.Fill
+					var MarginColor = Real4{0, 0, 0, 1}
+					var NormalizedSize = Real2{1, 1}
+					var NormalizedOffset = Real2{0, 0}
 				}
 			}
 		}
 	}
-	Cog [ContextId:6]
+	Cog [ContextId:5]
 	{
 		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{-30.3749008, -1.29097998, 0}
+			var Translation = Real3{-31.7698803, -1.13842082, 0}
 			var Scale = Real3{0.699999988, 0.699999988, 0.699999988}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -273,7 +319,7 @@ Level
 			var AirDeceleration = 10
 			var MaxGroundSlope = 45
 			var MaxCeilingSlope = 45
-			var GroundSnapDistance = 0.1
+			var GroundSnapDistance = 0.100000001
 			var ControllerVelocity = Real3{0, 0, 0}
 			var Grounded = true
 			var Jumping = false
@@ -1582,22 +1628,7 @@ Level
 	Cog [InheritId:"545366cb773fdc05:RhinoDino"][ContextId:56]
 	{
 	}
-	Cog [InheritId:"5420e27749bcba00:BirdDino"][ContextId:57]
-	{
-		Hierarchy 
-		{
-			Cog [Id:0x5b4eb6d832cf9a21][ContextId:58]
-			{
-				Hierarchy 
-				{
-					Cog [Id:0x5b4eb6d832ce013b][InheritId:"553d01fcf4e4d35d:Rock"][ContextId:59]
-					{
-					}
-				}
-			}
-		}
-	}
-	Cog [ContextId:60]
+	Cog [ContextId:57]
 	{
 		var Name = "Sun"
 		Transform 
@@ -1626,7 +1657,7 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:61]
+	Cog [ContextId:58]
 	{
 		var Name = "Water"
 		Transform 
@@ -1637,7 +1668,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b4eb7c46f674eea][ContextId:62]
+			Cog [Id:0x5b4eb7c46f674eea][ContextId:59]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1666,7 +1697,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674eed][ContextId:63]
+			Cog [Id:0x5b4eb7c46f674eed][ContextId:60]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1695,7 +1726,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674eee][ContextId:64]
+			Cog [Id:0x5b4eb7c46f674eee][ContextId:61]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1724,7 +1755,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674ef0][ContextId:65]
+			Cog [Id:0x5b4eb7c46f674ef0][ContextId:62]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1753,7 +1784,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674ef2][ContextId:66]
+			Cog [Id:0x5b4eb7c46f674ef2][ContextId:63]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1782,7 +1813,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674ef4][ContextId:67]
+			Cog [Id:0x5b4eb7c46f674ef4][ContextId:64]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1811,7 +1842,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674ef6][ContextId:68]
+			Cog [Id:0x5b4eb7c46f674ef6][ContextId:65]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1840,7 +1871,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674ef7][ContextId:69]
+			Cog [Id:0x5b4eb7c46f674ef7][ContextId:66]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1869,7 +1900,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674ef9][ContextId:70]
+			Cog [Id:0x5b4eb7c46f674ef9][ContextId:67]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1898,7 +1929,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674efb][ContextId:71]
+			Cog [Id:0x5b4eb7c46f674efb][ContextId:68]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1927,7 +1958,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674efc][ContextId:72]
+			Cog [Id:0x5b4eb7c46f674efc][ContextId:69]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1956,7 +1987,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674efe][ContextId:73]
+			Cog [Id:0x5b4eb7c46f674efe][ContextId:70]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -1985,7 +2016,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674f00][ContextId:74]
+			Cog [Id:0x5b4eb7c46f674f00][ContextId:71]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -2014,7 +2045,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674f02][ContextId:75]
+			Cog [Id:0x5b4eb7c46f674f02][ContextId:72]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -2043,7 +2074,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674f04][ContextId:76]
+			Cog [Id:0x5b4eb7c46f674f04][ContextId:73]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -2072,7 +2103,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f674f06][ContextId:77]
+			Cog [Id:0x5b4eb7c46f674f06][ContextId:74]
 			{
 				var Name = "WaterFlow"
 				Transform 
@@ -2103,7 +2134,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:78]
+	Cog [ContextId:75]
 	{
 		var Name = "Clouds"
 		Transform 
@@ -2114,7 +2145,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b4eb6d832ce0230][ContextId:79]
+			Cog [Id:0x5b4eb6d832ce0230][ContextId:76]
 			{
 				var Name = "Cloud13"
 				Transform 
@@ -2147,7 +2178,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce028b][ContextId:80]
+			Cog [Id:0x5b4eb6d832ce028b][ContextId:77]
 			{
 				var Name = "Cloud11"
 				Transform 
@@ -2180,7 +2211,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce02db][ContextId:81]
+			Cog [Id:0x5b4eb6d832ce02db][ContextId:78]
 			{
 				var Name = "Cloud12"
 				Transform 
@@ -2213,7 +2244,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce0322][ContextId:82]
+			Cog [Id:0x5b4eb6d832ce0322][ContextId:79]
 			{
 				var Name = "Cloud14"
 				Transform 
@@ -2246,7 +2277,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce0366][ContextId:83]
+			Cog [Id:0x5b4eb6d832ce0366][ContextId:80]
 			{
 				var Name = "Cloud14"
 				Transform 
@@ -2279,7 +2310,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce03af][ContextId:84]
+			Cog [Id:0x5b4eb6d832ce03af][ContextId:81]
 			{
 				var Name = "Cloud15"
 				Transform 
@@ -2312,7 +2343,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce03f8][ContextId:85]
+			Cog [Id:0x5b4eb6d832ce03f8][ContextId:82]
 			{
 				var Name = "Cloud13"
 				Transform 
@@ -2345,7 +2376,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce0440][ContextId:86]
+			Cog [Id:0x5b4eb6d832ce0440][ContextId:83]
 			{
 				var Name = "Cloud14"
 				Transform 
@@ -2378,7 +2409,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce0486][ContextId:87]
+			Cog [Id:0x5b4eb6d832ce0486][ContextId:84]
 			{
 				var Name = "Cloud13"
 				Transform 
@@ -2411,7 +2442,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce04cc][ContextId:88]
+			Cog [Id:0x5b4eb6d832ce04cc][ContextId:85]
 			{
 				var Name = "Cloud12"
 				Transform 
@@ -2444,7 +2475,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce0516][ContextId:89]
+			Cog [Id:0x5b4eb6d832ce0516][ContextId:86]
 			{
 				var Name = "Cloud15"
 				Transform 
@@ -2477,7 +2508,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce055c][ContextId:90]
+			Cog [Id:0x5b4eb6d832ce055c][ContextId:87]
 			{
 				var Name = "Cloud13"
 				Transform 
@@ -2510,7 +2541,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce05a9][ContextId:91]
+			Cog [Id:0x5b4eb6d832ce05a9][ContextId:88]
 			{
 				var Name = "Cloud12"
 				Transform 
@@ -2543,7 +2574,7 @@ Level
 					var Scalar = 1
 				}
 			}
-			Cog [Id:0x5b4eb6d832ce05f0][ContextId:92]
+			Cog [Id:0x5b4eb6d832ce05f0][ContextId:89]
 			{
 				var Name = "Cloud11"
 				Transform 
@@ -2578,7 +2609,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:93]
+	Cog [ContextId:90]
 	{
 		var Name = "Backgrounds"
 		Transform 
@@ -2589,7 +2620,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b4eb7c46f675fe5][ContextId:94]
+			Cog [Id:0x5b4eb7c46f675fe5][ContextId:91]
 			{
 				var Name = "CaveBackgroundLayer1"
 				Transform 
@@ -2618,7 +2649,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675fe7][ContextId:95]
+			Cog [Id:0x5b4eb7c46f675fe7][ContextId:92]
 			{
 				var Name = "CaveBackgroundLayer3"
 				Transform 
@@ -2647,7 +2678,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675fe9][ContextId:96]
+			Cog [Id:0x5b4eb7c46f675fe9][ContextId:93]
 			{
 				var Name = "PlatformBackGround"
 				Transform 
@@ -2676,7 +2707,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675feb][ContextId:97]
+			Cog [Id:0x5b4eb7c46f675feb][ContextId:94]
 			{
 				var Name = "CaveBackgroundLayer2"
 				Transform 
@@ -2705,7 +2736,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675fed][ContextId:98]
+			Cog [Id:0x5b4eb7c46f675fed][ContextId:95]
 			{
 				var Name = "CaveBackgroundLayer1"
 				Transform 
@@ -2734,7 +2765,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675fef][ContextId:99]
+			Cog [Id:0x5b4eb7c46f675fef][ContextId:96]
 			{
 				var Name = "Backdrop1"
 				Transform 
@@ -2763,7 +2794,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675ff1][ContextId:100]
+			Cog [Id:0x5b4eb7c46f675ff1][ContextId:97]
 			{
 				var Name = "Backdrop1"
 				Transform 
@@ -2792,7 +2823,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675ff3][ContextId:101]
+			Cog [Id:0x5b4eb7c46f675ff3][ContextId:98]
 			{
 				var Name = "CaveBackgroundLayer2"
 				Transform 
@@ -2821,7 +2852,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675ff5][ContextId:102]
+			Cog [Id:0x5b4eb7c46f675ff5][ContextId:99]
 			{
 				var Name = "Backdrop1"
 				Transform 
@@ -2850,7 +2881,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675ff7][ContextId:103]
+			Cog [Id:0x5b4eb7c46f675ff7][ContextId:100]
 			{
 				var Name = "Backdrop1"
 				Transform 
@@ -2879,7 +2910,7 @@ Level
 					var StartFrame = 0
 				}
 			}
-			Cog [Id:0x5b4eb7c46f675ff9][ContextId:104]
+			Cog [Id:0x5b4eb7c46f675ff9][ContextId:101]
 			{
 				var Name = "CaveBackgroundLayer3"
 				Transform 
@@ -2910,7 +2941,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:105]
+	Cog [ContextId:102]
 	{
 		var Name = "TileMaps"
 		Transform 
@@ -2921,7 +2952,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b4eb7c46f67663a][ContextId:106]
+			Cog [Id:0x5b4eb7c46f67663a][ContextId:103]
 			{
 				var Name = "TileMap"
 				Transform 
@@ -2952,7 +2983,7 @@ Level
 					var MeshThickness = 6
 				}
 			}
-			Cog [Id:0x5b4eb7c46f67663c][ContextId:107]
+			Cog [Id:0x5b4eb7c46f67663c][ContextId:104]
 			{
 				var Name = "BackgroundMap"
 				Transform 
@@ -2983,7 +3014,7 @@ Level
 					var MeshThickness = 1.20000005
 				}
 			}
-			Cog [Id:0x5b4eb7c46f67663e][ContextId:108]
+			Cog [Id:0x5b4eb7c46f67663e][ContextId:105]
 			{
 				var Name = "BackgroundMap2"
 				Transform 
@@ -3014,7 +3045,7 @@ Level
 					var MeshThickness = 1.20000005
 				}
 			}
-			Cog [Id:0x5b4eb7c46f676640][ContextId:109]
+			Cog [Id:0x5b4eb7c46f676640][ContextId:106]
 			{
 				var Name = "BackgroundMap3"
 				Transform 
@@ -3045,7 +3076,7 @@ Level
 					var MeshThickness = 1.20000005
 				}
 			}
-			Cog [Id:0x5b4eb7c46f676642][ContextId:110]
+			Cog [Id:0x5b4eb7c46f676642][ContextId:107]
 			{
 				var Name = "Foreground"
 				Transform 
@@ -3078,7 +3109,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:111]
+	Cog [ContextId:108]
 	{
 		var Name = "Bird"
 		Transform 
@@ -3107,26 +3138,28 @@ Level
 		Bird 
 		{
 			var Speed = 4
-			var ObjectToDrop = CogPath{			var Path = "Body/Sun"
-			var ErrorOnResolveToNull = false
-			var ErrorOnPathCantCompute = false
-			var ErrorOnDirectLinkFail = false
-			var UpdateCogOnPathChange = true
-			var UpdatePathOnCogChange = true
-			var UpdateCogOnInitialize = true
-			var ResolvedNullErrorOccurred = false
-			var ResolvedCog = 4294967293
-			var PathPreference0 = CogPathPreference.CogRelative
-			var PathPreference1 = CogPathPreference.SpaceRelative
-			var PathPreference2 = CogPathPreference.Absolute
-}
+			var ObjectToDrop = CogPath
+			{
+				var Path = "Body/Sun"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 4294967293
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
 		}
 		BirdAi 
 		{
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b4eb6d832ce0752][ContextId:112]
+			Cog [Id:0x5b4eb6d832ce0752][ContextId:109]
 			{
 				var Name = "Body"
 				Transform 
@@ -3156,7 +3189,7 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x5b4eb6d832ce079d][ContextId:113]
+					Cog [Id:0x5b4eb6d832ce079d][ContextId:110]
 					{
 						var Name = "LegPivotL"
 						Transform 
@@ -3167,7 +3200,7 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog [Id:0x5b4eb7c46f64e75f][ContextId:114]
+							Cog [Id:0x5b4eb7c46f64e75f][ContextId:111]
 							{
 								var Name = "ThighL"
 								Transform 
@@ -3196,7 +3229,7 @@ Level
 									var StartFrame = 0
 								}
 							}
-							Cog [Id:0x5b4eb6d832ce07eb][ContextId:115]
+							Cog [Id:0x5b4eb6d832ce07eb][ContextId:112]
 							{
 								var Name = "LegL1"
 								Transform 
@@ -3207,7 +3240,7 @@ Level
 								}
 								Hierarchy 
 								{
-									Cog [Id:0x5b4eb7c46f64e766][ContextId:116]
+									Cog [Id:0x5b4eb7c46f64e766][ContextId:113]
 									{
 										var Name = "LegParts1L"
 										Transform 
@@ -3236,7 +3269,7 @@ Level
 											var StartFrame = 0
 										}
 									}
-									Cog [Id:0x5b4eb6d832ce083d][ContextId:117]
+									Cog [Id:0x5b4eb6d832ce083d][ContextId:114]
 									{
 										var Name = "LegL2"
 										Transform 
@@ -3247,7 +3280,7 @@ Level
 										}
 										Hierarchy 
 										{
-											Cog [Id:0x5b4eb7c46f64e769][ContextId:118]
+											Cog [Id:0x5b4eb7c46f64e769][ContextId:115]
 											{
 												var Name = "LegParts2L"
 												Transform 
@@ -3276,7 +3309,7 @@ Level
 													var StartFrame = 0
 												}
 											}
-											Cog [Id:0x5b4eb6d832ce089a][ContextId:119]
+											Cog [Id:0x5b4eb6d832ce089a][ContextId:116]
 											{
 												var Name = "LegL3"
 												Transform 
@@ -3287,7 +3320,7 @@ Level
 												}
 												Hierarchy 
 												{
-													Cog [Id:0x5b4eb6d832ce08f7][ContextId:120]
+													Cog [Id:0x5b4eb6d832ce08f7][ContextId:117]
 													{
 														var Name = "LegParts3L"
 														Transform 
@@ -3319,7 +3352,7 @@ Level
 														{
 														}
 													}
-													Cog [Id:0x5b4eb6d832ce0961][ContextId:121]
+													Cog [Id:0x5b4eb6d832ce0961][ContextId:118]
 													{
 														var Name = "LegL4"
 														Transform 
@@ -3349,7 +3382,7 @@ Level
 														}
 														Hierarchy 
 														{
-															Cog [Id:0x5b4eb6d832ce09c3][ContextId:122]
+															Cog [Id:0x5b4eb6d832ce09c3][ContextId:119]
 															{
 																var Name = "LegL5"
 																Transform 
@@ -3379,7 +3412,7 @@ Level
 																}
 																Hierarchy 
 																{
-																	Cog [Id:0x5b4eb6d832ce0a24][ContextId:123]
+																	Cog [Id:0x5b4eb6d832ce0a24][ContextId:120]
 																	{
 																		var Name = "LegL6"
 																		Transform 
@@ -3409,7 +3442,7 @@ Level
 																		}
 																		Hierarchy 
 																		{
-																			Cog [Id:0x5b4eb6d832ce0a8b][ContextId:124]
+																			Cog [Id:0x5b4eb6d832ce0a8b][ContextId:121]
 																			{
 																				var Name = "LegL7"
 																				Transform 
@@ -3439,7 +3472,7 @@ Level
 																				}
 																				Hierarchy 
 																				{
-																					Cog [Id:0x5b4eb6d832ce0afe][ContextId:125]
+																					Cog [Id:0x5b4eb6d832ce0afe][ContextId:122]
 																					{
 																						var Name = "LegL8"
 																						Transform 
@@ -3469,7 +3502,7 @@ Level
 																						}
 																						Hierarchy 
 																						{
-																							Cog [Id:0x5b4eb6d832ce0b6f][ContextId:126]
+																							Cog [Id:0x5b4eb6d832ce0b6f][ContextId:123]
 																							{
 																								var Name = "LegL9"
 																								Transform 
@@ -3499,7 +3532,7 @@ Level
 																								}
 																								Hierarchy 
 																								{
-																									Cog [Id:0x5b4eb6d832ce0be0][ContextId:127]
+																									Cog [Id:0x5b4eb6d832ce0be0][ContextId:124]
 																									{
 																										var Name = "LegL10"
 																										Transform 
@@ -3510,7 +3543,7 @@ Level
 																										}
 																										Hierarchy 
 																										{
-																											Cog [Id:0x5b4eb7c46f64e770][ContextId:128]
+																											Cog [Id:0x5b4eb7c46f64e770][ContextId:125]
 																											{
 																												var Name = "FeetL"
 																												Transform 
@@ -3539,7 +3572,7 @@ Level
 																													var StartFrame = 0
 																												}
 																											}
-																											Cog [Id:0x5b4eb7c46f64e772][ContextId:129]
+																											Cog [Id:0x5b4eb7c46f64e772][ContextId:126]
 																											{
 																												var Name = "PunchL"
 																												EditorFlags 
@@ -3573,7 +3606,7 @@ Level
 																													var StartFrame = 0
 																												}
 																											}
-																											Cog [Id:0x5b4eb7c46f64e775][ContextId:130]
+																											Cog [Id:0x5b4eb7c46f64e775][ContextId:127]
 																											{
 																												var Name = "ProjectileL"
 																												EditorFlags 
@@ -3629,7 +3662,7 @@ Level
 							}
 						}
 					}
-					Cog [Id:0x5b4eb6d832ce0c58][ContextId:131]
+					Cog [Id:0x5b4eb6d832ce0c58][ContextId:128]
 					{
 						var Name = "LegPivotR"
 						Transform 
@@ -3640,7 +3673,7 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog [Id:0x5b4eb7c46f64e777][ContextId:132]
+							Cog [Id:0x5b4eb7c46f64e777][ContextId:129]
 							{
 								var Name = "ThighR"
 								Transform 
@@ -3669,7 +3702,7 @@ Level
 									var StartFrame = 0
 								}
 							}
-							Cog [Id:0x5b4eb6d832ce0cae][ContextId:133]
+							Cog [Id:0x5b4eb6d832ce0cae][ContextId:130]
 							{
 								var Name = "LegR1"
 								Transform 
@@ -3680,7 +3713,7 @@ Level
 								}
 								Hierarchy 
 								{
-									Cog [Id:0x5b4eb7c46f64e77a][ContextId:134]
+									Cog [Id:0x5b4eb7c46f64e77a][ContextId:131]
 									{
 										var Name = "LegParts1R"
 										Transform 
@@ -3709,7 +3742,7 @@ Level
 											var StartFrame = 0
 										}
 									}
-									Cog [Id:0x5b4eb6d832ce0cff][ContextId:135]
+									Cog [Id:0x5b4eb6d832ce0cff][ContextId:132]
 									{
 										var Name = "LegR2"
 										Transform 
@@ -3720,7 +3753,7 @@ Level
 										}
 										Hierarchy 
 										{
-											Cog [Id:0x5b4eb7c46f64e77c][ContextId:136]
+											Cog [Id:0x5b4eb7c46f64e77c][ContextId:133]
 											{
 												var Name = "LegParts2R"
 												Transform 
@@ -3749,7 +3782,7 @@ Level
 													var StartFrame = 0
 												}
 											}
-											Cog [Id:0x5b4eb6d832ce0d53][ContextId:137]
+											Cog [Id:0x5b4eb6d832ce0d53][ContextId:134]
 											{
 												var Name = "LegR3"
 												Transform 
@@ -3760,7 +3793,7 @@ Level
 												}
 												Hierarchy 
 												{
-													Cog [Id:0x5b4eb6d832ce0db6][ContextId:138]
+													Cog [Id:0x5b4eb6d832ce0db6][ContextId:135]
 													{
 														var Name = "LegParts3R"
 														Transform 
@@ -3792,7 +3825,7 @@ Level
 														{
 														}
 													}
-													Cog [Id:0x5b4eb6d832ce0e16][ContextId:139]
+													Cog [Id:0x5b4eb6d832ce0e16][ContextId:136]
 													{
 														var Name = "LegR4"
 														Transform 
@@ -3822,7 +3855,7 @@ Level
 														}
 														Hierarchy 
 														{
-															Cog [Id:0x5b4eb6d832ce0e83][ContextId:140]
+															Cog [Id:0x5b4eb6d832ce0e83][ContextId:137]
 															{
 																var Name = "LegR5"
 																Transform 
@@ -3852,7 +3885,7 @@ Level
 																}
 																Hierarchy 
 																{
-																	Cog [Id:0x5b4eb6d832ce0ee9][ContextId:141]
+																	Cog [Id:0x5b4eb6d832ce0ee9][ContextId:138]
 																	{
 																		var Name = "LegR6"
 																		Transform 
@@ -3882,7 +3915,7 @@ Level
 																		}
 																		Hierarchy 
 																		{
-																			Cog [Id:0x5b4eb6d832ce0f53][ContextId:142]
+																			Cog [Id:0x5b4eb6d832ce0f53][ContextId:139]
 																			{
 																				var Name = "LegR7"
 																				Transform 
@@ -3912,7 +3945,7 @@ Level
 																				}
 																				Hierarchy 
 																				{
-																					Cog [Id:0x5b4eb6d832ce0fc0][ContextId:143]
+																					Cog [Id:0x5b4eb6d832ce0fc0][ContextId:140]
 																					{
 																						var Name = "LegR8"
 																						Transform 
@@ -3942,7 +3975,7 @@ Level
 																						}
 																						Hierarchy 
 																						{
-																							Cog [Id:0x5b4eb6d832ce103d][ContextId:144]
+																							Cog [Id:0x5b4eb6d832ce103d][ContextId:141]
 																							{
 																								var Name = "LegR9"
 																								Transform 
@@ -3972,7 +4005,7 @@ Level
 																								}
 																								Hierarchy 
 																								{
-																									Cog [Id:0x5b4eb6d832ce10c7][ContextId:145]
+																									Cog [Id:0x5b4eb6d832ce10c7][ContextId:142]
 																									{
 																										var Name = "LegR10"
 																										Transform 
@@ -3983,7 +4016,7 @@ Level
 																										}
 																										Hierarchy 
 																										{
-																											Cog [Id:0x5b4eb7c46f64e783][ContextId:146]
+																											Cog [Id:0x5b4eb7c46f64e783][ContextId:143]
 																											{
 																												var Name = "FeetR"
 																												Transform 
@@ -4012,7 +4045,7 @@ Level
 																													var StartFrame = 0
 																												}
 																											}
-																											Cog [Id:0x5b4eb7c46f64e786][ContextId:147]
+																											Cog [Id:0x5b4eb7c46f64e786][ContextId:144]
 																											{
 																												var Name = "PunchR"
 																												EditorFlags 
@@ -4046,7 +4079,7 @@ Level
 																													var StartFrame = 0
 																												}
 																											}
-																											Cog [Id:0x5b4eb7c46f64e788][ContextId:148]
+																											Cog [Id:0x5b4eb7c46f64e788][ContextId:145]
 																											{
 																												var Name = "ProjectileR"
 																												EditorFlags 
@@ -4102,7 +4135,7 @@ Level
 							}
 						}
 					}
-					Cog [Id:0x5b4eb6d832ce1180][ContextId:149]
+					Cog [Id:0x5b4eb6d832ce1180][ContextId:146]
 					{
 						var Name = "Tail3Pivot"
 						Transform 
@@ -4113,7 +4146,7 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog [Id:0x5b4eb7c46f64e78b][ContextId:150]
+							Cog [Id:0x5b4eb7c46f64e78b][ContextId:147]
 							{
 								var Name = "Tail3"
 								Transform 
@@ -4144,7 +4177,7 @@ Level
 							}
 						}
 					}
-					Cog [Id:0x5b4eb6d832ce11cc][ContextId:151]
+					Cog [Id:0x5b4eb6d832ce11cc][ContextId:148]
 					{
 						var Name = "Tail2Pivot"
 						Transform 
@@ -4155,7 +4188,7 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog [Id:0x5b4eb7c46f64e78d][ContextId:152]
+							Cog [Id:0x5b4eb7c46f64e78d][ContextId:149]
 							{
 								var Name = "Tail2"
 								Transform 
@@ -4186,7 +4219,7 @@ Level
 							}
 						}
 					}
-					Cog [Id:0x5b4eb6d832ce1219][ContextId:153]
+					Cog [Id:0x5b4eb6d832ce1219][ContextId:150]
 					{
 						var Name = "Tail1Pivot"
 						Transform 
@@ -4197,7 +4230,7 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog [Id:0x5b4eb7c46f64e78f][ContextId:154]
+							Cog [Id:0x5b4eb7c46f64e78f][ContextId:151]
 							{
 								var Name = "Tail1"
 								Transform 
@@ -4228,7 +4261,7 @@ Level
 							}
 						}
 					}
-					Cog [Id:0x5b4eb6d832ce1264][ContextId:155]
+					Cog [Id:0x5b4eb6d832ce1264][ContextId:152]
 					{
 						var Name = "HeadPivot"
 						Transform 
@@ -4239,7 +4272,7 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog [Id:0x5b4eb6d832ce12af][ContextId:156]
+							Cog [Id:0x5b4eb6d832ce12af][ContextId:153]
 							{
 								var Name = "Head"
 								Transform 
@@ -4269,7 +4302,7 @@ Level
 								}
 								Hierarchy 
 								{
-									Cog [Id:0x5b4eb6d832ce1303][ContextId:157]
+									Cog [Id:0x5b4eb6d832ce1303][ContextId:154]
 									{
 										var Name = "BeakPivot"
 										Transform 
@@ -4280,7 +4313,7 @@ Level
 										}
 										Hierarchy 
 										{
-											Cog [Id:0x5b4eb7c46f64e792][ContextId:158]
+											Cog [Id:0x5b4eb7c46f64e792][ContextId:155]
 											{
 												var Name = "Beak"
 												Transform 
@@ -4315,7 +4348,7 @@ Level
 							}
 						}
 					}
-					Cog [Id:0x5b4eb7c46f64e794][ContextId:159]
+					Cog [Id:0x5b4eb7c46f64e794][ContextId:156]
 					{
 						var Name = "WingsR"
 						Transform 
@@ -4344,7 +4377,7 @@ Level
 							var StartFrame = 0
 						}
 					}
-					Cog [Id:0x5b4eb7c46f64e796][ContextId:160]
+					Cog [Id:0x5b4eb7c46f64e796][ContextId:157]
 					{
 						var Name = "WingsL"
 						Transform 
@@ -4377,37 +4410,14 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"5420e27749bcba00:BirdDino"][ContextId:161]
+	Cog [InheritId:"5420e27749bcba00:BirdDino"][ContextId:158]
 	{
-		Hierarchy 
+		Transform 
 		{
-			Cog [Id:0x5b4eb6d832cfb0c6][ContextId:162]
-			{
-				Hierarchy 
-				{
-					Cog [Id:0x5b4eb6d832ce272e][InheritId:"553d01fcf4e4d35d:Rock"][ContextId:163]
-					{
-					}
-				}
-			}
+			var Translation = Real3{12.6000004, 8.86999989, 0}
 		}
 	}
-	Cog [InheritId:"5420e27749bcba00:BirdDino"][ContextId:164]
-	{
-		Hierarchy 
-		{
-			Cog [Id:0x5b4eb6d832cfbdce][ContextId:165]
-			{
-				Hierarchy 
-				{
-					Cog [Id:0x5b4eb6d832ce3af5][InheritId:"553d01fcf4e4d35d:Rock"][ContextId:166]
-					{
-					}
-				}
-			}
-		}
-	}
-	Cog [ContextId:167]
+	Cog [ContextId:159]
 	{
 		var Name = "JumpPoint"
 		Transform 
@@ -4438,7 +4448,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:168]
+	Cog [ContextId:160]
 	{
 		var Name = "JumpPoint"
 		Transform 
@@ -4469,10 +4479,16 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [InheritId:"577511c29c670dd5:JumpRhinoDino"][ContextId:169]
+	Cog [InheritId:"577511c29c670dd5:JumpRhinoDino"][ContextId:161]
 	{
+		Transform 
+		{
+			var Translation = Real3{-34.2504921, 3.73833418, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.5, 0.5, 0.5}
+		}
 	}
-	Cog [ContextId:170]
+	Cog [ContextId:162]
 	{
 		var Name = "JumpPoint"
 		Transform 
@@ -4503,7 +4519,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:171]
+	Cog [ContextId:163]
 	{
 		var Name = "JumpPoint"
 		Transform 
@@ -4534,10 +4550,14 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [InheritId:"577510174a880a41:ChargeRhinoDino"][ContextId:172]
+	Cog [InheritId:"577510174a880a41:ChargeRhinoDino"][ContextId:164]
 	{
 	}
-	Cog [InheritId:"57753fbdc3b908e5:WanderRhinoDino"][ContextId:173]
+	Cog [InheritId:"57753fbdc3b908e5:WanderRhinoDino"][ContextId:165]
 	{
+		Transform 
+		{
+			var Translation = Real3{15.1922245, 1.27522004, 0}
+		}
 	}
 }

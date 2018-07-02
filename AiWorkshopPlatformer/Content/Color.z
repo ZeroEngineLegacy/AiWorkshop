@@ -1,27 +1,73 @@
 [RunInEditor]
-class Color2 : ZilchComponent
+class ColorParent : ZilchComponent
 {
-    [Property]
-    var Color : Real4 = Real4(1);
-    
-    sends ColorEvent : ZilchEvent;
-    
-    function Initialize(init : CogInitializer)
+  [Property][Slider(0, 255, 1)]
+  var ColorHueShift : Real
+  {
+    get { return this.HueShift; }
+    set 
     {
-        
-        if(this.Owner.FindRoot() == this.Owner)
-        {
-            var colorEvent = ZilchEvent();
-            this.Owner.DispatchDown(Events.ColorEvent, colorEvent);
-        }
-        else
-        {
-            Zero.Connect(this.Owner, Events.ColorEvent, this.OnColorEvent);
-        }
+      this.HueShift = value;
+      var colorEvent = SetColorEvent();
+      colorEvent.HueShift = value;
+      if (this.Owner != null)
+        this.Owner.DispatchDown(Events.SetColorEvent, colorEvent);
+    }
+  }
+  
+  var HueShift : Real = 0.0;
+  
+  sends SetColorEvent : ZilchEvent;
+  
+  function Initialize(init : CogInitializer)
+  {
+    
+  }
+}
+
+[RunInEditor]
+class ColorChildren : ZilchComponent
+{
+  [ShaderInput("HueShift")] var HueShift = 0.0;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.SetColorEvent, this.OnColorEvent);
+    
+    this.HueShift = this.Owner.FindRoot().ColorParent.HueShift;
+  }
+  
+  function OnColorEvent(event : SetColorEvent)
+  {
+    this.HueShift = event.HueShift;
+  }
+}
+
+class SetColorEvent : ZilchEvent
+{
+  var HueShift : Real;
+}
+
+[RunInEditor]
+class ColorHueModifier : ZilchComponent
+{
+  
+  [Property] var Material : Material;
+  
+  [Property][Slider(0, 255, 1)] var Hue : Real
+  {
+    get 
+    { 
+      if (this.Material != null && this.Material.HueShift != null)
+        return this.Material.HueShift.HueShift; 
+      else
+        return 0.0;
     }
     
-    function OnColorEvent(event : Event)
+    set
     {
-        this.Owner.Sprite.VertexColor = this.Owner.FindRoot().Color2.Color;
+      if (this.Material != null && this.Material.HueShift != null)
+        this.Material.HueShift.HueShift = value;
     }
+  }
 }

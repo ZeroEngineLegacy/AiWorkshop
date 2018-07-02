@@ -99,7 +99,7 @@ RichAnimation =
 														Object value = 
 														{
 															float Time = 0.333333,
-															float Value = 1.01843e-005,
+															float Value = 0.01,
 															Vec2 TangentIn = [-0.05, 0],
 															Vec2 TangentOut = [0.05, 0],
 															uint EditorFlags = 0,
@@ -179,7 +179,7 @@ RichAnimation =
 														Object value = 
 														{
 															float Time = 0.333333,
-															float Value = 1.48,
+															float Value = 1,
 															Vec2 TangentIn = [-0.05, 0],
 															Vec2 TangentOut = [0.05, 0],
 															uint EditorFlags = 0,
@@ -232,72 +232,6 @@ RichAnimation =
 												string PropertyTypeName = "",
 												Array KeyFrames = 
 												[
-													{
-														float key = 0,
-														Object value = 
-														{
-															float Time = 0,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.166667,
-														Object value = 
-														{
-															float Time = 0.166667,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.333333,
-														Object value = 
-														{
-															float Time = 0.333333,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.833333,
-														Object value = 
-														{
-															float Time = 0.833333,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.866667,
-														Object value = 
-														{
-															float Time = 0.866667,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 1,
-														Object value = 
-														{
-															float Time = 1,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
 												],
 												Array Children = 
 												[
@@ -1488,6 +1422,109 @@ RichAnimation =
 												Array Children = 
 												[
 													{
+														TrackType Type = Component,
+														string Name = "Transform",
+														string Path = "Transform",
+														bool Disabled = false,
+														uint PropertyTypeId = 0,
+														string PropertyTypeName = "",
+														Array KeyFrames = 
+														[
+														],
+														Array Children = 
+														[
+															{
+																TrackType Type = Property,
+																string Name = "Rotation",
+																string Path = "Transform.Rotation",
+																bool Disabled = false,
+																uint PropertyTypeId = 10,
+																string PropertyTypeName = "Quat",
+																Array KeyFrames = 
+																[
+																],
+																Array Children = 
+																[
+																	{
+																		TrackType Type = SubProperty,
+																		string Name = "X",
+																		string Path = "Transform.Rotation.X",
+																		bool Disabled = false,
+																		uint PropertyTypeId = 3,
+																		string PropertyTypeName = "",
+																		Array KeyFrames = 
+																		[
+																			{
+																				float key = 0,
+																				Object value = 
+																				{
+																					float Time = 0,
+																					float Value = 0,
+																					Vec2 TangentIn = [-0.05, 0],
+																					Vec2 TangentOut = [0.05, 0],
+																					uint EditorFlags = 0,
+																				},
+																			},
+																		],
+																		Array Children = 
+																		[
+																		],
+																	},
+																	{
+																		TrackType Type = SubProperty,
+																		string Name = "Y",
+																		string Path = "Transform.Rotation.Y",
+																		bool Disabled = false,
+																		uint PropertyTypeId = 3,
+																		string PropertyTypeName = "",
+																		Array KeyFrames = 
+																		[
+																			{
+																				float key = 0,
+																				Object value = 
+																				{
+																					float Time = 0,
+																					float Value = -0,
+																					Vec2 TangentIn = [-0.05, 0],
+																					Vec2 TangentOut = [0.05, 0],
+																					uint EditorFlags = 0,
+																				},
+																			},
+																		],
+																		Array Children = 
+																		[
+																		],
+																	},
+																	{
+																		TrackType Type = SubProperty,
+																		string Name = "Z",
+																		string Path = "Transform.Rotation.Z",
+																		bool Disabled = false,
+																		uint PropertyTypeId = 3,
+																		string PropertyTypeName = "",
+																		Array KeyFrames = 
+																		[
+																			{
+																				float key = 0,
+																				Object value = 
+																				{
+																					float Time = 0,
+																					float Value = 0,
+																					Vec2 TangentIn = [-0.05, 0],
+																					Vec2 TangentOut = [0.05, 0],
+																					uint EditorFlags = 0,
+																				},
+																			},
+																		],
+																		Array Children = 
+																		[
+																		],
+																	},
+																],
+															},
+														],
+													},
+													{
 														TrackType Type = Object,
 														string Name = "Jaw",
 														string Path = "/Body/HeadPivot/Head2/JawPivot/Jaw",
@@ -2362,50 +2399,6 @@ RichAnimation =
 														string PropertyTypeName = "",
 														Array KeyFrames = 
 														[
-															{
-																float key = 0,
-																Object value = 
-																{
-																	float Time = 0,
-																	float Value = 2.5,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-															{
-																float key = 0,
-																Object value = 
-																{
-																	float Time = 0,
-																	float Value = 2.5,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-															{
-																float key = 0.333333,
-																Object value = 
-																{
-																	float Time = 0.333333,
-																	float Value = 2.5,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-															{
-																float key = 0.866667,
-																Object value = 
-																{
-																	float Time = 0.866667,
-																	float Value = 2.5,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
 														],
 														Array Children = 
 														[
@@ -3382,28 +3375,6 @@ RichAnimation =
 														string PropertyTypeName = "",
 														Array KeyFrames = 
 														[
-															{
-																float key = 0,
-																Object value = 
-																{
-																	float Time = 0,
-																	float Value = -1,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-															{
-																float key = 1,
-																Object value = 
-																{
-																	float Time = 1,
-																	float Value = -1,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
 														],
 														Array Children = 
 														[
@@ -3965,40 +3936,7 @@ RichAnimation =
 																Object value = 
 																{
 																	float Time = 0,
-																	float Value = 0.5,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-															{
-																float key = 0.833333,
-																Object value = 
-																{
-																	float Time = 0.833333,
-																	float Value = 0.5,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-															{
-																float key = 0.866667,
-																Object value = 
-																{
-																	float Time = 0.866667,
-																	float Value = 0.5,
-																	Vec2 TangentIn = [-0.05, 0],
-																	Vec2 TangentOut = [0.05, 0],
-																	uint EditorFlags = 0,
-																},
-															},
-															{
-																float key = 1,
-																Object value = 
-																{
-																	float Time = 1,
-																	float Value = 0.5,
+																	float Value = 0.01,
 																	Vec2 TangentIn = [-0.05, 0],
 																	Vec2 TangentOut = [0.05, 0],
 																	uint EditorFlags = 0,
@@ -4996,10 +4934,10 @@ RichAnimation =
 														Object value = 
 														{
 															float Time = 0.333333,
-															float Value = 0.00212019,
-															Vec2 TangentIn = [-0.0491816, 0.00900963],
-															Vec2 TangentOut = [0.0491816, -0.00900963],
-															uint EditorFlags = 6,
+															float Value = -0.215,
+															Vec2 TangentIn = [-0.05, 0],
+															Vec2 TangentOut = [0.05, 0],
+															uint EditorFlags = 0,
 														},
 													},
 													{
@@ -5065,10 +5003,10 @@ RichAnimation =
 														Object value = 
 														{
 															float Time = 0.333333,
-															float Value = 1.06136,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
+															float Value = 0.6,
+															Vec2 TangentIn = [-0.0494468, -0.00741702],
+															Vec2 TangentOut = [0.0494468, 0.00741702],
+															uint EditorFlags = 6,
 														},
 													},
 													{
@@ -5076,9 +5014,9 @@ RichAnimation =
 														Object value = 
 														{
 															float Time = 0.566667,
-															float Value = 1.01223,
-															Vec2 TangentIn = [-0.0441569, 0.0234556],
-															Vec2 TangentOut = [0.0441569, -0.0234556],
+															float Value = 0.62,
+															Vec2 TangentIn = [-0.0499951, 0.000696734],
+															Vec2 TangentOut = [0.0499951, -0.000696734],
 															uint EditorFlags = 6,
 														},
 													},
@@ -5088,9 +5026,9 @@ RichAnimation =
 														{
 															float Time = 0.833333,
 															float Value = 0.593032,
-															Vec2 TangentIn = [-0.0377314, 0.109689],
-															Vec2 TangentOut = [0.0534758, 0.01507],
-															uint EditorFlags = 7,
+															Vec2 TangentIn = [-0.115408, 0.0116713],
+															Vec2 TangentOut = [0.0534758, 0.0150699],
+															uint EditorFlags = 1,
 														},
 													},
 													{
@@ -5118,17 +5056,6 @@ RichAnimation =
 												string PropertyTypeName = "",
 												Array KeyFrames = 
 												[
-													{
-														float key = 0,
-														Object value = 
-														{
-															float Time = 0,
-															float Value = 0.7,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
 												],
 												Array Children = 
 												[
@@ -5709,7 +5636,7 @@ RichAnimation =
 														Object value = 
 														{
 															float Time = 0.333333,
-															float Value = 16.2622,
+															float Value = 3,
 															Vec2 TangentIn = [-0.05, 0],
 															Vec2 TangentOut = [0.05, 0],
 															uint EditorFlags = 0,
@@ -5894,10 +5821,10 @@ RichAnimation =
 														Object value = 
 														{
 															float Time = 0.333333,
-															float Value = 1.14194,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
+															float Value = 0.64,
+															Vec2 TangentIn = [-0.0413771, -0.0280701],
+															Vec2 TangentOut = [0.0413771, 0.0280701],
+															uint EditorFlags = 6,
 														},
 													},
 													{
@@ -5905,9 +5832,9 @@ RichAnimation =
 														Object value = 
 														{
 															float Time = 0.666514,
-															float Value = 0.942966,
-															Vec2 TangentIn = [-0.0476808, 0.0478631],
-															Vec2 TangentOut = [0.0476808, -0.0478631],
+															float Value = 0.65,
+															Vec2 TangentIn = [-0.0675599, -4.32487e-006],
+															Vec2 TangentOut = [0.0675599, 4.32487e-006],
 															uint EditorFlags = 6,
 														},
 													},
@@ -5917,9 +5844,9 @@ RichAnimation =
 														{
 															float Time = 0.833333,
 															float Value = 0.640032,
-															Vec2 TangentIn = [-0.0465633, 0.107354],
-															Vec2 TangentOut = [0.0483993, 0.00226653],
-															uint EditorFlags = 9,
+															Vec2 TangentIn = [-0.116809, 0.00697971],
+															Vec2 TangentOut = [0.0484523, -9.30507e-006],
+															uint EditorFlags = 15,
 														},
 													},
 													{
@@ -5947,72 +5874,6 @@ RichAnimation =
 												string PropertyTypeName = "",
 												Array KeyFrames = 
 												[
-													{
-														float key = 0,
-														Object value = 
-														{
-															float Time = 0,
-															float Value = -0.3,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.333333,
-														Object value = 
-														{
-															float Time = 0.333333,
-															float Value = -0.3,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.566667,
-														Object value = 
-														{
-															float Time = 0.566667,
-															float Value = -0.3,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.666667,
-														Object value = 
-														{
-															float Time = 0.666667,
-															float Value = -0.3,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.833333,
-														Object value = 
-														{
-															float Time = 0.833333,
-															float Value = -0.3,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 1,
-														Object value = 
-														{
-															float Time = 1,
-															float Value = -0.3,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
 												],
 												Array Children = 
 												[
