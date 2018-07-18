@@ -1,0 +1,14 @@
+class UiSpace : ZilchComponent
+{
+  [Property] var Enabled = true;
+  [Property] var LevelToLoad : Level;
+  
+  function Initialize(init : CogInitializer)
+  {
+    if(this.Enabled == false)
+      return;
+      
+    var space = this.GameSession.CreateSpace(Archetype.Space);
+    space.LoadLevel(this.LevelToLoad);
+  }
+}

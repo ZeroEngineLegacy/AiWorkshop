@@ -1,0 +1,47 @@
+[Version:1]
+CollisionTable 
+{
+	var RegisteredGroups = Array
+	{
+		"4e740859314e5515:DefaultGroup"
+		"5b7b4fe291f1d3f3:Cart"
+		"5b7b4d510b14dfb7:CartTrack"
+	}
+	var CollisionFilters = Array
+	{
+		Object
+		{
+			var TypeA = "5b7b4d510b14dfb7:CartTrack"
+			var TypeB = "4e740859314e5515:DefaultGroup"
+			var SkipResolution = false
+			var SkipDetectingCollision = false
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b7b4d510b14dfb7:CartTrack"
+			var TypeB = "5b7b4d510b14dfb7:CartTrack"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b7b4fe291f1d3f3:Cart"
+			var TypeB = "5b7b4d510b14dfb7:CartTrack"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+	}
+	var AutoRegister = true
+}

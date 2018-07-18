@@ -1,0 +1,35 @@
+[Version:1]
+GeometryContent 
+{
+	GeometryImport 
+	{
+		var CollapsePivots = false
+		var OriginOffset = Real3{0, 0, 0}
+		var ScaleFactor = 0.0299999993
+		var ChangeBasis = false
+		var XBasisTo = BasisType.PositiveX
+		var YBasisTo = BasisType.PositiveY
+		var ZBasisTo = BasisType.PositiveZ
+	}
+	MeshBuilder 
+	{
+		var GenerateSmoothNormals = true
+		var SmoothingAngleDegreesThreshold = 20
+		var GenerateTangentSpace = true
+		var InvertUvYAxis = true
+		var FlipWindingOrder = false
+		var FlipNormals = false
+		var Meshes = Array
+		{
+			Object
+			{
+				var Name = "Bat"
+				var ResourceId = 0x5b1094125229a22b
+			}
+		}
+	}
+	GeneratedArchetype 
+	{
+		var ResourceId = 0x5b109412522ea8f0
+	}
+}

@@ -1,0 +1,45 @@
+class CartAi : ZilchComponent
+{
+  [Dependency] var Cart : Cart;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(Zero.Keyboard.KeyIsPressed(Keys.Space) || Zero.Keyboard.KeyIsPressed(Keys.W))
+      this.Cart.JumpCart(1.0);
+      
+    if(Zero.Keyboard.KeyIsDown(Keys.A))
+      this.Cart.Brake(1.0);
+      
+    if(Zero.Keyboard.KeyIsDown(Keys.D))
+      this.Cart.Boost(1.0);
+      
+    if(Zero.Keyboard.KeyIsPressed(Keys.E))
+      this.Cart.JumpRider(1.0);
+    
+    if(Zero.Keyboard.KeyIsPressed(Keys.R))
+      this.Cart.EjectRider(1.3);
+    
+    //this.Cart.Boost(1.0);
+    //var obstacle = GetNextObstacle();
+    //var distanceToObstacle
+    //var getNextPowerup = GetNextPowerup();
+    
+    //if(coinInFront && !upcomingGap && !upcomingEnemy)
+    //  jump
+    
+    var distanceToObstacle = this.Cart.GetClosestObstacleDistance();
+    if(distanceToObstacle < 5.0)
+      this.Cart.JumpCart(1.0);
+      
+    //if(this.Cart.AtJumpPoint())
+    //  var distanceToNextPlatformn
+    //
+    //
+    //
+  }
+}
