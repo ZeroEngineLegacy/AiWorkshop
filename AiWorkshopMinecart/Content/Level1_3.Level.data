@@ -178,9 +178,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{10.2058077, 14.330184, 20.7213058}
+			var Translation = Real3{-2.55254316, 11.1165257, 28.7702141}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.19210875, 0.0642661378, 0.0126084927, 0.979185939}
+			var Rotation = Quaternion{-0.166438654, 0.0620067678, 0.0104876328, 0.984044373}
 		}
 		CameraViewport 
 		{
@@ -237,10 +237,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 41.5462036
-			var VerticalAngle = 0.387463331
-			var HorizontalAngle = 18.7184792
-			var LookTarget = Real3{5.17818165, -1.36767459, -17.415123}
+			var LookDistance = 29.3206654
+			var VerticalAngle = 0.335103214
+			var HorizontalAngle = 18.7236977
+			var LookTarget = Real3{-6.02833271, 1.47393692, 1.29948938}
 			var MoveSensitivity = 1
 		}
 	}
@@ -1529,32 +1529,167 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"5b2acb6986613b26:AiCart"][ContextId:108]
+	Cog [InheritId:"5b04f15fbc1aeece:Goal"][ContextId:108]
 	{
 		Transform 
 		{
-			var Translation = Real3{-25.8997688, 7.40356636, 0}
-			var Rotation = Quaternion{0, 0, -0.0624328218, 0.998049259}
-			var Scale = Real3{0.999999881, 1, 1}
+			var Translation = Real3{25.815527, 2.24631357, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{2.9249928, 4.49192333, 2.9249928}
 		}
 	}
-	Cog [InheritId:"5b109412522ea8f0:Bat"][ContextId:109]
+	Cog [ContextId:109]
+	{
+		var Name = "Ui"
+		UiSpace 
+		{
+			var Enabled = true
+			var LevelToLoad = "5b1122c2c080b43c:Ui"
+		}
+		Race 
+		{
+			var Goal = CogPath
+			{
+				var Path = ":/Goal"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 108
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+		}
+	}
+	Cog [InheritId:"5b009a0edc856c33:WanderingBat"][ContextId:110]
 	{
 		Transform 
 		{
-			var Translation = Real3{7.33306408, -0.158988476, 0}
-			var Rotation = Quaternion{0, -0.707106769, 0, 0.707106829}
-			var Scale = Real3{1.14999998, 1.14999998, 1.14999998}
+			var Translation = Real3{-2.79002094, 1.70260954, -9.53674316e-07}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
 		}
-		SimpleAnimation 
+	}
+	Cog [InheritId:"5b2acb6986613b26:AiCart"][ContextId:111]
+	{
+		Transform 
 		{
-			var Animation = "5b10951f8eb4edde:BatFlyForward"
+			var Translation = Real3{-26.2065849, 7.3126297, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.999999881, 1, 1}
 		}
-		Orientation [LocallyAdded]
+		Hierarchy 
 		{
-			var GlobalUp = Real3{0, 1, 0}
-			var LocalOrientationBasis = Quaternion{0, 0, 0, 1}
-			var DefaultBases = OrientationBases.ForwardNegativeZUpY
+			Cog [Id:0x5b7f41b6b16a8ea7][ContextId:112]
+			{
+				Hierarchy 
+				{
+					Cog [Id:0x5b7f51fd676d0467][ContextId:113]
+					{
+						Hierarchy 
+						{
+							Cog [Id:0x5b7f51fd676d046f][ContextId:114]
+							{
+								Hierarchy 
+								{
+									Cog [Id:0x5b7f51fd676d0474][ContextId:115]
+									{
+										Hierarchy 
+										{
+											Cog [Id:0x5b7afd8912fb7849][ContextId:116]
+											{
+												ObjectLink 
+												{
+													var LocalPointA = Real3{8.7916851e-07, -0.000752449036, -0.300794601}
+													var LocalPointB = Real3{1.04159117e-05, -7.77244568e-05, -0.00123977661}
+												}
+											}
+										}
+									}
+									Cog [Id:0x5b7afc0acde3d78e][ContextId:117]
+									{
+										ObjectLink 
+										{
+											var LocalPointA = Real3{0.330282837, 0.0266628265, 0.430656433}
+											var LocalPointB = Real3{-0.00733977556, -0.000959396362, 0.0344181061}
+										}
+									}
+									Cog [Id:0x5b7f51fd676d0478][ContextId:118]
+									{
+										Hierarchy 
+										{
+											Cog [Id:0x5b7acb4de3ac944e][ContextId:119]
+											{
+												ObjectLink 
+												{
+													var LocalPointA = Real3{2.38418579e-07, 9.53674316e-07, -0.299808502}
+													var LocalPointB = Real3{2.38418579e-07, 9.53674316e-07, -1.90734863e-06}
+												}
+											}
+										}
+									}
+									Cog [Id:0x5b7ac8be7c1e1905][ContextId:120]
+									{
+										ObjectLink 
+										{
+											var LocalPointA = Real3{-0.337995708, 0, 0.408793449}
+											var LocalPointB = Real3{4.76837158e-07, 4.76837158e-07, 0}
+										}
+									}
+								}
+							}
+							Cog [Id:0x5b7f51fd676d047d][ContextId:121]
+							{
+								Hierarchy 
+								{
+									Cog [Id:0x5b7afb7936f1eeb1][ContextId:122]
+									{
+										ObjectLink 
+										{
+											var LocalPointA = Real3{0, -4.76837158e-07, -0.299808502}
+											var LocalPointB = Real3{2.38418579e-07, 0, 0}
+										}
+									}
+								}
+							}
+							Cog [Id:0x5b7afb582990896e][ContextId:123]
+							{
+								ObjectLink 
+								{
+									var LocalPointA = Real3{0.130405426, -1.90734863e-06, 0.0289516449}
+									var LocalPointB = Real3{2.38418579e-07, 0, 0}
+								}
+							}
+							Cog [Id:0x5b7f51fd676d0481][ContextId:124]
+							{
+								Hierarchy 
+								{
+									Cog [Id:0x5b7afb1f3fcfdf73][ContextId:125]
+									{
+										ObjectLink 
+										{
+											var LocalPointA = Real3{0, 1.90734863e-06, -0.299808502}
+											var LocalPointB = Real3{2.38418579e-07, 3.57627869e-07, 1.90734863e-06}
+										}
+									}
+								}
+							}
+							Cog [Id:0x5b7afb03324c7ab1][ContextId:126]
+							{
+								ObjectLink 
+								{
+									var LocalPointA = Real3{-0.129999995, -1.90734863e-06, 0.0289516449}
+									var LocalPointB = Real3{-2.38418579e-07, 9.53674316e-07, 0}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }

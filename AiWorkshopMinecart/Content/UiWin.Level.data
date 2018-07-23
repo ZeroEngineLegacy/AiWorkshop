@@ -144,9 +144,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-2.41751909, 1.28197813, 3.91420627}
+			var Translation = Real3{-5.28790379, 2.58769321, 4.07274818}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.141003773, -0.278448373, -0.0413660035, 0.949143529}
+			var Rotation = Quaternion{-0.0855096728, -0.4332636, -0.0413369909, 0.896248937}
 		}
 		CameraViewport 
 		{
@@ -203,14 +203,52 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 4.67687225
-			var VerticalAngle = 0.294960648
-			var HorizontalAngle = 0.570722759
-			var LookTarget = Real3{0, -0.0775989294, 0.148534298}
+			var LookDistance = 6.88327408
+			var VerticalAngle = 0.190240949
+			var HorizontalAngle = 0.900589764
+			var LookTarget = Real3{0.00915063918, 1.28609717, -0.125646621}
 			var MoveSensitivity = 1
 		}
 	}
-	Cog [ContextId:5]
+	Cog [InheritId:"5b1127a83eee9f93:BoxManHappy"][ContextId:5]
+	{
+		Transform 
+		{
+			var Translation = Real3{0, 0, 0}
+			var Rotation = Quaternion{0, -0.216239408, 0, 0.976340473}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [ContextId:6]
+	{
+		var Name = "Shadow"
+		Transform 
+		{
+			var Translation = Real3{0, -0.0775989294, 0.148534298}
+			var Scale = Real3{0.926722586, 0.668599308, 1.00000012}
+			var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106769}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{0, 0, 0, 0.63499999}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "59a4f6f4a01bac09:SoftCircle"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+	}
+	Cog [ContextId:7]
 	{
 		var Name = "GameCamera"
 		Transform 
@@ -243,7 +281,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 5
+				var Cog = 7
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -268,8 +306,8 @@ Level
 			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
 			var MarginColor = Real4{0, 0, 0, 1}
-			var NormalizedSize = Real2{0.5, 0.5}
-			var NormalizedOffset = Real2{0.5, 0.200000003}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 		Camera 
 		{
@@ -286,44 +324,6 @@ Level
 		}
 		Hierarchy 
 		{
-		}
-	}
-	Cog [InheritId:"5b1127963c3529bb:BoxManHurt"][ContextId:6]
-	{
-		Transform 
-		{
-			var Translation = Real3{0, 0, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [ContextId:7]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{0, -0.0775989294, 0.148534298}
-			var Scale = Real3{0.926722586, 0.668599248, 1}
-			var Rotation = Quaternion{-0.707106769, 0, 0, 0.707106829}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{0, 0, 0, 0.63499999}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "59a4f6f4a01bac09:SoftCircle"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
 		}
 	}
 }

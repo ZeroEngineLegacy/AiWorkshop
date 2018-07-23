@@ -4,9 +4,9 @@ Cog
 	var Name = "Bat"
 	Transform 
 	{
-		var Translation = Real3{6.86348629, -0.88073802, 0}
+		var Translation = Real3{3.55310583, 0.833848953, -2.47650719}
 		var Scale = Real3{1.1500001, 1.14999998, 1.1500001}
-		var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	AnimationGraph 
 	{
@@ -103,7 +103,7 @@ Cog
 				var Ghost = false
 				var SendsEvents = true
 				var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-				var CollisionGroup = "4e740859314e5515:DefaultGroup"
+				var CollisionGroup = "5b009a33e18014b2:Enemy"
 				var Offset = Real3{0, 0, 0}
 				var Radius = 0.449999988
 			}

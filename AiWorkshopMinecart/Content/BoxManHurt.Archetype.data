@@ -4,9 +4,22 @@ Cog
 	var Name = "BoxMan"
 	Transform 
 	{
-		var Translation = Real3{-10.1781254, 0, 3.10280228}
+		var Translation = Real3{0, 0, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	AnimationGraph 
+	{
+		var Active = true
+		var PlayMode = AnimationPlayMode.PlayOnce
+		var TimeScale = 1
+		var Animation = "4f8ebbde619389d0:DefaultAnimation"
+		var DebugPreviewId = 0
+	}
+	SimpleAnimation 
+	{
+		var Animation = "5b00942d4cdfa5eb:LoseAnimation"
+		var PlayMode = AnimationPlayMode.Pingpong
 	}
 	Hierarchy 
 	{
@@ -17,7 +30,7 @@ Cog
 			{
 				var Translation = Real3{0.0103559494, 0.624830782, 2.72960037e-08}
 				var Scale = Real3{1, 1, 1}
-				var Rotation = Quaternion{-0.703750432, 0.0688133016, -0.0688133016, 0.70375061}
+				var Rotation = Quaternion{-0.704118967, 0.0649351701, -0.0649351478, 0.704118907}
 			}
 			Model 
 			{
@@ -63,7 +76,7 @@ Cog
 							{
 								var Translation = Real3{-6.0171103e-18, -2.05425721e-08, 0.473108649}
 								var Scale = Real3{0.99999994, 1, 0.99999994}
-								var Rotation = Quaternion{0.0431967601, -0.0435786024, 0.00188600947, 0.99811399}
+								var Rotation = Quaternion{0.0529482551, -0.0468666628, 0.1431676, 0.987169266}
 							}
 							Model 
 							{
@@ -76,6 +89,19 @@ Cog
 								var GroupSortValue = 0
 								var Material = "5b7f522082e2c9d6:BoxMan"
 								var Mesh = "5b7f51fd6794ceed:BoxMan_Head"
+							}
+							AnimationGraph 
+							{
+								var Active = true
+								var PlayMode = AnimationPlayMode.PlayOnce
+								var TimeScale = 1
+								var Animation = "4f8ebbde619389d0:DefaultAnimation"
+								var DebugPreviewId = 0
+							}
+							SimpleAnimation 
+							{
+								var Animation = "5b00948d592c9a11:LoseHeadshake"
+								var PlayMode = AnimationPlayMode.Pingpong
 							}
 							Hierarchy 
 							{
@@ -446,7 +472,7 @@ Cog
 							{
 								var Translation = Real3{-0.337995768, -1.78689277e-08, 0.408793211}
 								var Scale = Real3{1, 0.99999994, 0.99999994}
-								var Rotation = Quaternion{-0.297750562, 0.0132037085, 0.0269668046, 0.954171419}
+								var Rotation = Quaternion{-0.292607933, 0.0133487415, 0.0268953145, 0.955761015}
 							}
 							Model 
 							{
@@ -469,7 +495,7 @@ Cog
 									{
 										var Translation = Real3{0, 1.31050015e-08, -0.299807608}
 										var Scale = Real3{1, 1, 1}
-										var Rotation = Quaternion{-0.162336767, -0.0314963236, 0.0328562446, 0.985685229}
+										var Rotation = Quaternion{-0.156678244, -0.0689354241, 0.0455900505, 0.984185636}
 									}
 									Model 
 									{
@@ -485,31 +511,31 @@ Cog
 									}
 									Hierarchy 
 									{
-									}
-								}
-								Cog [Id:0x5b1124e496445cbf]
-								{
-									var Name = "RArm01"
-									Transform 
-									{
-										var Translation = Real3{0.0274856035, -0.106004432, -0.562177181}
-										var Scale = Real3{0.298941195, 0.298941225, 1.91124141}
-										var Rotation = Quaternion{0.090505451, -0.060394451, 0.0630020946, 0.992064595}
-									}
-									Model 
-									{
-										var Visible = true
-										var ViewCulling = true
-										var VisibilityEvents = true
-										var OverrideBoundingBox = false
-										var LocalAabbCenter = Real3{0, 0, 0}
-										var LocalAabbHalfExtents = Real3{1, 1, 1}
-										var GroupSortValue = 0
-										var Material = "5a95f71ef8447fd9:Wood"
-										var Mesh = "5b7f51fd6794cefe:BoxMan_RArm01"
-									}
-									Hierarchy 
-									{
+										Cog [Id:0x5b0096d6b99805d0]
+										{
+											var Name = "Cane"
+											Transform 
+											{
+												var Translation = Real3{-0.0194571912, -0.0301330686, -0.282034874}
+												var Scale = Real3{0.298941225, 0.298941284, 1.91124189}
+												var Rotation = Quaternion{0.225176796, 0.00534467306, 0.00344521459, 0.974297225}
+											}
+											Model 
+											{
+												var Visible = true
+												var ViewCulling = true
+												var VisibilityEvents = true
+												var OverrideBoundingBox = false
+												var LocalAabbCenter = Real3{0, 0, 0}
+												var LocalAabbHalfExtents = Real3{1, 1, 1}
+												var GroupSortValue = 0
+												var Material = "5a95f71ef8447fd9:Wood"
+												var Mesh = "5b7f51fd6794cefe:BoxMan_RArm01"
+											}
+											Hierarchy 
+											{
+											}
+										}
 									}
 								}
 							}
@@ -523,7 +549,7 @@ Cog
 					{
 						var Translation = Real3{0.130405426, -1.08523581e-08, 0.0289518833}
 						var Scale = Real3{1, 1.00000012, 1}
-						var Rotation = Quaternion{-0.0920570493, -0.0983352512, 0.00913612917, 0.99084419}
+						var Rotation = Quaternion{-0.0921449438, -0.0924920738, 0.0086016776, 0.991403401}
 					}
 					Model 
 					{
@@ -546,7 +572,7 @@ Cog
 							{
 								var Translation = Real3{0, 1.31050095e-08, -0.299807578}
 								var Scale = Real3{1, 0.99999994, 0.99999994}
-								var Rotation = Quaternion{0.1305262, 0, 0, 0.991444826}
+								var Rotation = Quaternion{0.130526215, 0, 0, 0.991444886}
 							}
 							Model 
 							{
@@ -616,7 +642,7 @@ Cog
 									{
 										var Translation = Real3{-1.44529622e-07, 7.63684511e-08, 0.015978897}
 										var Scale = Real3{1.06507957, 1.06507957, 1.06507957}
-										var Rotation = Quaternion{-0.189257756, -3.1918912e-16, 5.64031755e-09, 0.981927454}
+										var Rotation = Quaternion{0, 0, 0, 1}
 									}
 									Model 
 									{

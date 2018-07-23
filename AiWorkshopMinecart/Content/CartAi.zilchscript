@@ -1,5 +1,6 @@
 class CartAi : ZilchComponent
 {
+  [Dependency] var Transform : Transform;
   [Dependency] var Cart : Cart;
   
   function Initialize(init : CogInitializer)
@@ -24,6 +25,12 @@ class CartAi : ZilchComponent
     if(Zero.Keyboard.KeyIsPressed(Keys.R))
       this.Cart.EjectRider(1.3);
     
+    var ourPos = this.Transform.WorldTranslation;
+    var cartHeight = 1.2;
+    var riderHeight = 0.7;
+    var ourTotalHeight = cartHeight + riderHeight;
+    
+    //----------------------------------------------------------- Student code below
     //this.Cart.Boost(1.0);
     //var obstacle = GetNextObstacle();
     //var distanceToObstacle
@@ -32,9 +39,24 @@ class CartAi : ZilchComponent
     //if(coinInFront && !upcomingGap && !upcomingEnemy)
     //  jump
     
-    var distanceToObstacle = this.Cart.GetClosestObstacleDistance();
-    if(distanceToObstacle < 5.0)
-      this.Cart.JumpCart(1.0);
+    var obstacles = this.Cart.GetObstacles();
+    
+    foreach(var obstacle in obstacles)
+    {
+      var obstaclePos = obstacle.Transform.WorldTranslation;
+      var obstacleBottom = obstaclePos.Y - obstacle.Transform.WorldScale.Y * 0.5;
+      
+      var distanceX = (obstaclePos.X - ourPos.X);
+      var distanceY = (obstacleBottom - ourPos.Y);
+      if(distanceX < 8.0 && distanceY > cartHeight && distanceY < ourTotalHeight)
+        this.Cart.JumpRider(1.0);
+      else if(distanceX < 5 && distanceY <= cartHeight)
+        this.Cart.JumpCart(1.0);
+    }
+    
+    //var distanceToObstacle = this.Cart.GetClosestObstacleDistance();
+    //if(distanceToObstacle < 5.0)
+    //  this.Cart.JumpCart(1.0);
       
     //if(this.Cart.AtJumpPoint())
     //  var distanceToNextPlatformn

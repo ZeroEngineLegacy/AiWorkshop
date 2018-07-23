@@ -28,7 +28,7 @@ class JumpJoint : ZilchComponent
       return;
     
     var worldPos = Real3(this.XPosition, 0, 0);
-    DebugDraw.Add(DebugLine(worldPos + Real3(0, -100, 0), worldPos + Real3(0, 100, 0)) {Color = Colors.Red} );
+    //DebugDraw.Add(DebugLine(worldPos + Real3(0, -100, 0), worldPos + Real3(0, 100, 0)) {Color = Colors.Red} );
     this.CustomJoint.ConstrainLinearPosition2d(this.AxisConstraint, null, this.ObjectLink.ObjectB, worldPos, Real3(), Real3.XAxis);
     //this.AxisConstraint.SetJacobian(-Real3.XAxis, Real3(), Real3.XAxis, Real3());
     //this.AxisConstraint.Error = this.XPosition - this.ObjectLink.ObjectB.Transform.WorldTranslation.X;

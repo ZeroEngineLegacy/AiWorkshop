@@ -20,6 +20,7 @@ class Cart : ZilchComponent
   var BoostParticles : Cog;
   var ObstacleDetectRegion : Cog;
   var RiderJumped = false;
+  var Ejected = false;
   
   //************************************************************************************************
   function Initialize(init : CogInitializer)
@@ -89,14 +90,17 @@ class Cart : ZilchComponent
     // regardless if it's going down hill or completely flat. However, if the cart is moving up,
     // we want to add to the velocity to launch the rider higher
     var velocity = stomachBody.Velocity;
-    velocity = 
+    //velocity -= up * Math.Dot(up, velocity);
     velocity.Y = Math.Max(velocity.Y, 0);
-    velocity.Y += 40 * strength;
+    //velocity += up * 80 * strength;
+    
+    velocity.Y = 0;
+    velocity.Y += 70 * strength;
     stomachBody.Velocity = velocity;
     //stomachBody.ApplyLinearVelocity(up * 50.0 * strength);
       
     // Spin the character
-    stomachBody.ApplyAngularVelocity(Real3(0, 0, -500));
+    //stomachBody.ApplyAngularVelocity(Real3(0, 0, -500));
     
     this.RiderJumped = true;
   }
@@ -109,6 +113,8 @@ class Cart : ZilchComponent
     // We only want the gravity effect when the player jumps
     this.Owner.GravityEffect.Active = false;
 
+    this.Ejected = true;
+    
     if(this.IsReleased())
       return;
       
@@ -165,7 +171,7 @@ class Cart : ZilchComponent
     var currentStrength = this.Owner.ForceEffect.Strength;
     if(currentStrength < strength)
     {
-      currentStrength = Math.Lerp(currentStrength, strength * 10.0, 0.8);
+      currentStrength = Math.Lerp(currentStrength, strength * 30.0, 0.8);
     }
     else
     {
@@ -221,7 +227,6 @@ class Cart : ZilchComponent
   {
     if(event.OtherObject.Name == "JumpLandRegion")
     {
-      Console.WriteLine("Landed");
       this.WeldJoint.Active = true;
       this.JumpJoint.Active = false;
       this.RiderJumped = false;
@@ -231,34 +236,49 @@ class Cart : ZilchComponent
   //************************************************************************************************
   function OnStomachCollisionEnded(event : CollisionEvent)
   {
-    if(event.OtherObject.Name == "JumpLandRegion")
+    if(event.OtherObject.Name == "JumpJointRegion")
     {
-      if(this.RiderJumped)
-      {
+      if(this.RiderJumped && !this.Ejected)
         this.JumpJoint.Active = true;
-      }
     }
   }
   
   //************************************************************************************************
-  function GetClosestObstacleDistance() : Real
+  function GetObstacles() : Array[Cog]
   {
-    var closest = Real.PositiveMax;
-    var ourPosWorld = this.Transform.WorldTranslation;
+    var obstacles = Array[Cog]();
     
     foreach(var contact in this.ObstacleDetectRegion.Collider.Contacts)
     {
       // Ignore non obstacles
       if(contact.OtherObject.Obstacle == null)
         continue;
-        
-      var distance = Math.Distance(contact.FirstPoint.WorldPoint, ourPosWorld);
-      if(distance < closest)
-        closest = distance;
+      
+      obstacles.Add(contact.OtherObject);
     }
     
-    return closest;
+    return obstacles;
   }
+  
+  //************************************************************************************************
+  //function GetClosestObstacleDistance() : Real
+  //{
+  //  var closest = Real.PositiveMax;
+  //  var ourPosWorld = this.Transform.WorldTranslation;
+  //  
+  //  foreach(var contact in this.ObstacleDetectRegion.Collider.Contacts)
+  //  {
+  //    // Ignore non obstacles
+  //    if(contact.OtherObject.Obstacle == null)
+  //      continue;
+  //      
+  //    var distance = Math.Distance(contact.FirstPoint.WorldPoint, ourPosWorld);
+  //    if(distance < closest)
+  //      closest = distance;
+  //  }
+  //  
+  //  return closest;
+  //}
   
   //************************************************************************************************
   function ConnectCollisions(cog : Cog)
@@ -287,7 +307,8 @@ class Cart : ZilchComponent
       this.Owner.GravityEffect.Active = false;
     
     // Always constrain the rider to be above the cart when the rider jumps
-    this.JumpJoint.XPosition = this.Transform.WorldTranslation.X + 0.2;
+    var jointPos = this.Transform.WorldTranslation + this.Orientation.WorldUp * 2.0;
+    this.JumpJoint.XPosition = jointPos.X + 0.2;
     
     this.UpdateBrakeParticles();
   }

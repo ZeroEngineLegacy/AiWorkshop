@@ -178,9 +178,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-30.047657, 14.0563774, 0.3712686}
+			var Translation = Real3{63.2791176, 20.9479713, 56.7506523}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.132990897, 0.637533188, 0.11298804, 0.750398874}
+			var Rotation = Quaternion{-0.192455918, 0.025706714, 0.00504342653, 0.980955958}
 		}
 		CameraViewport 
 		{
@@ -237,10 +237,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 2.44691586
-			var VerticalAngle = 0.350811154
-			var HorizontalAngle = 23.724226
-			var LookTarget = Real3{-32.3153496, 13.2154713, 0}
+			var LookDistance = 60.0289345
+			var VerticalAngle = 0.387463063
+			var HorizontalAngle = 25.0803413
+			var LookTarget = Real3{60.3681145, -1.73340654, 1.24791396}
 			var MoveSensitivity = 1
 		}
 	}
@@ -3279,6 +3279,42 @@ Level
 		}
 		Hierarchy 
 		{
+		}
+	}
+	Cog [InheritId:"5b04f15fbc1aeece:Goal"][ContextId:189]
+	{
+		Transform 
+		{
+			var Translation = Real3{85.3676376, 9.1493988, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{2.9249928, 4.49192333, 2.9249928}
+		}
+	}
+	Cog [ContextId:190]
+	{
+		var Name = "Ui"
+		UiSpace 
+		{
+			var Enabled = true
+			var LevelToLoad = "5b1122c2c080b43c:Ui"
+		}
+		Race 
+		{
+			var Goal = CogPath
+			{
+				var Path = ":/Goal"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 189
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
 		}
 	}
 }

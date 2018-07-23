@@ -4,9 +4,22 @@ Cog
 	var Name = "BoxMan"
 	Transform 
 	{
-		var Translation = Real3{-8.75458336, 0, 3.10280228}
+		var Translation = Real3{0, 0, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	AnimationGraph 
+	{
+		var Active = true
+		var PlayMode = AnimationPlayMode.PlayOnce
+		var TimeScale = 0.5
+		var Animation = "4f8ebbde619389d0:DefaultAnimation"
+		var DebugPreviewId = 0
+	}
+	SimpleAnimation 
+	{
+		var Animation = "5b00970dda8dc74b:WinAnimation"
+		var PlayMode = AnimationPlayMode.Pingpong
 	}
 	Hierarchy 
 	{
@@ -40,7 +53,7 @@ Cog
 					{
 						var Translation = Real3{1.79638033e-16, -1.30423645e-08, 0.104357243}
 						var Scale = Real3{1, 1.00000012, 1}
-						var Rotation = Quaternion{-0.0910398141, 0, 0, 0.995847285}
+						var Rotation = Quaternion{-0.0910226554, -0.0396121889, 0.00362400757, 0.995054066}
 					}
 					Model 
 					{
@@ -63,7 +76,7 @@ Cog
 							{
 								var Translation = Real3{-6.0171103e-18, -2.05425721e-08, 0.473108649}
 								var Scale = Real3{0.99999994, 1, 0.99999994}
-								var Rotation = Quaternion{-0.0435778685, -0.0435778685, -0.00190265058, 0.99809736}
+								var Rotation = Quaternion{-0.0787426233, -0.043483723, -0.00343798287, 0.995940268}
 							}
 							Model 
 							{
@@ -76,6 +89,19 @@ Cog
 								var GroupSortValue = 0
 								var Material = "5b7f522082e2c9d6:BoxMan"
 								var Mesh = "5b7f51fd6794ceed:BoxMan_Head"
+							}
+							AnimationGraph 
+							{
+								var Active = true
+								var PlayMode = AnimationPlayMode.PlayOnce
+								var TimeScale = 1
+								var Animation = "4f8ebbde619389d0:DefaultAnimation"
+								var DebugPreviewId = 0
+							}
+							SimpleAnimation 
+							{
+								var Animation = "5b009752d038fbea:WinHeadshake"
+								var PlayMode = AnimationPlayMode.Pingpong
 							}
 						}
 						Cog [Id:0x5b7f7ca84e14288f]
@@ -132,7 +158,7 @@ Cog
 							{
 								var Translation = Real3{-0.337995768, -1.78689277e-08, 0.408793211}
 								var Scale = Real3{1, 0.99999994, 0.99999994}
-								var Rotation = Quaternion{-0.300124675, 0, 0, 0.953900099}
+								var Rotation = Quaternion{-0.409432888, -4.00315203e-09, -1.77957005e-09, 0.912340224}
 							}
 							Model 
 							{

@@ -4,7 +4,11 @@ CollisionTable
 	var RegisteredGroups = Array
 	{
 		"4e740859314e5515:DefaultGroup"
+		"5b04f178ba2b9bc9:Character"
+		"5b04f140b24fa3b4:Goal"
 		"5b7b4fe291f1d3f3:Cart"
+		"5b00f37623c44703:Coin"
+		"5b009a33e18014b2:Enemy"
 		"5b7b4d510b14dfb7:CartTrack"
 	}
 	var CollisionFilters = Array
@@ -35,6 +39,127 @@ CollisionTable
 		{
 			var TypeA = "5b7b4fe291f1d3f3:Cart"
 			var TypeB = "5b7b4d510b14dfb7:CartTrack"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b7b4fe291f1d3f3:Cart"
+			var TypeB = "5b04f140b24fa3b4:Goal"
+			var SkipResolution = false
+			var SkipDetectingCollision = false
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b7b4d510b14dfb7:CartTrack"
+			var TypeB = "5b04f140b24fa3b4:Goal"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "4e740859314e5515:DefaultGroup"
+			var TypeB = "5b04f140b24fa3b4:Goal"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b04f140b24fa3b4:Goal"
+			var TypeB = "5b04f140b24fa3b4:Goal"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b00f37623c44703:Coin"
+			var TypeB = "5b04f140b24fa3b4:Goal"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b00f37623c44703:Coin"
+			var TypeB = "4e740859314e5515:DefaultGroup"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b00f37623c44703:Coin"
+			var TypeB = "5b00f37623c44703:Coin"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b04f178ba2b9bc9:Character"
+			var TypeB = "5b00f37623c44703:Coin"
+			var SkipResolution = false
+			var SkipDetectingCollision = false
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b7b4d510b14dfb7:CartTrack"
+			var TypeB = "5b00f37623c44703:Coin"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b7b4fe291f1d3f3:Cart"
+			var TypeB = "5b00f37623c44703:Coin"
+			var SkipResolution = false
+			var SkipDetectingCollision = false
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b009a33e18014b2:Enemy"
+			var TypeB = "5b009a33e18014b2:Enemy"
 			var SkipResolution = false
 			var SkipDetectingCollision = true
 			var StartEvent = false

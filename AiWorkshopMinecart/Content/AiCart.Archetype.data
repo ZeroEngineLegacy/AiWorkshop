@@ -571,7 +571,7 @@ Cog
 						var Ghost = false
 						var SendsEvents = true
 						var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-						var CollisionGroup = "4e740859314e5515:DefaultGroup"
+						var CollisionGroup = "5b04f178ba2b9bc9:Character"
 						var Offset = Real3{0, 0, 0}
 						var ConvexMesh = "5b7f7ce744c87174:BoxMan_Stomach"
 					}
@@ -590,6 +590,15 @@ Cog
 						var Active = true
 						var FocusWeight = 1
 						var AddOnEnterView = false
+					}
+					GravityEffect 
+					{
+						var Active = true
+						var WakeUpOnChange = true
+						var DebugDrawEffect = true
+						var LocalSpaceDirection = false
+						var Strength = 20
+						var Direction = Real3{0, -1, 0}
 					}
 					Hierarchy 
 					{
@@ -619,7 +628,7 @@ Cog
 								var Ghost = false
 								var SendsEvents = true
 								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var CollisionGroup = "5b04f178ba2b9bc9:Character"
 								var Offset = Real3{0, 0, 0}
 								var ConvexMesh = "5b7f7ce744c8717f:BoxMan_Chest"
 							}
@@ -671,7 +680,7 @@ Cog
 										var Ghost = false
 										var SendsEvents = true
 										var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-										var CollisionGroup = "4e740859314e5515:DefaultGroup"
+										var CollisionGroup = "5b04f178ba2b9bc9:Character"
 										var Offset = Real3{0, 0, 0}
 										var ConvexMesh = "5b7f7ce744c87182:BoxMan_Head"
 									}
@@ -783,7 +792,7 @@ Cog
 										var Ghost = false
 										var SendsEvents = true
 										var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-										var CollisionGroup = "4e740859314e5515:DefaultGroup"
+										var CollisionGroup = "5b04f178ba2b9bc9:Character"
 										var Offset = Real3{0, 0, 0}
 										var ConvexMesh = "5b7f7ce744c87186:BoxMan_LArm"
 									}
@@ -825,7 +834,7 @@ Cog
 												var Ghost = false
 												var SendsEvents = true
 												var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-												var CollisionGroup = "4e740859314e5515:DefaultGroup"
+												var CollisionGroup = "5b04f178ba2b9bc9:Character"
 												var Offset = Real3{0, 0, 0}
 												var ConvexMesh = "5b7f7ce744c8718a:BoxMan_LArm01"
 											}
@@ -1025,7 +1034,7 @@ Cog
 										var Ghost = false
 										var SendsEvents = true
 										var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-										var CollisionGroup = "4e740859314e5515:DefaultGroup"
+										var CollisionGroup = "5b04f178ba2b9bc9:Character"
 										var Offset = Real3{0, 0, 0}
 										var ConvexMesh = "5b7f7ce744c8718e:BoxMan_RArm"
 									}
@@ -1067,7 +1076,7 @@ Cog
 												var Ghost = false
 												var SendsEvents = true
 												var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-												var CollisionGroup = "4e740859314e5515:DefaultGroup"
+												var CollisionGroup = "5b04f178ba2b9bc9:Character"
 												var Offset = Real3{0, 0, 0}
 												var ConvexMesh = "5b7f7ce744c87191:BoxMan_RArm01"
 											}
@@ -1337,7 +1346,7 @@ Cog
 								var Ghost = false
 								var SendsEvents = true
 								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var CollisionGroup = "5b04f178ba2b9bc9:Character"
 								var Offset = Real3{0, 0, 0}
 								var ConvexMesh = "5b7f7ce744c87195:BoxMan_LLeg"
 							}
@@ -1379,7 +1388,7 @@ Cog
 										var Ghost = false
 										var SendsEvents = true
 										var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-										var CollisionGroup = "4e740859314e5515:DefaultGroup"
+										var CollisionGroup = "5b04f178ba2b9bc9:Character"
 										var Offset = Real3{0, 0, 0}
 										var ConvexMesh = "5b7f7ce744c87199:BoxMan_LLeg01"
 									}
@@ -1579,7 +1588,7 @@ Cog
 								var Ghost = false
 								var SendsEvents = true
 								var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-								var CollisionGroup = "4e740859314e5515:DefaultGroup"
+								var CollisionGroup = "5b04f178ba2b9bc9:Character"
 								var Offset = Real3{0, 0, 0}
 								var ConvexMesh = "5b7f7ce744c8719c:BoxMan_RLeg"
 							}
@@ -1621,7 +1630,7 @@ Cog
 										var Ghost = false
 										var SendsEvents = true
 										var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-										var CollisionGroup = "4e740859314e5515:DefaultGroup"
+										var CollisionGroup = "5b04f178ba2b9bc9:Character"
 										var Offset = Real3{0, 0, 0}
 										var ConvexMesh = "5b7f7ce744c871a0:BoxMan_RLeg01"
 									}
@@ -2422,6 +2431,25 @@ Cog
 				var HalfSize = Real3{0.5, 0.5, 0.5}
 			}
 		}
+		Cog [Id:0x5b04e8203d034ee3]
+		{
+			var Name = "JumpJointRegion"
+			Transform 
+			{
+				var Translation = Real3{0.00177279487, 1.07512009, -5.78256731e-09}
+				var Scale = Real3{1.92404413, 1.67990744, 0.99272269}
+				var Rotation = Quaternion{2.76087875e-16, 2.98023153e-08, 5.55728619e-09, 1}
+			}
+			BoxCollider 
+			{
+				var Ghost = true
+				var SendsEvents = true
+				var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+				var CollisionGroup = "4e740859314e5515:DefaultGroup"
+				var Offset = Real3{0, 0, 0}
+				var HalfSize = Real3{0.5, 0.5, 0.5}
+			}
+		}
 		Cog [Id:0x5b2b673a0e1e2163]
 		{
 			var Name = "UprightJoint"
@@ -2533,8 +2561,8 @@ Cog
 			var Name = "ObstacleDetection"
 			Transform 
 			{
-				var Translation = Real3{2.50000095, 0.5, 5.62285063e-09}
-				var Scale = Real3{5, 1, 1}
+				var Translation = Real3{6.38803625, 1.6546402, -5.23132115e-08}
+				var Scale = Real3{11.3395691, 4.64400673, 1}
 				var Rotation = Quaternion{0, 0, 0, 1}
 			}
 			BoxCollider 
