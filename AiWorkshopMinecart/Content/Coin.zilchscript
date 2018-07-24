@@ -13,6 +13,10 @@ class Coin : ZilchComponent
     if(this.Owner.MarkedForDestruction)
       return;
       
+    var otherCollisionGroup = event.OtherObject.Collider.CollisionGroup;
+    if(otherCollisionGroup != CollisionGroup.Character && otherCollisionGroup != CollisionGroup.Cart)
+      return;
+      
     ++this.LevelSettings.Race.CoinCount;
     this.Owner.Destroy();
     

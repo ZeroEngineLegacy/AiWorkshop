@@ -32,26 +32,41 @@ class CartAi : ZilchComponent
     
     //----------------------------------------------------------- Student code below
     //this.Cart.Boost(1.0);
-    //var obstacle = GetNextObstacle();
-    //var distanceToObstacle
-    //var getNextPowerup = GetNextPowerup();
     
     //if(coinInFront && !upcomingGap && !upcomingEnemy)
     //  jump
     
-    var obstacles = this.Cart.GetObstacles();
+    var upcomingObjects = this.Cart.GetUpcomingObjects();
     
-    foreach(var obstacle in obstacles)
+    foreach(var object in upcomingObjects)
     {
-      var obstaclePos = obstacle.Transform.WorldTranslation;
-      var obstacleBottom = obstaclePos.Y - obstacle.Transform.WorldScale.Y * 0.5;
+      Console.WriteLine(object);
+      var obstaclePos = object.Transform.WorldTranslation;
+      var obstacleBottom = obstaclePos.Y - object.Transform.WorldScale.Y * 0.5;
       
       var distanceX = (obstaclePos.X - ourPos.X);
       var distanceY = (obstacleBottom - ourPos.Y);
-      if(distanceX < 8.0 && distanceY > cartHeight && distanceY < ourTotalHeight)
-        this.Cart.JumpRider(1.0);
-      else if(distanceX < 5 && distanceY <= cartHeight)
-        this.Cart.JumpCart(1.0);
+      
+      if(object.JumpRegion != null)
+      {
+        if(distanceX < 0.5)
+          this.Cart.JumpCart(1.0);
+      }
+      else if(object.Coin != null)
+      {
+        if(distanceX < 5 && distanceY > ourTotalHeight)
+          this.Cart.JumpCart(1.0);
+      }
+      else
+      {
+        
+        if(distanceX < 8.0 && distanceY > cartHeight && distanceY < ourTotalHeight)
+          this.Cart.JumpRider(1.0);
+        else if(distanceX < 5 && distanceY <= cartHeight)
+        {
+          this.Cart.JumpCart(1.0);
+        }
+      }
     }
     
     //var distanceToObstacle = this.Cart.GetClosestObstacleDistance();

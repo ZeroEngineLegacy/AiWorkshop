@@ -44,9 +44,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{965.718262, -410.073273, 20.0000057}
+			var Translation = Real3{965, -411, 10}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		CameraViewport 
 		{
@@ -791,7 +791,7 @@ Level
 						}
 						Area 
 						{
-							var Size = Real2{426, 188}
+							var Size = Real2{640, 188}
 							var Origin = Location.TopLeft
 						}
 						UiWidget 
@@ -850,7 +850,7 @@ Level
 								var Name = "UiSprite"
 								Transform 
 								{
-									var Translation = Real3{46, 15, 0}
+									var Translation = Real3{260, 15, 0}
 									var Scale = Real3{1, 1, 1}
 									var Rotation = Quaternion{0, 0, 0, 1}
 								}
@@ -1083,7 +1083,7 @@ Level
 													var OnTop = false
 													var ClipChildren = false
 													var CanTakeFocus = false
-													var LocalColor = Real4{0, 0, 0, 0.145000041}
+													var LocalColor = Real4{0, 0, 0, 0.300000012}
 													var HierarchyColor = Real4{1, 1, 1, 1}
 													var SizePolicyX = UiSizePolicy.Fixed
 													var SizePolicyY = UiSizePolicy.Fixed
@@ -1107,7 +1107,7 @@ Level
 													var LocalAabbHalfExtents = Real3{1, 1, 1}
 													var GroupSortValue = 0
 													var Material = "582c575af53d18c9:AlphaSprite"
-													var VertexColor = Real4{0, 0, 0, 0.145000041}
+													var VertexColor = Real4{0, 0, 0, 0.300000012}
 													var GeometryMode = SpriteGeometryMode.ZPlane
 													var SpriteSource = "5b04f6ff385b0599:SquareRounded"
 													var FlipX = false
@@ -1300,7 +1300,7 @@ Level
 													var OnTop = false
 													var ClipChildren = false
 													var CanTakeFocus = false
-													var LocalColor = Real4{0, 0, 0, 0.145000041}
+													var LocalColor = Real4{0, 0, 0, 0.300000012}
 													var HierarchyColor = Real4{1, 1, 1, 1}
 													var SizePolicyX = UiSizePolicy.Fixed
 													var SizePolicyY = UiSizePolicy.Fixed
@@ -1324,7 +1324,7 @@ Level
 													var LocalAabbHalfExtents = Real3{1, 1, 1}
 													var GroupSortValue = 0
 													var Material = "582c575af53d18c9:AlphaSprite"
-													var VertexColor = Real4{0, 0, 0, 0.145000041}
+													var VertexColor = Real4{0, 0, 0, 0.300000012}
 													var GeometryMode = SpriteGeometryMode.ZPlane
 													var SpriteSource = "5b04f6ff385b0599:SquareRounded"
 													var FlipX = false
@@ -1508,7 +1508,7 @@ Level
 													var OnTop = false
 													var ClipChildren = false
 													var CanTakeFocus = false
-													var LocalColor = Real4{0, 0, 0, 0.145000041}
+													var LocalColor = Real4{0, 0, 0, 0.300000012}
 													var HierarchyColor = Real4{1, 1, 1, 1}
 													var SizePolicyX = UiSizePolicy.Fixed
 													var SizePolicyY = UiSizePolicy.Fixed
@@ -1532,7 +1532,7 @@ Level
 													var LocalAabbHalfExtents = Real3{1, 1, 1}
 													var GroupSortValue = 0
 													var Material = "582c575af53d18c9:AlphaSprite"
-													var VertexColor = Real4{0, 0, 0, 0.145000041}
+													var VertexColor = Real4{0, 0, 0, 0.300000012}
 													var GeometryMode = SpriteGeometryMode.ZPlane
 													var SpriteSource = "5b04f6ff385b0599:SquareRounded"
 													var FlipX = false
@@ -1844,7 +1844,7 @@ Level
 													var OnTop = false
 													var ClipChildren = false
 													var CanTakeFocus = false
-													var LocalColor = Real4{0, 0, 0, 0.145000041}
+													var LocalColor = Real4{0, 0, 0, 0.300000012}
 													var HierarchyColor = Real4{1, 1, 1, 1}
 													var SizePolicyX = UiSizePolicy.Fixed
 													var SizePolicyY = UiSizePolicy.Fixed
@@ -1868,7 +1868,7 @@ Level
 													var LocalAabbHalfExtents = Real3{1, 1, 1}
 													var GroupSortValue = 0
 													var Material = "582c575af53d18c9:AlphaSprite"
-													var VertexColor = Real4{0, 0, 0, 0.145000041}
+													var VertexColor = Real4{0, 0, 0, 0.300000012}
 													var GeometryMode = SpriteGeometryMode.ZPlane
 													var SpriteSource = "5b04f6ff385b0599:SquareRounded"
 													var FlipX = false

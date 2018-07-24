@@ -41,8 +41,31 @@ Level
 		TrackList 
 		{
 		}
+		UiSpace 
+		{
+			var Enabled = true
+			var LevelToLoad = "5b1122c2c080b43c:Ui"
+		}
+		Race 
+		{
+			var Goal = CogPath
+			{
+				var Path = ":/Goal"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 2
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+		}
 	}
-	Cog [ContextId:2]
+	Cog [ContextId:3]
 	{
 		var Name = "Renderer"
 		DeferredRenderer 
@@ -81,7 +104,7 @@ Level
 			var DebugBuffer = false
 		}
 	}
-	Cog [ContextId:3]
+	Cog [ContextId:4]
 	{
 		var Name = "DirectionalLightShadows"
 		Transform 
@@ -131,7 +154,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 3
+				var Cog = 4
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -146,7 +169,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 3
+				var Cog = 4
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -173,7 +196,7 @@ Level
 			var NormalOffsetBias = 0.100000001
 		}
 	}
-	Cog [ContextId:4]
+	Cog [ContextId:5]
 	{
 		var Name = "EditorCamera"
 		Transform 
@@ -197,7 +220,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 4
+				var Cog = 5
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -212,7 +235,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 2
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -244,7 +267,7 @@ Level
 			var MoveSensitivity = 1
 		}
 	}
-	Cog [ContextId:5]
+	Cog [ContextId:6]
 	{
 		var Name = "GameCamera"
 		Transform 
@@ -277,7 +300,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 5
+				var Cog = 6
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -292,7 +315,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 2
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -337,7 +360,7 @@ Level
 			var BreakOnError = true
 		}
 	}
-	Cog [ContextId:6]
+	Cog [ContextId:7]
 	{
 		var Name = "Chunk"
 		Transform 
@@ -348,7 +371,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b7fb93329fdad42][ContextId:7]
+			Cog [Id:0x5b7fb93329fdad42][ContextId:8]
 			{
 				var Name = "Ground"
 				Transform 
@@ -379,7 +402,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5b7f58cb84d67cf2][ContextId:8]
+			Cog [Id:0x5b7f58cb84d67cf2][ContextId:9]
 			{
 				var Name = "Tracks"
 				Transform 
@@ -390,7 +413,7 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x5b7fbd8b6c3df522][ContextId:9]
+					Cog [Id:0x5b7fbd8b6c3df522][ContextId:10]
 					{
 						var Name = "Track0"
 						Transform 
@@ -411,7 +434,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var Cog = 10
+								var Cog = 11
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -419,7 +442,7 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog [Id:0x5a948d0665e7f40c][ContextId:10]
+							Cog [Id:0x5a948d0665e7f40c][ContextId:11]
 							{
 								var Name = "Spline"
 								Transform 
@@ -438,7 +461,7 @@ Level
 								}
 								Hierarchy 
 								{
-									Cog [Id:0x5b2ac5ea6ad197da][ContextId:11]
+									Cog [Id:0x5b2ac5ea6ad197da][ContextId:12]
 									{
 										var Name = "p"
 										Transform 
@@ -457,7 +480,7 @@ Level
 											var OverrideSelections = true
 										}
 									}
-									Cog [Id:0x5b2ac5da6df42027][ContextId:12]
+									Cog [Id:0x5b2ac5da6df42027][ContextId:13]
 									{
 										var Name = "p"
 										Transform 
@@ -476,7 +499,7 @@ Level
 											var OverrideSelections = true
 										}
 									}
-									Cog [Id:0x5b7fbd936b78aaee][ContextId:13]
+									Cog [Id:0x5b7fbd936b78aaee][ContextId:14]
 									{
 										var Name = "p"
 										Transform 
@@ -495,7 +518,7 @@ Level
 											var OverrideSelections = true
 										}
 									}
-									Cog [Id:0x5aaa48e5eb3a22d7][ContextId:14]
+									Cog [Id:0x5aaa48e5eb3a22d7][ContextId:15]
 									{
 										var Name = "p"
 										Transform 
@@ -514,7 +537,7 @@ Level
 											var OverrideSelections = true
 										}
 									}
-									Cog [Id:0x5a9489c1c831890a][ContextId:15]
+									Cog [Id:0x5a9489c1c831890a][ContextId:16]
 									{
 										var Name = "p"
 										Transform 
@@ -535,7 +558,7 @@ Level
 									}
 								}
 							}
-							Cog [Id:0x5abeafcc6873982b][ContextId:16]
+							Cog [Id:0x5abeafcc6873982b][ContextId:17]
 							{
 								var Name = "Graphical"
 								Transform 
@@ -556,7 +579,7 @@ Level
 										var UpdatePathOnCogChange = true
 										var UpdateCogOnInitialize = true
 										var ResolvedNullErrorOccurred = false
-										var Cog = 10
+										var Cog = 11
 										var PathPreference0 = CogPathPreference.CogRelative
 										var PathPreference1 = CogPathPreference.SpaceRelative
 										var PathPreference2 = CogPathPreference.Absolute
@@ -564,7 +587,7 @@ Level
 								}
 								Hierarchy 
 								{
-									Cog [Id:0x5abeafd56f458d0d][ContextId:17]
+									Cog [Id:0x5abeafd56f458d0d][ContextId:18]
 									{
 										var Name = "Rails"
 										Transform 
@@ -575,7 +598,7 @@ Level
 										}
 										Hierarchy 
 										{
-											Cog [Id:0x5abeaf1d49101346][ContextId:18]
+											Cog [Id:0x5abeaf1d49101346][ContextId:19]
 											{
 												var Name = "Left"
 												Transform 
@@ -614,7 +637,7 @@ Level
 													var DrawFaceNormals = false
 												}
 											}
-											Cog [Id:0x5a94844dd5829dab][ContextId:19]
+											Cog [Id:0x5a94844dd5829dab][ContextId:20]
 											{
 												var Name = "Right"
 												Transform 
@@ -655,7 +678,7 @@ Level
 											}
 										}
 									}
-									Cog [Id:0x5abeb0d5409a67b9][ContextId:20]
+									Cog [Id:0x5abeb0d5409a67b9][ContextId:21]
 									{
 										var Name = "CrossSections"
 										Transform 
@@ -699,7 +722,7 @@ Level
 										{
 										}
 									}
-									Cog [Id:0x5aaaa550483f930d][ContextId:21]
+									Cog [Id:0x5aaaa550483f930d][ContextId:22]
 									{
 										var Name = "Scaffolding"
 										Transform 
@@ -749,7 +772,7 @@ Level
 					}
 				}
 			}
-			Cog [Id:0x5b7f5fb160064cbc][ContextId:22]
+			Cog [Id:0x5b7f5fb160064cbc][ContextId:23]
 			{
 				var Name = "Vegetation"
 				Transform 
@@ -760,7 +783,7 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x5b7f583d7ac56abd][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:23]
+					Cog [Id:0x5b7f583d7ac56abd][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:24]
 					{
 						Transform 
 						{
@@ -769,7 +792,7 @@ Level
 							var Scale = Real3{2.32790828, 1.34624267, 1.34624267}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56b13][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:24]
+					Cog [Id:0x5b7f583d7ac56b13][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:25]
 					{
 						Transform 
 						{
@@ -778,7 +801,7 @@ Level
 							var Scale = Real3{1.98731506, 0.943881214, 2.00260854}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56b59][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:25]
+					Cog [Id:0x5b7f583d7ac56b59][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:26]
 					{
 						Transform 
 						{
@@ -787,7 +810,7 @@ Level
 							var Scale = Real3{1.53592372, 1.1032964, 0.958210289}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56b99][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:26]
+					Cog [Id:0x5b7f583d7ac56b99][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:27]
 					{
 						Transform 
 						{
@@ -796,7 +819,7 @@ Level
 							var Scale = Real3{1.41097903, 1.34624267, 1.28389907}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56bd2][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:27]
+					Cog [Id:0x5b7f583d7ac56bd2][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:28]
 					{
 						Transform 
 						{
@@ -805,7 +828,7 @@ Level
 							var Scale = Real3{2.10926843, 1.5375098, 2.55350041}
 						}
 					}
-					Cog [Id:0x5b2ac5bc54bd3bb4][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:28]
+					Cog [Id:0x5b2ac5bc54bd3bb4][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:29]
 					{
 						Transform 
 						{
@@ -814,7 +837,7 @@ Level
 							var Scale = Real3{1.01932371, 1.08488071, 2.55350041}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56c10][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:29]
+					Cog [Id:0x5b7f583d7ac56c10][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:30]
 					{
 						Transform 
 						{
@@ -823,7 +846,7 @@ Level
 							var Scale = Real3{2.24688029, 2.04890013, 1.994555}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56c4e][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:30]
+					Cog [Id:0x5b7f583d7ac56c4e][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:31]
 					{
 						Transform 
 						{
@@ -832,7 +855,7 @@ Level
 							var Scale = Real3{2.24025679, 0.707141757, 3.39953542}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56c8a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:31]
+					Cog [Id:0x5b7f583d7ac56c8a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:32]
 					{
 						Transform 
 						{
@@ -841,7 +864,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56cd1][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:32]
+					Cog [Id:0x5b7f583d7ac56cd1][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:33]
 					{
 						Transform 
 						{
@@ -850,7 +873,7 @@ Level
 							var Scale = Real3{1.55171537, 1.55171537, 1.55171537}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56d10][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:33]
+					Cog [Id:0x5b7f583d7ac56d10][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:34]
 					{
 						Transform 
 						{
@@ -859,7 +882,7 @@ Level
 							var Scale = Real3{0.880375266, 0.880375266, 0.880375266}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56d5d][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:34]
+					Cog [Id:0x5b7f583d7ac56d5d][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:35]
 					{
 						Transform 
 						{
@@ -868,7 +891,7 @@ Level
 							var Scale = Real3{1.3055383, 1.3055383, 1.3055383}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56d99][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:35]
+					Cog [Id:0x5b7f583d7ac56d99][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:36]
 					{
 						Transform 
 						{
@@ -877,7 +900,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56dd0][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:36]
+					Cog [Id:0x5b7f583d7ac56dd0][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:37]
 					{
 						Transform 
 						{
@@ -886,7 +909,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f59eeb976554a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:37]
+					Cog [Id:0x5b7f59eeb976554a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:38]
 					{
 						Transform 
 						{
@@ -895,7 +918,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56e03][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:38]
+					Cog [Id:0x5b7f583d7ac56e03][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:39]
 					{
 						Transform 
 						{
@@ -904,7 +927,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56e40][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:39]
+					Cog [Id:0x5b7f583d7ac56e40][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:40]
 					{
 						Transform 
 						{
@@ -913,7 +936,7 @@ Level
 							var Scale = Real3{1.2025851, 1.2025851, 1.2025851}
 						}
 					}
-					Cog [Id:0x5b7f59a6ceb00f00][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:40]
+					Cog [Id:0x5b7f59a6ceb00f00][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:41]
 					{
 						Transform 
 						{
@@ -922,7 +945,7 @@ Level
 							var Scale = Real3{1.2025851, 1.2025851, 1.2025851}
 						}
 					}
-					Cog [Id:0x5b7f59a5ce320621][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:41]
+					Cog [Id:0x5b7f59a5ce320621][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:42]
 					{
 						Transform 
 						{
@@ -931,7 +954,7 @@ Level
 							var Scale = Real3{1.03208923, 1.03208923, 1.03208923}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56e78][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:42]
+					Cog [Id:0x5b7f583d7ac56e78][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:43]
 					{
 						Transform 
 						{
@@ -940,7 +963,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56eb1][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:43]
+					Cog [Id:0x5b7f583d7ac56eb1][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:44]
 					{
 						Transform 
 						{
@@ -949,7 +972,7 @@ Level
 							var Scale = Real3{1, 1, 1}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56ee9][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:44]
+					Cog [Id:0x5b7f583d7ac56ee9][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:45]
 					{
 						Transform 
 						{
@@ -958,7 +981,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f59d5be62ae5d][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:45]
+					Cog [Id:0x5b7f59d5be62ae5d][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:46]
 					{
 						Transform 
 						{
@@ -967,7 +990,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f59bcc8a0afc5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:46]
+					Cog [Id:0x5b7f59bcc8a0afc5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:47]
 					{
 						Transform 
 						{
@@ -976,7 +999,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f59bdc876e6fa][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:47]
+					Cog [Id:0x5b7f59bdc876e6fa][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:48]
 					{
 						Transform 
 						{
@@ -985,7 +1008,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f59b2c83d5af5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:48]
+					Cog [Id:0x5b7f59b2c83d5af5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:49]
 					{
 						Transform 
 						{
@@ -994,7 +1017,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f59eabe3a7b4b][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:49]
+					Cog [Id:0x5b7f59eabe3a7b4b][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:50]
 					{
 						Transform 
 						{
@@ -1003,7 +1026,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b2ac5845f824699][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:50]
+					Cog [Id:0x5b2ac5845f824699][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:51]
 					{
 						Transform 
 						{
@@ -1012,7 +1035,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b2ac5855fcd7c2f][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:51]
+					Cog [Id:0x5b2ac5855fcd7c2f][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:52]
 					{
 						Transform 
 						{
@@ -1021,7 +1044,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b2ac5875f501e9d][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:52]
+					Cog [Id:0x5b2ac5875f501e9d][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:53]
 					{
 						Transform 
 						{
@@ -1030,7 +1053,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b2ac57940bffa2e][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:53]
+					Cog [Id:0x5b2ac57940bffa2e][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:54]
 					{
 						Transform 
 						{
@@ -1039,7 +1062,7 @@ Level
 							var Scale = Real3{1.07636535, 1.07636511, 1.07636535}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56f21][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:54]
+					Cog [Id:0x5b7f583d7ac56f21][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:55]
 					{
 						Transform 
 						{
@@ -1048,7 +1071,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56f59][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:55]
+					Cog [Id:0x5b7f583d7ac56f59][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:56]
 					{
 						Transform 
 						{
@@ -1057,7 +1080,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56f8f][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:56]
+					Cog [Id:0x5b7f583d7ac56f8f][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:57]
 					{
 						Transform 
 						{
@@ -1066,7 +1089,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56fc5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:57]
+					Cog [Id:0x5b7f583d7ac56fc5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:58]
 					{
 						Transform 
 						{
@@ -1075,7 +1098,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56ffb][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:58]
+					Cog [Id:0x5b7f583d7ac56ffb][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:59]
 					{
 						Transform 
 						{
@@ -1084,7 +1107,7 @@ Level
 							var Scale = Real3{0.900699794, 0.900699556, 0.900699794}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57033][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:59]
+					Cog [Id:0x5b7f583d7ac57033][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:60]
 					{
 						Transform 
 						{
@@ -1093,7 +1116,7 @@ Level
 							var Scale = Real3{0.58728379, 0.587283671, 0.58728379}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5706a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:60]
+					Cog [Id:0x5b7f583d7ac5706a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:61]
 					{
 						Transform 
 						{
@@ -1102,7 +1125,7 @@ Level
 							var Scale = Real3{0.72321111, 0.72321099, 0.72321099}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5711b][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:61]
+					Cog [Id:0x5b7f583d7ac5711b][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:62]
 					{
 						Transform 
 						{
@@ -1111,7 +1134,7 @@ Level
 							var Scale = Real3{0.72321111, 0.72321099, 0.72321111}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57154][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:62]
+					Cog [Id:0x5b7f583d7ac57154][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:63]
 					{
 						Transform 
 						{
@@ -1120,7 +1143,7 @@ Level
 							var Scale = Real3{0.626526833, 0.626526773, 0.626526833}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5718d][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:63]
+					Cog [Id:0x5b7f583d7ac5718d][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:64]
 					{
 						Transform 
 						{
@@ -1129,7 +1152,7 @@ Level
 							var Scale = Real3{0.562741578, 0.562741578, 0.562741697}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac571cb][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:64]
+					Cog [Id:0x5b7f583d7ac571cb][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:65]
 					{
 						Transform 
 						{
@@ -1138,7 +1161,7 @@ Level
 							var Scale = Real3{0.692999482, 0.692999125, 1.53094912}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57207][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:65]
+					Cog [Id:0x5b7f583d7ac57207][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:66]
 					{
 						Transform 
 						{
@@ -1147,7 +1170,7 @@ Level
 							var Scale = Real3{0.9126513, 1.35254312, 2.1104219}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac572ed][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:66]
+					Cog [Id:0x5b7f583d7ac572ed][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:67]
 					{
 						Transform 
 						{
@@ -1156,7 +1179,7 @@ Level
 							var Scale = Real3{1.36359453, 1.36359453, 1.36359453}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57326][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:67]
+					Cog [Id:0x5b7f583d7ac57326][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:68]
 					{
 						Transform 
 						{
@@ -1165,7 +1188,7 @@ Level
 							var Scale = Real3{1.2025851, 1.2025851, 1.2025851}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57362][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:68]
+					Cog [Id:0x5b7f583d7ac57362][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:69]
 					{
 						Transform 
 						{
@@ -1174,7 +1197,7 @@ Level
 							var Scale = Real3{1.20258522, 1.2025851, 1.20258522}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5739f][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:69]
+					Cog [Id:0x5b7f583d7ac5739f][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:70]
 					{
 						Transform 
 						{
@@ -1183,7 +1206,7 @@ Level
 							var Scale = Real3{0.970621109, 0.97062099, 0.970621109}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac573dd][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:70]
+					Cog [Id:0x5b7f583d7ac573dd][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:71]
 					{
 						Transform 
 						{
@@ -1192,7 +1215,7 @@ Level
 							var Scale = Real3{1.20258522, 1.2025851, 1.20258522}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57421][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:71]
+					Cog [Id:0x5b7f583d7ac57421][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:72]
 					{
 						Transform 
 						{
@@ -1201,7 +1224,7 @@ Level
 							var Scale = Real3{1.14066815, 1.14066815, 1.14066815}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57459][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:72]
+					Cog [Id:0x5b7f583d7ac57459][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:73]
 					{
 						Transform 
 						{
@@ -1210,7 +1233,7 @@ Level
 							var Scale = Real3{1.36519074, 1.36519074, 1.36519074}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57492][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:73]
+					Cog [Id:0x5b7f583d7ac57492][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:74]
 					{
 						Transform 
 						{
@@ -1219,7 +1242,7 @@ Level
 							var Scale = Real3{1.2025851, 1.2025851, 1.2025851}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac574c9][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:74]
+					Cog [Id:0x5b7f583d7ac574c9][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:75]
 					{
 						Transform 
 						{
@@ -1228,7 +1251,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57506][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:75]
+					Cog [Id:0x5b7f583d7ac57506][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:76]
 					{
 						Transform 
 						{
@@ -1237,7 +1260,7 @@ Level
 							var Scale = Real3{1.17451859, 1.17451835, 2.59470391}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5753e][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:76]
+					Cog [Id:0x5b7f583d7ac5753e][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:77]
 					{
 						Transform 
 						{
@@ -1246,7 +1269,7 @@ Level
 							var Scale = Real3{1.78256607, 0.653285503, 2.41382766}
 						}
 					}
-					Cog [Id:0x5b2ac5a5586eadf0][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:77]
+					Cog [Id:0x5b2ac5a5586eadf0][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:78]
 					{
 						Transform 
 						{
@@ -1255,7 +1278,7 @@ Level
 							var Scale = Real3{2.79023433, 1.17451847, 2.59470415}
 						}
 					}
-					Cog [Id:0x5b7f59b6cb456367][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:78]
+					Cog [Id:0x5b7f59b6cb456367][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:79]
 					{
 						Transform 
 						{
@@ -1264,7 +1287,7 @@ Level
 							var Scale = Real3{1.17451859, 1.17451835, 2.59470391}
 						}
 					}
-					Cog [Id:0x5b7f59ecb8ec7a7f][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:79]
+					Cog [Id:0x5b7f59ecb8ec7a7f][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:80]
 					{
 						Transform 
 						{
@@ -1273,7 +1296,7 @@ Level
 							var Scale = Real3{2.50042033, 2.30174494, 2.79417777}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57573][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:80]
+					Cog [Id:0x5b7f583d7ac57573][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:81]
 					{
 						Transform 
 						{
@@ -1282,7 +1305,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac575a5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:81]
+					Cog [Id:0x5b7f583d7ac575a5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:82]
 					{
 						Transform 
 						{
@@ -1291,7 +1314,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac575d7][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:82]
+					Cog [Id:0x5b7f583d7ac575d7][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:83]
 					{
 						Transform 
 						{
@@ -1300,7 +1323,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57611][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:83]
+					Cog [Id:0x5b7f583d7ac57611][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:84]
 					{
 						Transform 
 						{
@@ -1309,7 +1332,7 @@ Level
 							var Scale = Real3{1.88555706, 1.88555682, 4.16550398}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5764f][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:84]
+					Cog [Id:0x5b7f583d7ac5764f][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:85]
 					{
 						Transform 
 						{
@@ -1318,7 +1341,7 @@ Level
 							var Scale = Real3{3.23989964, 1.44129598, 2.75151062}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5768a][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:85]
+					Cog [Id:0x5b7f583d7ac5768a][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:86]
 					{
 						Transform 
 						{
@@ -1327,7 +1350,7 @@ Level
 							var Scale = Real3{2.39156914, 1.06390917, 2.03105879}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac576c6][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:86]
+					Cog [Id:0x5b7f583d7ac576c6][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:87]
 					{
 						Transform 
 						{
@@ -1336,7 +1359,7 @@ Level
 							var Scale = Real3{2.36520362, 1.72946107, 3.82682395}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac576ff][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:87]
+					Cog [Id:0x5b7f583d7ac576ff][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:88]
 					{
 						Transform 
 						{
@@ -1345,7 +1368,7 @@ Level
 							var Scale = Real3{1.27813458, 1.2781347, 1.27813458}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57737][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:88]
+					Cog [Id:0x5b7f583d7ac57737][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:89]
 					{
 						Transform 
 						{
@@ -1354,7 +1377,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57768][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:89]
+					Cog [Id:0x5b7f583d7ac57768][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:90]
 					{
 						Transform 
 						{
@@ -1363,7 +1386,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5779b][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:90]
+					Cog [Id:0x5b7f583d7ac5779b][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:91]
 					{
 						Transform 
 						{
@@ -1372,7 +1395,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac577ce][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:91]
+					Cog [Id:0x5b7f583d7ac577ce][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:92]
 					{
 						Transform 
 						{
@@ -1381,7 +1404,7 @@ Level
 							var Scale = Real3{1.34627843, 1.34627843, 1.34627843}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57802][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:92]
+					Cog [Id:0x5b7f583d7ac57802][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:93]
 					{
 						Transform 
 						{
@@ -1390,7 +1413,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5784b][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:93]
+					Cog [Id:0x5b7f583d7ac5784b][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:94]
 					{
 						Transform 
 						{
@@ -1399,7 +1422,7 @@ Level
 							var Scale = Real3{1.75137866, 1.7513783, 1.75137866}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5788c][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:94]
+					Cog [Id:0x5b7f583d7ac5788c][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:95]
 					{
 						Transform 
 						{
@@ -1408,7 +1431,7 @@ Level
 							var Scale = Real3{1.75137866, 1.7513783, 1.75137866}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac578c5][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:95]
+					Cog [Id:0x5b7f583d7ac578c5][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:96]
 					{
 						Transform 
 						{
@@ -1417,7 +1440,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac578fa][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:96]
+					Cog [Id:0x5b7f583d7ac578fa][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:97]
 					{
 						Transform 
 						{
@@ -1426,7 +1449,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5792f][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:97]
+					Cog [Id:0x5b7f583d7ac5792f][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:98]
 					{
 						Transform 
 						{
@@ -1435,7 +1458,7 @@ Level
 							var Scale = Real3{0.709936023, 0.709936142, 0.709936023}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57961][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:98]
+					Cog [Id:0x5b7f583d7ac57961][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:99]
 					{
 						Transform 
 						{
@@ -1444,7 +1467,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57994][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:99]
+					Cog [Id:0x5b7f583d7ac57994][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:100]
 					{
 						Transform 
 						{
@@ -1453,7 +1476,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac579c5][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:100]
+					Cog [Id:0x5b7f583d7ac579c5][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:101]
 					{
 						Transform 
 						{
@@ -1462,7 +1485,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac579f9][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:101]
+					Cog [Id:0x5b7f583d7ac579f9][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:102]
 					{
 						Transform 
 						{
@@ -1471,7 +1494,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57a2c][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:102]
+					Cog [Id:0x5b7f583d7ac57a2c][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:103]
 					{
 						Transform 
 						{
@@ -1480,7 +1503,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57a5e][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:103]
+					Cog [Id:0x5b7f583d7ac57a5e][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:104]
 					{
 						Transform 
 						{
@@ -1489,7 +1512,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57a95][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:104]
+					Cog [Id:0x5b7f583d7ac57a95][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:105]
 					{
 						Transform 
 						{
@@ -1498,7 +1521,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57ac9][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:105]
+					Cog [Id:0x5b7f583d7ac57ac9][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:106]
 					{
 						Transform 
 						{
@@ -1507,7 +1530,7 @@ Level
 							var Scale = Real3{0.709936082, 0.709936142, 0.709936082}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57b0e][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:106]
+					Cog [Id:0x5b7f583d7ac57b0e][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:107]
 					{
 						Transform 
 						{
@@ -1516,7 +1539,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57b40][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:107]
+					Cog [Id:0x5b7f583d7ac57b40][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:108]
 					{
 						Transform 
 						{
@@ -1529,7 +1552,7 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"5b04f15fbc1aeece:Goal"][ContextId:108]
+	Cog [InheritId:"5b04f15fbc1aeece:Goal"][ContextId:2]
 	{
 		Transform 
 		{
@@ -1538,43 +1561,20 @@ Level
 			var Scale = Real3{2.9249928, 4.49192333, 2.9249928}
 		}
 	}
-	Cog [ContextId:109]
-	{
-		var Name = "Ui"
-		UiSpace 
-		{
-			var Enabled = true
-			var LevelToLoad = "5b1122c2c080b43c:Ui"
-		}
-		Race 
-		{
-			var Goal = CogPath
-			{
-				var Path = ":/Goal"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 108
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-		}
-	}
-	Cog [InheritId:"5b009a0edc856c33:WanderingBat"][ContextId:110]
+	Cog [InheritId:"5b009a0edc856c33:WanderingBat"][ContextId:109]
 	{
 		Transform 
 		{
-			var Translation = Real3{-2.79002094, 1.70260954, -9.53674316e-07}
+			var Translation = Real3{7.64025784, 1.70260954, -9.53674316e-07}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
+		BatAi 
+		{
+			var Direction = -1
+		}
 	}
-	Cog [InheritId:"5b2acb6986613b26:AiCart"][ContextId:111]
+	Cog [InheritId:"5b2acb6986613b26:AiCart"][ContextId:110]
 	{
 		Transform 
 		{
@@ -1584,23 +1584,23 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b7f41b6b16a8ea7][ContextId:112]
+			Cog [Id:0x5b7f41b6b16a8ea7][ContextId:111]
 			{
 				Hierarchy 
 				{
-					Cog [Id:0x5b7f51fd676d0467][ContextId:113]
+					Cog [Id:0x5b7f51fd676d0467][ContextId:112]
 					{
 						Hierarchy 
 						{
-							Cog [Id:0x5b7f51fd676d046f][ContextId:114]
+							Cog [Id:0x5b7f51fd676d046f][ContextId:113]
 							{
 								Hierarchy 
 								{
-									Cog [Id:0x5b7f51fd676d0474][ContextId:115]
+									Cog [Id:0x5b7f51fd676d0474][ContextId:114]
 									{
 										Hierarchy 
 										{
-											Cog [Id:0x5b7afd8912fb7849][ContextId:116]
+											Cog [Id:0x5b7afd8912fb7849][ContextId:115]
 											{
 												ObjectLink 
 												{
@@ -1610,7 +1610,7 @@ Level
 											}
 										}
 									}
-									Cog [Id:0x5b7afc0acde3d78e][ContextId:117]
+									Cog [Id:0x5b7afc0acde3d78e][ContextId:116]
 									{
 										ObjectLink 
 										{
@@ -1618,11 +1618,11 @@ Level
 											var LocalPointB = Real3{-0.00733977556, -0.000959396362, 0.0344181061}
 										}
 									}
-									Cog [Id:0x5b7f51fd676d0478][ContextId:118]
+									Cog [Id:0x5b7f51fd676d0478][ContextId:117]
 									{
 										Hierarchy 
 										{
-											Cog [Id:0x5b7acb4de3ac944e][ContextId:119]
+											Cog [Id:0x5b7acb4de3ac944e][ContextId:118]
 											{
 												ObjectLink 
 												{
@@ -1632,7 +1632,7 @@ Level
 											}
 										}
 									}
-									Cog [Id:0x5b7ac8be7c1e1905][ContextId:120]
+									Cog [Id:0x5b7ac8be7c1e1905][ContextId:119]
 									{
 										ObjectLink 
 										{
@@ -1642,11 +1642,11 @@ Level
 									}
 								}
 							}
-							Cog [Id:0x5b7f51fd676d047d][ContextId:121]
+							Cog [Id:0x5b7f51fd676d047d][ContextId:120]
 							{
 								Hierarchy 
 								{
-									Cog [Id:0x5b7afb7936f1eeb1][ContextId:122]
+									Cog [Id:0x5b7afb7936f1eeb1][ContextId:121]
 									{
 										ObjectLink 
 										{
@@ -1656,7 +1656,7 @@ Level
 									}
 								}
 							}
-							Cog [Id:0x5b7afb582990896e][ContextId:123]
+							Cog [Id:0x5b7afb582990896e][ContextId:122]
 							{
 								ObjectLink 
 								{
@@ -1664,11 +1664,11 @@ Level
 									var LocalPointB = Real3{2.38418579e-07, 0, 0}
 								}
 							}
-							Cog [Id:0x5b7f51fd676d0481][ContextId:124]
+							Cog [Id:0x5b7f51fd676d0481][ContextId:123]
 							{
 								Hierarchy 
 								{
-									Cog [Id:0x5b7afb1f3fcfdf73][ContextId:125]
+									Cog [Id:0x5b7afb1f3fcfdf73][ContextId:124]
 									{
 										ObjectLink 
 										{
@@ -1678,7 +1678,7 @@ Level
 									}
 								}
 							}
-							Cog [Id:0x5b7afb03324c7ab1][ContextId:126]
+							Cog [Id:0x5b7afb03324c7ab1][ContextId:125]
 							{
 								ObjectLink 
 								{

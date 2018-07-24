@@ -201,7 +201,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-11.4806767, 3.13002944, 8.69859409}
+			var Translation = Real3{-4.59177446, 14.8756132, 37.1980286}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{-0.159019619, 0.000107149921, 1.72337732e-05, 0.987275422}
 		}
@@ -260,10 +260,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 8.83122444
+			var LookDistance = 39.5787544
 			var VerticalAngle = 0.319395125
 			var HorizontalAngle = 18.8493385
-			var LookTarget = Real3{-11.4824991, 0.357092798, 0.314003527}
+			var LookTarget = Real3{-4.59994316, 2.44818807, -0.379051566}
 			var MoveSensitivity = 1
 		}
 	}
@@ -1730,141 +1730,6 @@ Level
 			var Translation = Real3{25.815527, 2.24631357, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{2.9249928, 4.49192333, 2.9249928}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:120]
-	{
-		Transform 
-		{
-			var Translation = Real3{6.79272604, 5.37274885, -0.0859420151}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:121]
-	{
-		Transform 
-		{
-			var Translation = Real3{8.87396336, 5.5935564, -0.0859420151}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:122]
-	{
-		Transform 
-		{
-			var Translation = Real3{5.12597084, 5.03402662, -0.0859420151}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:123]
-	{
-		Transform 
-		{
-			var Translation = Real3{3.3890748, 4.141994, -0.0859420151}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:124]
-	{
-		Transform 
-		{
-			var Translation = Real3{11.0745211, 5.33041382, -0.0859420151}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:125]
-	{
-		Transform 
-		{
-			var Translation = Real3{-8.31784821, 2.37386084, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:126]
-	{
-		Transform 
-		{
-			var Translation = Real3{-6.13677788, 2.37386084, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:127]
-	{
-		Transform 
-		{
-			var Translation = Real3{-14.2684479, 3.4479866, 0}
-			var Rotation = Quaternion{0, 0, -0.153050587, 0.988218427}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:128]
-	{
-		Transform 
-		{
-			var Translation = Real3{-19.3949852, 7.00610638, 0}
-			var Rotation = Quaternion{0, 0, -0.357499868, 0.933913171}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:129]
-	{
-		Transform 
-		{
-			var Translation = Real3{-3.70682883, 2.37386084, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:130]
-	{
-		Transform 
-		{
-			var Translation = Real3{-12.4019642, 2.88615656, 0}
-			var Rotation = Quaternion{0, 0, -0.153050587, 0.988218427}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:131]
-	{
-		Transform 
-		{
-			var Translation = Real3{-17.5861588, 5.38351345, 0}
-			var Rotation = Quaternion{0, 0, -0.357499868, 0.933913171}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:132]
-	{
-		Transform 
-		{
-			var Translation = Real3{-1.79472125, 2.37386084, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:133]
-	{
-		Transform 
-		{
-			var Translation = Real3{-10.3750181, 2.57341957, 0}
-			var Rotation = Quaternion{0, 0, -0.153050587, 0.988218427}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b00c1f491b998bb:Coin"][ContextId:134]
-	{
-		Transform 
-		{
-			var Translation = Real3{-16.1628094, 4.10670853, 0}
-			var Rotation = Quaternion{0, 0, -0.357499868, 0.933913171}
-			var Scale = Real3{1, 1, 1}
 		}
 	}
 }

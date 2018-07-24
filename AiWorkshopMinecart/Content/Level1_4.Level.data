@@ -85,7 +85,7 @@ Level
 		}
 		Ssao 
 		{
-			var Active = false
+			var Active = true
 			var Radius = 1
 			var Intensity = 1
 			var BlurDepthThreshold = 0.0500000007
@@ -201,9 +201,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-9.67559433, 11.0418701, 22.0062065}
+			var Translation = Real3{-13.8862915, 8.01653481, 19.6432323}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.151074231, -0.0490758792, -0.00750968605, 0.987274885}
+			var Rotation = Quaternion{-0.161334947, 0.0569033809, 0.00931826048, 0.985213876}
 		}
 		CameraViewport 
 		{
@@ -260,10 +260,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 23.2875118
-			var VerticalAngle = 0.303687185
-			var HorizontalAngle = 18.9488907
-			var LookTarget = Real3{-7.47181749, 4.0779562, -0.106132679}
+			var LookDistance = 29.3206654
+			var VerticalAngle = 0.324631214
+			var HorizontalAngle = 18.734169
+			var LookTarget = Real3{-17.0856915, -1.33556378, -7.96117783}
 			var MoveSensitivity = 1
 		}
 	}
@@ -466,7 +466,7 @@ Level
 										var Name = "p"
 										Transform 
 										{
-											var Translation = Real3{-20.9298515, 3.87230015, 0}
+											var Translation = Real3{-26.7617817, 7.36469746, 0}
 											var Scale = Real3{1, 1, 1}
 											var Rotation = Quaternion{0, 0, 0, 1}
 										}
@@ -485,7 +485,7 @@ Level
 										var Name = "p"
 										Transform 
 										{
-											var Translation = Real3{-17.4207478, 2.98146677, 0}
+											var Translation = Real3{-23.2526779, 7.06520653, 0}
 											var Scale = Real3{1, 1, 1}
 											var Rotation = Quaternion{0, 0, 0, 1}
 										}
@@ -504,7 +504,7 @@ Level
 										var Name = "p"
 										Transform 
 										{
-											var Translation = Real3{-10.071311, 1.79999995, 0}
+											var Translation = Real3{-10.071311, 0.656749725, 0}
 											var Scale = Real3{1, 1, 1}
 											var Rotation = Quaternion{0, 0, 0, 1}
 										}
@@ -523,7 +523,7 @@ Level
 										var Name = "p"
 										Transform 
 										{
-											var Translation = Real3{1.15056384, 1.79999995, 0.00219726563}
+											var Translation = Real3{1.15056384, 2.08774281, 0.00219726563}
 											var Scale = Real3{1, 1, 1}
 											var Rotation = Quaternion{0, 0, 0, 1}
 										}
@@ -542,7 +542,7 @@ Level
 										var Name = "p"
 										Transform 
 										{
-											var Translation = Real3{27.6266232, 1.79999995, 9.53674316e-07}
+											var Translation = Real3{27.6266232, 1.3278923, 9.53674316e-07}
 											var Scale = Real3{1, 1, 1}
 											var Rotation = Quaternion{0, 0, 0, 1}
 										}
@@ -1417,7 +1417,7 @@ Level
 					{
 						Transform 
 						{
-							var Translation = Real3{34.3242264, 5.86516142, 0.235437393}
+							var Translation = Real3{34.3242264, 5.86516142, 0}
 							var Rotation = Quaternion{0, -0.454569638, 0, 0.890711308}
 							var Scale = Real3{1.75137866, 1.7513783, 1.75137866}
 						}
@@ -1552,177 +1552,6 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:109]
-	{
-		var Name = "GeneratedChunk"
-		Transform 
-		{
-			var Translation = Real3{-99.1185074, 0, 0}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5b7fb93329fdad42][ContextId:110]
-			{
-				var Name = "Ground"
-				Transform 
-				{
-					var Translation = Real3{-0.143513978, -0.437513977, 0.067855835}
-					var Scale = Real3{30, 1, 30}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "592c7c5c032da08c:GrassColor"
-					var Mesh = "4de0354322b345ae:Cube"
-				}
-				BoxCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
-					var HalfSize = Real3{0.5, 0.5, 0.5}
-				}
-			}
-			Cog [Id:0x5b7fbb3790b86fc6][ContextId:111]
-			{
-				var Name = "Decorators"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				Hierarchy 
-				{
-					Cog [Id:0x5b7fbb3790b8701e][ContextId:112]
-					{
-						var Name = "Trees"
-						Transform 
-						{
-							var Translation = Real3{0, 0.157796383, -4.87527847}
-							var Scale = Real3{26.4118328, 9.99999975e-05, 9.7296381}
-							var Rotation = Quaternion{0, 0, 0, 1}
-						}
-						Decorator 
-						{
-							var ObjectToPlace = "592c47b135b653c5:SM_BigLeafFlower_01"
-							var Density = 1
-							var MaxCount = 20
-						}
-					}
-					Cog [Id:0x5b7fbb3790b87050][ContextId:113]
-					{
-						var Name = "Bushes"
-						Transform 
-						{
-							var Translation = Real3{0, 0, -4.17053032}
-							var Scale = Real3{26.3840199, 9.99999975e-05, 10.053813}
-							var Rotation = Quaternion{0, 0, 0, 1}
-						}
-						Decorator 
-						{
-							var ObjectToPlace = "592c47b135b653c5:SM_BigLeafFlower_01"
-							var Density = 1
-							var MaxCount = 10
-						}
-					}
-					Cog [Id:0x5b7fbb3790b8707b][ContextId:114]
-					{
-						var Name = "Bushes"
-						Transform 
-						{
-							var Translation = Real3{0, 0, 6.30371761}
-							var Scale = Real3{26.3840199, 9.99999975e-05, 5.5236187}
-							var Rotation = Quaternion{0, 0, 0, 1}
-						}
-						Decorator 
-						{
-							var ObjectToPlace = "592c47b135b653c5:SM_BigLeafFlower_01"
-							var Density = 1
-							var MaxCount = 10
-						}
-					}
-					Cog [Id:0x5b7fbb3790b870ab][ContextId:115]
-					{
-						var Name = "Rocks"
-						Transform 
-						{
-							var Translation = Real3{0, 0, 6.30371761}
-							var Scale = Real3{26.3840199, 9.99999975e-05, 5.5236187}
-							var Rotation = Quaternion{0, 0, 0, 1}
-						}
-						Decorator 
-						{
-							var ObjectToPlace = "592c47b135b653c5:SM_BigLeafFlower_01"
-							var Density = 1
-							var MaxCount = 10
-						}
-					}
-					Cog [Id:0x5b7fb21bffe8896a][ContextId:116]
-					{
-						var Name = "Rocks"
-						Transform 
-						{
-							var Translation = Real3{4.19107151, 0, 0}
-							var Scale = Real3{5.69520473, 7.44773388, 5.5236187}
-							var Rotation = Quaternion{0, 0, 0, 1}
-						}
-						Decorator 
-						{
-							var ObjectToPlace = "592c47b135b653c5:SM_BigLeafFlower_01"
-							var Density = 1
-							var MaxCount = 1
-						}
-					}
-					Cog [Id:0x5b7fbb3790b870d5][ContextId:117]
-					{
-						var Name = "Rocks"
-						Transform 
-						{
-							var Translation = Real3{0, 0, -4.17053032}
-							var Scale = Real3{26.3840199, 9.99999975e-05, 10.053813}
-							var Rotation = Quaternion{0, 0, 0, 1}
-						}
-						Decorator 
-						{
-							var ObjectToPlace = "592c47b135b653c5:SM_BigLeafFlower_01"
-							var Density = 1
-							var MaxCount = 10
-						}
-					}
-				}
-			}
-		}
-	}
-	Cog [InheritId:"5b2acb6986613b26:AiCart"][ContextId:118]
-	{
-		Transform 
-		{
-			var Translation = Real3{-18.9922447, 3.49677992, 0}
-			var Rotation = Quaternion{0, 0, -0.136347353, 0.990661085}
-			var Scale = Real3{0.999999881, 1, 1}
-		}
-	}
-	Cog [InheritId:"5b109412522ea8f0:Bat"][ContextId:119]
-	{
-		Transform 
-		{
-			var Translation = Real3{6.86348629, -0.88073802, 0}
-			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
-			var Scale = Real3{1.1500001, 1.14999998, 1.1500001}
-		}
-	}
 	Cog [InheritId:"5b04f15fbc1aeece:Goal"][ContextId:2]
 	{
 		Transform 
@@ -1730,6 +1559,41 @@ Level
 			var Translation = Real3{25.815527, 2.24631357, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{2.9249928, 4.49192333, 2.9249928}
+		}
+	}
+	Cog [InheritId:"5b009a0edc856c33:WanderingBat"][ContextId:109]
+	{
+		Transform 
+		{
+			var Translation = Real3{-2.52187634, 1.70260954, -9.53674316e-07}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		BatAi 
+		{
+			var Direction = -1
+		}
+	}
+	Cog [InheritId:"5b009a0edc856c33:WanderingBat"][ContextId:110]
+	{
+		Transform 
+		{
+			var Translation = Real3{8.64396191, 1.70260954, -9.53674316e-07}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		BatAi 
+		{
+			var Direction = -1
+		}
+	}
+	Cog [InheritId:"5b2acb6986613b26:AiCart"][ContextId:111]
+	{
+		Transform 
+		{
+			var Translation = Real3{-26.2065849, 7.3126297, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.999999881, 1, 1}
 		}
 	}
 }

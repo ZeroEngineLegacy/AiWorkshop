@@ -125,7 +125,7 @@ class Cart : ZilchComponent
     if(velocityCheck == false || stomachBody.Velocity.Y < 5.0)
     {
       var up = this.Orientation.WorldUp;
-      stomachBody.ApplyLinearVelocity(up * 50.0 * forceScalar);
+      stomachBody.ApplyLinearVelocity(up * 80.0 * forceScalar);
     }
       
     // Spin the character
@@ -244,14 +244,14 @@ class Cart : ZilchComponent
   }
   
   //************************************************************************************************
-  function GetObstacles() : Array[Cog]
+  function GetUpcomingObjects() : Array[Cog]
   {
     var obstacles = Array[Cog]();
     
     foreach(var contact in this.ObstacleDetectRegion.Collider.Contacts)
     {
-      // Ignore non obstacles
-      if(contact.OtherObject.Obstacle == null)
+      // Ignore non obstacles in the default collision group
+      if(contact.OtherObject.Collider.CollisionGroup == CollisionGroup.DefaultGroup && contact.OtherObject.Obstacle == null)
         continue;
       
       obstacles.Add(contact.OtherObject);
@@ -336,7 +336,7 @@ class Cart : ZilchComponent
   //************************************************************************************************
   function IsEjected() : Boolean
   {
-    return this.IsReleased();
+    return this.Ejected;
   }
   
   //************************************************************************************************
