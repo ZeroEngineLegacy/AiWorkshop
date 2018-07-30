@@ -201,9 +201,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{6.12127304, 6.46819019, 21.5837479}
+			var Translation = Real3{4.77718353, 6.29268789, 14.2671423}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0.0522841476, -0.0443982445, 0.00232681888, 0.997642159}
+			var Rotation = Quaternion{0.0182645209, -0.0810279548, 0.00148507301, 0.996543348}
 		}
 		CameraViewport 
 		{
@@ -260,10 +260,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 20.6777649
-			var VerticalAngle = -0.104719616
-			var HorizontalAngle = 18.9385033
-			var LookTarget = Real3{7.94801903, 8.62960243, 1.10055387}
+			var LookDistance = 23.1448708
+			var VerticalAngle = -0.0366516449
+			var HorizontalAngle = 25.295002
+			var LookTarget = Real3{8.51371861, 7.14079571, -8.55836964}
 			var MoveSensitivity = 1
 		}
 	}
@@ -816,7 +816,7 @@ Level
 						{
 							var Translation = Real3{10.3147163, -1.28406096, -15.8294983}
 							var Rotation = Quaternion{0, 0.97791183, 0, 0.209018067}
-							var Scale = Real3{1.41097903, 1.34624267, 1.28389907}
+							var Scale = Real3{1.41097903, 1.93583047, 1.28389907}
 						}
 					}
 					Cog [Id:0x5b7f583d7ac56bd2][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:28]
@@ -837,27 +837,25 @@ Level
 							var Scale = Real3{1.01932371, 1.08488071, 2.55350041}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56c10][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:30]
+					Cog [Id:0x5b09a627b165a3eb][ContextId:30]
 					{
+						var Name = "Root"
 						Transform 
 						{
-							var Translation = Real3{-4.5036869, 0.215204716, -15.8294983}
-							var Rotation = Quaternion{0, 0.97791183, 0, 0.209018067}
-							var Scale = Real3{2.24688029, 2.04890013, 1.994555}
+							var Translation = Real3{9.48725891, 13.1612091, -13.9509954}
+							var Scale = Real3{1, 1, 1}
+							var Rotation = Quaternion{-0.115870208, 0, 0, 0.993264377}
 						}
-						Hierarchy [ChildOrderOverride]
+						Hierarchy 
 						{
-							Cog [Id:0x592c4384f2117a58][ContextId:31]
-							{
-							}
-							Cog [Id:0x5b10586b8ec8217f][LocallyAdded][ContextId:32]
+							Cog [Id:0x5b09a627b165a566][ContextId:31]
 							{
 								var Name = "SMBigRock01GeneratedMeshNode0"
 								Transform 
 								{
-									var Translation = Real3{-6.02452755, 6.31851387, 2.0080502}
-									var Scale = Real3{0.597526073, 1.97896719, 0.560509145}
-									var Rotation = Quaternion{-0.624077201, 1.16415322e-08, 0.314915776, 0.715091407}
+									var Translation = Real3{0, 0, 0}
+									var Scale = Real3{1.29686642, 4.05348206, 1.16481471}
+									var Rotation = Quaternion{0.15548481, 0.711662352, 0.667876661, 0.152649775}
 								}
 								Model 
 								{
@@ -886,13 +884,71 @@ Level
 								EjectRider 
 								{
 								}
+								Hierarchy 
+								{
+								}
 							}
-							Cog [Id:0x592c4384f2117f7e][ContextId:33]
+							Cog [Id:0x5b09a634b203fd4b][ContextId:32]
+							{
+								var Name = "SMBigRock01GeneratedMeshNode0"
+								Transform 
+								{
+									var Translation = Real3{0, 0, 0}
+									var Scale = Real3{1.29686642, 4.05348206, 1.16481471}
+									var Rotation = Quaternion{0.15548481, 0.711662352, 0.667876661, 0.152649775}
+								}
+								Model 
+								{
+									var Visible = true
+									var ViewCulling = true
+									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
+									var Material = "5924959c7091e634:TreeTrunk"
+									var Mesh = "5aaa4c1d0e1a7eda:SM_BigRock_01_SM_BigRock_01GeneratedMeshNode1"
+								}
+								MeshCollider 
+								{
+									var Ghost = false
+									var SendsEvents = true
+									var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+									var CollisionGroup = "4e740859314e5515:DefaultGroup"
+									var Offset = Real3{0, 0, 0}
+									var PhysicsMesh = "5b7f5e371deceecd:SM_BigRock_01_SM_BigRock_01GeneratedMeshNode0"
+									var DrawEdges = true
+									var DrawFaces = false
+									var DrawFaceNormals = false
+								}
+								EjectRider 
+								{
+								}
+								Hierarchy 
+								{
+								}
+							}
+						}
+					}
+					Cog [Id:0x5b7f583d7ac56c10][InheritId:"592c47972fe4b3c9:SM_BigRock_01"][ContextId:33]
+					{
+						Transform 
+						{
+							var Translation = Real3{-4.5036869, 0.215204716, -15.8294983}
+							var Rotation = Quaternion{0, 0.97791183, 0, 0.209018067}
+							var Scale = Real3{2.24688029, 2.04890013, 1.994555}
+						}
+						Hierarchy [ChildOrderOverride]
+						{
+							Cog [Id:0x592c4384f2117a58][ContextId:34]
+							{
+							}
+							Cog [Id:0x592c4384f2117f7e][ContextId:35]
 							{
 							}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56c4e][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:34]
+					Cog [Id:0x5b7f583d7ac56c4e][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:36]
 					{
 						Transform 
 						{
@@ -901,7 +957,7 @@ Level
 							var Scale = Real3{2.24025679, 0.707141757, 3.39953542}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56c8a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:35]
+					Cog [Id:0x5b7f583d7ac56c8a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:37]
 					{
 						Transform 
 						{
@@ -910,7 +966,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56cd1][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:36]
+					Cog [Id:0x5b7f583d7ac56cd1][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:38]
 					{
 						Transform 
 						{
@@ -919,7 +975,7 @@ Level
 							var Scale = Real3{1.55171537, 1.55171537, 1.55171537}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56d10][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:37]
+					Cog [Id:0x5b7f583d7ac56d10][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:39]
 					{
 						Transform 
 						{
@@ -928,7 +984,7 @@ Level
 							var Scale = Real3{0.880375266, 0.880375266, 0.880375266}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56d5d][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:38]
+					Cog [Id:0x5b7f583d7ac56d5d][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:40]
 					{
 						Transform 
 						{
@@ -937,7 +993,7 @@ Level
 							var Scale = Real3{1.3055383, 1.3055383, 1.3055383}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56d99][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:39]
+					Cog [Id:0x5b7f583d7ac56d99][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:41]
 					{
 						Transform 
 						{
@@ -946,7 +1002,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56dd0][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:40]
+					Cog [Id:0x5b7f583d7ac56dd0][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:42]
 					{
 						Transform 
 						{
@@ -955,7 +1011,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f59eeb976554a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:41]
+					Cog [Id:0x5b7f59eeb976554a][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:43]
 					{
 						Transform 
 						{
@@ -964,7 +1020,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56e03][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:42]
+					Cog [Id:0x5b7f583d7ac56e03][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:44]
 					{
 						Transform 
 						{
@@ -973,7 +1029,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56e40][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:43]
+					Cog [Id:0x5b7f583d7ac56e40][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:45]
 					{
 						Transform 
 						{
@@ -982,7 +1038,7 @@ Level
 							var Scale = Real3{1.2025851, 1.2025851, 1.2025851}
 						}
 					}
-					Cog [Id:0x5b7f59a6ceb00f00][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:44]
+					Cog [Id:0x5b7f59a6ceb00f00][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:46]
 					{
 						Transform 
 						{
@@ -991,7 +1047,7 @@ Level
 							var Scale = Real3{1.2025851, 1.2025851, 1.2025851}
 						}
 					}
-					Cog [Id:0x5b7f59a5ce320621][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:45]
+					Cog [Id:0x5b7f59a5ce320621][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:47]
 					{
 						Transform 
 						{
@@ -1000,7 +1056,7 @@ Level
 							var Scale = Real3{1.03208923, 1.03208923, 1.03208923}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56e78][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:46]
+					Cog [Id:0x5b7f583d7ac56e78][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:48]
 					{
 						Transform 
 						{
@@ -1009,7 +1065,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56eb1][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:47]
+					Cog [Id:0x5b7f583d7ac56eb1][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:49]
 					{
 						Transform 
 						{
@@ -1018,7 +1074,7 @@ Level
 							var Scale = Real3{1, 1, 1}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac56ee9][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:48]
+					Cog [Id:0x5b7f583d7ac56ee9][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:50]
 					{
 						Transform 
 						{
@@ -1027,7 +1083,7 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f59d5be62ae5d][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:49]
+					Cog [Id:0x5b7f59d5be62ae5d][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:51]
 					{
 						Transform 
 						{
@@ -1036,29 +1092,11 @@ Level
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
 					}
-					Cog [Id:0x5b7f59bcc8a0afc5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:50]
+					Cog [Id:0x5b7f59bcc8a0afc5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:52]
 					{
 						Transform 
 						{
 							var Translation = Real3{20.4749336, 8.55757332, -8.95226479}
-							var Rotation = Quaternion{0, -0.354502022, 0, 0.935055256}
-							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
-						}
-					}
-					Cog [Id:0x5b7f59bdc876e6fa][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:51]
-					{
-						Transform 
-						{
-							var Translation = Real3{9.89643574, 7.25558186, -12.9594517}
-							var Rotation = Quaternion{0, -0.354502022, 0, 0.935055256}
-							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
-						}
-					}
-					Cog [Id:0x5b7f59b2c83d5af5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:52]
-					{
-						Transform 
-						{
-							var Translation = Real3{5.96626377, 7.23012161, -14.5327396}
 							var Rotation = Quaternion{0, -0.354502022, 0, 0.935055256}
 							var Scale = Real3{1.27813506, 1.2781347, 1.27813506}
 						}
@@ -1261,16 +1299,7 @@ Level
 							var Scale = Real3{1.20258522, 1.2025851, 1.20258522}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57421][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:75]
-					{
-						Transform 
-						{
-							var Translation = Real3{7.36430168, 7.54236794, -14.9053307}
-							var Rotation = Quaternion{0, -0.247221574, 0, 0.968959033}
-							var Scale = Real3{1.14066815, 1.14066815, 1.14066815}
-						}
-					}
-					Cog [Id:0x5b7f583d7ac57459][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:76]
+					Cog [Id:0x5b7f583d7ac57459][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:75]
 					{
 						Transform 
 						{
@@ -1279,7 +1308,7 @@ Level
 							var Scale = Real3{1.36519074, 1.36519074, 1.36519074}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57492][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:77]
+					Cog [Id:0x5b7f583d7ac57492][InheritId:"592c47ff2404f099:SM_Tree_06"][ContextId:76]
 					{
 						Transform 
 						{
@@ -1288,7 +1317,7 @@ Level
 							var Scale = Real3{1.2025851, 1.2025851, 1.2025851}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac574c9][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:78]
+					Cog [Id:0x5b7f583d7ac574c9][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:77]
 					{
 						Transform 
 						{
@@ -1297,7 +1326,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57506][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:79]
+					Cog [Id:0x5b7f583d7ac57506][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:78]
 					{
 						Transform 
 						{
@@ -1306,7 +1335,7 @@ Level
 							var Scale = Real3{1.17451859, 1.17451835, 2.59470391}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5753e][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:80]
+					Cog [Id:0x5b7f583d7ac5753e][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:79]
 					{
 						Transform 
 						{
@@ -1315,7 +1344,7 @@ Level
 							var Scale = Real3{1.78256607, 0.653285503, 2.41382766}
 						}
 					}
-					Cog [Id:0x5b2ac5a5586eadf0][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:81]
+					Cog [Id:0x5b2ac5a5586eadf0][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:80]
 					{
 						Transform 
 						{
@@ -1324,7 +1353,7 @@ Level
 							var Scale = Real3{2.79023433, 1.17451847, 2.59470415}
 						}
 					}
-					Cog [Id:0x5b7f59b6cb456367][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:82]
+					Cog [Id:0x5b7f59b6cb456367][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:81]
 					{
 						Transform 
 						{
@@ -1333,7 +1362,7 @@ Level
 							var Scale = Real3{1.17451859, 1.17451835, 2.59470391}
 						}
 					}
-					Cog [Id:0x5b7f59ecb8ec7a7f][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:83]
+					Cog [Id:0x5b7f59ecb8ec7a7f][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:82]
 					{
 						Transform 
 						{
@@ -1342,7 +1371,7 @@ Level
 							var Scale = Real3{2.50042033, 2.30174494, 2.79417777}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57573][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:84]
+					Cog [Id:0x5b7f583d7ac57573][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:83]
 					{
 						Transform 
 						{
@@ -1351,7 +1380,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac575a5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:85]
+					Cog [Id:0x5b7f583d7ac575a5][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:84]
 					{
 						Transform 
 						{
@@ -1360,7 +1389,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac575d7][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:86]
+					Cog [Id:0x5b7f583d7ac575d7][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:85]
 					{
 						Transform 
 						{
@@ -1369,7 +1398,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57611][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:87]
+					Cog [Id:0x5b7f583d7ac57611][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:86]
 					{
 						Transform 
 						{
@@ -1378,7 +1407,7 @@ Level
 							var Scale = Real3{1.88555706, 1.88555682, 4.16550398}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5764f][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:88]
+					Cog [Id:0x5b7f583d7ac5764f][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:87]
 					{
 						Transform 
 						{
@@ -1387,7 +1416,7 @@ Level
 							var Scale = Real3{3.23989964, 1.44129598, 2.75151062}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5768a][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:89]
+					Cog [Id:0x5b7f583d7ac5768a][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:88]
 					{
 						Transform 
 						{
@@ -1396,7 +1425,7 @@ Level
 							var Scale = Real3{2.39156914, 1.06390917, 2.03105879}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac576c6][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:90]
+					Cog [Id:0x5b7f583d7ac576c6][InheritId:"592c47972ff1953d:SM_TallRock_02"][ContextId:89]
 					{
 						Transform 
 						{
@@ -1405,7 +1434,7 @@ Level
 							var Scale = Real3{2.36520362, 1.72946107, 3.82682395}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac576ff][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:91]
+					Cog [Id:0x5b7f583d7ac576ff][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:90]
 					{
 						Transform 
 						{
@@ -1414,7 +1443,7 @@ Level
 							var Scale = Real3{1.27813458, 1.2781347, 1.27813458}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57737][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:92]
+					Cog [Id:0x5b7f583d7ac57737][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:91]
 					{
 						Transform 
 						{
@@ -1423,7 +1452,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57768][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:93]
+					Cog [Id:0x5b7f583d7ac57768][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:92]
 					{
 						Transform 
 						{
@@ -1432,7 +1461,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5779b][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:94]
+					Cog [Id:0x5b7f583d7ac5779b][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:93]
 					{
 						Transform 
 						{
@@ -1441,7 +1470,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac577ce][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:95]
+					Cog [Id:0x5b7f583d7ac577ce][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:94]
 					{
 						Transform 
 						{
@@ -1450,7 +1479,7 @@ Level
 							var Scale = Real3{1.34627843, 1.34627843, 1.34627843}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57802][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:96]
+					Cog [Id:0x5b7f583d7ac57802][InheritId:"592c47b135b653c5:SM_BigLeafFlower_01"][ContextId:95]
 					{
 						Transform 
 						{
@@ -1459,7 +1488,7 @@ Level
 							var Scale = Real3{0.841280937, 0.841280937, 0.841280937}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5784b][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:97]
+					Cog [Id:0x5b7f583d7ac5784b][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:96]
 					{
 						Transform 
 						{
@@ -1468,7 +1497,7 @@ Level
 							var Scale = Real3{1.75137866, 1.7513783, 1.75137866}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5788c][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:98]
+					Cog [Id:0x5b7f583d7ac5788c][InheritId:"592c47ff2409f023:SM_BirchTree_02"][ContextId:97]
 					{
 						Transform 
 						{
@@ -1477,7 +1506,7 @@ Level
 							var Scale = Real3{1.75137866, 1.7513783, 1.75137866}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac578c5][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:99]
+					Cog [Id:0x5b7f583d7ac578c5][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:98]
 					{
 						Transform 
 						{
@@ -1486,7 +1515,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac578fa][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:100]
+					Cog [Id:0x5b7f583d7ac578fa][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:99]
 					{
 						Transform 
 						{
@@ -1495,7 +1524,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac5792f][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:101]
+					Cog [Id:0x5b7f583d7ac5792f][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:100]
 					{
 						Transform 
 						{
@@ -1504,7 +1533,7 @@ Level
 							var Scale = Real3{0.709936023, 0.709936142, 0.709936023}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57961][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:102]
+					Cog [Id:0x5b7f583d7ac57961][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:101]
 					{
 						Transform 
 						{
@@ -1513,7 +1542,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57994][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:103]
+					Cog [Id:0x5b7f583d7ac57994][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:102]
 					{
 						Transform 
 						{
@@ -1522,7 +1551,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac579c5][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:104]
+					Cog [Id:0x5b7f583d7ac579c5][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:103]
 					{
 						Transform 
 						{
@@ -1531,7 +1560,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac579f9][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:105]
+					Cog [Id:0x5b7f583d7ac579f9][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:104]
 					{
 						Transform 
 						{
@@ -1540,7 +1569,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57a2c][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:106]
+					Cog [Id:0x5b7f583d7ac57a2c][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:105]
 					{
 						Transform 
 						{
@@ -1549,7 +1578,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57a5e][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:107]
+					Cog [Id:0x5b7f583d7ac57a5e][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:106]
 					{
 						Transform 
 						{
@@ -1558,7 +1587,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57a95][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:108]
+					Cog [Id:0x5b7f583d7ac57a95][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:107]
 					{
 						Transform 
 						{
@@ -1567,7 +1596,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57ac9][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:109]
+					Cog [Id:0x5b7f583d7ac57ac9][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:108]
 					{
 						Transform 
 						{
@@ -1576,7 +1605,7 @@ Level
 							var Scale = Real3{0.709936082, 0.709936142, 0.709936082}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57b0e][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:110]
+					Cog [Id:0x5b7f583d7ac57b0e][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:109]
 					{
 						Transform 
 						{
@@ -1585,7 +1614,7 @@ Level
 							var Scale = Real3{0.709936142, 0.709936142, 0.709936142}
 						}
 					}
-					Cog [Id:0x5b7f583d7ac57b40][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:111]
+					Cog [Id:0x5b7f583d7ac57b40][InheritId:"592c47b135b4e497:SM_Juncus_01"][ContextId:110]
 					{
 						Transform 
 						{
@@ -1598,7 +1627,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:112]
+	Cog [ContextId:111]
 	{
 		var Name = "GeneratedChunk"
 		Transform 
@@ -1609,7 +1638,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b7fb93329fdad42][ContextId:113]
+			Cog [Id:0x5b7fb93329fdad42][ContextId:112]
 			{
 				var Name = "Ground"
 				Transform 
@@ -1640,7 +1669,7 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog [Id:0x5b7fbb3790b86fc6][ContextId:114]
+			Cog [Id:0x5b7fbb3790b86fc6][ContextId:113]
 			{
 				var Name = "Decorators"
 				Transform 
@@ -1651,7 +1680,7 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x5b7fbb3790b8701e][ContextId:115]
+					Cog [Id:0x5b7fbb3790b8701e][ContextId:114]
 					{
 						var Name = "Trees"
 						Transform 
@@ -1667,7 +1696,7 @@ Level
 							var MaxCount = 20
 						}
 					}
-					Cog [Id:0x5b7fbb3790b87050][ContextId:116]
+					Cog [Id:0x5b7fbb3790b87050][ContextId:115]
 					{
 						var Name = "Bushes"
 						Transform 
@@ -1683,7 +1712,7 @@ Level
 							var MaxCount = 10
 						}
 					}
-					Cog [Id:0x5b7fbb3790b8707b][ContextId:117]
+					Cog [Id:0x5b7fbb3790b8707b][ContextId:116]
 					{
 						var Name = "Bushes"
 						Transform 
@@ -1699,7 +1728,7 @@ Level
 							var MaxCount = 10
 						}
 					}
-					Cog [Id:0x5b7fbb3790b870ab][ContextId:118]
+					Cog [Id:0x5b7fbb3790b870ab][ContextId:117]
 					{
 						var Name = "Rocks"
 						Transform 
@@ -1715,7 +1744,7 @@ Level
 							var MaxCount = 10
 						}
 					}
-					Cog [Id:0x5b7fb21bffe8896a][ContextId:119]
+					Cog [Id:0x5b7fb21bffe8896a][ContextId:118]
 					{
 						var Name = "Rocks"
 						Transform 
@@ -1731,7 +1760,7 @@ Level
 							var MaxCount = 1
 						}
 					}
-					Cog [Id:0x5b7fbb3790b870d5][ContextId:120]
+					Cog [Id:0x5b7fbb3790b870d5][ContextId:119]
 					{
 						var Name = "Rocks"
 						Transform 
@@ -1751,7 +1780,7 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"5b2acb6986613b26:AiCart"][ContextId:121]
+	Cog [InheritId:"5b2acb6986613b26:AiCart"][ContextId:120]
 	{
 		Transform 
 		{
@@ -1760,12 +1789,12 @@ Level
 			var Scale = Real3{0.999999881, 1, 1}
 		}
 	}
-	Cog [ContextId:122]
+	Cog [ContextId:121]
 	{
 		var Name = "TripWire"
 		Transform 
 		{
-			var Translation = Real3{-5.30498981, 1.43770194, 0}
+			var Translation = Real3{-8.56833458, 1.69957232, 0}
 			var Scale = Real3{0.0381992459, 0.119376928, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -1802,30 +1831,30 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 123
+				var Cog = 122
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
 		}
 	}
-	Cog [ContextId:123]
+	Cog [ContextId:122]
 	{
 		var Name = "Rocks"
 		Transform 
 		{
-			var Translation = Real3{8.44983101, 8.66741943, 0.890686035}
+			var Translation = Real3{6.45680094, 12.2094803, 1.71737742}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
+			var Rotation = Quaternion{-0.285796046, 0, 0, 0.958290517}
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5b00b8eb0e3d80c5][ContextId:124]
+			Cog [Id:0x5b00b8eb0e3d80c5][ContextId:123]
 			{
 				var Name = "TrapRock"
 				Transform 
 				{
-					var Translation = Real3{0.172831535, 0.114070892, -1.84857666}
+					var Translation = Real3{0.172831535, 0.329475433, -2.91886854}
 					var Scale = Real3{1.7895869, 0.695937037, 1.69462264}
 					var Rotation = Quaternion{0, 0, -0.219477013, 0.975617707}
 				}
@@ -1864,7 +1893,7 @@ Level
 				{
 				}
 			}
-			Cog [Id:0x5b00b8eb0e3d80fa][ContextId:125]
+			Cog [Id:0x5b00b8eb0e3d80fa][ContextId:124]
 			{
 				var Name = "TrapRock"
 				Transform 
@@ -1908,13 +1937,57 @@ Level
 				{
 				}
 			}
-			Cog [Id:0x5b00b90d282c8876][ContextId:126]
+			Cog [Id:0x5b00b90d282c8876][ContextId:125]
 			{
 				var Name = "TrapRock"
 				Transform 
 				{
 					var Translation = Real3{2.31608582, -0.732309341, -4.76837158e-07}
 					var Scale = Real3{0.785214841, 0.305355459, 0.743547618}
+					var Rotation = Quaternion{0, 0, -0.219477043, 0.975617766}
+				}
+				Model 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
+					var Material = "592c40f45df9bcc0:Rock"
+					var Mesh = "5aaa4c10094d1586:SM_TallRock_02"
+				}
+				ConvexMeshCollider 
+				{
+					var Ghost = false
+					var SendsEvents = true
+					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+					var CollisionGroup = "4e740859314e5515:DefaultGroup"
+					var Offset = Real3{0, 0, 0}
+					var ConvexMesh = "5b7fb264f73b195b:SM_TallRock_02"
+				}
+				RigidBody 
+				{
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
+					var AllowSleep = true
+					var Asleep = false
+					var RotationLocked = false
+					var Mode2D = Mode2DStates.Mode3D
+				}
+				EjectRider 
+				{
+				}
+			}
+			Cog [Id:0x5b09a6bfd5da4805][ContextId:126]
+			{
+				var Name = "TrapRock"
+				Transform 
+				{
+					var Translation = Real3{0.883636475, 0.141219229, -1.58224452}
+					var Scale = Real3{0.72656852, 0.282548994, 0.688013256}
 					var Rotation = Quaternion{0, 0, -0.219477043, 0.975617766}
 				}
 				Model 

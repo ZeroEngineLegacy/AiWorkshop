@@ -296,7 +296,7 @@ CollisionTable
 			var TypeA = "5b00a846348400f0:DetectRegion"
 			var TypeB = "5b00bfddd04f5d4c:Trap"
 			var SkipResolution = false
-			var SkipDetectingCollision = false
+			var SkipDetectingCollision = true
 			var StartEvent = false
 			var EndEvent = false
 			var PersistedEvent = false
@@ -328,6 +328,28 @@ CollisionTable
 		{
 			var TypeA = "5b00f37623c44703:Coin"
 			var TypeB = "5b009a33e18014b2:Enemy"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b00a8324284fa72:JumpRegion"
+			var TypeB = "5b00bfddd04f5d4c:Trap"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b7b4d510b14dfb7:CartTrack"
+			var TypeB = "5b00bfddd04f5d4c:Trap"
 			var SkipResolution = false
 			var SkipDetectingCollision = true
 			var StartEvent = false

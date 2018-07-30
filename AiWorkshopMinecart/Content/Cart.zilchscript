@@ -22,6 +22,8 @@ class Cart : ZilchComponent
   var RiderJumped = false;
   var Ejected = false;
   
+  sends TrapHit : ZilchEvent;
+  
   //************************************************************************************************
   function Initialize(init : CogInitializer)
   {
@@ -244,6 +246,14 @@ class Cart : ZilchComponent
   }
   
   //************************************************************************************************
+  function SortUpcomingObjects(a : Cog, b : Cog) : Boolean
+  {
+    var posA = a.Transform.WorldTranslation;
+    var posB = b.Transform.WorldTranslation;
+    return posA.X < posB.X;
+  }
+  
+  //************************************************************************************************
   function GetUpcomingObjects() : Array[Cog]
   {
     var obstacles = Array[Cog]();
@@ -256,6 +266,9 @@ class Cart : ZilchComponent
       
       obstacles.Add(contact.OtherObject);
     }
+    
+    // Sort the objects
+    obstacles.Sort(this.SortUpcomingObjects);
     
     return obstacles;
   }
@@ -294,6 +307,8 @@ class Cart : ZilchComponent
   {
     if(event.OtherObject.EjectRider != null)
       this.EjectRider(1.0, true);
+    if(event.OtherObject.TripWire != null)
+      this.Owner.DispatchEvent(Events.TrapHit, ZilchEvent());
   }
 
   //************************************************************************************************
