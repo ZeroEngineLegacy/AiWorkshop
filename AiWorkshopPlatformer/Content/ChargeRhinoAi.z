@@ -45,13 +45,9 @@ class ChargeRhinoAi : ZilchComponent
     {
       // Charge in whichever direction they are in
       if(playerIsLeft)
-      {
         this.Rhino.ChargeLeft();
-      }
       else
-      {
         this.Rhino.ChargeRight();
-      }
     }
   }
 }

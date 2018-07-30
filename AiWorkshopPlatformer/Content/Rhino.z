@@ -5,6 +5,9 @@ class Rhino : ZilchComponent
   [Dependency] var SweptController : SweptController;
   [Dependency] var AnimationController : AnimationController;
   
+  var IsVisible = false;
+  var Charging = false;
+  
   // Easy access to the players position
   var PlayerPosition : Real3
   {
@@ -20,12 +23,6 @@ class Rhino : ZilchComponent
     {
       return this.Space.FindObjectByName("Player").Character.Dead;
     }
-  }
-  
-  var Charging : Boolean
-  {
-    // We aren't charging if we're attacking
-    get { return (this.Character.MovementState == MovementState.Running) && !this.Attacking;}
   }
   
   var Attacking : Boolean
@@ -52,6 +49,21 @@ class Rhino : ZilchComponent
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    
+    var body = this.Owner.FindChildByName("Body");
+    body.Graphical.VisibilityEvents = true;
+    Zero.Connect(body, Events.EnterView, this.OnEnterView);
+    Zero.Connect(body, Events.ExitView, this.OnExitView);
+  }
+
+  function OnEnterView(event : GraphicalEvent)
+  {
+    this.IsVisible = true;
+  }
+
+  function OnExitView(event : GraphicalEvent)
+  {
+    this.IsVisible = false;
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -60,12 +72,15 @@ class Rhino : ZilchComponent
     var vel = Math.Length(this.Owner.RigidBody.Velocity);
     if(vel >= 5)
     {
-      if(this.OnGround)
+      if(this.OnGround && this.Charging && this.IsVisible)
       {
         var camera = this.Space.FindObjectByName("Camera");
-        camera.CameraShake.CurrentIntensity = 0.0001;
+        
+        camera.CameraShake.CurrentIntensity = 0.05;
       }
     }
+    
+    this.Charging = false;
   }
   
   function Jump()
@@ -86,11 +101,13 @@ class Rhino : ZilchComponent
   function ChargeLeft()
   {
     this.Character.RunLeft();
+    this.Charging = true;
   }
   
   function ChargeRight()
   {
     this.Character.RunRight();
+    this.Charging = true;
   }
   
   function Attack()

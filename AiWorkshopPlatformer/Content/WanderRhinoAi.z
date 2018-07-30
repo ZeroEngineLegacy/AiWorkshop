@@ -45,12 +45,8 @@ class WanderRhinoAi : ZilchComponent
     
     // Walk in the wander direction
     if(this.WanderingRight)
-    {
       this.Rhino.WalkRight();
-    }
     else
-    {
       this.Rhino.WalkLeft();
-    }
   }
 }

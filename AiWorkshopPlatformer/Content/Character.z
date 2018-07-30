@@ -30,9 +30,7 @@ class Character : ZilchComponent
   function OnLogicUpdate(event : UpdateEvent)
   {
     if (this.Owner.Transform.WorldTranslation.Y < -2.0)
-    {
       this.Die();
-    }
     
     // No need to do anything if we're dead
     if(this.Dead)
@@ -44,9 +42,7 @@ class Character : ZilchComponent
     // Set our current speed
     this.SweptController.MaxMoveSpeed = this.WalkSpeed;
     if(this.MovementState == MovementState.Running)
-    {
       this.SweptController.MaxMoveSpeed = this.RunSpeed;
-    }
     
     // Update our facing direction
     var direction = Real3(0);

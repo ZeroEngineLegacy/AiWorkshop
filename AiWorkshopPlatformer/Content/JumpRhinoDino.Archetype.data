@@ -115,7 +115,7 @@ Cog
 				var LocalAabbCenter = Real3{0, 0, 0}
 				var LocalAabbHalfExtents = Real3{1, 1, 1}
 				var GroupSortValue = 0
-				var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+				var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 				var VertexColor = Real4{1, 1, 1, 1}
 				var GeometryMode = SpriteGeometryMode.ZPlane
 				var SpriteSource = "54535bb94563d960:RhinoDinoFrontAltLegUpper"
@@ -170,7 +170,7 @@ Cog
 										var LocalAabbCenter = Real3{0, 0, 0}
 										var LocalAabbHalfExtents = Real3{1, 1, 1}
 										var GroupSortValue = 0
-										var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+										var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 										var VertexColor = Real4{1, 1, 1, 1}
 										var GeometryMode = SpriteGeometryMode.ZPlane
 										var SpriteSource = "54535bb94563be31:RhinoDinoFrontAltFeet"
@@ -204,7 +204,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb94563cfe5:RhinoDinoFrontAltLegLower"
@@ -240,7 +240,7 @@ Cog
 				var LocalAabbCenter = Real3{0, 0, 0}
 				var LocalAabbHalfExtents = Real3{1, 1, 1}
 				var GroupSortValue = 0
-				var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+				var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 				var VertexColor = Real4{1, 1, 1, 1}
 				var GeometryMode = SpriteGeometryMode.ZPlane
 				var SpriteSource = "54535bb94563f81e:RhinoDinoFrontLegUpper"
@@ -295,7 +295,7 @@ Cog
 										var LocalAabbCenter = Real3{0, 0, 0}
 										var LocalAabbHalfExtents = Real3{1, 1, 1}
 										var GroupSortValue = 0
-										var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+										var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 										var VertexColor = Real4{1, 1, 1, 1}
 										var GeometryMode = SpriteGeometryMode.ZPlane
 										var SpriteSource = "54535bb94563e39a:RhinoDinoFrontFeet"
@@ -329,7 +329,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb94563edc9:RhinoDinoFrontLegLower"
@@ -365,7 +365,7 @@ Cog
 				var LocalAabbCenter = Real3{0, 0, 0}
 				var LocalAabbHalfExtents = Real3{1, 1, 1}
 				var GroupSortValue = 0
-				var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+				var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 				var VertexColor = Real4{1, 1, 1, 1}
 				var GeometryMode = SpriteGeometryMode.ZPlane
 				var SpriteSource = "54535bb945642375:RhinoDinoHindAltLegUpper"
@@ -420,7 +420,7 @@ Cog
 										var LocalAabbCenter = Real3{0, 0, 0}
 										var LocalAabbHalfExtents = Real3{1, 1, 1}
 										var GroupSortValue = 0
-										var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+										var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 										var VertexColor = Real4{1, 1, 1, 1}
 										var GeometryMode = SpriteGeometryMode.ZPlane
 										var SpriteSource = "54535bb945640eee:RhinoDinoHindAltFeet"
@@ -454,7 +454,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb94564194c:RhinoDinoHindAltLegLower"
@@ -490,7 +490,7 @@ Cog
 				var LocalAabbCenter = Real3{0, 0, 0}
 				var LocalAabbHalfExtents = Real3{1, 1, 1}
 				var GroupSortValue = 0
-				var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+				var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 				var VertexColor = Real4{1, 1, 1, 1}
 				var GeometryMode = SpriteGeometryMode.ZPlane
 				var SpriteSource = "54535bb9456441ae:RhinoDinoHindLegUpper"
@@ -545,7 +545,7 @@ Cog
 										var LocalAabbCenter = Real3{0, 0, 0}
 										var LocalAabbHalfExtents = Real3{1, 1, 1}
 										var GroupSortValue = 0
-										var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+										var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 										var VertexColor = Real4{1, 1, 1, 1}
 										var GeometryMode = SpriteGeometryMode.ZPlane
 										var SpriteSource = "54535bb945642d1b:RhinoDinoHindFeet"
@@ -579,7 +579,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb9456437ad:RhinoDinoHindLegLower"
@@ -610,12 +610,12 @@ Cog
 			{
 				var Visible = true
 				var ViewCulling = true
-				var VisibilityEvents = false
+				var VisibilityEvents = true
 				var OverrideBoundingBox = false
 				var LocalAabbCenter = Real3{0, 0, 0}
 				var LocalAabbHalfExtents = Real3{1, 1, 1}
 				var GroupSortValue = 0
-				var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+				var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 				var VertexColor = Real4{1, 1, 1, 1}
 				var GeometryMode = SpriteGeometryMode.ZPlane
 				var SpriteSource = "54535bb94563af3d:RhinoDinoBody"
@@ -670,7 +670,7 @@ Cog
 										var LocalAabbCenter = Real3{0, 0, 0}
 										var LocalAabbHalfExtents = Real3{1, 1, 1}
 										var GroupSortValue = 0
-										var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+										var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 										var VertexColor = Real4{1, 1, 1, 1}
 										var GeometryMode = SpriteGeometryMode.ZPlane
 										var SpriteSource = "54535bb94564051d:RhinoDinoHead"
@@ -707,7 +707,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb945644c3f:RhinoDinoNeck"
@@ -752,7 +752,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb9456398a4:RhinoDinoArmorFront"
@@ -797,7 +797,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb94563a53f:RhinoDinoArmorMid"
@@ -842,7 +842,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb945638d45:RhinoDinoArmorBack"
@@ -898,7 +898,7 @@ Cog
 										var LocalAabbCenter = Real3{0, 0, 0}
 										var LocalAabbHalfExtents = Real3{1, 1, 1}
 										var GroupSortValue = 0
-										var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+										var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 										var VertexColor = Real4{1, 1, 1, 1}
 										var GeometryMode = SpriteGeometryMode.ZPlane
 										var SpriteSource = "54535bb94564594b:RhinoDinoTailLower"
@@ -932,7 +932,7 @@ Cog
 								var LocalAabbCenter = Real3{0, 0, 0}
 								var LocalAabbHalfExtents = Real3{1, 1, 1}
 								var GroupSortValue = 0
-								var Material = "5b6c575a819798dd:AlphaSpriteHueShift1"
+								var Material = "5b6c575a819798dd:AlphaSpriteHueShift"
 								var VertexColor = Real4{1, 1, 1, 1}
 								var GeometryMode = SpriteGeometryMode.ZPlane
 								var SpriteSource = "54535bb9456463c5:RhinoDinoTailUpper"

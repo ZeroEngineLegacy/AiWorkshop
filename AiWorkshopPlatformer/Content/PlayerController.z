@@ -12,28 +12,19 @@ class PlayerController : ZilchComponent
   function OnLogicUpdate(event : UpdateEvent)
   {
     //------------------------------------------------------- Student Code Below
-    
     // Don't do anything if we're dead
     if(this.Character.Dead)
-    {
       return;
-    }
     
     // Left
     if(Zero.Keyboard.KeyIsDown(Keys.A))
-    {
       this.Character.WalkLeft();
-    }
     // Right
     else if(Zero.Keyboard.KeyIsDown(Keys.D))
-    {
       this.Character.WalkRight();
-    }
     
     // Jump if space is pressed
     if(Zero.Keyboard.KeyIsPressed(Keys.Space))
-    {
       this.Character.Jump();
-    }
   }
 }

@@ -26,9 +26,7 @@ class RhinoAi : ZilchComponent
     //------------------------------------------------------- Student Code Below
     // Don't do anything if we're dead or attacking
     if(this.Rhino.Dead || this.Rhino.Attacking)
-    {
       return;
-    }
     
     var playerPos = this.Rhino.PlayerPosition;
     var ourPos = this.Rhino.OurPosition;
@@ -53,13 +51,9 @@ class RhinoAi : ZilchComponent
     {
       // Charge in whichever direction they are in
       if(playerIsLeft)
-      {
         this.Rhino.ChargeLeft();
-      }
       else
-      {
         this.Rhino.ChargeRight();
-      }
     }
     else
     {
@@ -75,33 +69,24 @@ class RhinoAi : ZilchComponent
       
       // Walk in the wander direction
       if(this.Left)
-      {
         this.Rhino.WalkLeft();
-      }
       else
-      {
         this.Rhino.WalkRight();
-      }
     }
   }
     
   function OnCollisionStarted(event : CollisionEvent)
   {
     //------------------------------------------------------- Student Code Below
-    
     // If we hit the jump point, we want to jump
     if(event.OtherObject.Name == "JumpPoint" && this.Rhino.OnGround)
     {
       // But only if we're charging
       if(this.Rhino.Charging)
-      {
         this.Rhino.Jump();
-      }
       // If we aren't charging, we likely won't make the jump, so just switch directions
       else
-      {
         this.Left = !this.Left;
-      }
     }
   }
 }

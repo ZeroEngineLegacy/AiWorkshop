@@ -41,7 +41,7 @@ Level
 		RandomContext 
 		{
 			var RandomSeed = true
-			var Seed = 402570724
+			var Seed = 495098199
 		}
 	}
 	Cog [ContextId:2]
@@ -82,7 +82,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{8.61018372, 3.18365192, 21.0762596}
+			var Translation = Real3{-29.3987141, 3.7115519, 21.0762577}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -101,7 +101,7 @@ Level
 			var LookDistance = 20.8262577
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{8.61018372, 3.18365192, 0.250001758}
+			var LookTarget = Real3{-29.3987141, 3.7115519, 0.250000209}
 			var MoveSensitivity = 1
 		}
 		CameraViewport 
